@@ -1,0 +1,73 @@
+/* Header */
+header {
+  background-color: #1e40af; /* bleu-700 */
+  color: white;
+  padding: 1rem 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+}
+
+header nav {
+  max-width: 80rem; /* max-w-5xl = 80rem */
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo / titre */
+header nav > a:first-child {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+}
+
+/* Menu ul */
+header nav ul {
+  display: flex;
+  gap: 1.5rem; /* space-x-6 = 1.5rem */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Liens menu */
+header nav ul li a {
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a:focus-visible {
+  color: #93c5fd; /* bleu-300 */
+  outline: none;
+}
+
+/* Bouton connexion */
+header nav > a.btn-primary {
+  font-size: 0.875rem; /* text-sm */
+  padding: 0.5rem 1.25rem; /* px-5 py-2 */
+  font-weight: 700;
+  border-radius: 9999px;
+  background-color: #f97316; /* orange */
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 8px 15px rgb(249 115 22 / 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+header nav > a.btn-primary:hover,
+header nav > a.btn-primary:focus-visible {
+  background-color: #c2410c;
+  box-shadow: 0 8px 25px rgb(194 65 12 / 0.7);
+  outline: none;
+}

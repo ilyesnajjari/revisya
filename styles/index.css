@@ -1,0 +1,302 @@
+/* Reset minimaliste */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, p, ul, ol, figure, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2e2e2e;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Container général - on part du principe que Header & Footer sont full width */
+
+/* Sections */
+section {
+  padding: 3rem 1.5rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === Section Hero === */
+.section-hero {
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+  text-align: center;
+  overflow: visible;
+  color: #1e293b; /* gris foncé */
+  background-color: #f9fafb;
+  font-weight: 300;
+}
+
+.section-hero .text-gradient {
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-hero h1 {
+  font-size: 3.75rem; /* équivaut à text-6xl */
+  font-weight: 800;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  text-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+}
+
+.section-hero p {
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #475569;
+  font-weight: 300;
+}
+
+.section-hero .btn-primary {
+  font-size: 1.25rem;
+  padding: 0.75rem 2rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  background-color: #f97316; /* orange */
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 8px 15px rgb(249 115 22 / 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.section-hero .btn-primary:hover,
+.section-hero .btn-primary:focus-visible {
+  background-color: #c2410c;
+  box-shadow: 0 8px 25px rgb(194 65 12 / 0.7);
+  outline: none;
+}
+
+/* Blur circles - divs absolutely positioned */
+.section-hero > div.absolute > div {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(48px);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+/* === Section Recherche Rapide === */
+.section-search {
+  text-align: center;
+  padding-bottom: 4rem;
+}
+
+.section-search h2 {
+  font-size: 2rem; /* text-3xl */
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+}
+
+/* === Section Avantages === */
+.section-avantages {
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+}
+
+.section-avantages h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e40af;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+/* Grid des avantages */
+.section-avantages > div {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 3rem;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .section-avantages > div {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Cartes avantages */
+.section-avantages > div > div {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  color: white;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  min-height: 280px;
+  box-shadow: 0 25px 40px rgb(37 99 235 / 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.section-avantages .text-6xl {
+  font-size: 3.75rem;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 3px 8px rgb(0 0 0 / 0.25);
+}
+
+.section-avantages h3 {
+  font-size: 1.875rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 5px rgb(0 0 0 / 0.2);
+}
+
+/* Speech bubble style */
+.speech-bubble {
+  position: relative;
+  background: rgba(255 255 255 / 0.15);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  font-weight: 400;
+  font-size: 1.125rem;
+  box-shadow: inset 0 0 10px rgba(255 255 255 / 0.2);
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 15px 15px 0 15px;
+  border-style: solid;
+  border-color: rgba(255 255 255 / 0.15) transparent transparent transparent;
+}
+
+/* === Section Témoignages === */
+.section-temoignages {
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+  background-color: #f1f5f9;
+}
+
+.section-temoignages h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-temoignages > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .section-temoignages > div {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Blocs témoignages */
+.section-temoignages blockquote {
+  background-color: #e0e7ff; /* bleu clair */
+  border-left: 8px solid #3b82f6;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  font-style: italic;
+  font-weight: 300;
+  color: #334155;
+  box-shadow: 0 10px 20px rgb(59 130 246 / 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.section-temoignages blockquote:hover {
+  box-shadow: 0 15px 35px rgb(59 130 246 / 0.3);
+}
+
+.section-temoignages p {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+.section-temoignages span {
+  font-weight: 600;
+  font-style: normal;
+  color: #1e40af;
+  font-size: 1.125rem;
+  display: block;
+}
+
+/* === Section CTA final === */
+.section-cta {
+  padding: 6rem 1.5rem;
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  color: white;
+  text-align: center;
+  border-radius: 2rem;
+  max-width: 900px;
+  margin: 5rem auto;
+}
+
+.section-cta h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.section-cta p {
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #cbd5e1;
+}
+
+/* Reutilisation bouton primaire */
+.section-cta .btn-primary {
+  font-size: 1.25rem;
+  padding: 0.75rem 2rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  background-color: #f97316;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 8px 15px rgb(249 115 22 / 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.section-cta .btn-primary:hover,
+.section-cta .btn-primary:focus-visible {
+  background-color: #c2410c;
+  box-shadow: 0 8px 25px rgb(194 65 12 / 0.7);
+  outline: none;
+}
