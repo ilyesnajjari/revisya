@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function PolitiqueConfidentialite() {
   return (
@@ -18,45 +19,46 @@ export default function PolitiqueConfidentialite() {
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-3">Collecte des données personnelles</h2>
           <p>
-            Nous collectons uniquement les données personnelles nécessaires à la bonne gestion des demandes via notre formulaire de contact, notamment votre nom, adresse email et message.
+            Ce site ne propose pas de création de compte utilisateur. Les seules données personnelles éventuellement collectées sont celles transmises volontairement via le formulaire de contact (nom, adresse email, message).
           </p>
         </section>
 
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-3">Utilisation des données</h2>
           <p>
-            Les informations recueillies sont utilisées uniquement pour répondre à vos demandes et ne seront jamais partagées avec des tiers sans votre consentement.
+            Les données transmises via le formulaire de contact sont utilisées uniquement pour répondre aux messages reçus. Elles ne sont ni conservées durablement, ni partagées avec des tiers sans consentement explicite.
           </p>
         </section>
 
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-3">Sécurité des données</h2>
           <p>
-            Nous mettons en place des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé.
+            Nous veillons à protéger les données transmises via des moyens techniques appropriés. Aucune base de données nominative n’est conservée sur le site.
           </p>
         </section>
 
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-3">Durée de conservation</h2>
           <p>
-            Vos données personnelles sont conservées uniquement le temps nécessaire au traitement de votre demande.
+            Les données sont conservées uniquement le temps nécessaire pour traiter la demande, puis supprimées.
           </p>
         </section>
 
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-3">Droits des utilisateurs</h2>
           <p>
-            Vous disposez d’un droit d’accès, de rectification et de suppression de vos données personnelles. Pour exercer ce droit, contactez-nous via la <a href="/contact" className="text-blue-600 hover:underline">page Contact</a>.
+            Conformément à la réglementation en vigueur, vous pouvez demander l’accès, la rectification ou la suppression de vos données en nous contactant via la <a href="/contact" className="text-blue-600 hover:underline">page Contact</a>.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold mb-3">Cookies</h2>
           <p>
-            Ce site utilise des cookies strictement nécessaires au fonctionnement et à l’analyse de l’audience (Google Analytics anonymisé). Vous pouvez gérer vos préférences via les paramètres de votre navigateur.
+            Ce site utilise uniquement des cookies essentiels au fonctionnement et à la mesure d’audience (ex : Google Analytics avec IP anonymisée). Vous pouvez désactiver les cookies via les paramètres de votre navigateur.
           </p>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

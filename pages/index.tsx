@@ -6,8 +6,35 @@ import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 import SearchFiches from "../components/SearchFiches";
 import "../styles/index.css";
+import { FaGraduationCap, FaBook, FaChartBar, FaBriefcase, FaSchool, FaSearch } from 'react-icons/fa';
+import { useState, useEffect } from "react";
+import { temoignages } from "../data/temoignages";
+
+type Temoignage = {
+  text: string;
+  author: string;
+};
 
 export default function Home() {
+  const [displayedTemoignages, setDisplayedTemoignages] = useState<Temoignage[]>([]);
+
+  // Fonction pour sélectionner 3 témoignages aléatoires
+  const getRandomTemoignages = () => {
+    const shuffled = [...temoignages].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 3);
+  };
+
+  // Mettre à jour les témoignages affichés toutes les 15 secondes
+  useEffect(() => {
+    setDisplayedTemoignages(getRandomTemoignages()); // Initialisation
+
+    const interval = setInterval(() => {
+      setDisplayedTemoignages(getRandomTemoignages());
+    }, 10000); // 15 secondes
+
+    return () => clearInterval(interval); // Nettoyage à la fin
+  }, []);
+
   return (
     <>
       <Head>
@@ -63,23 +90,17 @@ export default function Home() {
             Des fiches claires, gratuites et optimisées pour réussir vos examens
             en prépa scientifique, économique, et au lycée.
           </motion.p>
-          <div className="mb-12 w-full max-w-md md:max-w-lg">
+          <div className="mb-12 w-full max-w-2xl mx-auto">
             <Image
-              src="/illustration-revision.svg"
+              src="/index_pages/index_pages.png"
               alt="Illustration de révision"
-              width={600}
-              height={360}
-              className="mx-auto rounded-lg shadow-lg"
+              width={800}
+              height={480}
+              className="rounded-custom"
               priority
             />
           </div>
-          <Link
-            href="/fiches"
-            className="btn-primary text-xl"
-            aria-label="Accéder aux fiches de révision"
-          >
-            Accéder aux Fiches
-          </Link>
+          
         </section>
 
         {/* Recherche rapide */}
@@ -88,7 +109,7 @@ export default function Home() {
             id="search-title"
             className="text-3xl font-extrabold mb-6 text-gray-900"
           >
-            🔍 Recherche rapide
+            <FaSearch size={24} color="#333" /> Recherche rapide
           </h2>
           <div style={{ maxWidth: "48rem", margin: "0 auto" }}>
             <SearchFiches />
@@ -112,19 +133,19 @@ export default function Home() {
           >
             {[
               {
-                title: "🎓 Prépas Scientifiques",
-                desc: "Maths, Physique, SII, Informatique et plus.",
-                icon: "📚",
+                title: "Prépas Scientifiques",
+                desc: "Maths, Physique, Chimie, SII, Informatique et plus.",
+                icon: <FaGraduationCap size={60} color="#4a90e2" />,
               },
               {
-                title: "📊 Prépas Économiques",
-                desc: "Maths, Culture Générale, Économie approfondie.",
-                icon: "💼",
+                title: "Prépas Économiques",
+                desc: "Maths, Informatique (Python).",
+                icon: <FaBriefcase size={60} color="#f5a623" />,
               },
               {
-                title: "🏫 Lycée",
-                desc: "Fiches par matière et par niveau (Seconde à Terminale).",
-                icon: "🎒",
+                title: "Lycée",
+                desc: "Maths, Physique, Chimie, Informatique, SII.",
+                icon: <FaSchool size={60} color="#7ed321" />,
               },
             ].map((item, index) => (
               <motion.div
@@ -166,32 +187,19 @@ export default function Home() {
             style={{ maxWidth: "60rem", margin: "0 auto" }}
             className="grid grid-cols-1 md:grid-cols-3 gap-10"
           >
-            {[
-              {
-                text: "“Des fiches ultra claires, j’ai gagné un temps fou pour mes révisions de maths !”",
-                author: "— Amine, MP2I",
-              },
-              {
-                text: "“J’ai enfin compris la physique grâce à vos synthèses, merci !”",
-                author: "— Sarah, Terminale",
-              },
-              {
-                text: "“Parfait pour préparer les concours BCE, tout est synthétique.”",
-                author: "— Hugo, ECE2",
-              },
-            ].map((item, index) => (
-              <motion.blockquote
+            {displayedTemoignages.map((item, index) => (
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.3 }}
-                className="bg-blue-50 rounded-3xl shadow-xl p-8 border-l-8 border-blue-400 text-left text-gray-800 italic font-light"
+                className="speech-bubble bg-blue-50 rounded-3xl shadow-xl p-8 border-l-8 border-blue-400 text-left text-gray-800 italic font-light"
               >
                 <p className="mb-4">{item.text}</p>
                 <span className="block text-blue-700 font-semibold text-lg">
                   {item.author}
                 </span>
-              </motion.blockquote>
+              </motion.div>
             ))}
           </div>
         </section>
@@ -222,3 +230,4 @@ export default function Home() {
     </>
   );
 }
+

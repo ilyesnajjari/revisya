@@ -1,0 +1,140 @@
+.cours-main {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 7rem 2vw 2rem 2vw; /* padding-top adapté pour le header */
+}
+
+.cours-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+  text-align: center;
+}
+
+.cours-subtitle {
+  font-size: 1rem;
+  color: #64748b;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: #f8fafc;
+  border-radius: 1rem;
+  box-shadow: 0 1px 4px rgba(37,99,235,0.06);
+  padding: 1.5rem 1.2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cours-section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2563eb;
+}
+
+.cours-main p {
+  font-size: 1.08rem;
+  color: #1e293b;
+  line-height: 1.7;
+  margin-bottom: 0.7rem;
+}
+
+.cours-main ul {
+  list-style: disc inside;
+  margin-bottom: 1.2rem;
+  padding-left: 0.5rem;
+  color: #1e293b;
+}
+.cours-main li {
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+}
+
+.text-blue-700 {
+  color: #2563eb;
+  cursor: pointer;
+}
+
+strong {
+  color: #2563eb;
+}
+
+.cours-exemples-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Une seule colonne */
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.cours-exemple-item {
+  display: block; /* Supprime l'alignement centré */
+  background: none; /* Supprime le fond des bulles */
+  border-radius: 0; /* Supprime les coins arrondis */
+  padding: 0; /* Supprime le padding */
+  width: 100%; /* Étend l'élément sur toute la largeur */
+  box-shadow: none; /* Supprime l'ombre */
+}
+
+.cours-exemple-img {
+  width: 100%; /* Étend l'image sur toute la largeur */
+  height: auto; /* Maintient les proportions */
+  object-fit: cover; /* Remplit le conteneur tout en maintenant les proportions */
+  margin-bottom: 0; /* Supprime l'espace en bas */
+  border-radius: 0; /* Supprime les coins arrondis */
+  box-shadow: none; /* Supprime l'ombre */
+}
+
+.cours-footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* Bouton flottant contact */
+.contact-float-btn {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  z-index: 1000;
+  background: #2563eb;
+  color: #fff;
+  padding: 1rem 1.7rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.18);
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.contact-float-btn:hover {
+  background: #1e40af;
+  transform: scale(1.07);
+}
+
+@media (max-width: 800px) {
+  .cours-main {
+    padding: 5rem 0.5rem 1rem 0.5rem;
+  }
+  .card {
+    padding: 1rem 0.5rem;
+    border-radius: 0.5rem;
+  }
+  .cours-exemple-img {
+    width: 100px; /* Taille réduite sur les petits écrans */
+    height: 100px;
+  }
+}

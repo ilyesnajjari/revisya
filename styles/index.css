@@ -195,7 +195,12 @@ section {
 .section-temoignages {
   padding-top: 4rem;
   padding-bottom: 6rem;
-  background-color: #f1f5f9;
+  background-color: rgba(241, 245, 249, 0.8); /* Fond transparent */
+  border-radius: 2rem; /* Bordures arrondies */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+  max-width: 1100px; /* Limite la largeur */
+  margin: 0 auto; /* Centre la section */
+  overflow: hidden; /* Empêche les débordements */
 }
 
 .section-temoignages h2 {
@@ -299,4 +304,195 @@ section {
   background-color: #c2410c;
   box-shadow: 0 8px 25px rgb(194 65 12 / 0.7);
   outline: none;
+}
+
+/* Structure principale */
+.fiches-main {
+  display: flex;
+  padding-top: 6rem; /* adapte à la hauteur de ton header */
+}
+
+/* Menu latéral */
+.fiches-aside {
+  width: 25%;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: #f3f4f6;
+}
+.fiches-aside-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.fiches-aside-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.fiches-aside-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+.fiches-aside-btn.active {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Section principale */
+.fiches-section {
+  width: 75%;
+  padding: 1.5rem;
+}
+.fiches-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Filtres */
+.fiches-filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.fiches-filtre-select,
+.fiches-filtre-input {
+  border: 1px solid #d1d5db;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+}
+.fiches-filtre-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Liste des fiches */
+.fiches-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .fiches-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.fiche-card {
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  transition: box-shadow 0.2s;
+  background: #fff;
+}
+.fiche-card:hover {
+  box-shadow: 0 4px 12px rgba(37,99,235,0.08);
+}
+.fiche-link {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.fiche-link:hover,
+.fiche-link:focus-visible {
+  color: #1d4ed8;
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  background: #e0e7ff;
+  border-radius: 0.375rem;
+}
+.fiche-niveau {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+/* Tags et labels */
+.fiche-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.fiche-tag {
+  background: #dbeafe;
+  color: #2563eb;
+  font-size: 0.85rem;
+  padding: 0.15em 0.7em;
+  border-radius: 9999px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.fiche-labels {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+.fiche-label-populaire {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 0.15em 0.7em;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+.fiche-label-reviser {
+  background: #fef9c3;
+  color: #ca8a04;
+  padding: 0.15em 0.7em;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+/* Pagination */
+.fiches-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.fiches-pagination-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  background: #e5e7eb;
+  color: #1e293b;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+.fiches-pagination-btn.active,
+.fiches-pagination-btn:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Focus visible sur les liens de fiche */
+.fiche-link:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  background: #e0e7ff;
+  border-radius: 0.375rem;
+}
+
+.rounded-custom {
+  border-radius: 1.5rem; /* Ajustez la valeur pour plus ou moins d'arrondi */
 }

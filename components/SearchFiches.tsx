@@ -11,7 +11,8 @@ export default function SearchFiches() {
     return (
       fiche.titre.toLowerCase().includes(search) ||
       fiche.matiere.toLowerCase().includes(search) ||
-      fiche.niveau.toLowerCase().includes(search)
+      fiche.niveau.some((niveau) => niveau.toLowerCase().includes(search)) || // Vérifie les niveaux
+      (fiche.tags && fiche.tags.some((tag) => tag.toLowerCase().includes(search))) // Vérifie les tags
     );
   });
 

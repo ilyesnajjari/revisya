@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 
 export default function MentionsLegales() {
   return (
@@ -14,26 +16,23 @@ export default function MentionsLegales() {
 
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-3">Éditeur du site</h2>
-          <p>Nom : [Ton nom ou celui de ton entreprise]</p>
-          <p>Adresse : [Ton adresse postale]</p>
-          <p>Téléphone : [Ton numéro de téléphone]</p>
-          <p>Email : [Ton adresse email]</p>
-          <p>Numéro SIRET : [Ton numéro SIRET si applicable]</p>
+          <p>Nom : Ilyes Najjari</p>
+          <p>Email : <a href="mailto:Ilyes.najjari@hotmail.com" className="text-blue-600 hover:underline">Ilyes.najjari@hotmail.com</a></p>
+          <p>Ce site est édité à titre personnel dans le cadre d’un projet en phase de test. Aucune activité commerciale n’est actuellement exercée.</p>
         </section>
 
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-3">Hébergement</h2>
           <p>Le site est hébergé par :</p>
-          <p>Nom de l’hébergeur : [Nom de l’hébergeur]</p>
-          <p>Adresse : [Adresse de l’hébergeur]</p>
-          <p>Téléphone : [Téléphone de l’hébergeur]</p>
-          <p>Site web : [URL de l’hébergeur]</p>
+          <p>Nom de l’hébergeur : Plumard</p>
+          <p>Adresse : [À compléter]</p>
+          <p>Site web : [À compléter]</p>
         </section>
 
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-3">Propriété intellectuelle</h2>
           <p>
-            L'ensemble du contenu présent sur ce site (textes, images, logos, vidéos, etc.) est la propriété exclusive de [Ton nom ou entreprise], sauf indication contraire.
+            L'ensemble du contenu présent sur ce site (textes, images, logos, vidéos, etc.) est la propriété exclusive de Ilyes Najjari, sauf indication contraire.
             Toute reproduction, distribution, modification ou utilisation sans autorisation est strictement interdite.
           </p>
         </section>
@@ -41,15 +40,19 @@ export default function MentionsLegales() {
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-3">Responsabilité</h2>
           <p>
-            Les informations fournies sur ce site sont données à titre indicatif. [Ton nom ou entreprise] ne saurait être tenu responsable des erreurs ou omissions, ni des conséquences liées à l’utilisation des informations.
+            Les informations fournies sur ce site sont données à titre indicatif. Ilyes Najjari ne saurait être tenu responsable des erreurs ou omissions,
+            ni des conséquences liées à l’utilisation des informations.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold mb-3">Contact</h2>
-          <p>Pour toute question, contactez-nous via la <a href="/contact" className="text-blue-600 hover:underline">page Contact</a>.</p>
+          <p>Pour toute question, contactez-moi via la <a href="/contact" className="text-blue-600 hover:underline">page Contact</a> ou par email.</p>
         </section>
       </main>
+      <Footer />
+
     </>
   );
 }
+
