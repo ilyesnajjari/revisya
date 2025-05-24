@@ -13,7 +13,7 @@ export default function Header() {
         aria-label="Navigation principale"
       >
         <Link href="/" className="text-2xl font-bold" aria-label="Accueil">
-          FichesRévision
+          Revisya
         </Link>
 
         <button
