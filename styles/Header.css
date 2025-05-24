@@ -71,3 +71,66 @@ header nav > a.btn-primary:focus-visible {
   box-shadow: 0 8px 25px rgb(194 65 12 / 0.7);
   outline: none;
 }
+
+/* Barre de menu mobile (hamburger) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+@media (max-width: 700px) {
+  header {
+    padding: 0.7rem 0.7rem;
+  }
+
+  header nav {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.7rem;
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  header nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: flex-end; /* Alignement à droite */
+    background: #1e40af;
+    position: absolute;
+    top: 3.2rem;
+    right: 0; /* Collé à droite */
+    left: auto;
+    z-index: 100;
+    padding: 1rem 1.2rem 1rem 1rem;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 8px 24px rgba(30,64,175,0.13);
+    min-width: 40vw; /* Largeur minimale pour effet "menu latéral" */
+    text-align: right; /* Texte à droite */
+  }
+
+  header nav ul.open {
+    display: flex;
+  }
+
+  header nav > a:first-child {
+    font-size: 1.15rem;
+    margin-bottom: 0;
+  }
+
+  header nav > a.btn-primary {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.7rem;
+    font-size: 1rem;
+    padding: 0.7rem 0;
+  }
+}

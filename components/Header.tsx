@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { useRouter } from "next/router"; // Importer useRouter
+import { useRouter } from "next/router";
+import { useState } from "react";
 import "../styles/Header.css";
 
 export default function Header() {
-  const router = useRouter(); // Utiliser useRouter pour récupérer le chemin actuel
+  const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="bg-blue-700 text-white p-4 fixed top-0 left-0 right-0 z-50 shadow-md">
@@ -15,11 +17,21 @@ export default function Header() {
           FichesRévision
         </Link>
 
-        <ul className="flex space-x-6">
+        <button
+          className="menu-toggle"
+          aria-label="Ouvrir le menu"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          ☰
+        </button>
+
+        <ul className={`flex space-x-6 ${menuOpen ? "open" : ""}`}>
           <li>
             <Link
               href="/"
               className={`btn-primary ${router.pathname === "/" ? "active" : ""}`}
+              onClick={() => setMenuOpen(false)}
             >
               Accueil
             </Link>
@@ -30,6 +42,7 @@ export default function Header() {
               className={`font-semibold hover:text-blue-300 transition ${
                 router.pathname.startsWith("/fiches") ? "active" : ""
               }`}
+              onClick={() => setMenuOpen(false)}
             >
               Fiches
             </Link>
@@ -40,6 +53,7 @@ export default function Header() {
               className={`font-semibold hover:text-blue-300 transition ${
                 router.pathname === "/cours" ? "active" : ""
               }`}
+              onClick={() => setMenuOpen(false)}
             >
               Cours particuliers
             </Link>
@@ -50,6 +64,7 @@ export default function Header() {
               className={`font-semibold hover:text-blue-300 transition ${
                 router.pathname === "/contact" ? "active" : ""
               }`}
+              onClick={() => setMenuOpen(false)}
             >
               Contact
             </Link>

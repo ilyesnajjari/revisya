@@ -34,3 +34,22 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+
+Dans le texte :
+Utilise $ ... $ pour le LaTeX inline, par ex.
+Soit $f : U \\subset \\mathbb{R}^p \\to \\mathbb{R}$.
+Pour une formule sur une ligne seule, centrée :
+Utilise $$ ... $$
+Par ex.
+$$
+\\nabla f = \\left( \\frac{\\partial f}{\\partial x_1}, \\ldots, \\frac{\\partial f}{\\partial x_p} \\right)
+$$
+Dans la chaîne de caractères (JS, JSON, etc.) :
+Toujours doubler les backslash dans les commandes LaTeX :
+\nabla → \\nabla, \frac → \\frac, etc.
+Sinon, JS risque d’interpréter \n comme saut de ligne.
+Ne pas échapper les $ (ils délimitent la formule) ni les {} qui sont utilisés normalement.
+en respectant ce format corrige ca :

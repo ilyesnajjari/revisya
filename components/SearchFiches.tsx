@@ -11,8 +11,10 @@ export default function SearchFiches() {
     return (
       fiche.titre.toLowerCase().includes(search) ||
       fiche.matiere.toLowerCase().includes(search) ||
-      fiche.niveau.some((niveau) => niveau.toLowerCase().includes(search)) || // Vérifie les niveaux
-      (fiche.tags && fiche.tags.some((tag) => tag.toLowerCase().includes(search))) // Vérifie les tags
+      fiche.categorie.toLowerCase().includes(search) ||
+      fiche.contenu.toLowerCase().includes(search) || // Recherche aussi dans le contenu
+      fiche.niveau.some((niveau) => niveau.toLowerCase().includes(search)) ||
+      (fiche.tags && fiche.tags.some((tag) => tag.toLowerCase().includes(search)))
     );
   });
 
@@ -38,6 +40,8 @@ export default function SearchFiches() {
                 <Link href={`/fiches/${fiche.id}`} className="result-link">
                   {fiche.titre} —{" "}
                   <span className="subject">{fiche.matiere}</span>
+                  {" "}
+                  <span className="niveau-discret">({fiche.niveau.join(", ")})</span>
                 </Link>
               </li>
             ))

@@ -22,19 +22,56 @@ export default function FicheDetail() {
     return <p>Fiche non trouvée.</p>;
   }
 
+  // URL absolue dynamique (à remplacer par ton vrai domaine)
+  const url = `https://ton-site.com/fiches/${fiche.id}`;
+
   return (
     <>
       <Head>
         <title>{fiche.titre} - {fiche.matiere}</title>
-        <meta name="description" content={`Fiche de révision sur ${fiche.titre} en ${fiche.matiere}.`} />
+        <meta
+          name="description"
+          content={`Fiche de révision complète sur ${fiche.titre} en ${fiche.matiere}, pour bien préparer tes examens.`}
+        />
+        <link rel="canonical" href={url} />
+        <meta property="og:title" content={`${fiche.titre} - ${fiche.matiere} | Fiche de Révision`} />
+        <meta property="og:description" content={`Fiche de révision complète sur ${fiche.titre} en ${fiche.matiere}.`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={url} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${fiche.titre} - ${fiche.matiere} | Fiche de Révision`} />
+        <meta name="twitter:description" content={`Fiche de révision complète sur ${fiche.titre} en ${fiche.matiere}.`} />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: fiche.titre,
+              description: `Fiche de révision complète sur ${fiche.titre} en ${fiche.matiere}.`,
+              url,
+              author: {
+                "@type": "Organization",
+                name: "Ton Site",
+              },
+              mainEntityOfPage: url,
+            }),
+          }}
+        />
       </Head>
       <Header />
 
       <main className="fiche-detail-main">
-        <Link href={`/fiches?matiere=${matiere || 'Mathématiques'}`} className="fiche-retour-btn">
+        <button
+          type="button"
+          className="fiche-retour-btn"
+          onClick={() => router.back()}
+        >
           ← Retour aux fiches
-        </Link>
+        </button>
         <h1 className="fiche-detail-title">{fiche.titre}</h1>
+        <span className="fiche-categorie">{fiche.categorie}</span>
         <p className="fiche-detail-niveau">{fiche.niveau.join(' - ')}</p>
 
         {fiche.tags && (

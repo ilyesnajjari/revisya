@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 import SearchFiches from "../components/SearchFiches";
 import "../styles/index.css";
-import { FaGraduationCap, FaBook, FaChartBar, FaBriefcase, FaSchool, FaSearch } from 'react-icons/fa';
+import { FaGraduationCap, FaBriefcase, FaSchool, FaSearch } from 'react-icons/fa';
 import { useState, useEffect } from "react";
 import { temoignages } from "../data/temoignages";
 
@@ -24,15 +24,12 @@ export default function Home() {
     return shuffled.slice(0, 3);
   };
 
-  // Mettre à jour les témoignages affichés toutes les 15 secondes
   useEffect(() => {
-    setDisplayedTemoignages(getRandomTemoignages()); // Initialisation
-
+    setDisplayedTemoignages(getRandomTemoignages());
     const interval = setInterval(() => {
       setDisplayedTemoignages(getRandomTemoignages());
-    }, 10000); // 15 secondes
-
-    return () => clearInterval(interval); // Nettoyage à la fin
+    }, 10000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -56,10 +53,10 @@ export default function Home() {
 
       <Header />
 
-      <main>
+      <main aria-label="Contenu principal">
         {/* Hero Section */}
         <section className="section-hero" aria-labelledby="hero-title">
-          <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
             <div
               style={{ width: 700, height: 700 }}
               className="bg-blue-300 rounded-full blur-3xl opacity-50 absolute -top-48 -left-48"
@@ -93,14 +90,13 @@ export default function Home() {
           <div className="mb-12 w-full max-w-2xl mx-auto">
             <Image
               src="/index_pages/index_pages.png"
-              alt="Illustration de révision"
+              alt="Illustration de révision pour prépa et lycée"
               width={800}
               height={480}
               className="rounded-custom"
               priority
             />
           </div>
-          
         </section>
 
         {/* Recherche rapide */}
@@ -129,7 +125,7 @@ export default function Home() {
           </h2>
           <div
             style={{ maxWidth: "80rem", margin: "0 auto" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-12"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12"
           >
             {[
               {
@@ -152,7 +148,6 @@ export default function Home() {
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.25 }}
                 className="relative rounded-3xl shadow-2xl p-10 flex flex-col items-center justify-center min-h-[280px] text-white"
                 aria-label={item.title}
                 style={{
@@ -160,7 +155,7 @@ export default function Home() {
                     "linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)",
                 }}
               >
-                <div className="text-6xl mb-5 drop-shadow-lg">{item.icon}</div>
+                <div className="text-6xl mb-5 drop-shadow-lg" aria-hidden="true">{item.icon}</div>
                 <h3 className="text-3xl font-bold mb-3 drop-shadow-lg">
                   {item.title}
                 </h3>
@@ -179,27 +174,33 @@ export default function Home() {
         >
           <h2
             id="temoignages-title"
-            className="text-3xl font-extrabold text-center text-gray-900 mb-12"
+            className="text-3xl font-extrabold text-center text-gray-900 mb-8"
           >
             Ils ont réussi grâce à nos fiches
           </h2>
           <div
             style={{ maxWidth: "60rem", margin: "0 auto" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-10"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
           >
             {displayedTemoignages.map((item, index) => (
-              <motion.div
+              <motion.article
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.3 }}
-                className="speech-bubble bg-blue-50 rounded-3xl shadow-xl p-8 border-l-8 border-blue-400 text-left text-gray-800 italic font-light"
+                className="speech-bubble1"
+                style={{
+                  minHeight: "170px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                }}
+                itemScope
+                itemType="https://schema.org/Review"
               >
-                <p className="mb-4">{item.text}</p>
-                <span className="block text-blue-700 font-semibold text-lg">
-                  {item.author}
-                </span>
-              </motion.div>
+                <p itemProp="reviewBody">{item.text}</p>
+                <span itemProp="author">{item.author}</span>
+              </motion.article>
             ))}
           </div>
         </section>

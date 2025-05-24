@@ -138,3 +138,53 @@ strong {
     height: 100px;
   }
 }
+
+@media (max-width: 700px) {
+  .cours-main {
+    padding: 4rem 0.3rem 1rem 0.3rem;
+  }
+  .cours-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+  }
+  .cours-subtitle {
+    font-size: 0.98rem;
+    margin-bottom: 1.2rem;
+  }
+  .card {
+    padding: 0.7rem 0.3rem;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+  }
+  .cours-section-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  .cours-main p,
+  .cours-main li {
+    font-size: 0.98rem;
+  }
+  .cours-exemples-grid {
+    gap: 1.2rem;
+    margin-top: 1rem;
+  }
+  .cours-exemple-img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto 0.5rem auto;
+    display: block;
+    border-radius: 0.5rem;
+  }
+  .cours-footer {
+    font-size: 0.9rem;
+    margin-top: 1.2rem;
+  }
+  .contact-float-btn {
+    bottom: 1.2rem;
+    right: 1.2rem;
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 1.5rem;
+  }
+}
