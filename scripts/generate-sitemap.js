@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const { fiches } = require('../data/fiches');
+const fiches = require(path.join(__dirname, '../revisya/data/fiches'));
 
-const BASE_URL = 'https://ton-site.com'; // Remplace par ton vrai domaine
+const BASE_URL = 'https://revisya.com'; // Remplace par ton vrai domaine
 
 function generateSitemap() {
   const pages = [
