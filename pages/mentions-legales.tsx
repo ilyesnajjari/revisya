@@ -39,9 +39,19 @@ export default function MentionsLegales() {
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-3">Hébergement</h2>
           <p>Le site est hébergé par :</p>
-          <p>Nom de l&apos;hébergeur : Plumard</p>
-          <p>Adresse : [À compléter]</p>
-          <p>Site web : [À compléter]</p>
+          <p>Nom de l&apos;hébergeur : Vercel</p>
+          <p>Adresse : 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis</p>
+          <p>
+            Site web :{" "}
+            <a
+              href="https://vercel.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              https://vercel.com
+            </a>
+          </p>
         </section>
 
         <section className="mb-6">

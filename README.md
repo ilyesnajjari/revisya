@@ -35,6 +35,69 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+---
+
+## Configuration du nom de domaine et hébergement
+
+### Nom de domaine personnalisé avec OVH
+Le nom de domaine `revisya.fr` est géré via OVH. Voici les étapes pour configurer le domaine avec Vercel :
+1. Connectez-vous à votre compte OVH.
+2. Accédez à la section **Domaines** et sélectionnez `revisya.fr`.
+3. Configurez les enregistrements DNS pour pointer vers Vercel :
+   - **Type A** : Ajoutez un enregistrement pointant vers l'adresse IP de Vercel.
+   - **Type CNAME** : Ajoutez un enregistrement pour `www` pointant vers `cname.vercel-dns.com`.
+4. Vérifiez la configuration DNS dans l'interface OVH.
+5. Dans le tableau de bord Vercel, ajoutez `revisya.fr` comme domaine personnalisé.
+
+### Hébergement sur Vercel
+L'application est hébergée sur [Vercel](https://vercel.com), qui offre un déploiement rapide et optimisé pour les applications Next.js. Voici les étapes pour déployer :
+1. Connectez-vous à votre compte Vercel.
+2. Importez le projet depuis GitHub ou un autre dépôt Git.
+3. Configurez les variables d'environnement nécessaires dans l'onglet **Settings** > **Environment Variables**.
+4. Déployez automatiquement à chaque push sur la branche principale.
+
+---
+
+## Utilisation de LaTeX dans le projet
+
+Dans le texte :
+- Utilisez `$ ... $` pour le LaTeX inline, par exemple :
+  `Soit $f : U \\subset \\mathbb{R}^p \\to \\mathbb{R}$.`
+- Pour une formule sur une ligne seule, centrée, utilisez `$$ ... $$`, par exemple :
+  ```latex
+  $$
+  \\nabla f = \\left( \\frac{\\partial f}{\\partial x_1}, \\ldots, \\frac{\\partial f}{\\partial x_p} \\right)
+  $$
+  ```
+
+Dans les chaînes de caractères (JS, JSON, etc.) :
+- Doublez les backslash dans les commandes LaTeX :
+  - `\nabla` → `\\nabla`
+  - `\frac` → `\\frac`
+- Ne pas échapper les `$` (ils délimitent la formule) ni les `{}` (utilisés normalement).
+
+---
+
+## Analyse et monitoring
+
+### Performance
+- Utilisez [Vercel Analytics](https://vercel.com/analytics) pour surveiller les performances de votre site.
+- Activez les outils de mesure comme Google Lighthouse pour optimiser le chargement des pages.
+
+### Logs et monitoring
+- Configurez les logs dans Vercel pour surveiller les erreurs et les requêtes.
+- Intégrez des outils comme [Sentry](https://sentry.io/) pour le suivi des erreurs en production.
+
+### Outils d'analyse
+- Ajoutez Google Analytics ou Plausible pour suivre les statistiques de trafic.
+- Configurez des outils comme Hotjar pour analyser le comportement des utilisateurs.
+
+---
+
+Avec ces configurations, votre projet est prêt pour un déploiement professionnel avec un domaine personnalisé et un hébergement optimisé.
+
+
+
 
 
 
@@ -53,3 +116,6 @@ Toujours doubler les backslash dans les commandes LaTeX :
 Sinon, JS risque d’interpréter \n comme saut de ligne.
 Ne pas échapper les $ (ils délimitent la formule) ni les {} qui sont utilisés normalement.
 en respectant ce format corrige ca :
+
+
+
