@@ -14,7 +14,8 @@ import {
   fichesChimie,
   fichesKholles,
   fichesSI, // <-- Ajoute cette ligne
-  Fiche
+  Fiche,
+  fiches // Import fiches
 } from '../../data/fiches';
 
 const matieres = ['Mathématiques', 'Physique', 'Informatique', 'Chimie','Sciences de l\'Ingénieur', 'Kholles']; 
@@ -288,5 +289,29 @@ export default function FichesPage() {
 
       <Footer />
     </>
+  );
+}
+
+export function FicheDetail() {
+  const router = useRouter();
+  const { id } = router.query;
+
+  if (!id) {
+    // Affiche un loader tant que l'id n'est pas prêt
+    return <p>Chargement...</p>;
+  }
+
+  const fiche = fiches.find((f) => f.id === String(id)); // Ensure id is a string
+
+  if (!fiche) {
+    return <p>Fiche non trouvée.</p>;
+  }
+
+  return (
+    <div>
+      <h1>{fiche.titre}</h1>
+      <p>{fiche.contenu}</p>
+      {/* Ajoutez d'autres détails de la fiche ici */}
+    </div>
   );
 }
