@@ -1,5 +1,4 @@
 // /data/fiches.ts
-import 'katex/dist/katex.min.css'
 
 export type Fiche = {
   id: string;

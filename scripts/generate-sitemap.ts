@@ -1,9 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const { SITE_URL } = require('../config');
-const fiches = require(path.join(__dirname, '../revisya/data/fiches'));
+import fs from 'node:fs';
+import path from 'node:path';
+import { SITE_URL } from '../config.ts';
+import { fiches } from '../data/fiches.ts';
 
-const BASE_URL = SITE_URL; // Utilise la constante partagée
+const BASE_URL = SITE_URL;
 
 function generateSitemap() {
   const pages = [
@@ -13,11 +13,11 @@ function generateSitemap() {
     'contact',
     'mentions-legales',
     'politique-confidentialite',
-    // ajoute d'autres pages statiques ici si besoin
   ];
 
-  // Ajout des URLs de toutes les fiches
-  fiches.forEach(fiche => pages.push(fiche.url.replace(/^\//, '')));
+  fiches.forEach((fiche: any) => {
+    pages.push(`fiches/${fiche.id}`);
+  });
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -28,14 +28,12 @@ function generateSitemap() {
         <loc>${BASE_URL}/${page}</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-      </url>
-    `
+      </url>`
       )
       .join('')}
   </urlset>`;
 
-  fs.writeFileSync(path.join(__dirname, '../public/sitemap.xml'), sitemap.trim());
-
+  fs.writeFileSync(path.join(process.cwd(), 'public/sitemap.xml'), sitemap.trim());
   console.log('✅ sitemap.xml generated!');
 }
 
