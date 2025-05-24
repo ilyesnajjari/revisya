@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { fiches } from '../../data/fiches';
 import 'katex/dist/katex.min.css';
+import { SITE_URL } from '../../config';
 
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -20,8 +21,8 @@ export default function FicheDetail() {
     return <p>Fiche non trouvée.</p>;
   }
 
-  // URL absolue dynamique (à remplacer par ton vrai domaine)
-  const url = `https://ton-site.com/fiches/${fiche.id}`;
+  // URL absolue dynamique basée sur la config
+  const url = `${SITE_URL}/fiches/${fiche.id}`;
 
   return (
     <>

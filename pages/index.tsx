@@ -8,6 +8,7 @@ import SearchFiches from "../components/SearchFiches";
 import { FaGraduationCap, FaBriefcase, FaSchool, FaSearch } from 'react-icons/fa';
 import { useState, useEffect } from "react";
 import { temoignages } from "../data/temoignages";
+import { SITE_URL } from '../config';
 
 type Temoignage = {
   text: string;
@@ -45,9 +46,9 @@ export default function Home() {
           content="Des fiches claires, gratuites et efficaces pour réussir vos études."
         />
         <meta property="og:image" content="/preview-image.png" />
-        <meta property="og:url" content="https://ton-site.com/" />
+        <meta property="og:url" content={SITE_URL + '/'} />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href="https://ton-site.com/" />
+        <link rel="canonical" href={SITE_URL + '/'} />
       </Head>
 
       <Header />
