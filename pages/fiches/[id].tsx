@@ -3,8 +3,6 @@ import Head from 'next/head';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { fiches } from '../../data/fiches';
-import Link from 'next/link';
-import '../../styles/fiche-detail.css';
 import 'katex/dist/katex.min.css';
 
 import ReactMarkdown from 'react-markdown';
@@ -14,7 +12,7 @@ import rehypeKatex from 'rehype-katex';
 
 export default function FicheDetail() {
   const router = useRouter();
-  const { id, matiere } = router.query;
+  const { id } = router.query;
 
   const fiche = fiches.find((f) => f.id === id);
 

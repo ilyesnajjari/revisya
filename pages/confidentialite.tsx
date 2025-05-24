@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Link from "next/link";
 
 export default function PolitiqueConfidentialite() {
   return (
@@ -47,7 +48,8 @@ export default function PolitiqueConfidentialite() {
         <section className="mb-6">
           <h2 className="text-xl font-semibold mb-3">Droits des utilisateurs</h2>
           <p>
-            Conformément à la réglementation en vigueur, vous pouvez demander l’accès, la rectification ou la suppression de vos données en nous contactant via la <a href="/contact" className="text-blue-600 hover:underline">page Contact</a>.
+            Conformément à la réglementation en vigueur, vous pouvez demander l’accès, la rectification ou la suppression de vos données en nous contactant via la{" "}
+            <Link href="/contact" className="text-blue-600 hover:underline">page Contact</Link>.
           </p>
         </section>
 

@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 import SearchFiches from "../components/SearchFiches";
-import "../styles/index.css";
 import { FaGraduationCap, FaBriefcase, FaSchool, FaSearch } from 'react-icons/fa';
 import { useState, useEffect } from "react";
 import { temoignages } from "../data/temoignages";

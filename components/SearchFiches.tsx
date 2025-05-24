@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { fiches } from "../data/fiches";
-import "../styles/SearchFiches.css";
 
 export default function SearchFiches() {
   const [query, setQuery] = useState("");
@@ -46,7 +45,9 @@ export default function SearchFiches() {
               </li>
             ))
           ) : (
-            <li className="no-results">Aucun résultat pour "{query}"</li>
+            <li className="no-results">
+              Aucun résultat pour &quot;{query}&quot;
+            </li>
           )}
         </ul>
       )}

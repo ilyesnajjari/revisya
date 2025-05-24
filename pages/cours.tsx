@@ -2,7 +2,7 @@ import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Image from "next/image";
-import "../styles/cours.css";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -28,18 +28,19 @@ export default function About() {
 
         <article className="card" itemScope itemType="https://schema.org/Service">
           <p>
-            Nous proposons des <strong>cours particuliers en ligne</strong> destinés aux élèves de <strong>lycée</strong>, de <strong>prépa scientifique</strong>, de <strong>prépa commerce</strong> et aux <strong>étudiants à l’université</strong>. Notre objectif est de vous accompagner efficacement dans votre progression grâce à un suivi personnalisé et des méthodes pédagogiques adaptées à chaque niveau.
+            Nous proposons des <strong>cours particuliers en ligne</strong> destinés aux élèves de <strong>lycée</strong>, de <strong>prépa scientifique</strong>, de <strong>prépa commerce</strong> et aux <strong>étudiants à l&rsquo;université</strong>. Notre objectif est de vous accompagner efficacement dans votre progression grâce à un suivi personnalisé et des méthodes pédagogiques adaptées à chaque niveau.
           </p>
           <p>
-            <strong>Tarif :</strong> 25€ de l'heure – flexibilité et qualité au rendez-vous.
+            <strong>Tarif :</strong> 25€ de l&apos;heure – flexibilité et qualité au rendez-vous.
           </p>
         </article>
 
         <section className="card" aria-labelledby="pourquoi-choisir">
           <h2 id="pourquoi-choisir" className="cours-section-title">Pourquoi choisir nos cours&nbsp;?</h2>
           <p>
-            Des centaines d’élèves nous font déjà confiance grâce à notre approche humaine et sur-mesure. Nos enseignants s’adaptent à votre niveau et à vos objectifs pour vous proposer un parcours d'apprentissage personnalisé. Grâce à notre flexibilité horaire et nos outils interactifs, chaque séance devient un levier de réussite.
+            Des centaines d&apos;élèves nous font déjà confiance grâce à notre approche humaine et sur-mesure. Nos enseignants s&apos;adaptent à votre niveau et à vos objectifs pour vous proposer un parcours d&apos;apprentissage personnalisé. Grâce à notre flexibilité horaire et nos outils interactifs, chaque séance devient un levier de réussite.
           </p>
+
         </section>
 
         <section className="card" aria-labelledby="notre-equipe">
@@ -97,13 +98,13 @@ export default function About() {
           </div>
         </section>
       </main>
-      <a
+      <Link
         href="/contact"
         className="contact-float-btn"
         aria-label="Contact"
       >
         Contact
-      </a>
+      </Link>
       <Footer />
     </>
   );

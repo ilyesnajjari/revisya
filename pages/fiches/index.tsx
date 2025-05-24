@@ -16,7 +16,6 @@ import {
   fichesSI, // <-- Ajoute cette ligne
   Fiche
 } from '../../data/fiches';
-import '../../styles/index.css';
 
 const matieres = ['Mathématiques', 'Physique', 'Informatique', 'Chimie','Sciences de l\'Ingénieur', 'Kholles']; 
 const niveaux = ['Tous', 'Lycée', 'Prépa', 'Université'];
@@ -59,7 +58,10 @@ export default function FichesPage() {
     }
   }, []);
 
-  const fiches = fichesParMatiere[matiereActive] || [];
+  const fiches = useMemo(
+    () => fichesParMatiere[matiereActive] || [],
+    [matiereActive]
+  );
   const categoriesDisponibles = Array.from(new Set(fiches.map(f => f.categorie)));
   const fichesParPage = 10;
 
@@ -81,7 +83,7 @@ export default function FichesPage() {
       undefined,
       { shallow: true }
     );
-  }, [matiereActive, pageCourante]);
+  }, [matiereActive, pageCourante, router]);
 
   // Réinitialiser les filtres
   const resetFilters = () => {
