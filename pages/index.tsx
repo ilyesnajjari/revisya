@@ -171,41 +171,47 @@ export default function Home() {
 
         {/* Témoignages */}
         <section
-          className="section-temoignages"
-          aria-labelledby="temoignages-title"
-        >
-          <h2
-            id="temoignages-title"
-            className="text-3xl font-extrabold text-center text-gray-900 mb-8"
-          >
-            Ils ont réussi grâce à nos fiches
-          </h2>
-          <div
-            style={{ maxWidth: "60rem", margin: "0 auto" }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-          >
-            {displayedTemoignages.map((item, index) => (
-              <motion.article
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.3 }}
-                className="speech-bubble1"
-                style={{
-                  minHeight: "170px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
-                itemScope
-                itemType="https://schema.org/Review"
-              >
-                <p itemProp="reviewBody">{item.text}</p>
-                <span itemProp="author">{item.author}</span>
-              </motion.article>
-            ))}
-          </div>
-        </section>
+  className="section-temoignages"
+  aria-labelledby="temoignages-title"
+>
+  <h2
+    id="temoignages-title"
+    className="text-3xl font-extrabold text-center text-gray-900 mb-8"
+  >
+    Ils ont réussi grâce à nos fiches
+  </h2>
+  <div
+    style={{ maxWidth: "60rem", margin: "0 auto" }}
+    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+  >
+    {displayedTemoignages.map((item, index) => (
+      <motion.article
+        key={index}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: index * 0.3 }}
+        className="speech-bubble1"
+        style={{
+          minHeight: "170px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+        itemScope
+        itemType="https://schema.org/Review"
+      >
+        <p itemProp="reviewBody">{item.text}</p>
+        <span itemProp="author">{item.author}</span>
+
+        {/* Champ itemReviewed ajouté pour valider le balisage schema.org */}
+        <div itemProp="itemReviewed" itemScope itemType="https://schema.org/CreativeWork">
+          <meta itemProp="name" content="Fiches de révision pour prépa et lycée" />
+        </div>
+      </motion.article>
+    ))}
+  </div>
+</section>
+
 
         {/* CTA Final */}
         <section className="section-cta" aria-labelledby="cta-title">
