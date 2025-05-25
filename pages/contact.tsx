@@ -39,6 +39,14 @@ export default function Contact() {
       if (res.ok) {
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
+
+        // Tracking Google Analytics
+        if (typeof window !== "undefined" && (window as any).gtag) {
+          (window as any).gtag("event", "submit_form", {
+            event_category: "Contact",
+            event_label: "Formulaire contact envoyé",
+          });
+        }
       } else {
         throw new Error("Erreur lors de l'envoi du message.");
       }

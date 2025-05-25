@@ -22,13 +22,13 @@ export default async function handler(
       service: "gmail",
       auth: {
         user: process.env.GMAIL_USER, // Ton adresse Gmail complète
-        pass: process.env.GMAIL_PASS, // Le mot de passe d'application
+        pass: process.env.GMAIL_PASS, // Le mot de passe d'application Gmail
       },
     });
 
     const mailOptions = {
       from: `"revisya" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER, // l'adresse où tu veux recevoir les messages
+      to: process.env.GMAIL_USER, // Adresse de réception
       subject: `Nouveau message de contact de ${name}`,
       text: `
 Nom : ${name}
