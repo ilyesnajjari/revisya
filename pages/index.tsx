@@ -91,11 +91,12 @@ export default function Home() {
             <Image
               src="/index_pages/index_pages.png"
               alt="Illustration de révision pour prépa et lycée"
-              width={400} // adapte à la taille réelle d'affichage max
+              width={400}
               height={240}
               sizes="(max-width: 600px) 100vw, 400px"
               className="rounded-custom"
-              priority
+              priority // <-- Garde bien cette prop pour le LCP !
+              quality={80} // optionnel, réduit le poids si tu veux
             />
           </div>
         </section>
