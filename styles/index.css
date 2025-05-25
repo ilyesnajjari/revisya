@@ -72,19 +72,21 @@ section {
   padding: 0.75rem 2rem;
   font-weight: 700;
   border-radius: 9999px;
-  background-color: #f97316; /* orange */
-  color: white;
+  background-color: #1e293b; /* bleu nuit très foncé pour contraste élevé */
+  color: #fff;
   text-decoration: none;
   display: inline-block;
-  box-shadow: 0 8px 15px rgb(249 115 22 / 0.4);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 15px rgba(30, 41, 59, 0.18);
+  transition: background-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  border: none;
 }
 
 .section-hero .btn-primary:hover,
 .section-hero .btn-primary:focus-visible {
-  background-color: #c2410c;
-  box-shadow: 0 8px 25px rgb(194 65 12 / 0.7);
+  background-color: #2563eb; /* bleu vif pour hover */
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
   outline: none;
 }
 
@@ -318,21 +320,25 @@ section {
   padding: 0.75rem 2rem;
   font-weight: 700;
   border-radius: 9999px;
-  background-color: #f97316;
-  color: white;
+  background-color: #1e3a8a; /* bleu foncé à bon contraste */
+  color: #ffffff;
   text-decoration: none;
   display: inline-block;
-  box-shadow: 0 8px 15px rgb(249 115 22 / 0.4);
+  box-shadow: 0 8px 15px rgba(30, 41, 59, 0.15);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  border: none;
 }
 
 .section-cta .btn-primary:hover,
 .section-cta .btn-primary:focus-visible {
-  background-color: #c2410c;
-  box-shadow: 0 8px 25px rgb(194 65 12 / 0.7);
-  outline: none;
+  background-color: #2563eb; /* bleu plus clair pour hover */
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35);
+  outline: 2px solid #93c5fd; /* contour accessible */
+  outline-offset: 2px;
 }
+
 
 /* Structure principale */
 .fiches-main {
