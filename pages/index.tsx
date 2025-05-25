@@ -170,7 +170,7 @@ export default function Home() {
         </section>
 
         {/* Témoignages */}
-        <section
+<section
   className="section-temoignages"
   aria-labelledby="temoignages-title"
 >
@@ -180,6 +180,7 @@ export default function Home() {
   >
     Ils ont réussi grâce à nos fiches
   </h2>
+
   <div
     style={{ maxWidth: "60rem", margin: "0 auto" }}
     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
@@ -200,13 +201,15 @@ export default function Home() {
         itemScope
         itemType="https://schema.org/Review"
       >
+        {/* CONTENU DU TÉMOIGNAGE */}
         <p itemProp="reviewBody">{item.text}</p>
         <span itemProp="author">{item.author}</span>
 
-        {/* Champ itemReviewed ajouté pour valider le balisage schema.org */}
-        <div itemProp="itemReviewed" itemScope itemType="https://schema.org/CreativeWork">
-          <meta itemProp="name" content="Fiches de révision pour prépa et lycée" />
+        {/* CHAMP OBLIGATOIRE : itemReviewed */}
+        <div itemProp="itemReviewed" itemScope itemType="https://schema.org/Product">
+          <meta itemProp="name" content="Fiches de révision prépa et lycée" />
         </div>
+
       </motion.article>
     ))}
   </div>
