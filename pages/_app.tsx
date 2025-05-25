@@ -19,16 +19,18 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
-    if (!GA_ID) return;
-    const handleRouteChange = (url: string) => {
-      // @ts-ignore
-      window.gtag && window.gtag("config", GA_ID, { page_path: url });
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router.events]);
+  if (!GA_ID) return;
+  const handleRouteChange = (url: string) => {
+    if (window.gtag) {
+      window.gtag("config", GA_ID, { page_path: url });
+    }
+  };
+  router.events.on("routeChangeComplete", handleRouteChange);
+  return () => {
+    router.events.off("routeChangeComplete", handleRouteChange);
+  };
+}, [router.events]);
+
 
   return (
     <>
