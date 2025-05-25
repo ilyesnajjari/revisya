@@ -91,8 +91,9 @@ export default function Home() {
             <Image
               src="/index_pages/index_pages.png"
               alt="Illustration de révision pour prépa et lycée"
-              width={800}
-              height={480}
+              width={400} // adapte à la taille réelle d'affichage max
+              height={240}
+              sizes="(max-width: 600px) 100vw, 400px"
               className="rounded-custom"
               priority
             />
