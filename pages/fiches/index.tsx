@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useTransition, memo } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -19,19 +19,19 @@ import {
 } from '../../data/fiches';
 
 const matieres = ['Mathématiques', 'Physique', 'Informatique', 'Chimie','Sciences de l\'Ingénieur', 'Kholles']; 
-const niveaux = ['Tous', 'Lycée', 'Prépa', 'Université'];
 const triOptions = ['Titre (A-Z)', 'Date (récent)'];
+type Niveau = 'Tous' | 'Lycée' | 'Prépa' | 'Université';
+const niveaux: Niveau[] = ['Tous', 'Lycée', 'Prépa', 'Université'];
 
-const fichesParMatiere: Record<string, Fiche[]> = {
-  Mathématiques: fichesMaths,
-  Physique: fichesPhysique,
-  Informatique: fichesInfo,
-  Chimie: fichesChimie,
-  'Sciences de l\'Ingénieur': fichesSI,
-  Kholles: fichesKholles,
-};
-
-type Niveau = "Lycée" | "Prépa" | "Université" | "Tous";
+// Fusionne toutes les fiches au lieu de fichesParMatiere
+const toutesFiches = [
+  ...fichesMaths,
+  ...fichesPhysique,
+  ...fichesInfo,
+  ...fichesChimie,
+  ...fichesSI,
+  ...fichesKholles,
+];
 
 export default function FichesPage() {
   const router = useRouter();
@@ -46,6 +46,7 @@ export default function FichesPage() {
   const [filtreFavoris, setFiltreFavoris] = useState(false);
   const [pageCourante, setPageCourante] = useState(1);
   const [favoris, setFavoris] = useState<string[]>([]);
+  const [isPending, startTransition] = useTransition();
 
   // Charger les favoris du localStorage côté client uniquement
   useEffect(() => {
@@ -59,11 +60,15 @@ export default function FichesPage() {
     }
   }, []);
 
-  const fiches = useMemo(
-    () => fichesParMatiere[matiereActive] || [],
-    [matiereActive]
+  const categoriesDisponibles = useMemo(
+    () => Array.from(new Set(
+      toutesFiches
+        .filter(f => f.matiere === matiereActive)
+        .map(f => f.categorie)
+    )),
+    [toutesFiches, matiereActive]
   );
-  const categoriesDisponibles = Array.from(new Set(fiches.map(f => f.categorie)));
+
   const fichesParPage = 10;
 
   // Initialisation des états à partir des paramètres URL (une seule fois ou à chaque changement URL)
@@ -79,12 +84,17 @@ export default function FichesPage() {
 
   // Synchronisation URL quand matiereActive ou pageCourante changent
   useEffect(() => {
-    router.push(
-      `/fiches?matiere=${encodeURIComponent(matiereActive)}&page=${pageCourante}`,
-      undefined,
-      { shallow: true }
-    );
-  }, [matiereActive, pageCourante, router]);
+    const query = new URLSearchParams({
+      matiere: matiereActive,
+      page: pageCourante.toString(),
+    });
+    const newUrl = `/fiches?${query.toString()}`;
+
+    // Correction : on ne fait replace que si l'URL diffère vraiment
+    if (typeof window !== "undefined" && window.location.pathname + window.location.search !== newUrl) {
+      router.replace(newUrl, undefined, { shallow: true });
+    }
+  }, [matiereActive, pageCourante, router.asPath]);
 
   // Réinitialiser les filtres
   const resetFilters = () => {
@@ -97,34 +107,41 @@ export default function FichesPage() {
     setPageCourante(1);
   };
 
+  // Filtres optimisés
   const fichesFiltres = useMemo(() => {
-    const search = recherche.toLowerCase();
+    let res = toutesFiches.filter(f => f.matiere === matiereActive);
 
-    let res = fiches
-      .filter(f => 
-        niveauFiltre === 'Tous' || f.niveau.includes(niveauFiltre)
-      )
-      .filter(f => 
-        f.titre.toLowerCase().includes(search) || 
-        f.matiere.toLowerCase().includes(search) || 
+    if (niveauFiltre !== 'Tous') {
+      res = res.filter(f => f.niveau.includes(niveauFiltre));
+    }
+
+    if (recherche.trim() !== '') {
+      const search = recherche.toLowerCase();
+      res = res.filter(f =>
+        f.titre.toLowerCase().includes(search) ||
+        f.matiere.toLowerCase().includes(search) ||
         f.categorie.toLowerCase().includes(search) ||
         f.contenu.toLowerCase().includes(search) ||
-        f.niveau.some(niveau => niveau.toLowerCase().includes(search)) || 
+        f.niveau.some(niveau => niveau.toLowerCase().includes(search)) ||
         (f.tags && f.tags.some(tag => tag.toLowerCase().includes(search)))
       );
+    }
 
     if (filtreCategorie) res = res.filter(f => f.categorie === filtreCategorie);
     if (filtrePopulaire) res = res.filter(f => f.populaire);
     if (filtreFavoris) res = res.filter(f => favoris.includes(f.id));
 
-    if (tri === 'Titre (A-Z)') res.sort((a, b) => a.titre.localeCompare(b.titre));
-    if (tri === 'Date (récent)') res.sort((a, b) => (b.datePublication || '').localeCompare(a.datePublication || ''));
+    if (tri === 'Titre (A-Z)') res = [...res].sort((a, b) => a.titre.localeCompare(b.titre));
+    if (tri === 'Date (récent)') res = [...res].sort((a, b) => (b.datePublication || '').localeCompare(a.datePublication || ''));
 
     return res;
-  }, [fiches, niveauFiltre, recherche, tri, filtreCategorie, filtrePopulaire, filtreFavoris, favoris]);
+  }, [toutesFiches, matiereActive, niveauFiltre, recherche, tri, filtreCategorie, filtrePopulaire, filtreFavoris, favoris]);
 
-  const totalPages = Math.ceil(fichesFiltres.length / fichesParPage);
-  const fichesAffichees = fichesFiltres.slice((pageCourante - 1) * fichesParPage, pageCourante * fichesParPage);
+  // Pagination optimisée avec useMemo
+  const fichesAffichees = useMemo(
+    () => fichesFiltres.slice((pageCourante - 1) * fichesParPage, pageCourante * fichesParPage),
+    [fichesFiltres, pageCourante]
+  );
 
   // Sauvegarde des favoris dans le localStorage à chaque changement
   useEffect(() => {
@@ -140,6 +157,60 @@ export default function FichesPage() {
         : [...prev, ficheId]
     );
   };
+
+  const handleMatiereChange = (matiere: string) => {
+    startTransition(() => {
+      setMatiereActive(matiere);
+      setPageCourante(1);
+      setFiltreCategorie('');
+    });
+  };
+
+  // Memoized fiche card
+  const FicheCard = memo(function FicheCard({ fiche, favoris, toggleFavori }: { fiche: Fiche, favoris: string[], toggleFavori: (id: string) => void }) {
+    return (
+      <li className="fiche-card">
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5em" }}>
+          <Link href={`/fiches/${fiche.id}`} className="fiche-link">
+            {fiche.titre}
+          </Link>
+          <button
+            className="fiche-favori-btn"
+            aria-label={favoris.includes(fiche.id) ? "Retirer des favoris" : "Ajouter aux favoris"}
+            onClick={() => toggleFavori(fiche.id)}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+              marginLeft: "0.3em",
+              display: "flex",
+              alignItems: "center"
+            }}
+          >
+            <FaHeart
+              color={favoris.includes(fiche.id) ? "#ef4444" : "#d1d5db"}
+              style={{ fontSize: "1.3em", transition: "color 0.2s" }}
+              title={favoris.includes(fiche.id) ? "Favori" : "Ajouter aux favoris"}
+            />
+          </button>
+        </div>
+        <span className="fiche-categorie">{fiche.categorie}</span>
+        <p className="fiche-niveau">{fiche.niveau.join(' - ')}</p>
+        {fiche.tags && (
+          <div className="fiche-tags">
+            {fiche.tags.map((tag) => (
+              <span key={tag} className="fiche-tag">#{tag}</span>
+            ))}
+          </div>
+        )}
+        <div className="fiche-labels">
+          {fiche.populaire && <span className="fiche-label-populaire">Populaire</span>}
+          {fiche.aReviser && <span className="fiche-label-reviser">À réviser bientôt</span>}
+        </div>
+      </li>
+    );
+  });
 
   return (
     <>
@@ -158,7 +229,8 @@ export default function FichesPage() {
               <li key={matiere}>
                 <button
                   className={`fiches-aside-btn${matiere === matiereActive ? ' active' : ''}`}
-                  onClick={() => { setMatiereActive(matiere); setPageCourante(1); setFiltreCategorie(''); }}
+                  onClick={() => handleMatiereChange(matiere)}
+                  disabled={isPending}
                 >
                   {matiere}
                 </button>
@@ -224,57 +296,13 @@ export default function FichesPage() {
           {/* Liste des fiches */}
           <ul className="fiches-list">
             {fichesAffichees.map((fiche) => (
-              <li key={fiche.id} className="fiche-card">
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5em" }}>
-                  <Link href={`/fiches/${fiche.id}`} className="fiche-link">
-                    {fiche.titre}
-                  </Link>
-                  <button
-                    className="fiche-favori-btn"
-                    aria-label={favoris.includes(fiche.id) ? "Retirer des favoris" : "Ajouter aux favoris"}
-                    onClick={() => toggleFavori(fiche.id)}
-                    style={{
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      padding: 0,
-                      marginLeft: "0.3em",
-                      display: "flex",
-                      alignItems: "center"
-                    }}
-                  >
-                    <FaHeart
-                      color={favoris.includes(fiche.id) ? "#ef4444" : "#d1d5db"}
-                      style={{ fontSize: "1.3em", transition: "color 0.2s" }}
-                      title={favoris.includes(fiche.id) ? "Favori" : "Ajouter aux favoris"}
-                    />
-                  </button>
-                </div>
-                {/* Affichage de la catégorie */}
-                <span className="fiche-categorie">
-                  {fiche.categorie}
-                </span>
-                <p className="fiche-niveau">{fiche.niveau.join(' - ')}</p>
-
-                {fiche.tags && (
-                  <div className="fiche-tags">
-                    {fiche.tags.map((tag) => (
-                      <span key={tag} className="fiche-tag">#{tag}</span>
-                    ))}
-                  </div>
-                )}
-
-                <div className="fiche-labels">
-                  {fiche.populaire && <span className="fiche-label-populaire">Populaire</span>}
-                  {fiche.aReviser && <span className="fiche-label-reviser">À réviser bientôt</span>}
-                </div>
-              </li>
+              <FicheCard key={fiche.id} fiche={fiche} favoris={favoris} toggleFavori={toggleFavori} />
             ))}
           </ul>
 
           {/* Pagination */}
           <div className="fiches-pagination">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((num) => (
+            {Array.from({ length: Math.ceil(fichesFiltres.length / fichesParPage) }, (_, i) => i + 1).map((num) => (
               <button
                 key={num}
                 onClick={() => setPageCourante(num)}

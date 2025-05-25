@@ -18,34 +18,27 @@ export default async function handler(
   }
 
   try {
-    // Transporteur SMTP Outlook
     const transporter = nodemailer.createTransport({
-      host: "smtp.office365.com",
-      port: 587,
-      secure: false, // TLS
+      service: "gmail",
       auth: {
-        user: process.env.SMTP_USER, // ton email Outlook complet
-        pass: process.env.SMTP_PASS, // mot de passe de ta boîte Outlook
+        user: process.env.GMAIL_USER, // Ton adresse Gmail complète
+        pass: process.env.GMAIL_PASS, // Le mot de passe d'application
       },
-      tls: {
-        ciphers: 'SSLv3',
-      }
     });
 
     const mailOptions = {
-      from: `"Fiches de Révision" <${process.env.SMTP_USER}>`,
-      to: process.env.SMTP_USER, // où tu veux recevoir les messages
+      from: `"revisya" <${process.env.GMAIL_USER}>`,
+      to: process.env.GMAIL_USER, // l'adresse où tu veux recevoir les messages
       subject: `Nouveau message de contact de ${name}`,
       text: `
-        Nom: ${name}
-        Email: ${email}
-        Message: ${message}
+Nom : ${name}
+Email : ${email}
+Message : ${message}
       `,
       replyTo: email,
     };
 
     await transporter.sendMail(mailOptions);
-
     return res.status(200).json({ message: "Message envoyé avec succès" });
   } catch (error) {
     console.error("Erreur envoi email:", error);
