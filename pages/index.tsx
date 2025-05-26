@@ -26,10 +26,10 @@ export default function Home() {
 
   useEffect(() => {
     setDisplayedTemoignages(getRandomTemoignages());
-    const interval = setInterval(() => {
-      setDisplayedTemoignages(getRandomTemoignages());
-    }, 10000);
-    return () => clearInterval(interval);
+    //const interval = setInterval(() => {
+    //  setDisplayedTemoignages(getRandomTemoignages());
+    //}, 10000);
+    //return () => clearInterval(interval);
   }, []);
 
   return (
