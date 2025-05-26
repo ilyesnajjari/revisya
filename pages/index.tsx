@@ -91,8 +91,8 @@ export default function Home() {
             <Image
               src="/index_pages/index_pages.png"
               alt="Illustration de révision pour prépa et lycée"
-              width={400}
-              height={300}
+              width={900}
+              height={600}
               sizes="(max-width: 600px) 100vw, 400px"
               className="rounded-custom"
               priority // <-- Garde bien cette prop pour le LCP !
@@ -170,50 +170,60 @@ export default function Home() {
         </section>
 
         {/* Témoignages */}
-<section
-  className="section-temoignages"
-  aria-labelledby="temoignages-title"
->
-  <h2
-    id="temoignages-title"
-    className="text-3xl font-extrabold text-center text-gray-900 mb-8"
-  >
-    Ils ont réussi grâce à nos fiches
-  </h2>
+        <section
+          className="section-temoignages"
+          aria-labelledby="temoignages-title"
+        >
+          {/* Balisage produit avec reviews */}
+          <div
+            itemScope
+            itemType="https://schema.org/Product"
+            style={{ display: "none" }}
+          >
+            <meta itemProp="name" content="Fiches de révision prépa et lycée" />
+            {/* On référence les reviews par leur texte */}
+            {displayedTemoignages.map((item, index) => (
+              <div key={index} itemProp="review" itemScope itemType="https://schema.org/Review">
+                <meta itemProp="reviewBody" content={item.text} />
+                <meta itemProp="author" content={item.author} />
+              </div>
+            ))}
+          </div>
 
-  <div
-    style={{ maxWidth: "60rem", margin: "0 auto" }}
-    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-  >
-    {displayedTemoignages.map((item, index) => (
-      <motion.article
-        key={index}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: index * 0.3 }}
-        className="speech-bubble1"
-        style={{
-          minHeight: "170px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        }}
-        itemScope
-        itemType="https://schema.org/Review"
-      >
-        {/* CONTENU DU TÉMOIGNAGE */}
-        <p itemProp="reviewBody">{item.text}</p>
-        <span itemProp="author">{item.author}</span>
+          <h2
+            id="temoignages-title"
+            className="text-3xl font-extrabold text-center text-gray-900 mb-8"
+          >
+            Ils ont réussi grâce à nos fiches
+          </h2>
 
-        {/* CHAMP OBLIGATOIRE : itemReviewed */}
-        <div itemProp="itemReviewed" itemScope itemType="https://schema.org/Product">
-          <meta itemProp="name" content="Fiches de révision prépa et lycée" />
-        </div>
-
-      </motion.article>
-    ))}
-  </div>
-</section>
+          <div
+            style={{ maxWidth: "60rem", margin: "0 auto" }}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+          >
+            {displayedTemoignages.map((item, index) => (
+              <motion.article
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.3 }}
+                className="speech-bubble1"
+                style={{
+                  minHeight: "170px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                }}
+                itemScope
+                itemType="https://schema.org/Review"
+              >
+                <p itemProp="reviewBody">{item.text}</p>
+                <span itemProp="author">{item.author}</span>
+                {/* Plus besoin de itemReviewed ici */}
+              </motion.article>
+            ))}
+          </div>
+        </section>
 
 
         {/* CTA Final */}

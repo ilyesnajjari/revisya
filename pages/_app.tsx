@@ -12,6 +12,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "";
 
@@ -19,21 +20,25 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
-  if (!GA_ID) return;
-  const handleRouteChange = (url: string) => {
-    if (window.gtag) {
-      window.gtag("config", GA_ID, { page_path: url });
-    }
-  };
-  router.events.on("routeChangeComplete", handleRouteChange);
-  return () => {
-    router.events.off("routeChangeComplete", handleRouteChange);
-  };
-}, [router.events]);
-
+    if (!GA_ID) return;
+    const handleRouteChange = (url: string) => {
+      if (window.gtag) {
+        window.gtag("config", GA_ID, { page_path: url });
+      }
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <>
+<Head>
+<link rel="icon" type="image/png" href="/logo_revisya.png" />
+  <link rel="apple-touch-icon" href="/logo_revisya.png" />
+  <meta name="theme-color" content="#ffffff" />
+</Head>
       {/* Google Analytics */}
       {GA_ID && (
         <>
