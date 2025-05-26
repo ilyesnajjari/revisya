@@ -223,8 +223,8 @@ export default function Home() {
                 }}
                 itemScope
                 itemType="https://schema.org/Review"
+                itemProp="review" // <-- AJOUTE CETTE LIGNE
               >
-                {/* Ajoute ce bloc pour itemReviewed */}
                 <span
                   style={{ display: "none" }}
                   itemProp="itemReviewed"
