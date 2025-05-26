@@ -181,11 +181,18 @@ export default function Home() {
             style={{ display: "none" }}
           >
             <meta itemProp="name" content="Fiches de révision prépa et lycée" />
-            {/* On référence les reviews par leur texte */}
+            {/* Aggregate Rating pour le SEO */}
+            <div itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating">
+              <meta itemProp="ratingValue" content="5" />
+              <meta itemProp="reviewCount" content={String(displayedTemoignages.length)} />
+            </div>
+            {/* Reviews */}
             {displayedTemoignages.map((item, index) => (
               <div key={index} itemProp="review" itemScope itemType="https://schema.org/Review">
                 <meta itemProp="reviewBody" content={item.text} />
                 <meta itemProp="author" content={item.author} />
+                {/* itemReviewed */}
+                <meta itemProp="itemReviewed" content="Fiches de révision prépa et lycée" />
               </div>
             ))}
           </div>
