@@ -18,7 +18,6 @@ type Temoignage = {
 export default function Home() {
   const [displayedTemoignages, setDisplayedTemoignages] = useState<Temoignage[]>([]);
 
-  // Fonction pour sélectionner 3 témoignages aléatoires
   const getRandomTemoignages = () => {
     const shuffled = [...temoignages].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, 3);
@@ -26,10 +25,10 @@ export default function Home() {
 
   useEffect(() => {
     setDisplayedTemoignages(getRandomTemoignages());
-    //const interval = setInterval(() => {
-    //  setDisplayedTemoignages(getRandomTemoignages());
-    //}, 10000);
-    //return () => clearInterval(interval);
+    const interval = setInterval(() => {
+      setDisplayedTemoignages(getRandomTemoignages());
+    }, 10000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -41,10 +40,7 @@ export default function Home() {
           content="Fiches de révision gratuites et synthétiques pour réussir en classes préparatoires et au lycée."
         />
         <meta property="og:title" content="Fiches de Révision - Prépa & Lycée" />
-        <meta
-          property="og:description"
-          content="Des fiches claires, gratuites et efficaces pour réussir vos études."
-        />
+        <meta property="og:description" content="Des fiches claires, gratuites et efficaces pour réussir vos études." />
         <meta property="og:image" content="/preview-image.png" />
         <meta property="og:url" content={SITE_URL + '/'} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -54,18 +50,41 @@ export default function Home() {
       <Header />
 
       <main aria-label="Contenu principal">
-        {/* Hero Section */}
-        <section className="section-hero" aria-labelledby="hero-title">
-          <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div
-              style={{ width: 700, height: 700 }}
-              className="bg-blue-300 rounded-full blur-3xl opacity-50 absolute -top-48 -left-48"
-            ></div>
-            <div
-              style={{ width: 450, height: 450 }}
-              className="bg-blue-200 rounded-full blur-2xl opacity-40 absolute -bottom-40 -right-40"
-            ></div>
+
+        {/* SEO Structured Data */}
+        <div itemScope itemType="https://schema.org/Product" style={{ display: "none" }}>
+          <meta itemProp="name" content="Fiches de révision prépa et lycée" />
+          <meta itemProp="description" content="Fiches gratuites pour réussir les examens en prépa et au lycée." />
+          <meta itemProp="image" content={`${SITE_URL}/preview-image.png`} />
+          <meta itemProp="url" content={SITE_URL + '/'} />
+
+          {/* Aggregate Rating */}
+          <div itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating">
+            <meta itemProp="ratingValue" content="5" />
+            <meta itemProp="reviewCount" content={String(displayedTemoignages.length)} />
           </div>
+
+          {/* Reviews */}
+          {displayedTemoignages.map((item, index) => (
+            <div key={index} itemProp="review" itemScope itemType="https://schema.org/Review">
+              <meta itemProp="reviewBody" content={item.text} />
+              <meta itemProp="author" content={item.author} />
+              <div itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                <meta itemProp="ratingValue" content="5" />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Hero */}
+        <section className="section-hero" aria-labelledby="hero-title">
+          {/* Arrière-plan décoratif */}
+          <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <div className="bg-blue-300 rounded-full blur-3xl opacity-50 absolute -top-48 -left-48" style={{ width: 700, height: 700 }} />
+            <div className="bg-blue-200 rounded-full blur-2xl opacity-40 absolute -bottom-40 -right-40" style={{ width: 450, height: 450 }} />
+          </div>
+
+          {/* Titre principal */}
           <motion.h1
             id="hero-title"
             initial={{ opacity: 0, y: -30 }}
@@ -74,10 +93,10 @@ export default function Home() {
             className="text-6xl md:text-7xl font-extrabold text-gray-900 mb-8 leading-tight drop-shadow-md max-w-3xl"
           >
             Fiches de Révision{" "}
-            <span className="text-gradient bg-gradient-blue">
-              Prépa & Lycée
-            </span>
+            <span className="text-gradient bg-gradient-blue">Prépa & Lycée</span>
           </motion.h1>
+
+          {/* Description */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -87,6 +106,8 @@ export default function Home() {
             Des fiches claires, gratuites et optimisées pour réussir vos examens
             en prépa scientifique, économique, et au lycée.
           </motion.p>
+
+          {/* Illustration */}
           <div className="mb-12 w-full max-w-2xl mx-auto">
             <Image
               src="/index_pages/index_pages.png"
@@ -95,18 +116,15 @@ export default function Home() {
               height={600}
               sizes="(max-width: 600px) 100vw, 400px"
               className="rounded-custom"
-              priority // <-- Garde bien cette prop pour le LCP !
-              quality={80} // optionnel, réduit le poids si tu veux
+              priority
+              quality={80}
             />
           </div>
         </section>
 
         {/* Recherche rapide */}
         <section className="section-search" aria-labelledby="search-title">
-          <h2
-            id="search-title"
-            className="text-3xl font-extrabold mb-6 text-gray-900"
-          >
+          <h2 id="search-title" className="text-3xl font-extrabold mb-6 text-gray-900">
             <FaSearch size={24} color="#333" /> Recherche rapide
           </h2>
           <div style={{ maxWidth: "48rem", margin: "0 auto" }}>
@@ -114,37 +132,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Avantages sous forme de bulles */}
-        <section
-          className="section-avantages"
-          aria-labelledby="avantages-title"
-        >
-          <h2
-            id="avantages-title"
-            className="text-4xl font-extrabold text-center text-blue-800 mb-16"
-          >
+        {/* Avantages */}
+        <section className="section-avantages" aria-labelledby="avantages-title">
+          <h2 id="avantages-title" className="text-4xl font-extrabold text-center text-blue-800 mb-16">
             Pourquoi choisir nos fiches ?
           </h2>
-          <div
-            style={{ maxWidth: "80rem", margin: "0 auto" }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-screen-xl mx-auto">
             {[
-              {
-                title: "Prépas Scientifiques",
-                desc: "Maths, Physique, Chimie, SII, Informatique et plus.",
-                icon: <FaGraduationCap size={60} color="#4a90e2" />,
-              },
-              {
-                title: "Prépas Économiques",
-                desc: "Maths, Informatique (Python).",
-                icon: <FaBriefcase size={60} color="#f5a623" />,
-              },
-              {
-                title: "Lycée",
-                desc: "Maths, Physique, Chimie, Informatique, SII.",
-                icon: <FaSchool size={60} color="#7ed321" />,
-              },
+              { title: "Prépas Scientifiques", desc: "Maths, Physique, Chimie, SII, Informatique et plus.", icon: <FaGraduationCap size={60} color="#4a90e2" /> },
+              { title: "Prépas Économiques", desc: "Maths, Informatique (Python).", icon: <FaBriefcase size={60} color="#f5a623" /> },
+              { title: "Lycée", desc: "Maths, Physique, Chimie, Informatique, SII.", icon: <FaSchool size={60} color="#7ed321" /> },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -152,15 +149,10 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 className="relative rounded-3xl shadow-2xl p-10 flex flex-col items-center justify-center min-h-[280px] text-white"
                 aria-label={item.title}
-                style={{
-                  background:
-                    "linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)",
-                }}
+                style={{ background: "linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)" }}
               >
                 <div className="text-6xl mb-5 drop-shadow-lg" aria-hidden="true">{item.icon}</div>
-                <h3 className="text-3xl font-bold mb-3 drop-shadow-lg">
-                  {item.title}
-                </h3>
+                <h3 className="text-3xl font-bold mb-3 drop-shadow-lg">{item.title}</h3>
                 <div className="speech-bubble">
                   <p>{item.desc}</p>
                 </div>
@@ -169,45 +161,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Témoignages */}
-        <section
-          className="section-temoignages"
-          aria-labelledby="temoignages-title"
-        >
-          {/* Balisage produit avec reviews */}
-          <div
-            itemScope
-            itemType="https://schema.org/Product"
-            style={{ display: "none" }}
-          >
-            <meta itemProp="name" content="Fiches de révision prépa et lycée" />
-            {/* Aggregate Rating pour le SEO */}
-            <div itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating">
-              <meta itemProp="ratingValue" content="5" />
-              <meta itemProp="reviewCount" content={String(displayedTemoignages.length)} />
-            </div>
-            {/* Reviews */}
-            {displayedTemoignages.map((item, index) => (
-              <div key={index} itemProp="review" itemScope itemType="https://schema.org/Review">
-                <meta itemProp="reviewBody" content={item.text} />
-                <meta itemProp="author" content={item.author} />
-                {/* itemReviewed */}
-                <meta itemProp="itemReviewed" content="Fiches de révision prépa et lycée" />
-              </div>
-            ))}
-          </div>
-
-          <h2
-            id="temoignages-title"
-            className="text-3xl font-extrabold text-center text-gray-900 mb-8"
-          >
+        {/* Témoignages visibles */}
+        <section className="section-temoignages" aria-labelledby="temoignages-title">
+          <h2 id="temoignages-title" className="text-3xl font-extrabold text-center text-gray-900 mb-8">
             Ils ont réussi grâce à nos fiches
           </h2>
-
-          <div
-            style={{ maxWidth: "60rem", margin: "0 auto" }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {displayedTemoignages.map((item, index) => (
               <motion.article
                 key={index}
@@ -221,43 +180,23 @@ export default function Home() {
                   flexDirection: "column",
                   justifyContent: "center",
                 }}
-                itemScope
-                itemType="https://schema.org/Review"
-                itemProp="review" // <-- AJOUTE CETTE LIGNE
               >
-                <span
-                  style={{ display: "none" }}
-                  itemProp="itemReviewed"
-                  itemScope
-                  itemType="https://schema.org/Product"
-                >
-                  <meta itemProp="name" content="Fiches de révision prépa et lycée" />
-                </span>
-                <p itemProp="reviewBody">{item.text}</p>
-                <span itemProp="author">{item.author}</span>
+                <p>{item.text}</p>
+                <span>{item.author}</span>
               </motion.article>
             ))}
           </div>
         </section>
 
-
-        {/* CTA Final */}
+        {/* Appel à l'action final */}
         <section className="section-cta" aria-labelledby="cta-title">
-          <h2
-            id="cta-title"
-            className="text-4xl md:text-5xl font-extrabold mb-6 text-white drop-shadow-lg"
-          >
+          <h2 id="cta-title" className="text-4xl md:text-5xl font-extrabold mb-6 text-white drop-shadow-lg">
             Prêt à améliorer tes résultats ?
           </h2>
           <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto font-light">
-            Accède à des centaines de fiches classées par matière et par programme,
-            gratuitement.
+            Accède à des centaines de fiches classées par matière et par programme, gratuitement.
           </p>
-          <Link
-            href="/fiches"
-            className="btn-primary text-xl"
-            aria-label="Explorer les Fiches"
-          >
+          <Link href="/fiches" className="btn-primary text-xl" aria-label="Explorer les Fiches">
             Explorer les Fiches
           </Link>
         </section>
@@ -267,4 +206,3 @@ export default function Home() {
     </>
   );
 }
-

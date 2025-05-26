@@ -34,11 +34,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Head>
-  <link rel="icon" href="/logo_revisya.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/logo_revisya.png" sizes="180x180" />
-        <meta name="theme-color" content="#ffffff" />
-      </Head>
+  <Head>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/favicon.ico" />
+</Head>
+
+
       {/* Google Analytics */}
       {GA_ID && (
         <>
