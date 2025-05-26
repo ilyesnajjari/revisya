@@ -224,9 +224,17 @@ export default function Home() {
                 itemScope
                 itemType="https://schema.org/Review"
               >
+                {/* Ajoute ce bloc pour itemReviewed */}
+                <span
+                  style={{ display: "none" }}
+                  itemProp="itemReviewed"
+                  itemScope
+                  itemType="https://schema.org/Product"
+                >
+                  <meta itemProp="name" content="Fiches de révision prépa et lycée" />
+                </span>
                 <p itemProp="reviewBody">{item.text}</p>
                 <span itemProp="author">{item.author}</span>
-                {/* Plus besoin de itemReviewed ici */}
               </motion.article>
             ))}
           </div>
