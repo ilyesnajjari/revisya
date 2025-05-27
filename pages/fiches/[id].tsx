@@ -10,7 +10,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export default function FicheDetail() {
   const router = useRouter();
@@ -18,12 +18,6 @@ export default function FicheDetail() {
 
   // Ajoute cette ligne pour forcer le remount quand l'id change
   useEffect(() => {}, [id]);
-
-  const [canGoBack, setCanGoBack] = useState(false);
-
-  useEffect(() => {
-    if (window.history.length > 1) setCanGoBack(true);
-  }, []);
 
   const fiche = fiches.find((f) => f.id === id);
 
