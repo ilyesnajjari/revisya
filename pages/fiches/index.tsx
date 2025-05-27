@@ -5,34 +5,18 @@ import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import 'katex/dist/katex.min.css';
-import { FaHeart, FaRegClock, FaRegCalendarCheck, FaCalculator } from "react-icons/fa";
+import { FaHeart, FaRegClock, FaRegCalendarCheck, FaCalculator, FaRegStickyNote } from "react-icons/fa";
 
-import {
-  fichesMaths,
-  fichesPhysique,
-  fichesInfo,
-  fichesChimie,
-  fichesKholles,
-  fichesSI, // <-- Ajoute cette ligne
-  Fiche,
-  fiches // Import fiches
-} from '../../data/fiches';
+import { Fiche, fiches } from '../../data/fiches';
 import CompteAReboursModal from '../../components/CompteAReboursModal';
+import toast from "react-hot-toast";
 
-const matieres = ['Mathématiques', 'Physique', 'Informatique', 'Chimie','Sciences de l\'Ingénieur', 'Kholles']; 
+const matieres = ['Mathématiques', 'Physique', 'Informatique', 'Chimie','Sciences de l\'Ingénieur']; 
 const triOptions = ['Titre (A-Z)', 'Date (récent)'];
 type Niveau = 'Tous' | 'Lycée' | 'Prépa' | 'Université';
 const niveaux: Niveau[] = ['Tous', 'Lycée', 'Prépa', 'Université'];
 
-// Fusionne toutes les fiches au lieu de fichesParMatiere
-const toutesFiches = [
-  ...fichesMaths,
-  ...fichesPhysique,
-  ...fichesInfo,
-  ...fichesChimie,
-  ...fichesSI,
-  ...fichesKholles,
-];
+
 
 export default function FichesPage() {
   const router = useRouter();
@@ -51,6 +35,35 @@ export default function FichesPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [cible, setCible] = useState<'concours' | 'bac'>('concours');
 
+  const fichesFiltres = useMemo(() => {
+    let res = fiches.filter(f => f.matiere === matiereActive);
+
+    if (niveauFiltre !== 'Tous') {
+      res = res.filter(f => f.niveau.includes(niveauFiltre));
+    }
+
+    if (recherche.trim() !== '') {
+      const search = recherche.toLowerCase();
+      res = res.filter(f =>
+        f.titre.toLowerCase().includes(search) ||
+        f.matiere.toLowerCase().includes(search) ||
+        f.categorie.toLowerCase().includes(search) ||
+        f.contenu.toLowerCase().includes(search) ||
+        f.niveau.some(niveau => niveau.toLowerCase().includes(search)) ||
+        (f.tags && f.tags.some(tag => tag.toLowerCase().includes(search)))
+      );
+    }
+
+    if (filtreCategorie) res = res.filter(f => f.categorie === filtreCategorie);
+    if (filtrePopulaire) res = res.filter(f => f.populaire);
+    if (filtreFavoris) res = res.filter(f => favoris.includes(f.id));
+
+    if (tri === 'Titre (A-Z)') res = [...res].sort((a, b) => a.titre.localeCompare(b.titre));
+    if (tri === 'Date (récent)') res = [...res].sort((a, b) => (b.datePublication || '').localeCompare(a.datePublication || ''));
+
+    return res;
+  }, [matiereActive, niveauFiltre, recherche, tri, filtreCategorie, filtrePopulaire, filtreFavoris, favoris]);
+
   // Charger les favoris du localStorage côté client uniquement
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -65,7 +78,7 @@ export default function FichesPage() {
 
   const categoriesDisponibles = useMemo(
     () => Array.from(new Set(
-      toutesFiches
+      fiches
         .filter(f => f.matiere === matiereActive)
         .map(f => f.categorie)
     )),
@@ -109,36 +122,6 @@ export default function FichesPage() {
     setFiltreFavoris(false);
     setPageCourante(1);
   };
-
-  // Filtres optimisés
-  const fichesFiltres = useMemo(() => {
-    let res = toutesFiches.filter(f => f.matiere === matiereActive);
-
-    if (niveauFiltre !== 'Tous') {
-      res = res.filter(f => f.niveau.includes(niveauFiltre));
-    }
-
-    if (recherche.trim() !== '') {
-      const search = recherche.toLowerCase();
-      res = res.filter(f =>
-        f.titre.toLowerCase().includes(search) ||
-        f.matiere.toLowerCase().includes(search) ||
-        f.categorie.toLowerCase().includes(search) ||
-        f.contenu.toLowerCase().includes(search) ||
-        f.niveau.some(niveau => niveau.toLowerCase().includes(search)) ||
-        (f.tags && f.tags.some(tag => tag.toLowerCase().includes(search)))
-      );
-    }
-
-    if (filtreCategorie) res = res.filter(f => f.categorie === filtreCategorie);
-    if (filtrePopulaire) res = res.filter(f => f.populaire);
-    if (filtreFavoris) res = res.filter(f => favoris.includes(f.id));
-
-    if (tri === 'Titre (A-Z)') res = [...res].sort((a, b) => a.titre.localeCompare(b.titre));
-    if (tri === 'Date (récent)') res = [...res].sort((a, b) => (b.datePublication || '').localeCompare(a.datePublication || ''));
-
-    return res;
-  }, [matiereActive, niveauFiltre, recherche, tri, filtreCategorie, filtrePopulaire, filtreFavoris, favoris]);
 
   // Pagination optimisée avec useMemo
   const fichesAffichees = useMemo(
@@ -214,6 +197,23 @@ export default function FichesPage() {
       </li>
     );
   });
+
+  useEffect(() => {
+    // Affiche la notification UNIQUEMENT si on vient d'ajouter des fiches (pas à chaque actualisation)
+    if (typeof window !== "undefined") {
+      const dejaVu = localStorage.getItem("fichesNotifVue");
+      if (!dejaVu) {
+        toast(
+          <span>
+            <FaRegStickyNote style={{ marginRight: 8, color: "#2563eb", verticalAlign: "middle" }} />
+            {`J'ai ajouté des fiches : ${fichesFiltres.length} affichées`}
+          </span>
+        );
+        localStorage.setItem("fichesNotifVue", "1");
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -365,6 +365,18 @@ export function FicheDetail() {
 
   return (
     <div>
+      <Head>
+        <title>{fiche.titre} - {fiche.matiere}</title>
+        <meta
+          name="description"
+          content={`Fiche de révision sur ${fiche.titre} en ${fiche.matiere} : ${fiche.contenu.slice(0, 150)}...`}
+        />
+        {/* Ajout des tags dans la meta keywords */}
+        <meta
+          name="keywords"
+          content={fiche.tags && fiche.tags.length > 0 ? fiche.tags.join(', ') : `${fiche.titre}, ${fiche.matiere}`}
+        />
+      </Head>
       <h1>{fiche.titre}</h1>
       <p>{fiche.contenu}</p>
       {/* Ajoutez d'autres détails de la fiche ici */}

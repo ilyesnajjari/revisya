@@ -112,12 +112,13 @@ export default function Home() {
             <Image
               src="/index_pages/index_pages.png"
               alt="Illustration de révision pour prépa et lycée"
-              width={900}
-              height={600}
+              width={400} // réduit la taille réelle de l'image pour optimiser le poids
+              height={267} // conserve le ratio 3:2
               sizes="(max-width: 600px) 100vw, 400px"
               className="rounded-custom"
               priority
-              quality={80}
+              quality={70} // réduit la qualité pour alléger le poids
+              style={{ width: "100%", height: "auto" }} // garde la taille d'affichage responsive
             />
           </div>
         </section>

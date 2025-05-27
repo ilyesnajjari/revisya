@@ -32,22 +32,52 @@
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/trinome-second-degre</loc>
+        <loc>https://revisya.fr/fiches/Algebre-generale</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/somme-produit-racines</loc>
+        <loc>https://revisya.fr/fiches/Trigonometrie-formules</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/trinome-second-degree</loc>
+        <loc>https://revisya.fr/fiches/Complexes-formules</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/Euclidien-endomorphismes</loc>
+        <loc>https://revisya.fr/fiches/Calcul-matriciel</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Produit-scalaire</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Endomorphismes-symetriques</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Réduction-endomorphismes-theoremes</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Polynomes</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Espaces-vectoriels-et-applications-lineaires</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Supplementaires-et-projecteurs</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
@@ -57,7 +87,17 @@
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/Variables-aleatoires-couples-familles</loc>
+        <loc>https://revisya.fr/fiches/somme-produit-racines</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/trinome-second-degre</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Developpements-limites</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
@@ -67,17 +107,27 @@
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/Endomorphismes-matrices-carrees</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-      </url>
-      <url>
         <loc>https://revisya.fr/fiches/Équations-differentielles-lineaires</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/Espaces-probabilises</loc>
+        <loc>https://revisya.fr/fiches/theoremes-fondamentaux-analyse</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/limites-et-continuite</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/resolution-systemes-lineaires-rang-cramer</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/suites-recurrentes-non-lineaires</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
@@ -97,7 +147,7 @@
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/Réduction-endomorphismes-matrices</loc>
+        <loc>https://revisya.fr/fiches/suites-arithmetico-geometriques</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
@@ -107,12 +157,22 @@
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/Série-numeriques</loc>
+        <loc>https://revisya.fr/fiches/Etude-globale-fonction</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/Suites-series-fonctions</loc>
+        <loc>https://revisya.fr/fiches/Serie-numerique-theoremes</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Suites-series-fonctions-theoremes</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Variables-aleatoires-couples-familles</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
@@ -122,7 +182,147 @@
         <priority>0.8</priority>
       </url>
       <url>
+        <loc>https://revisya.fr/fiches/Denombrement</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Espaces-probabilises</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Variables-aleatoires-a-densite</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Moments-variable-reelle</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Lois-discretes-usuelles</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Lois-usuelles-a-densite</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/Convergences-et-approximations</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
         <loc>https://revisya.fr/fiches/physique-milieux-ferromagnetiques</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/python-structures-controle</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/python-poo</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/python-exceptions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/cpp-bases</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/cpp-controle</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/cpp-fonctions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/cpp-poo</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/cpp-pointeurs-references</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/cpp-memoire-dynamique</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/cpp-fichiers</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/cpp-stl-intro</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/csharp-variables-types</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/csharp-conditions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/csharp-boucles</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/csharp-classes-objets</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/csharp-listes</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/java-variables-types</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/java-conditions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/java-boucles</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/java-classes-objets</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/java-listes</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
@@ -153,6 +353,51 @@
       </url>
       <url>
         <loc>https://revisya.fr/fiches/diagramme-epH</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/mecanique-cinematique</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/mecanique-statique</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/mecanique-dynamique</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/mecanique-energetique</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/automatique-sli-schema-blocs</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/automatique-reponses-indicielle-frequentielle</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/automatique-correcteurs</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/automatique-stabilite-routh-marges</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/automatique-transformee-laplace</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
