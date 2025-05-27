@@ -69,11 +69,17 @@ Dans le texte :
   \\nabla f = \\left( \\frac{\\partial f}{\\partial x_1}, \\ldots, \\frac{\\partial f}{\\partial x_p} \\right)
   $$
   ```
+- Pour la **valeur absolue**, utilisez :  
+  - `$\\lvert x \\rvert$` ou `$|x|$`  
+  - Pour une expression plus complexe : `$\left| x^2-1 \right|$`
 
 Dans les chaînes de caractères (JS, JSON, etc.) :
 - Doublez les backslash dans les commandes LaTeX :
   - `\nabla` → `\\nabla`
   - `\frac` → `\\frac`
+  - `\lvert` → `\\lvert`
+  - `\implies` → `\\implies`
+  - `\quad` → `\\quad`
 - Ne pas échapper les `$` (ils délimitent la formule) ni les `{}` (utilisés normalement).
 
 ---
@@ -95,27 +101,6 @@ Dans les chaînes de caractères (JS, JSON, etc.) :
 ---
 
 Avec ces configurations, votre projet est prêt pour un déploiement professionnel avec un domaine personnalisé et un hébergement optimisé.
-
-
-
-
-
-
-Dans le texte :
-Utilise $ ... $ pour le LaTeX inline, par ex.
-Soit $f : U \\subset \\mathbb{R}^p \\to \\mathbb{R}$.
-Pour une formule sur une ligne seule, centrée :
-Utilise $$ ... $$
-Par ex.
-$$
-\\nabla f = \\left( \\frac{\\partial f}{\\partial x_1}, \\ldots, \\frac{\\partial f}{\\partial x_p} \\right)
-$$
-Dans la chaîne de caractères (JS, JSON, etc.) :
-Toujours doubler les backslash dans les commandes LaTeX :
-\nabla → \\nabla, \frac → \\frac, etc.
-Sinon, JS risque d’interpréter \n comme saut de ligne.
-Ne pas échapper les $ (ils délimitent la formule) ni les {} qui sont utilisés normalement.
-en respectant ce format corrige ca :
 
 
 

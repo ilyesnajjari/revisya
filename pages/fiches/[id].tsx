@@ -10,10 +10,20 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import { useEffect, useState } from 'react';
 
 export default function FicheDetail() {
   const router = useRouter();
   const { id } = router.query;
+
+  // Ajoute cette ligne pour forcer le remount quand l'id change
+  useEffect(() => {}, [id]);
+
+  const [canGoBack, setCanGoBack] = useState(false);
+
+  useEffect(() => {
+    if (window.history.length > 1) setCanGoBack(true);
+  }, []);
 
   const fiche = fiches.find((f) => f.id === id);
 
@@ -62,9 +72,13 @@ export default function FicheDetail() {
       <Header />
 
       <main className="fiche-detail-main">
-        <Link href="/fiches" className="fiche-retour-btn">
+        <button
+          type="button"
+          className="fiche-retour-btn"
+          onClick={() => router.push('/fiches')}
+        >
           ← Retour aux fiches
-        </Link>
+        </button>
         <h1 className="fiche-detail-title">{fiche.titre}</h1>
         <span className="fiche-categorie">{fiche.categorie}</span>
         <p className="fiche-detail-niveau">{fiche.niveau.join(' - ')}</p>

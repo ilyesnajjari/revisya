@@ -15,107 +15,1038 @@ export type Fiche = {
 
 // Mathématiques
 export const fichesMaths: Fiche[] = [
-  //trinome-second-degre
+  //Algebre
+
+  // algebre-generale
   {
-    id: "trinome-second-degre",
-    titre: "Fonction trinôme du second degré",
-    matiere: "Mathématiques",
-    categorie: "Analyse", // <-- Ajouté
-    niveau: ["Lycée"], // Plusieurs niveaux
-    contenu: `
-## Définition
-
-Une **fonction trinôme** est une fonction polynomiale de degré 2, s'écrivant sous la forme :  
-$$
-f(x) = ax^2 + bx + c
-$$  
-avec $a \\neq 0$, et $a, b, c \\in \\mathbb{R}$.
-
-Elle modélise une **courbe en forme de parabole** dans un repère cartésien.
+  id: 'Algebre-generale',
+  titre: 'Algèbre Générale - Bases',
+  matiere: 'Mathématiques',
+  categorie: 'Algèbre',
+  niveau: ['Prépa', 'Université'],
+  contenu: `
+### Algèbre Générale
 
 ---
 
-## Forme canonique
-
-Toute fonction trinôme peut être réécrite sous la **forme canonique** suivante :  
+#### Produit de sommes
+- Produit de deux sommes :
 $$
-f(x) = a(x - \\alpha)^2 + \\beta
-$$  
-avec :  
-- $\\alpha = -\\frac{b}{2a}$ (abscisse du sommet de la parabole)  
-- $\\beta = f(\\alpha)$ (ordonnée du sommet)
-
-Cette forme permet de **repérer facilement le sommet** de la parabole $S(\\alpha, \\beta)$.
+\\left(\\sum_i a_i \\right) \\times \\left(\\sum_j b_j \\right) = \\sum_i \\sum_j a_i b_j.
+$$
+- Utilisé pour développer des expressions algébriques.
 
 ---
 
-## Sens de variation
-
-Le signe du coefficient $a$ détermine la **concavité** de la parabole et donc les **variations** de la fonction :
-
-- Si $a > 0$ : la parabole est **ouverte vers le haut**  
-   $f$ **décroît** sur $]-\\infty, \\alpha]$ et **croît** sur $[\\alpha, +\\infty[$  
-   Le **minimum** est atteint en $x = \\alpha$
-
-- Si $a < 0$ : la parabole est **ouverte vers le bas**  
-   $f$ **croît** sur $]-\\infty, \\alpha]$ et **décroît** sur $[\\alpha, +\\infty[$  
-   Le **maximum** est atteint en $x = \\alpha$
-
----
-
-## Racines (solutions de l'équation $f(x) = 0$)
-
-Pour résoudre $ax^2 + bx + c = 0$, on utilise le **discriminant** $\\Delta$ :
-
-$$
-\\Delta = b^2 - 4ac
-$$
-
-- Si $\\Delta > 0$ : deux racines réelles distinctes :  
+#### Sommes classiques
+- Sommes usuelles :
+  - Somme des entiers de 1 à $n$ :
   $$
-  x_1 = \\frac{-b - \\sqrt{\\Delta}}{2a}, \\quad x_2 = \\frac{-b + \\sqrt{\\Delta}}{2a}
+  \\sum_{k=1}^n k = \\frac{n(n+1)}{2}.
+  $$
+  - Somme des carrés de 1 à $n$ :
+  $$
+  \\sum_{k=1}^n k^2 = \\frac{n(n+1)(2n+1)}{6}.
+  $$
+  - Somme des cubes de 1 à $n$ :
+  $$
+  \\sum_{k=1}^n k^3 = \\left( \\frac{n(n+1)}{2} \\right)^2.
   $$
 
-- Si $\\Delta = 0$ : une racine double (ou racine unique) :  
+---
+
+#### Formule du binôme de Newton
+- Pour tout $n \\in \\mathbb{N}$, $(a+b)^n$ s’écrit :
+$$
+(a + b)^n = \\sum_{k=0}^n \\binom{n}{k} a^{n-k} b^k,
+$$
+où
+$$
+\\binom{n}{k} = \\frac{n!}{k!(n-k)!}.
+$$
+
+---
+
+#### Lien coefficients/racines d’un polynôme
+- Pour un polynôme de degré $n$,
+$$
+P(x) = a_n x^n + a_{n-1} x^{n-1} + \\cdots + a_0,
+$$
+avec racines $r_1, r_2, ..., r_n$ (dans $\\mathbb{C}$), on a :
+  - Somme des racines :
   $$
-  x_0 = -\\frac{b}{2a}
+  r_1 + r_2 + \\cdots + r_n = -\\frac{a_{n-1}}{a_n}.
+  $$
+  - Produit des racines :
+  $$
+  r_1 r_2 \\cdots r_n = (-1)^n \\frac{a_0}{a_n}.
   $$
 
-- Si $\\Delta < 0$ : **aucune racine réelle** (les solutions sont complexes)
+---
+
+#### Opérations sur ensembles : union, intersection, complémentaire
+- **Union** : $A \\cup B = \\{ x : x \\in A \\text{ ou } x \\in B \\}$.
+- **Intersection** : $A \\cap B = \\{ x : x \\in A \\text{ et } x \\in B \\}$.
+- **Complémentaire** : $A^c = \\{ x : x \\notin A \\}$.
+- Formules classiques :
+  - $A \\cup B = A + B - A \\cap B$ (cardinal)
+  - $\\overline{A \\cup B} = \\overline{A} \\cap \\overline{B}$ (loi de De Morgan)
+  - $\\overline{A \\cap B} = \\overline{A} \\cup \\overline{B}$ (loi de De Morgan)
+
+  `,
+  tags: [
+    'algèbre',
+    'produit',
+    'somme',
+    'binôme de Newton',
+    'polynôme',
+    'racines',
+    'ensembles',
+    'union',
+    'intersection',
+    'complémentaire'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+
+// Trigonometrie-formules
+{
+  id: 'Trigonometrie-formules',
+  titre: 'Trigonométrie - Formules au programme',
+  matiere: 'Mathématiques',
+  categorie: 'Algèbre',
+  niveau: ['Lycée', 'Prépa', 'Université'],
+  contenu: `
+### Trigonométrie - Formules au programme
 
 ---
 
-## Représentation graphique
-
-- **Courbe** : une **parabole** symétrique par rapport à l’axe $x = \\alpha$
-- **Sommet** : point $S(\\alpha, \\beta)$
-- **Axe de symétrie** : droite d'équation $x = \\alpha$
-- Les **racines** (si elles existent) sont les points d'intersection avec l’axe des abscisses ($f(x) = 0$)
+#### Formules de base
+- Relations fondamentales :
+  - $\\sin^2 x + \\cos^2 x = 1$,
+  - $\\tan x = \\frac{\\sin x}{\\cos x}$ (si $\\cos x \\neq 0$).
 
 ---
 
-## Signe du trinôme
-
-Le signe de $f(x) = ax^2 + bx + c$ dépend de $a$ et du discriminant $\\Delta$ :
-
-- Si $\\Delta > 0$, alors :
-  - $f(x) > 0$ à l'extérieur des racines
-  - $f(x) < 0$ entre les racines (si $a > 0$) et inversement si $a < 0$
-
-- Si $\\Delta = 0$, alors :
-  - $f(x)$ a **le même signe que $a$** sauf au point racine où $f(x) = 0$
-
-- Si $\\Delta < 0$, alors :
-  - $f(x)$ a toujours **le signe de $a$**
+#### Formules d’addition et de soustraction
+- $\\sin(a \\pm b) = \\sin a \\cos b \\pm \\cos a \\sin b$,
+- $\\cos(a \\pm b) = \\cos a \\cos b \\mp \\sin a \\sin b$,
+- $\\tan(a \\pm b) = \\frac{\\tan a \\pm \\tan b}{1 \\mp \\tan a \\tan b}$.
 
 ---
-    `,
-    tags: ["trinôme", "second degré", "équation quadratique", "forme canonique", "parabole"],
-    datePublication: "2025-05-22",
-    populaire: true,
-    aReviser: false
-  },
-  // somme-produit-racines
+
+#### Formules de duplication (double angle)
+- $\\sin(2x) = 2 \\sin x \\cos x$,
+- $\\cos(2x) = \\cos^2 x - \\sin^2 x = 2 \\cos^2 x - 1 = 1 - 2 \\sin^2 x$,
+- $\\tan(2x) = \\frac{2 \\tan x}{1 - \\tan^2 x}$.
+
+---
+
+#### Formules de réduction
+- $\\sin(\\pi - x) = \\sin x$,
+- $\\cos(\\pi - x) = -\\cos x$,
+- $\\sin(-x) = -\\sin x$,
+- $\\cos(-x) = \\cos x$.
+
+---
+
+#### Formules de produit en somme et somme en produit
+- $\\sin a \\sin b = \\frac{1}{2} [ \\cos(a - b) - \\cos(a + b) ]$,
+- $\\cos a \\cos b = \\frac{1}{2} [ \\cos(a - b) + \\cos(a + b) ]$,
+- $\\sin a \\cos b = \\frac{1}{2} [ \\sin(a + b) + \\sin(a - b) ]$.
+
+---
+
+### Formules hors programme (à connaître mais pas au programme officiel)
+
+- Formules de la tangente de demi-angle :
+  $$
+  \\tan \\frac{x}{2} = \\frac{\\sin x}{1 + \\cos x} = \\frac{1 - \\cos x}{\\sin x}.
+  $$
+
+- Formules d’angle multiple :
+  - $\\sin(3x) = 3 \\sin x - 4 \\sin^3 x$,
+  - $\\cos(3x) = 4 \\cos^3 x - 3 \\cos x$.
+
+- Formules d’addition pour les fonctions inverses (arcsin, arccos, arctan), utiles pour certaines intégrations.
+
+  `,
+  tags: [
+    'trigonométrie',
+    'formules',
+    'sinus',
+    'cosinus',
+    'tangente',
+    'angles',
+    'formules d\'addition',
+    'formules de duplication',
+    'formules produit-somme'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+
+// Complexes-formules
+{
+  id: 'Complexes-formules',
+  titre: 'Nombres Complexes - Formules essentielles',
+  matiere: 'Algèbre',
+  categorie: 'Mathématiques',
+  niveau: ['Lycée','Prépa', 'Université'],
+  contenu: `
+### Nombres Complexes - Formules essentielles
+
+---
+
+#### Formules d’Euler
+- Pour tout réel $\\theta$ :
+  $$
+  e^{i\\theta} = \\cos \\theta + i \\sin \\theta.
+  $$
+- En particulier :
+  $$
+  \\cos \\theta = \\frac{e^{i\\theta} + e^{-i\\theta}}{2}, \\quad \\sin \\theta = \\frac{e^{i\\theta} - e^{-i\\theta}}{2i}.
+  $$
+
+---
+
+#### Racines nèmes de l’unité
+- Les $n$ racines complexes de l’équation $z^n = 1$ sont données par :
+  $$
+  z_k = e^{i \\frac{2\\pi k}{n}}, \\quad k = 0, 1, \\dots, n-1.
+  $$
+- Elles forment un polygone régulier à $n$ sommets sur le cercle unité dans le plan complexe.
+
+---
+
+#### Résolution du trinôme du second degré à coefficients réels
+- Équation : $az^2 + bz + c = 0$, avec $a \\neq 0$, $a,b,c \\in \\mathbb{R}$.
+- Discriminant : $\\Delta = b^2 - 4ac$.
+- Solutions dans $\\mathbb{C}$ :
+  - Si $\\Delta \\geq 0$ :
+    $$
+    z_1 = \\frac{-b - \\sqrt{\\Delta}}{2a}, \\quad z_2 = \\frac{-b + \\sqrt{\\Delta}}{2a}.
+    $$
+  - Si $\\Delta < 0$ :
+    $$
+    z_1 = \\frac{-b}{2a} - i \\frac{\\sqrt{-\\Delta}}{2a}, \\quad z_2 = \\frac{-b}{2a} + i \\frac{\\sqrt{-\\Delta}}{2a}.
+    $$
+
+---
+
+#### Représentation trigonométrique
+- Pour $z = re^{i\\theta}$ avec $r = |z|$ et $\\theta = \\arg(z)$ :
+  $$
+  z = r(\\cos \\theta + i \\sin \\theta).
+  $$
+
+- Puissance et racines :
+  $$
+  z^n = r^n e^{i n \\theta}, \quad z^{1/n} = r^{1/n} e^{i \\frac{\\theta + 2k\\pi}{n}}, \quad k=0,...,n-1.
+  $$
+
+  `,
+  tags: [
+    'nombres complexes',
+    'formules d\'Euler',
+    'racines nèmes',
+    'polynôme du second degré',
+    'équation quadratique',
+    'algèbre'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+  
+
+  //Endomorphismes-matrices-carrees
+{
+  id: 'Calcul-matriciel',
+  titre: 'Calcul Matriciel',
+  matiere: 'Mathématiques',
+  categorie: 'Algèbre',
+  niveau: ['Prépa'],
+  contenu: `
+### Calcul Matriciel
+
+---
+
+#### Définition
+- Une matrice $A$ est un tableau rectangulaire de coefficients $a_{ij}$ appartenant à un corps $\mathbb{K}$, de dimension $m \\times n$.
+- Les matrices carrées ont même nombre de lignes et de colonnes : $n \\times n$.
+
+---
+
+#### Image et noyau
+- Considérer la matrice $A \\in \\mathcal{M}_{m,n}(\\mathbb{K})$ comme une application linéaire $f : \\mathbb{K}^n \\to \\mathbb{K}^m$.
+- L’**image** de $A$ est l’ensemble des vecteurs $y$ tels qu’il existe $x$ avec $Ax = y$.
+- Le **noyau** de $A$ est l’ensemble des vecteurs $x$ tels que $Ax = 0$.
+
+---
+
+#### Produit matriciel
+- Soient $A \\in \\mathcal{M}_{m,n}(\\mathbb{K})$ et $B \\in \\mathcal{M}_{n,p}(\\mathbb{K})$, le produit $AB \\in \\mathcal{M}_{m,p}(\\mathbb{K})$ est défini par :
+  $$
+  (AB)_{ij} = \\sum_{k=1}^n a_{ik} b_{kj}.
+  $$
+- Le produit matriciel est associatif mais **non commutatif** en général.
+
+---
+
+#### Transposée
+- La transposée d’une matrice $A = (a_{ij})$ est la matrice $A^T = (a_{ji})$.
+- Propriétés :
+  - $(A^T)^T = A$,
+  - $(A + B)^T = A^T + B^T$,
+  - $(\lambda A)^T = \lambda A^T$,
+  - $(AB)^T = B^T A^T$.
+
+---
+
+#### Matrices symétriques et antisymétriques
+- $A$ est **symétrique** si $A = A^T$.
+- $A$ est **antisymétrique** (ou skew-symétrique) si $A^T = -A$.
+- Toute matrice carrée $M$ peut s’écrire de manière unique comme :
+  $$
+  M = \frac{M + M^T}{2} + \frac{M - M^T}{2},
+  $$
+  où la première partie est symétrique, la seconde antisymétrique.
+
+---
+
+#### Matrices triangulaires supérieures
+- Une matrice carrée est **triangulaire supérieure** si tous ses coefficients sous la diagonale sont nuls : $a_{ij} = 0$ pour $i > j$.
+- Propriétés importantes :
+  - Le produit de matrices triangulaires supérieures est triangulaire supérieure.
+  - Le déterminant est le produit des coefficients diagonaux.
+
+---
+
+#### Matrices inversibles
+- Une matrice carrée $A$ est **inversible** s’il existe $A^{-1}$ telle que :
+  $$
+  AA^{-1} = A^{-1}A = I_n,
+  $$
+  où $I_n$ est la matrice identité.
+- Propriétés :
+  - $A$ inversible $\iff$ $\\det(A) \\neq 0$,
+  - $(A^{-1})^T = (A^T)^{-1}$,
+  - Si $A$ et $B$ sont inversibles, alors $AB$ est inversible et $(AB)^{-1} = B^{-1} A^{-1}$.
+
+  `,
+  tags: [
+    'matrices',
+    'calcul matriciel',
+    'image',
+    'noyau',
+    'produit matriciel',
+    'transposée',
+    'matrices symétriques',
+    'triangulaire',
+    'matrices inversibles',
+    'algèbre linéaire'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+// Produit-scalaire
+ {
+  id: 'Produit-scalaire',
+  titre: 'Produit Scalaire',
+  matiere: 'Mathématiques',
+  categorie: 'Algèbre',
+  niveau: ['Prépa', 'Université'],
+  contenu: `
+### Produit Scalaire
+
+---
+
+#### Définition
+- Un produit scalaire sur un espace vectoriel réel $E$ est une application bilinéaire symétrique, positive définie :
+  $$
+  \\langle \\, \\cdot \\, , \\, \\cdot \\, \\rangle : E \\times E \\to \\mathbb{R}
+  $$
+  telle que pour tout $x, y, z \\in E$ et $\\lambda \\in \\mathbb{R}$ :
+  - Bilinéarité : $\\langle x + y, z \\rangle = \\langle x, z \\rangle + \\langle y, z \\rangle$, et $\\langle \\lambda x, y \\rangle = \\lambda \\langle x, y \\rangle$
+  - Symétrie : $\\langle x, y \\rangle = \\langle y, x \\rangle$
+  - Positivité : $\\langle x, x \\rangle \\geq 0$ avec égalité si et seulement si $x = 0$
+
+---
+
+#### Inégalité de Cauchy-Schwarz
+- Pour tous $x, y \\in E$ :
+  $$
+  |\\langle x, y \\rangle| \\leq \\|x\\| \\cdot \\|y\\|
+  $$
+  où $\\|x\\| = \\sqrt{\\langle x, x \\rangle}$ est la norme associée.
+
+---
+
+#### Orthogonalisation de Gram-Schmidt
+- Procédé permettant de construire à partir d’une famille libre $(v_1, \\dots, v_n)$ une famille orthogonale (ou orthonormale) $(u_1, \\dots, u_n)$ :
+  $$
+  u_1 = v_1, \quad
+  u_k = v_k - \\sum_{j=1}^{k-1} \\frac{\\langle v_k, u_j \\rangle}{\\langle u_j, u_j \\rangle} u_j, \quad k=2,\\dots,n
+  $$
+
+---
+
+#### Formules avec $\\langle \\, \\cdot \\, , \\, \\cdot \\, \\rangle$
+- Norme : $\\|x\\| = \\sqrt{\\langle x, x \\rangle}$
+- Relation de polarisation : 
+  $$
+  \\langle x, y \\rangle = \\frac{1}{4} \\big( \\|x + y\\|^2 - \\|x - y\\|^2 \\big)
+  $$
+
+---
+
+#### Projecteur orthogonal
+- Pour un sous-espace vectoriel $F \\subset E$, le projecteur orthogonal $P_F : E \\to F$ est l'application linéaire telle que pour tout $x \\in E$ :
+  $$
+  x = P_F(x) + (x - P_F(x)),
+  $$
+  avec $P_F(x) \\in F$ et $x - P_F(x)$ orthogonal à $F$.
+
+---
+
+#### Méthode des moindres carrés
+- Trouver $\\hat{x} \\in F$ qui minimise $\\|y - \\hat{x}\\|^2$ pour $y \\in E$.
+- Solution donnée par $\\hat{x} = P_F(y)$, projecteur orthogonal de $y$ sur $F$.
+
+---
+
+#### Droite de régression linéaire
+- Modèle simple $y = ax + b + \\varepsilon$
+- Les coefficients $a, b$ minimisent la somme des carrés des erreurs.
+- Formule analytique par moindres carrés dans $\\mathbb{R}^2$ :
+  $$
+  a = \\frac{\\text{Cov}(X,Y)}{\\text{Var}(X)}, \quad b = \\bar{Y} - a \\bar{X}
+  $$
+  où $\\bar{X}, \\bar{Y}$ sont les moyennes.
+
+  `,
+  tags: [
+    'produit scalaire',
+    'orthogonalisation',
+    'cauchy-schwarz',
+    'projecteur orthogonal',
+    'moindres carrés',
+    'régression linéaire'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+// Endomorphismes-symetriques
+{
+  id: 'Endomorphismes-symetriques',
+  titre: 'Endomorphismes Symétriques',
+  matiere: 'Mathématiques',
+  categorie: 'Algèbre',
+  niveau: ['Prépa', 'Université'],
+  contenu: `
+### Endomorphismes Symétriques
+
+---
+
+#### Définition d’un endomorphisme symétrique
+- Soit $(E, \\langle \\, \\cdot \\, , \\, \\cdot \\, \\rangle)$ un espace vectoriel euclidien.
+- Un endomorphisme $f : E \\to E$ est **symétrique** si pour tous $x,y \\in E$ :
+  $$
+  \\langle f(x), y \\rangle = \\langle x, f(y) \\rangle
+  $$
+
+---
+
+#### Forme quadratique associée
+- La forme quadratique $Q_f$ associée à $f$ est définie par :
+  $$
+  Q_f(x) = \\langle f(x), x \\rangle
+  $$
+- $Q_f$ est réelle et symétrique.
+
+---
+
+#### Théorème spectral (cas réel)
+- Tout endomorphisme symétrique $f$ sur un espace euclidien réel admet une base orthonormée $(e_1, \\dots, e_n)$ de vecteurs propres.
+- En cette base, la matrice de $f$ est diagonale.
+- Les valeurs propres sont réelles.
+
+---
+
+#### Décomposition en somme de projecteurs orthogonaux
+- Si $\\lambda_1, \\dots, \\lambda_k$ sont les valeurs propres distinctes de $f$ avec sous-espaces propres $E_{\\lambda_i}$,
+  alors :
+  $$
+  f = \\sum_{i=1}^k \\lambda_i P_i
+  $$
+  où $P_i$ est le projecteur orthogonal sur $E_{\\lambda_i}$.
+- Ces projecteurs sont orthogonaux et vérifient :
+  $$
+  P_i P_j = 0 \\quad (i \\neq j), \quad \\sum_{i=1}^k P_i = \\mathrm{Id}
+  $$
+
+---
+
+#### Conséquences
+- Diagonalisation orthogonale : matrice symétrique = matrice diagonale dans une base orthonormée.
+- Application importante en optimisation, mécanique, statistiques (analyse en composantes principales).
+
+  `,
+  tags: [
+    'endomorphisme symétrique',
+    'théorème spectral',
+    'projecteurs orthogonaux',
+    'forme quadratique',
+    'algèbre linéaire',
+    'diagonalisation'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+
+//Réduction-endomorphismes-matrices
+{
+  id: 'Réduction-endomorphismes-matrices',
+  titre: 'Réduction des Endomorphismes et des Matrices Carrées',
+  matiere: 'Mathématiques',
+  categorie: 'Algèbre',
+  niveau: ['Prépa', 'Université'],
+  contenu: `
+### Réduction des Endomorphismes et des Matrices Carrées
+
+---
+
+#### Valeurs propres
+- Définition : $\\lambda \\in \\mathbb{K}$ est une valeur propre d’un endomorphisme $f$ ou d’une matrice carrée $A$ s’il existe un vecteur non nul $v$ tel que :
+  $$
+  f(v) = \\lambda v \quad \text{ou} \quad Av = \\lambda v.
+  $$
+
+---
+
+#### Spectre
+- Ensemble des valeurs propres de $f$ ou $A$.
+
+---
+
+#### Vecteurs propres
+- Vecteurs non nuls associés à une valeur propre donnée.
+
+---
+
+#### Sous-espaces propres
+- $E_{\\lambda} = \\{ v \\in E : f(v) = \\lambda v \\}$, sous-espace vectoriel propre associé à $\\lambda$.
+
+---
+
+#### Polynôme caractéristique
+- Défini par :
+  $$
+  \\chi_f(X) = \\det(X I - A),
+  $$
+  où $A$ est la matrice de $f$ dans une base.
+- Ses racines sont les valeurs propres.
+
+---
+
+#### Multiplicité d’une valeur propre
+- Multiplicité algébrique : multiplicité de $\\lambda$ comme racine de $\\chi_f$.
+- Multiplicité géométrique : dimension de $E_{\\lambda}$.
+
+---
+
+#### Propriétés des valeurs propres
+- Racines de tout polynôme annulateur.
+- Somme des valeurs propres = trace de $A$ (si $\\chi_f$ scindé).
+- Produit des valeurs propres = déterminant de $A$ (si $\\chi_f$ scindé).
+
+---
+
+#### Propriétés des sous-espaces propres
+- $E_{\\lambda}$ est stable par $f$.
+- Théorème de Cayley-Hamilton : $\\chi_f(f) = 0$ (l’endomorphisme annule son propre polynôme caractéristique).
+
+---
+
+#### Trigonalisabilité
+- $f$ est trigonalisable s’il existe une base dans laquelle la matrice de $f$ est triangulaire supérieure.
+- Critère : $\\chi_f$ est scindé (factorisable en racines linéaires) sur $\\mathbb{K}$.
+
+---
+
+#### Diagonalisabilité
+- $f$ est diagonalisable s’il existe une base de vecteurs propres.
+- Équivalences :
+  - Somme des dimensions des sous-espaces propres = dimension de $E$.
+  - Pour chaque valeur propre, multiplicité algébrique = multiplicité géométrique.
+  - Existence d’un polynôme annulateur scindé à racines simples.
+
+---
+
+#### Matrices de passage
+- Matrice $P$ dont les colonnes sont une base de vecteurs propres de $f$.
+- $P^{-1} A P$ est une matrice diagonale si $f$ est diagonalisable.
+
+---
+
+#### Conditions suffisantes de diagonalisabilité
+- $\\chi_f$ scindé à racines simples.
+- Endomorphisme symétrique (théorème spectral) : diagonalisable dans une base orthonormale.
+
+  `,
+  tags: [
+    'valeurs propres',
+    'spectre',
+    'sous-espaces propres',
+    'polynôme caractéristique',
+    'trigonalisabilité',
+    'diagonalisabilité',
+    'matrices de passage',
+    'théorème spectral',
+    'algèbre linéaire'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+
+// Polynomes
+{
+  id: 'Polynomes',
+  titre: 'Polynômes - Notions fondamentales',
+  matiere: 'Mathématiques',
+  categorie: 'Algèbre',
+  niveau: ['Lycée','Prépa', 'Université'],
+  contenu: `
+### Polynômes - Notions fondamentales
+
+---
+
+#### Produit de polynômes
+- Soient deux polynômes $P(x) = \\sum_{i=0}^m a_i x^i$ et $Q(x) = \\sum_{j=0}^n b_j x^j$.
+- Leur produit est :
+  $$
+  (PQ)(x) = \\sum_{k=0}^{m+n} c_k x^k, \quad \\text{où } c_k = \\sum_{i=0}^k a_i b_{k-i}.
+  $$
+
+---
+
+#### Degré et coefficient dominant
+- Le **degré** de $P$ est le plus grand exposant $d$ tel que $a_d \\neq 0$.
+- Le **coefficient dominant** est $a_d$.
+- Pour le produit :
+  $$
+  \\deg(PQ) = \\deg(P) + \\deg(Q).
+  $$
+
+---
+
+#### Division euclidienne
+- Pour deux polynômes $P$ et $D \\neq 0$, il existe un unique couple $(Q,R)$ tels que :
+  $$
+  P = DQ + R,
+  $$
+  avec $\\deg(R) < \\deg(D)$ ou $R=0$.
+- Le polynôme $Q$ est le quotient et $R$ le reste.
+
+---
+
+#### Formule de Taylor (ou développement de Taylor pour les polynômes)
+- Pour un polynôme $P$, on a :
+  $$
+  P(x) = \\sum_{k=0}^n \\frac{P^{(k)}(a)}{k!} (x - a)^k,
+  $$
+  où $P^{(k)}$ est la $k$-ième dérivée de $P$.
+
+---
+
+#### Racine d’ordre $k$
+- Une racine $a$ de $P$ est dite d’ordre $k$ si :
+  $$
+  (x - a)^k \\mid P(x) \quad \\text{et} \quad (x - a)^{k+1} \\nmid P(x).
+  $$
+- Cela équivaut à : 
+  $$
+  P(a) = P'(a) = \\cdots = P^{(k-1)}(a) = 0, \quad P^{(k)}(a) \\neq 0.
+  $$
+
+  `,
+  tags: [
+    'polynômes',
+    'produit',
+    'degré',
+    'division euclidienne',
+    'formule de Taylor',
+    'racine d’ordre k',
+    'algèbre'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+// Espaces-vectoriels-et-applications-lineaires
+{
+  id: 'Espaces-vectoriels-et-applications-lineaires',
+  titre: 'Espaces vectoriels et applications linéaires',
+  matiere: 'Algèbre linéaire',
+  categorie: 'Mathématiques',
+  niveau: ['Lycée','Prépa', 'Université'],
+  contenu: `
+### Espaces vectoriels et applications linéaires
+
+---
+
+#### Espaces vectoriels
+- Un **espace vectoriel** $E$ sur un corps $\\mathbb{K}$ est un ensemble muni de deux opérations :
+  - Addition : $+ : E \\times E \\to E$,
+  - Multiplication scalaire : $\\cdot : \\mathbb{K} \\times E \\to E$,
+  
+  vérifiant les axiomes :
+  - Associativité, commutativité de l’addition,
+  - Existence d’un élément neutre $0$,
+  - Existence d’opposés,
+  - Compatibilité des opérations scalaires,
+  - Distributivité, etc.
+
+---
+
+#### Union et intersection d’espaces vectoriels
+- L’**intersection** de deux sous-espaces vectoriels de $E$ est un sous-espace vectoriel.
+- L’**union** n’est en général pas un sous-espace vectoriel sauf si l’un est inclus dans l’autre.
+
+---
+
+#### Applications linéaires
+- Une application $f : E \\to F$ entre espaces vectoriels est **linéaire** si :
+  $$
+  \\forall x,y \\in E, \\forall \\lambda \\in \\mathbb{K}, \quad f(x + y) = f(x) + f(y), \quad f(\\lambda x) = \\lambda f(x).
+  $$
+- L’ensemble des applications linéaires de $E$ dans $F$ est noté $\\mathcal{L}(E,F)$.
+
+---
+
+#### Famille de vecteurs
+- Une famille $(v_1, \\ldots, v_n)$ est :
+  - **libre** si la combinaison linéaire nulle implique tous les coefficients nuls,
+  - ** liée** sinon,
+  - **génératrice** si tout vecteur de $E$ s’écrit comme combinaison linéaire des $v_i$.
+- Une base est une famille libre et génératrice.
+
+---
+
+#### Théorème du rang
+- Pour une application linéaire $f : E \\to F$ avec $E$ de dimension finie,
+  $$
+  \\dim(E) = \\mathrm{rang}(f) + \\dim(\\ker f),
+  $$
+  où $\\mathrm{rang}(f) = \\dim(\\mathrm{Im}(f))$.
+
+  `,
+  tags: [
+    'espaces vectoriels',
+    'applications linéaires',
+    'famille de vecteurs',
+    'théorème du rang',
+    'algèbre linéaire',
+    'mathématiques'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+// Supplementaires-et-projecteurs
+{
+  id: 'Supplementaires-et-projecteurs',
+  titre: 'Supplémentaires et projecteurs',
+  matiere: 'Algèbre linéaire',
+  categorie: 'Mathématiques',
+  niveau: ['Prépa', 'Université'],
+  contenu: `
+### Supplémentaires et projecteurs
+
+---
+
+#### Deux espaces supplémentaires
+- Soient $E$ un espace vectoriel, et $F$, $G$ deux sous-espaces vectoriels de $E$.
+- On dit que $F$ et $G$ sont **supplémentaires** dans $E$ si :
+  $$
+  E = F \\oplus G,
+  $$
+  c’est-à-dire :
+  - $E = F + G$,
+  - $F \\cap G = \\{0\\}$.
+
+- Dans ce cas, tout vecteur $x \\in E$ s’écrit **de façon unique** :
+  $$
+  x = f + g, \quad f \\in F, g \\in G.
+  $$
+
+---
+
+#### Plusieurs espaces supplémentaires
+- On peut généraliser la notion à plusieurs sous-espaces $F_1, F_2, \\ldots, F_k$ :
+  $$
+  E = F_1 \\oplus F_2 \\oplus \\cdots \\oplus F_k,
+  $$
+  signifiant que $E$ est somme directe des $F_i$, avec intersections triviales deux à deux.
+
+---
+
+#### Projecteurs - définition
+- Soit $E = F \\oplus G$.
+- Le **projecteur** sur $F$ parallèlement à $G$ est l’application linéaire $p : E \\to E$ définie par :
+  $$
+  p(x) = f,
+  $$
+  où $x = f + g$ est la décomposition unique de $x$ avec $f \\in F$, $g \\in G$.
+
+---
+
+#### Projecteurs - propriétés
+- $p$ est un projecteur, c’est-à-dire une application linéaire telle que :
+  $$
+  p^2 = p.
+  $$
+- L’image de $p$ est $F$ : $\\mathrm{Im}(p) = F$.
+- Le noyau de $p$ est $G$ : $\\ker(p) = G$.
+- $p$ est l’identité sur $F$, et nul sur $G$.
+- Si $p$ est un projecteur, alors $E = \\mathrm{Im}(p) \\oplus \\ker(p)$.
+
+  `,
+  tags: [
+    'espaces vectoriels',
+    'supplémentaires',
+    'projecteurs',
+    'algèbre linéaire',
+    'mathématiques'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+
+//Analyse
+//Calcul-differentiel
+{
+  id: 'Calcul-differentiel',
+  titre: 'Calcul Différentiel',
+  matiere: 'Mathématiques',
+  categorie: 'Analyse',
+  niveau: ['Prépa', 'Université'],
+  contenu: `
+### 1. Fonctions de $\\mathbb{R}^p \\to \\mathbb{R}$
+- Définitions de base  
+- Dérivées partielles d’ordre 1
+
+---
+
+### 2. Gradient
+
+Soit $f : U \\subset \\mathbb{R}^p \\to \\mathbb{R}$ définie sur un ouvert $U$.
+
+- Définition :
+
+$$
+\\nabla f = \\left( \\frac{\\partial f}{\\partial x_1}, \\ldots, \\frac{\\partial f}{\\partial x_p} \\right)
+$$
+
+---
+
+### 3. Fonctions de classe $\\mathcal{C}^1$
+
+- Toutes les dérivées partielles d’ordre 1 sont continues sur $U$.
+- Propriétés principales :
+  - Développement limité d’ordre 1 : pour $h \\to 0$,
+
+  $$
+  f(x + h) = f(x) + \\nabla f(x) \\cdot h + o(\\|h\\|)
+  $$
+
+  - Continuité de $f$.
+  - Opérations usuelles : somme, produit, quotient (sous conditions).
+  - Règle de la chaîne : si $g : V \\to U$, alors
+
+  $$
+  \\nabla (f \\circ g)(t) = Dg(t)^T \\, \\nabla f(g(t))
+  $$
+
+- Caractérisation des fonctions constantes sur un ouvert convexe :
+
+$$
+\\nabla f = 0 \\implies f \\text{ est constante sur } U
+$$
+
+---
+
+### 4. Dérivées partielles d’une composée
+
+Pour $f(x(u,v), y(u,v))$ :
+
+$$
+\\frac{\\partial}{\\partial u} f(x(u,v), y(u,v)) = \\frac{\\partial f}{\\partial x} \\frac{\\partial x}{\\partial u} + \\frac{\\partial f}{\\partial y} \\frac{\\partial y}{\\partial u}
+$$
+
+---
+
+### 5. Dérivées partielles d’ordre 2
+
+- Dérivées croisées :
+
+$$
+\\frac{\\partial^2 f}{\\partial x_i \\partial x_j}
+$$
+
+- Classe $\\mathcal{C}^2$ : dérivées partielles d’ordre 2 continues.
+
+- Théorème de Schwarz (symétrie des dérivées secondes) :
+
+$$
+\\frac{\\partial^2 f}{\\partial x_i \\partial x_j} = \\frac{\\partial^2 f}{\\partial x_j \\partial x_i}
+$$
+
+---
+
+### 6. Dérivées directionnelles
+
+Soit $u \\in \\mathbb{R}^p$, $\\|u\\|=1$. Alors :
+
+$$
+D_u f(x) = \\nabla f(x) \\cdot u
+$$
+
+---
+
+### 7. Développements limités
+
+Pour une fonction $f : \\mathbb{R}^p \\to \\mathbb{R}$ de classe $\\mathcal{C}^k$, on a :
+
+$$
+f(x+h) = f(x) + \\nabla f(x) \\cdot h + \\frac{1}{2} h^T H_f(x) h + o(\\|h\\|^2)
+$$
+
+---
+
+### 8. Hessienne et forme quadratique associée
+
+- Hessienne :
+
+$$
+H_f(x) = \\left( \\frac{\\partial^2 f}{\\partial x_i \\partial x_j}(x) \\right)
+$$
+
+- Forme quadratique associée :
+
+$$
+Q(h) = h^T H_f(x) h
+$$
+
+---
+
+### 9. Extrema locaux
+
+- **Point critique** : $\\nabla f(x_0) = 0$
+
+- **Condition nécessaire** :
+  - $f$ admet un extremum local en $x_0 \\Rightarrow \\nabla f(x_0) = 0$
+
+- **Condition suffisante** :
+  - $\\nabla f(x_0) = 0$ et
+    - si $H_f(x_0)$ est définie positive $\\Rightarrow$ minimum local
+    - si définie négative $\\Rightarrow$ maximum local
+    - si signe indéterminé $\\Rightarrow$ point selle
+
+---
+
+### 10. Cas des notations de Monge
+
+- Étude locale de $f(x,y)$ autour d’un point critique $\\Rightarrow$ étude de la nature via le signe de la forme quadratique :
+  $$
+  f(x, y) = f(x_0, y_0) + \\frac{1}{2}(ax^2 + 2bxy + cy^2) + \\cdots
+  $$
+
+---
+
+### 11. Extremum sous contrainte d’égalités linéaires
+
+- Méthode des multiplicateurs de Lagrange :  
+  Soit $f$ à optimiser sous $g(x) = 0$, on résout :
+
+  $$
+  \\nabla f = \\lambda \\nabla g
+  $$
+
+  - Généralisation à plusieurs contraintes :
+
+  $$
+  \\nabla f = \\lambda_1 \\nabla g_1 + \\lambda_2 \\nabla g_2 + \\cdots
+  $$
+
+---
+
+### 12. Courbes et surfaces
+
+- Courbe ou surface définie par une équation cartésienne, par exemple :
+
+$$
+F(x, y) = 0 \\quad \\text{ou} \\quad F(x, y, z) = 0
+$$
+
+- Point régulier :
+
+$$
+\\nabla F(x_0) \\neq 0
+$$
+
+---
+
+### 13. Tangentes et plans tangents
+
+- Droite tangente à une courbe dans $\\mathbb{R}^2$ au point $M_0$ :
+
+$$
+\\text{vecteur tangent} = \\nabla F(M_0)
+$$
+
+- Plan tangent à une surface dans $\\mathbb{R}^3$ au point régulier $M_0$ :
+
+$$
+\\text{plan tangent} : \\nabla F(M_0) \\cdot (M - M_0) = 0
+$$
+
+---
+
+### 14. Topologie locale (rappels utiles)
+
+- Ouverts, fermés, voisinages
+- Intérieur, adhérence, frontière
+- Boules ouvertes, compacité (utile pour existence d’extrema)
+  `,
+  tags: [
+    'analyse',
+    'gradient',
+    'dérivées partielles',
+    'développements limités',
+    'extrema',
+    'Hessienne',
+    'tangente',
+    'topologie',
+    'Monge',
+    'Lagrange',
+    'prépa'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+
+// somme-produit-racines
   {
     id: "somme-produit-racines",
     titre: "Sommes et produit des racines",
@@ -218,11 +1149,12 @@ Alors :
     tags: ["somme", "produit", "racines", "polynôme", "viète"],
     datePublication: "2025-05-22",
     populaire: false,
-    aReviser: true
+    aReviser: false,
   },
 
- {
-    id: "trinome-second-degree",
+//trinome-second-degre
+  {
+    id: "trinome-second-degre",
     titre: "Fonction trinôme du second degré",
     matiere: "Mathématiques",
     categorie: "Analyse", // <-- Ajouté
@@ -317,397 +1249,91 @@ Le signe de $f(x) = ax^2 + bx + c$ dépend de $a$ et du discriminant $\\Delta$ :
     `,
     tags: ["trinôme", "second degré", "équation quadratique", "forme canonique", "parabole"],
     datePublication: "2025-05-22",
-    populaire: true,
+    populaire: false,
     aReviser: false
-  }, 
-//Euclidien-endomorphismes
+  },
+
+// Developpements-limites
 {
-  id: 'Euclidien-endomorphismes',
-  titre: 'Endomorphismes Remarquables des Espaces Euclidiens',
-  matiere: 'Mathématiques',
-  categorie: 'Algèbre',
-  niveau: ['Prépa', 'Université'],
-  contenu: `
-## Endomorphismes Remarquables des Espaces Euclidiens
-
-**Algèbre — Prépa**
-
----
-
-# Variables Aléatoires Discrètes
-
----
-
-## 1. Espérance $E(X)$
-
-Pour une variable aléatoire discrète réelle $X$ prenant les valeurs $x_i$ avec probabilités $p_i = P(X = x_i)$ :
-
-$$
-E(X) = \\sum_i x_i \\, p_i
-$$
-
-### Propriétés
-
-- **Linéarité :**
-
-  $$
-  E(aX + bY) = a E(X) + b E(Y)
-  $$
-
-- **Positivité :**
-
-  $$
-  X \\geq 0 \\implies E(X) \\geq 0
-  $$
-
-- **Croissance :**
-
-  $$
-  X \\leq Y \\implies E(X) \\leq E(Y)
-  $$
-
-- **Inégalité de Markov :**
-
-  Pour tout $a > 0$,
-
-  $$
-  P(|X| \\geq a) \\leq \\frac{E(|X|)}{a}
-  $$
-
-- **Théorème de transfert :**
-
-  Pour $Y = g(X)$,
-
-  $$
-  E(Y) = \\sum_i g(x_i) P(X = x_i)
-  $$
-
----
-
-## 2. Variance $V(X)$ et écart-type $\\sigma(X)$
-
-### Définition
-
-$$
-V(X) = E\\big((X - E(X))^2\\big) = E(X^2) - (E(X))^2
-$$
-
-$$
-\\sigma(X) = \\sqrt{V(X)}
-$$
-
-### Propriétés
-
-Pour $a,b \\in \\mathbb{R}$,
-
-$$
-V(aX + b) = a^2 V(X)
-$$
-
-- **Inégalité de Bienaymé-Tchebychev :**
-
-  Pour tout $a > 0$,
-
-  $$
-  P(|X - E(X)| \\geq a) \\leq \\frac{V(X)}{a^2}
-  $$
-
----
-
-## 3. Fonction de répartition $F$
-
-Définie par :
-
-$$
-F(x) = P(X \\leq x)
-$$
-
-### Propriétés
-
-- $F$ est croissante et à droite continue.
-- Limites :
-
-  $$
-  \\lim_{x \\to -\\infty} F(x) = 0, \\quad \\lim_{x \\to +\\infty} F(x) = 1
-  $$
-
-- Pour $X$ à valeurs dans $\\mathbb{N}$, l’espérance peut s’exprimer via $F$ :
-
-  $$
-  E(X) = \\sum_{k=0}^{\\infty} P(X > k) = \\sum_{k=0}^\\infty [1 - F(k)]
-  $$
-
----
-
-## 4. Fonction génératrice $G_X$
-
-Définie pour $|s| \\leq 1$ par :
-
-$$
-G_X(s) = E(s^X) = \\sum_{k=0}^\\infty s^k P(X = k)
-$$
-
-### Propriétés
-
-- Le rayon de convergence est au moins égal à 1.
-- $G_X(1) = 1$.
-- $G_X$ détermine la loi de $X$ de façon unique.
-- Espérance et variance exprimables par dérivées de $G_X$ en 1 :
-
-  $$
-  E(X) = G_X'(1), \\quad V(X) = G_X''(1) + G_X'(1) - (G_X'(1))^2
-  $$
-
----
-
-## 5. Lois usuelles — espérance, variance et fonction génératrice
-
-| Loi                   | Loi de probabilité                                   | $E(X)$            | $V(X)$                  | Fonction génératrice $G_X(s)$                                  |
-|-----------------------|-----------------------------------------------------|-------------------|-------------------------|-----------------------------------------------------------------|
-| Uniforme sur $\{1,\\ldots,n\}$ | $P(X=k) = \\frac{1}{n}$ pour $k=1,\\ldots,n$        | $\\frac{n+1}{2}$  | $\\frac{n^2 -1}{12}$    | $\\frac{1}{n} \\frac{1 - s^n}{1 - s}$                          |
-| Bernoulli $B(p)$      | $P(X=1)=p, \\; P(X=0)=1-p$                         | $p$               | $p(1-p)$                | $1 - p + p s$                                                  |
-| Binomiale $B(n,p)$    | Somme de $n$ Bernoulli indépendantes                | $n p$             | $n p (1-p)$             | $(1 - p + p s)^n$                                             |
-| Géométrique           | $P(X = k) = p (1-p)^{k-1}, \\; k \\geq 1$           | $\\frac{1}{p}$    | $\\frac{1-p}{p^2}$      | $\\frac{p s}{1 - (1-p)s}$ pour $|s| < \\frac{1}{1-p}$          |
-| Poisson $\\lambda$    | $P(X=k) = e^{-\\lambda} \\frac{\\lambda^k}{k!}$       | $\\lambda$        | $\\lambda$              | $e^{\\lambda(s-1)}$                                            |
-
----
-
-## Conseils pratiques
-
-- Bien maîtriser les définitions d’espérance et variance.
-- Comprendre les différentes inégalités (Markov, Bienaymé-Tchebychev) pour encadrer les probabilités.
-- Savoir manipuler la fonction génératrice pour retrouver moments et lois.
-- Connaître les lois usuelles, leur espérance, variance et fonction génératrice.
-  `,
-  tags: ['euclidien', 'endomorphisme', 'isométrie', 'matrices', 'rotation', 'réflexion'],
-  datePublication: '2025-05-23',
-  populaire: true,
-  aReviser: true,
-},
-
-//Calcul-differentiel
-{
-  id: 'Calcul-differentiel',
-  titre: 'Calcul Différentiel',
+  id: 'Developpements-limites',
+  titre: 'Développements Limités et Formules de Taylor',
   matiere: 'Mathématiques',
   categorie: 'Analyse',
   niveau: ['Prépa', 'Université'],
-contenu: `
-### 1. Fonctions de $\\mathbb{R}^p \\to \\mathbb{R}$
-- Définitions de base  
-- Dérivées partielles d’ordre 1
+  contenu: `
+### Développements Limités et Formules de Taylor
 
 ---
 
-### 2. Gradient
-
-Soit $f : U \\subset \\mathbb{R}^p \\to \\mathbb{R}$ définie sur un ouvert $U$.
-
-- Définition :
-
-$$
-\\nabla f = \\left( \\frac{\\partial f}{\\partial x_1}, \\ldots, \\frac{\\partial f}{\\partial x_p} \\right)
-$$
-
----
-
-### 3. Fonctions de classe $\\mathcal{C}^1$
-
-- Toutes les dérivées partielles d’ordre 1 sont continues sur $U$.
-- Propriétés principales :
-  - Développement limité d’ordre 1 : pour $h \\to 0$,
-
+#### Formule de Taylor avec reste intégral
+- Si $f$ est $\\mathcal{C}^{n+1}$ sur un intervalle $I$ contenant $a$, alors pour $x \\in I$ :
   $$
-  f(x + h) = f(x) + \\nabla f(x) \\cdot h + o(\\|h\\|)
+  f(x) = f(a) + f'(a)(x-a) + \\cdots + \\frac{f^{(n)}(a)}{n!}(x-a)^n + R_n(x)
+  $$
+  avec le **reste intégral** :
+  $$
+  R_n(x) = \\int_a^x \\frac{(x - t)^n}{n!} f^{(n+1)}(t) \\, dt.
   $$
 
-  - Continuité de $f$.
-  - Opérations usuelles : somme, produit, quotient (sous conditions).
-  - Règle de la chaîne : si $g : V \\to U$, alors
+---
 
+#### Inégalité de Taylor-Lagrange
+- Sous les mêmes hypothèses, il existe $c \\in [a,x]$ (ou $[x,a]$ selon le sens) tel que :
   $$
-  \\nabla (f \\circ g)(t) = Dg(t)^T \\, \\nabla f(g(t))
+  R_n(x) = \\frac{f^{(n+1)}(c)}{(n+1)!} (x - a)^{n+1}
+  $$
+  d'où l'inégalité :
+  $$
+  |R_n(x)| \\leq \\frac{\\sup_{t \\in [a,x]} |f^{(n+1)}(t)|}{(n+1)!} |x - a|^{n+1}.
   $$
 
-- Caractérisation des fonctions constantes sur un ouvert convexe :
+---
 
-$$
-\\nabla f = 0 \\implies f \\text{ est constante sur } U
-$$
+#### Formule de Taylor-Young
+- Notée aussi $f(x) = P_n(x - a) + o((x - a)^n)$ :
+  - $f$ est $\\mathcal{C}^n$ en $a$ si et seulement si :
+    $$
+    f(x) = f(a) + f'(a)(x-a) + \\cdots + \\frac{f^{(n)}(a)}{n!}(x-a)^n + o((x-a)^n)
+    $$  
+    lorsque $x \\to a$.
 
 ---
 
-### 4. Dérivées partielles d’une composée
+#### Développements limités usuels (en 0)
 
-Pour $f(x(u,v), y(u,v))$ :
+- $\\boxed{(1+x)^\\alpha = 1 + \\alpha x + \\frac{\\alpha(\\alpha-1)}{2}x^2 + \\cdots}$  
+  ($x \\to 0$, valable si $\\alpha \\in \\mathbb{R}$, $|x| < 1$)
 
-$$
-\\frac{\\partial}{\\partial u} f(x(u,v), y(u,v)) = \\frac{\\partial f}{\\partial x} \\frac{\\partial x}{\\partial u} + \\frac{\\partial f}{\\partial y} \\frac{\\partial y}{\\partial u}
-$$
+- $\\boxed{\\mathrm{e}^x = 1 + x + \\frac{x^2}{2!} + \\cdots + \\frac{x^n}{n!} + o(x^n)}$
 
----
+- $\\boxed{\\ln(1 + x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\cdots + (-1)^{n+1} \\frac{x^n}{n} + o(x^n)}$
 
-### 5. Dérivées partielles d’ordre 2
+- $\\boxed{\\sin x = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} + o(x^5)}$
 
-- Dérivées croisées :
+- $\\boxed{\\cos x = 1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} + o(x^4)}$
 
-$$
-\\frac{\\partial^2 f}{\\partial x_i \\partial x_j}
-$$
-
-- Classe $\\mathcal{C}^2$ : dérivées partielles d’ordre 2 continues.
-
-- Théorème de Schwarz (symétrie des dérivées secondes) :
-
-$$
-\\frac{\\partial^2 f}{\\partial x_i \\partial x_j} = \\frac{\\partial^2 f}{\\partial x_j \\partial x_i}
-$$
+- $\\boxed{\\frac{1}{1 - x} = 1 + x + x^2 + x^3 + \\cdots + x^n + o(x^n)}$ pour $|x| < 1$
 
 ---
 
-### 6. Extrema et points critiques
+#### Application : approximation locale
+- Un DL permet d’approximer une fonction $f(x)$ près d’un point $a$ par un polynôme.
+- Utilisé pour linéariser, comparer, simplifier des expressions.
 
-- Définition : $x_0$ est un point critique si
-
-$$
-\\nabla f(x_0) = 0
-$$
-
-- Nature du point critique déterminée par la matrice Hessienne $H_f(x_0)$ :
-
-$$
-H_f(x_0) = \\left( \\frac{\\partial^2 f}{\\partial x_i \\partial x_j}(x_0) \\right)_{i,j}
-$$
-
----
-
-### 7. Courbes et surfaces
-
-- Courbe ou surface définie par une équation cartésienne, par exemple :
-
-$$
-F(x, y) = 0 \\quad \\text{ou} \\quad F(x, y, z) = 0
-$$
-
-- Point régulier :
-
-$$
-\\nabla F(x_0) \\neq 0
-$$
-
----
-
-### 8. Tangentes et plans tangents
-
-- Droite tangente à une courbe dans $\\mathbb{R}^2$ au point $M_0$ :
-
-$$
-\\text{vecteur tangent} = \\nabla F(M_0)
-$$
-
-- Plan tangent à une surface dans $\\mathbb{R}^3$ au point régulier $M_0$ :
-
-$$
-\\text{plan tangent} : \\nabla F(M_0) \\cdot (M - M_0) = 0
-$$
-
----
-`,
-  tags: ['analyse', 'gradient', 'dérivées partielles', 'EDP', 'tangente', 'extrema'],
-  datePublication: '2025-05-23',
-  populaire: true,
-  aReviser: true,
+  `,
+  tags: [
+    'développement limité',
+    'Taylor',
+    'reste intégral',
+    'inégalité de Taylor',
+    'Taylor-Young',
+    'analyse',
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
 },
 
-//Variables-aleatoires-couples-familles
-{
-  id: 'Variables-aleatoires-couples-familles',
-  titre: 'Couples et Familles de Variables Aléatoires',
-  matiere: 'Mathématiques',
-  categorie: 'Probabilités',
-  niveau: ['Prépa', 'Université'],
-  contenu: `
-### Couples et familles de variables aléatoires
-
----
-
-#### Couples de variables aléatoires discrètes
-
-- **Loi conjointe** : $P_{X,Y}(x,y)$
-- **Lois marginales** : $P_X(x) = \\sum_y P_{X,Y}(x,y)$, $P_Y(y) = \\sum_x P_{X,Y}(x,y)$
-- **Lois conditionnelles** : $P_{X|Y}(x|y) = \\dfrac{P_{X,Y}(x,y)}{P_Y(y)}$ (si $P_Y(y) \\neq 0$)
-
----
-
-#### Indépendance
-
-- **Définition** : $X$ et $Y$ sont indépendantes $\ \\, \\forall x, y,\\; P_{X,Y}(x,y) = P_X(x)P_Y(y)$
-- **Propriétés** :
-  - $X \\perp Y \\implies \\{X \\in A\\} \\perp \\{Y \\in B\\}$
-  - $f(X) \\perp g(Y)$
-  - $E(XY) = E(X)E(Y)$ si $E(X), E(Y)$ existent
-  - $V(X \\pm Y) = V(X) + V(Y)$
-  - $\\forall t \\in (-1, 1),\\; G_{X+Y}(t) = G_X(t)G_Y(t)$ (fonctions génératrices)
-
----
-
-#### Covariance et corrélation
-
-- **Covariance** : $\\mathrm{Cov}(X, Y) = E[(X - E(X))(Y - E(Y))]$
-- **Coefficient de corrélation** : $\\rho(X, Y) = \\dfrac{\\mathrm{Cov}(X, Y)}{\\sigma_X \\sigma_Y}$
-- **Propriétés** :
-  - L'indépendance $\\implies$ non-corrélation (la réciproque est fausse)
-  - Covariance bilinéaire, symétrique : $\\mathrm{Cov}(X, Y) = \\mathrm{Cov}(Y, X)$
-  - $|\\mathrm{Cov}(X, Y)| \\leq \\sigma_X \\sigma_Y$ (inégalité de Cauchy-Schwarz)
-  - $V(X + Y) = V(X) + V(Y) + 2\\mathrm{Cov}(X, Y)$
-
----
-
-#### Familles de variables aléatoires discrètes
-
-- **Indépendance mutuelle** : $(X_i)_{i \\in I}$ indépendantes deux à deux et globalement
-- **Propriétés** :
-  - Indépendance mutuelle $\\implies$ indépendance deux à deux (réciproque fausse)
-  - $f((X_j)_{j \\in J}) \\perp g((X_k)_{k \\in K})$ si $J \\cap K = \\emptyset$
-  - Si $I$ fini :
-    $$
-    E\\left( \\prod_{i \\in I} X_i \\right) = \\prod_{i \\in I} E(X_i)
-    \\quad \\text{et} \\quad
-    G_{\\sum_{i \\in I} X_i}(t) = \\prod_{i \\in I} G_{X_i}(t)
-    $$
-
----
-
-#### Variance de la somme de variables aléatoires
-
-- **Cas général** :
-  $$
-  V\\left( \\sum_{i=1}^n X_i \\right) = \\sum_{i=1}^n V(X_i) + 2 \\sum_{i < j} \\mathrm{Cov}(X_i, X_j)
-  $$
-- **Cas de variables deux à deux non corrélées** :
-  $$
-  V\\left( \\sum_{i=1}^n X_i \\right) = \\sum_{i=1}^n V(X_i)
-  $$
-
----
-
-#### Loi faible des grands nombres
-
-- Soit $(X_n)$ une suite de variables aléatoires indépendantes, identiquement distribuées avec $E(X_n) = \\mu$.
-- Alors :
-  $$
-  \\frac{1}{n} \\sum_{k=1}^n X_k \\xrightarrow[n \\to \\infty]{P} \\mu
-  $$
-  (convergence en probabilité)
-
----
-`,
-  tags: ['probabilités', 'indépendance', 'covariance', 'corrélation', 'variables aléatoires', 'loi des grands nombres'],
-  datePublication: '2025-05-23',
-  populaire: true,
-  aReviser: true,
-}
-,
 
 //Courbes-parametrees
 {
@@ -783,80 +1409,7 @@ $$
   aReviser: false,
 },
 
-//Endomorphismes-matrices-carrees
-{
-  id: 'Endomorphismes-matrices-carrees',
-  titre: 'Endomorphismes et Matrices Carrées',
-  matiere: 'Mathématiques',
-  categorie: 'Algèbre',
-  niveau: ['Prépa', 'Université'],
-  contenu: `
-### Endomorphismes et Matrices Carrées
 
----
-
-#### Déterminants
-- Déterminant d’une matrice carrée $A \\in \\mathcal{M}_n(\\mathbb{K})$
-- Déterminant d’une famille $(v_1, \\dots, v_n)$ de vecteurs dans une base d’un espace $E$ de dimension $n$
-- Déterminant d’un endomorphisme $f : E \\to E$ en dimension finie
-
-#### Trace
-- Trace d’une matrice carrée : $\\text{Tr}(A) = \\sum_{i=1}^n a_{ii}$
-- Propriétés :
-  - $\\text{Tr}(A + B) = \\text{Tr}(A) + \\text{Tr}(B)$
-  - $\\text{Tr}(\\lambda A) = \\lambda \\text{Tr}(A)$
-  - $\\text{Tr}(A^T) = \\text{Tr}(A)$
-  - $\\text{Tr}(AB) = \\text{Tr}(BA)$
-- Trace d’un endomorphisme $f$ en dimension finie : $\\text{Tr}(f) = \\text{Tr}(\\text{Mat}_B(f))$
-
----
-
-#### Polynômes en matrices ou endomorphismes
-- Polynôme $P \\in \\mathbb{K}[X]$ appliqué à une matrice $A$ ou un endomorphisme $f$
-- Polynôme annulateur $P$ tel que $P(A) = 0$ ou $P(f) = 0$
-- Applications :
-  - Calcul de l’inverse $A^{-1}$ si $A$ est inversible
-  - Calcul des puissances $A^n$ ou $f^n$
-
----
-
-#### Similitude de matrices
-- Deux matrices $A$ et $B$ sont **semblables** s’il existe une matrice inversible $P$ telle que :
-  $$
-  B = P^{-1}AP
-  $$
-- Propriétés :
-  - La similitude est une relation d’équivalence
-  - Les matrices semblables ont :
-    - même trace
-    - même déterminant
-    - même polynôme caractéristique
-    - même polynôme minimal
-
----
-
-#### Sous-espaces stables
-- $F \\subset E$ est **stable** par $f$ si $f(F) \\subset F$
-- Endomorphisme induit : $f|_F : F \\to F$
-- Propriétés :
-  - $\\ker(f)$ et $\\text{Im}(f)$ stables par tout $g$ qui commute avec $f$
-  - Traduction matricielle de la stabilité : forme triangulaire ou bloc-diagonale
-  - Droites vectorielles stables : $\\exists v \\neq 0, f(v) \\in \\text{Vect}(v)$
-
----
-
-#### Matrices par blocs
-- Matrice carrée écrite sous forme de **blocs**
-- Matrices **triangulaires par blocs** ou **diagonales par blocs**
-- Propriétés :
-  - Produit et somme de matrices par blocs
-  - Déterminant d’une matrice triangulaire par blocs : produit des déterminants des blocs diagonaux
-  `,
-  tags: ['algèbre', 'matrices', 'endomorphismes', 'déterminant', 'trace', 'polynômes', 'similitude'],
-  datePublication: '2025-05-23',
-  populaire: false,
-  aReviser: false,
-},
 
 //Équations-differentielles-lineaires
 {
@@ -927,109 +1480,7 @@ $$
   aReviser: false
 },
 
-//Espaces-probabilises
-{
-  id: 'Espaces-probabilises',
-  titre: 'Espaces Probabilisés',
-  matiere: 'Mathématiques',
-  categorie: 'Probabilités',
-  niveau: ['Prépa', 'Université'],
-  contenu: `
-### Espaces Probabilisés
 
----
-
-#### Ensembles dénombrables
-- Ensemble **dénombrable** : en bijection avec $\\mathbb{N}$ ou une partie de $\\mathbb{N}$
-- **Exemples** : $\\mathbb{N}, \\mathbb{Z}, \\mathbb{Q}$
-- **Contre-exemples** : $\\mathbb{R}, [0,1]$
-
----
-
-#### Tribu sur un ensemble $\\Omega$
-- Ensemble $\\mathcal{A} \\subset \\mathcal{P}(\\Omega)$ tel que :
-  - $\\Omega \\in \\mathcal{A}$, $\\emptyset \\in \\mathcal{A}$
-  - stable par complémentaire, réunion et intersection **dénombrables**
-
-**Vocabulaire** :
-- **Espace probabilisable** : couple $(\\Omega, \\mathcal{A})$
-- **Événements** : éléments de $\\mathcal{A}$
-- **Événement certain** : $\\Omega$, **impossible** : $\\emptyset$
-- **Contraires** : $A$ et $\\bar{A}$
-- **Incompatibles** : $A \\cap B = \\emptyset$
-- **Système complet** : réunion = $\\Omega$, événements deux à deux incompatibles
-
----
-
-#### Probabilité sur un espace probabilisable
-- Application $\\mathbb{P} : \\mathcal{A} \\to [0,1]$ vérifiant :
-  - $\\mathbb{P}(\\Omega) = 1$
-  - $\\mathbb{P}(\\bigcup A_i) = \\sum \\mathbb{P}(A_i)$ si $A_i$ disjoints
-
-**Cas fini ou dénombrable** :
-- $\\Omega = \\{\\omega_1, \\omega_2, \\dots\\}$
-- Probabilité définie par les poids $p_i = \\mathbb{P}(\\{\\omega_i\\})$
-
-**Vocabulaire** :
-- **Espace probabilisé** : $(\\Omega, \\mathcal{A}, \\mathbb{P})$
-- **Événement négligeable** : probabilité nulle
-- **Événement presque sûr** : probabilité 1
-- **Système presque complet** : $\\mathbb{P}(\\cup A_i) = 1$
-
----
-
-#### Propriétés calculatoires
-- $\\mathbb{P}(\\emptyset) = 0$, $\\mathbb{P}(\\bar{A}) = 1 - \\mathbb{P}(A)$
-- $\\mathbb{P}(A \\cup B) = \\mathbb{P}(A) + \\mathbb{P}(B) - \\mathbb{P}(A \\cap B)$
-- Croissance : $A \\subset B \\Rightarrow \\mathbb{P}(A) \\leq \\mathbb{P}(B)$
-- Sous-additivité : $\\mathbb{P}(\\cup A_i) \\leq \\sum \\mathbb{P}(A_i)$
-- Continuité croissante/décroissante pour suites $A_n$
-
----
-
-#### Lois de probabilité usuelles
-- **Uniforme** sur $\\{1, ..., n\\}$
-- **Bernoulli** : $\\mathbb{P}(X=1) = p, \\mathbb{P}(X=0) = 1-p$
-- **Binomiale** : $\\text{Bin}(n,p)$
-- **Géométrique** : $\\mathbb{P}(X=k) = (1-p)^{k-1}p$
-- **Poisson** : $\\mathbb{P}(X=k) = \\frac{\\lambda^k}{k!} e^{-\\lambda}$
-
----
-
-#### Probabilité conditionnelle
-$$
-\\mathbb{P}(A|B) = \\frac{\\mathbb{P}(A \\cap B)}{\\mathbb{P}(B)} \\quad (\\mathbb{P}(B) > 0)
-$$
-
-**Propriétés** :
-- Formule des probabilités totales : $\\mathbb{P}(A) = \\sum \\mathbb{P}(A|B_i)\\mathbb{P}(B_i)$
-- Formule de Bayes :
-$$
-\\mathbb{P}(B_i|A) = \\frac{\\mathbb{P}(A|B_i)\\mathbb{P}(B_i)}{\\sum \\mathbb{P}(A|B_j)\\mathbb{P}(B_j)}
-$$
-- Probabilités composées : $\\mathbb{P}(A \\cap B) = \\mathbb{P}(A|B)\\mathbb{P}(B)$
-
----
-
-#### Indépendance
-- Deux événements $A, B$ sont **indépendants** si $\\mathbb{P}(A \\cap B) = \\mathbb{P}(A)\\mathbb{P}(B)$
-- Une famille $(A_i)$ est **mutuellement indépendante** si toute sous-famille l’est
-
----
-
-#### Variables aléatoires discrètes
-- Variable $X : \\Omega \\to \\mathbb{R}$
-- **Loi de X** : $\\mathbb{P}_X(x) = \\mathbb{P}(X = x)$
-- **Lois usuelles** : 
-  - Bernoulli, Binomiale, Géométrique, Poisson
-  - Uniforme finie sur un ensemble de valeurs
-
-  `,
-  tags: ['espaces probabilisés', 'tribus', 'probabilités', 'événements', 'lois discrètes'],
-  datePublication: '2025-05-23',
-  populaire: false,
-  aReviser: false
-},
 
 //Fonctions-de-deux-variables
 {
@@ -1239,8 +1690,6 @@ $$ \\int_1^{+\\infty} \\frac{1}{1 + t^2} \\, dt = \\frac{\\pi}{4} $$
     'continuité par morceaux',
     'convergence',
     'critères de convergence',
-    'intégration',
-    'analyse',
     'intégrale absolument convergente',
     'intégration par parties',
     'changement de variable',
@@ -1281,12 +1730,14 @@ $$ \\int_1^{+\\infty} \\frac{1}{1 + t^2} \\, dt = \\frac{\\pi}{4} $$
 
 #### Primitives Usuelles à Connaître
 
+#### Primitives Usuelles à Connaître
+
 | Fonction $f(x)$                  | Primitive $F(x)$                        | Conditions                         |
-|----------------------------------|-----------------------------------------|-------------------------------------|
+|----------------------------------|-----------------------------------------|------------------------------------|
 | $x^n$                            | $\\frac{x^{n+1}}{n+1}$                  | $n \\neq -1$                       |
-| $\\frac{1}{x}$                   | $\\ln|x|$                               | $x \\neq 0$                        |
+| $\\frac{1}{x}$                   | $\\ln\\lvert x \\rvert$                 | $x \\neq 0$                        |
 | $\\frac{1}{1+x^2}$               | $\\arctan(x)$                           | -                                  |
-| $\\frac{1}{\\sqrt{1-x^2}}$       | $\\arcsin(x)$                           | $|x| < 1$                          |
+| $\\frac{1}{\\sqrt{1-x^2}}$       | $\\arcsin(x)$                           | $\\lvert x \\rvert$ < 1            |
 | $e^x$                            | $e^x$                                   | -                                  |
 | $a^x$                            | $\\frac{a^x}{\\ln a}$                   | $a > 0,\\ a \\neq 1$               |
 | $\\cos(x)$                       | $\\sin(x)$                              | -                                  |
@@ -1396,107 +1847,134 @@ $$
     'formules usuelles',
     'sommes de Riemann',
     'calcul intégral',
-    'maths lycée',
-    'analyse'
   ],
   datePublication: '2025-05-26',
   populaire: false,
   aReviser: false
 },
 
-//Réduction-endomorphismes-matrices
+// Suites-arithmetico-geometriques
 {
-  id: 'Réduction-endomorphismes-matrices',
-  titre: 'Réduction des Endomorphismes et des Matrices Carrées',
+  id: 'suites-arithmetico-geometriques',
+  titre: 'Suites Arithmético-Géométriques et Suites Récurrentes',
   matiere: 'Mathématiques',
-  categorie: 'Algèbre',
-  niveau: ['Prépa'],
+  categorie: 'Analyse',
+  niveau: ['Lycée', 'Prépa', 'Université'],
   contenu: `
-### Réduction des Endomorphismes et des Matrices Carrées
+### Suites Arithmético-Géométriques
+---
+
+#### Définition
+- Une suite $(u_n)$ est **arithmético-géométrique** s'il existe deux réels $a$ et $b$ tels que :
+  $$
+  u_{n+1} = a u_n + b
+  $$
+- Elle combine une partie arithmétique et une partie géométrique.
+
+#### Résolution
+- Si $a \\neq 1$, la suite peut se décomposer en :
+  $$
+  u_n = v_n + l
+  $$
+  où $(v_n)$ est géométrique de raison $a$, et $l$ est la limite éventuelle solution de :
+  $$
+  l = a l + b \\implies l = \\frac{b}{1 - a}
+  $$
+
+- Ainsi :
+  $$
+  u_n = \\left(u_0 - \\frac{b}{1 - a}\\right) a^n + \\frac{b}{1 - a}
+  $$
 
 ---
 
-#### Valeurs propres
-- Définition : $\\lambda \\in \\mathbb{K}$ est une valeur propre d’un endomorphisme $f$ ou d’une matrice carrée $A$ s’il existe un vecteur non nul $v$ tel que $f(v) = \\lambda v$ ou $Av = \\lambda v$.
+### Suites Récurrentes Linéaires d’Ordre 2
+---
+
+#### Définition
+- Une suite $(u_n)$ vérifie une relation du type :
+  $$
+  u_{n+2} = \\alpha u_{n+1} + \\beta u_n
+  $$
+  avec $\\alpha, \\beta \\in \\mathbb{R}$.
+
+#### Méthode de résolution
+- On considère l’équation caractéristique :
+  $$
+  r^2 - \\alpha r - \\beta = 0
+  $$
+- Les solutions $r_1, r_2$ donnent la forme générale de la suite :
+  - Si $r_1 \\neq r_2$ réels distincts :
+    $$
+    u_n = \\lambda r_1^n + \\mu r_2^n
+    $$
+  - Si racine double $r$ :
+    $$
+    u_n = (\\lambda + \\mu n) r^n
+    $$
+  - Si racines complexes $r = \\rho e^{i \\theta}$ :
+    $$
+    u_n = \\rho^n \\left(A \\cos(n \\theta) + B \\sin(n \\theta)\\right)
+    $$
 
 ---
 
-#### Spectre
-- Ensemble des valeurs propres d’un endomorphisme ou d’une matrice carrée.
+### Négligeabilité, Domination et Équivalence de Suites
+---
+
+#### Définitions
+- **Négligeabilité** : $(u_n)$ est négligeable devant $(v_n)$ si
+  $$
+  \\lim_{n \\to +\\infty} \\frac{u_n}{v_n} = 0
+  $$
+
+- **Domination** : $(u_n)$ est dominée par $(v_n)$ si
+  $$
+  \\exists M > 0, \\quad \\forall n, \\quad |u_n| \\leq M |v_n|
+  $$
+
+- **Équivalence** : $(u_n)$ est équivalente à $(v_n)$ si
+  $$
+  \\lim_{n \\to +\\infty} \\frac{u_n}{v_n} = 1
+  $$
+
+#### Propriétés
+- Si $u_n = o(v_n)$, alors $u_n$ est négligeable devant $v_n$.
+- Si $u_n \\sim v_n$, alors $u_n - v_n$ est négligeable devant $v_n$.
 
 ---
 
-#### Vecteurs propres
-- Vecteurs non nuls associés à une valeur propre.
+### Exemples Classiques
+
+- Suite géométrique : $u_n = q^n$ avec $|q| < 1$ tend vers 0.
+- Suite arithmético-géométrique : $u_{n+1} = \\frac{1}{2} u_n + 3$, etc.
+- Dominations : $n = o(n^2)$, $\\ln n = o(n)$.
 
 ---
 
-#### Sous-espaces propres
-- $E_{\\lambda} = \\{ v \\in E : f(v) = \\lambda v \\}$, sous-espace vectoriel propre associé à la valeur propre $\\lambda$.
+### Conseils de Méthodologie
+
+- Identifier la nature de la suite (linéaire, géométrique, récurrente).
+- Calculer les racines caractéristiques pour les suites d’ordre 2.
+- Utiliser les notions de négligeabilité et équivalence pour comparer suites.
 
 ---
-
-#### Polynôme caractéristique
-- Définition : $\\chi_f(X) = \\det(X I - A)$ pour une matrice $A$.
-- Racines : valeurs propres.
-
----
-
-#### Multiplicité d’une valeur propre
-- Multiplicité algébrique : multiplicité de la racine dans $\\chi_f$.
-- Multiplicité géométrique : dimension de $E_{\\lambda}$.
-
----
-
-#### Propriétés des valeurs propres
-- Les valeurs propres sont racines de tout polynôme annulateur.
-- Elles sont précisément les racines du polynôme caractéristique.
-- Leur somme est la trace de la matrice si $\\chi_f$ est scindé.
-- Leur produit est le déterminant dans ce cas.
-
----
-
-#### Propriétés des sous-espaces propres
-- Sous-espaces stables par $f$.
-- Théorème de Cayley-Hamilton : $\\chi_f(f) = 0$.
-
----
-
-#### Trigonalisabilité
-- Un endomorphisme (ou matrice) est trigonalisable s’il est représentable dans une base où sa matrice est triangulaire supérieure.
-- Caractérisation : polynôme caractéristique scindé sur $\\mathbb{K}$.
-
----
-
-#### Diagonalisabilité
-- Un endomorphisme (ou matrice) est diagonalisable s’il existe une base de vecteurs propres.
-- Caractérisations :
-  - Dimension totale des sous-espaces propres égale à la dimension de l’espace.
-  - Polynôme caractéristique scindé avec multiplicités algébriques égales aux dimensions des sous-espaces propres.
-  - Existence d’un polynôme annulateur scindé à racines simples.
-
----
-
-#### Conditions suffisantes de diagonalisabilité
-- Polynôme caractéristique scindé à racines simples.
-- Endomorphisme induit sur un sous-espace stable diagonalisable.
-- Théorème spectral (endomorphismes symétriques dans $\\mathbb{R}$) : tout endomorphisme symétrique est diagonalisable dans une base orthonormale.
-
-  `,
+`,
   tags: [
-    'valeurs propres',
-    'spectre',
-    'sous-espaces propres',
-    'polynôme caractéristique',
-    'trigonalisabilité',
-    'diagonalisabilité',
-    'théorème spectral',
-    'algèbre linéaire'
+    'suites',
+    'arithmético-géométriques',
+    'références',
+    'équations récurrentes',
+    'domination',
+    'négligeabilité',
+    'équivalence',
   ],
-  datePublication: '2025-05-23',
+  datePublication: '2025-05-26',
   populaire: false,
   aReviser: false
 },
+
+
 
 //Séries-entières
 {
@@ -1614,13 +2092,99 @@ $$
   ],
   datePublication: '2025-05-23',
   populaire: false,
-  aReviser: true
+  aReviser: false
+},
+
+//Etude-globale-fonction
+{
+  id: 'Etude-globale-fonction',
+  titre: 'Étude Globale d’une Fonction',
+  matiere: 'Mathématiques',
+  categorie: 'Analyse',
+  niveau: ['Lycée', 'Prépa', 'Université'],
+  contenu: `
+### Étude Globale d’une Fonction
+
+---
+
+#### Symétries d’une fonction
+- Une fonction $f : \\mathbb{R} \\to \\mathbb{R}$ peut avoir des symétries qui simplifient son étude.
+
+- **Symétrie paire** :  
+  $$
+  \\forall x \\in \\mathbb{R}, \\quad f(-x) = f(x).
+  $$  
+  La courbe de $f$ est symétrique par rapport à l'axe des ordonnées.
+
+- **Symétrie impaire** :  
+  $$
+  \\forall x \\in \\mathbb{R}, \\quad f(-x) = -f(x).
+  $$  
+  La courbe de $f$ est symétrique par rapport à l'origine.
+
+- **Périodicité** :  
+  $$
+  \\exists T > 0, \\quad \\forall x \\in \\mathbb{R}, \quad f(x+T) = f(x).
+  $$  
+  La fonction est périodique de période $T$.
+
+---
+
+#### Branches infinies (Asymptotes)
+- Une branche infinie décrit le comportement de la fonction $f$ quand $x$ tend vers une valeur (finie ou infinie).
+
+- **Asymptote verticale** :  
+  Si  
+  $$
+  \\lim_{x \\to a} f(x) = \\pm \\infty,
+  $$  
+  alors $x = a$ est une asymptote verticale.
+
+- **Asymptote horizontale** :  
+  Si  
+  $$
+  \\lim_{x \\to \\pm \\infty} f(x) = L \\in \\mathbb{R},
+  $$  
+  alors $y = L$ est une asymptote horizontale.
+
+- **Asymptote oblique** :  
+  Si  
+  $$
+  \\lim_{x \\to \\pm \\infty} \\left( f(x) - (ax + b) \\right) = 0,
+  $$  
+  avec $a \\neq 0$, alors la droite $y = ax + b$ est une asymptote oblique.
+
+- Pour trouver $a$ et $b$ :  
+  $$
+  a = \\lim_{x \\to \\pm \\infty} \\frac{f(x)}{x}, \\quad
+  b = \\lim_{x \\to \\pm \\infty} \\left( f(x) - a x \\right).
+  $$
+
+---
+
+#### Comportement en l’infini
+- Analyse des limites à l'infini pour décrire la tendance globale de la fonction.
+
+- Important pour tracer la courbe et comprendre la nature des branches infinies.
+
+`,
+  tags: [
+    'fonction',
+    'symétrie',
+    'asymptote',
+    'branche infinie',
+    'analyse',
+    'prépa'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
 },
 
 
 //Série-numeriques
 {
-  id: 'Série-numeriques',
+  id: 'Serie-numeriques',
   titre: 'Série Numérique',
   matiere: 'Mathématiques',
   categorie: 'Analyse',
@@ -1649,7 +2213,7 @@ $$
 ---
 
 #### Séries géométriques
-- Série $\\sum_{n=0}^{+\\infty} ar^n$ converge si $|r| < 1$.
+- Série $\\sum_{n=0}^{+\\infty} a r^n$ converge si $|r| < 1$.
 - Somme : $S = \\frac{a}{1-r}$.
 
 ---
@@ -1715,7 +2279,7 @@ $$
 #### Séries de Riemann alternées
 - Alternance de signe sur la série de Riemann, converge conditionnellement si $\\alpha > 0$.
 
-  `,
+`,
   tags: [
     'série numérique',
     'convergence',
@@ -1801,68 +2365,178 @@ $$
   aReviser: false
 },
 
+//proba
+//Variables-aleatoires-couples-familles
+{
+  id: 'Variables-aleatoires-couples-familles',
+  titre: 'Couples et Familles de Variables Aléatoires',
+  matiere: 'Mathématiques',
+  categorie: 'Probabilités',
+  niveau: ['Prépa', 'Université'],
+  contenu: `
+### Couples et familles de variables aléatoires
+
+---
+
+#### Couples de variables aléatoires discrètes
+
+- **Loi conjointe** : $P_{X,Y}(x,y)$
+- **Lois marginales** : $P_X(x) = \\sum_y P_{X,Y}(x,y)$, $P_Y(y) = \\sum_x P_{X,Y}(x,y)$
+- **Lois conditionnelles** : $P_{X|Y}(x|y) = \\dfrac{P_{X,Y}(x,y)}{P_Y(y)}$ (si $P_Y(y) \\neq 0$)
+
+---
+
+#### Indépendance
+
+- **Définition** : $X$ et $Y$ sont indépendantes $\ \\, \\forall x, y,\\; P_{X,Y}(x,y) = P_X(x)P_Y(y)$
+- **Propriétés** :
+  - $X \\perp Y \\implies \\{X \\in A\\} \\perp \\{Y \\in B\\}$
+  - $f(X) \\perp g(Y)$
+  - $E(XY) = E(X)E(Y)$ si $E(X), E(Y)$ existent
+  - $V(X \\pm Y) = V(X) + V(Y)$
+  - $\\forall t \\in (-1, 1),\\; G_{X+Y}(t) = G_X(t)G_Y(t)$ (fonctions génératrices)
+
+---
+
+#### Covariance et corrélation
+
+- **Covariance** : $\\mathrm{Cov}(X, Y) = E[(X - E(X))(Y - E(Y))]$
+- **Coefficient de corrélation** : $\\rho(X, Y) = \\dfrac{\\mathrm{Cov}(X, Y)}{\\sigma_X \\sigma_Y}$
+- **Propriétés** :
+  - L'indépendance $\\implies$ non-corrélation (la réciproque est fausse)
+  - Covariance bilinéaire, symétrique : $\\mathrm{Cov}(X, Y) = \\mathrm{Cov}(Y, X)$
+  - $|\\mathrm{Cov}(X, Y)| \\leq \\sigma_X \\sigma_Y$ (inégalité de Cauchy-Schwarz)
+  - $V(X + Y) = V(X) + V(Y) + 2\\mathrm{Cov}(X, Y)$
+
+---
+
+#### Familles de variables aléatoires discrètes
+
+- **Indépendance mutuelle** : $(X_i)_{i \\in I}$ indépendantes deux à deux et globalement
+- **Propriétés** :
+  - Indépendance mutuelle $\\implies$ indépendance deux à deux (réciproque fausse)
+  - $f((X_j)_{j \\in J}) \\perp g((X_k)_{k \\in K})$ si $J \\cap K = \\emptyset$
+  - Si $I$ fini :
+    $$
+    E\\left( \\prod_{i \\in I} X_i \\right) = \\prod_{i \\in I} E(X_i)
+    \\quad \\text{et} \\quad
+    G_{\\sum_{i \\in I} X_i}(t) = \\prod_{i \\in I} G_{X_i}(t)
+    $$
+
+---
+
+#### Variance de la somme de variables aléatoires
+
+- **Cas général** :
+  $$
+  V\\left( \\sum_{i=1}^n X_i \\right) = \\sum_{i=1}^n V(X_i) + 2 \\sum_{i < j} \\mathrm{Cov}(X_i, X_j)
+  $$
+- **Cas de variables deux à deux non corrélées** :
+  $$
+  V\\left( \\sum_{i=1}^n X_i \\right) = \\sum_{i=1}^n V(X_i)
+  $$
+
+---
+
+#### Loi faible des grands nombres
+
+- Soit $(X_n)$ une suite de variables aléatoires indépendantes, identiquement distribuées avec $E(X_n) = \\mu$.
+- Alors :
+  $$
+  \\frac{1}{n} \\sum_{k=1}^n X_k \\xrightarrow[n \\to \\infty]{P} \\mu
+  $$
+  (convergence en probabilité)
+
+---
+`,
+  tags: ['probabilités', 'indépendance', 'covariance', 'corrélation', 'variables aléatoires', 'loi des grands nombres'],
+  datePublication: '2025-05-23',
+  populaire: false,
+  aReviser: false,
+},
+
 //Variables-aleatoires-discretes
 {
   id: 'Variables-aleatoires-discretes',
   titre: 'Variables Aléatoires Discrètes',
-  matiere: 'Probabilités',
-  categorie: 'Statistiques',
+  matiere: 'Mathématiques',
+  categorie: 'Probabilités',
   niveau: ['Prépa'],
   contenu: `
 ### Variables Aléatoires Discrètes
 
 ---
 
+#### Définition
+- Une **variable aléatoire discrète** est une fonction $X : \\Omega \\to \\mathbb{R}$ prenant un nombre **dénombrable** de valeurs.
+
+---
+
+#### Loi de probabilité
+- Déterminée par la suite $\\{\\mathbb{P}(X = x_i)\\}_{i}$ telle que :
+  - $\\mathbb{P}(X = x_i) \\geq 0$
+  - $\\sum_i \\mathbb{P}(X = x_i) = 1$
+
+---
+
 #### Espérance $E(X)$
-- Pour une variable aléatoire discrète réelle $X$, $E(X) = \\sum_x x \\cdot P(X=x)$.
-- **Propriétés** :
-  - Linéarité : $E(aX + bY) = aE(X) + bE(Y)$.
-  - Positivité : si $X \\geq 0$, alors $E(X) \\geq 0$.
-  - Croissance : si $X \\leq Y$ alors $E(X) \\leq E(Y)$.
-  - Inégalité de Markov : $P(|X| \\geq a) \\leq \\frac{E(|X|)}{a}$ pour $a > 0$.
-  - Théorème de transfert : pour $Y = g(X)$, $E(Y) = \\sum g(x) P(X=x)$.
+- **Définition** : $E(X) = \\sum_x x \\cdot \\mathbb{P}(X = x)$ si la série converge absolument.
+- **Théorèmes de transfert** :
+  - Si $Y = g(X)$, alors $E(Y) = \\sum g(x) \\cdot \\mathbb{P}(X = x)$.
+  - En particulier, $E(X^2) = \\sum x^2 \\cdot \\mathbb{P}(X = x)$
+
+**Propriétés** :
+- Linéarité : $E(aX + bY) = aE(X) + bE(Y)$
+- Positivité : si $X \\geq 0$, alors $E(X) \\geq 0$
+- Monotonie : $X \\leq Y \\Rightarrow E(X) \\leq E(Y)$
+- Inégalité de Markov : $\\mathbb{P}(|X| \\geq a) \\leq \\frac{E(|X|)}{a}$ pour $a > 0$
 
 ---
 
 #### Variance $V(X)$ et écart-type $\\sigma(X)$
-- $V(X) = E[(X - E(X))^2] = E(X^2) - (E(X))^2$.
-- $\\sigma(X) = \\sqrt{V(X)}$.
-- **Propriétés** :
-  - $V(aX + b) = a^2 V(X)$.
-  - Inégalité de Bienaymé-Tchebychev : $P(|X - E(X)| \\geq a) \\leq \\frac{V(X)}{a^2}$.
+- $V(X) = E[(X - E(X))^2] = E(X^2) - (E(X))^2$
+- $\\sigma(X) = \\sqrt{V(X)}$
+- Inégalité de Bienaymé-Tchebychev :
+  $\\mathbb{P}(|X - E(X)| \\geq a) \\leq \\frac{V(X)}{a^2}$
 
 ---
 
 #### Fonction de répartition $F$
-- $F(x) = P(X \\leq x)$.
-- **Propriétés** :
-  - $F$ est croissante, à droite continue.
-  - $\\lim_{x \\to -\\infty} F(x) = 0$, $\\lim_{x \\to +\\infty} F(x) = 1$.
-- Expression de l’espérance à l’aide de $F$ (pour variables à valeurs dans $\\mathbb{N}$).
+- $F(x) = \\mathbb{P}(X \\leq x)$
+
+**Propriétés** :
+- $F$ est croissante, continue à droite
+- $\\lim_{x \\to -\\infty} F(x) = 0$, $\\lim_{x \\to +\\infty} F(x) = 1$
 
 ---
 
 #### Fonction génératrice $G_X$
-- Pour $X$ à valeurs dans $\\mathbb{N}$, $G_X(t) = E(t^X) = \\sum_{k=0}^{\\infty} P(X=k) t^k$.
+- $G_X(t) = E(t^X) = \\sum_{k=0}^{\\infty} \\mathbb{P}(X = k)t^k$
 - **Propriétés** :
-  - Rayon de convergence $\\geq 1$.
-  - $G_X(1) = 1$.
-  - $G_X$ détermine la loi de $X$.
-  - Expressions de l’espérance et de la variance à l’aide de $G_X$ :
-    - $E(X) = G'_X(1)$,
-    - $V(X) = G''_X(1) + G'_X(1) - (G'_X(1))^2$.
+  - Rayon de convergence $\\geq 1$
+  - $G_X(1) = 1$
+  - $E(X) = G'_X(1)$, $V(X) = G''_X(1) + G'_X(1) - (G'_X(1))^2$
+
+---
+
+#### Indépendance de variables aléatoires
+- Deux variables aléatoires $X$ et $Y$ sont **indépendantes** si :
+$$
+\\forall A, B \\subset \\mathbb{R}, \\quad \\mathbb{P}(X \\in A, Y \\in B) = \\mathbb{P}(X \\in A) \\cdot \\mathbb{P}(Y \\in B)
+$$
+- Pour les lois jointes : $\\mathbb{P}(X = x, Y = y) = \\mathbb{P}(X = x)\\mathbb{P}(Y = y)$
 
 ---
 
 #### Lois usuelles discrètes et leurs paramètres
-| Loi                | Espérance $E(X)$ | Variance $V(X)$ | Fonction génératrice $G_X(t)$                |
-|--------------------|------------------|-----------------|----------------------------------------------|
-| Loi uniforme sur $\\{1,...,n\\}$ | $\\frac{n+1}{2}$ | $\\frac{n^2 - 1}{12}$ | $\\frac{t(1 - t^n)}{n(1-t)}$                  |
-| Loi de Bernoulli $(p)$          | $p$              | $p(1-p)$        | $1 - p + pt$                                 |
-| Loi binomiale $(n,p)$           | $np$             | $np(1-p)$       | $(1-p + pt)^n$                               |
-| Loi géométrique $(p)$           | $\\frac{1}{p}$   | $\\frac{1-p}{p^2}$ | $\\frac{pt}{1 - (1-p)t}$ (pour $|t| < \\frac{1}{1-p}$) |
-| Loi de Poisson $(\\lambda)$     | $\\lambda$       | $\\lambda$      | $e^{\\lambda (t-1)}$                         |
 
+| Loi                       | Espérance $E(X)$         | Variance $V(X)$           | Fonction génératrice $G_X(t)$                           |
+|---------------------------|---------------------------|----------------------------|----------------------------------------------------------|
+| Uniforme sur $\\{1,...,n\\}$ | $\\frac{n+1}{2}$        | $\\frac{n^2 - 1}{12}$      | $\\frac{t(1 - t^n)}{n(1 - t)}$                          |
+| Bernoulli $(p)$           | $p$                       | $p(1 - p)$                 | $1 - p + pt$                                             |
+| Binomiale $(n, p)$        | $np$                      | $np(1 - p)$                | $(1 - p + pt)^n$                                        |
+| Géométrique $(p)$         | $\\frac{1}{p}$            | $\\frac{1 - p}{p^2}$       | $\\frac{pt}{1 - (1 - p)t}$                              |
+| Poisson $(\\lambda)$      | $\\lambda$                | $\\lambda$                 | $e^{\\lambda(t - 1)}$                                   |
   `,
   tags: [
     'variables aléatoires',
@@ -1871,6 +2545,8 @@ $$
     'fonction génératrice',
     'lois de probabilité',
     'probabilités',
+    'fonction de répartition',
+    'indépendance',
     'analyse'
   ],
   datePublication: '2025-05-23',
@@ -1878,6 +2554,662 @@ $$
   aReviser: false
 },
 
+// Dénombrement
+{
+  id: 'Denombrement',
+  titre: 'Dénombrement : Parties et Unions',
+  matiere: 'Mathématiques',
+  categorie: 'Probabilités',
+  niveau: ['Lycée', 'Prépa'],
+  contenu: `
+### 1. Parties d’un ensemble
+
+- Un ensemble de cardinal $n$ possède $2^n$ parties.
+- Si on ne considère que les parties de cardinal $k$, on a :
+
+$$
+\\binom{n}{k} = \\text{nombre de sous-ensembles de } k \\text{ éléments parmi } n.
+$$
+
+---
+
+### 2. Suites d’éléments
+
+- Nombre de suites de $k$ éléments parmi $n$ (avec répétition, ordre important) : $n^k$
+- Sans répétition, ordre important (permutations de $k$ parmi $n$) :
+
+$$
+A_n^k = \\frac{n!}{(n-k)!}
+$$
+
+---
+
+### 3. Cardinal d'une union de deux ou trois parties
+
+- Pour deux ensembles $A$ et $B$ :
+
+$$
+|A \\cup B| = |A| + |B| - |A \\cap B|
+$$
+
+- Pour trois ensembles $A$, $B$, $C$ :
+
+- Pour trois ensembles $A$, $B$, $C$ :
+
+$$
+|A \\cup B \\cup C| = |A| + |B| + |C| \\\\
+\\quad - |A \\cap B| - |A \\cap C| - |B \\cap C| + |A \\cap B \\cap C|
+$$
+
+---
+
+### 4. Cardinal d'une union de $n$ parties : formule du crible (formule de Poincaré)
+
+Soient $A_1, A_2, ..., A_n$ des ensembles finis. Alors :
+
+$$
+\\left| \\bigcup_{i=1}^{n} A_i \\right| = \\sum_{i=1}^{n} |A_i| - \\sum_{1 \\le i < j \\le n} |A_i \\cap A_j| \\\\
+\\quad + \\sum_{1 \\le i < j < k \\le n} |A_i \\cap A_j \\cap A_k| - \\cdots + (-1)^{n+1} |A_1 \\cap A_2 \\cap \\cdots \\cap A_n|
+$$
+
+- Cette formule est appelée **formule du crible** ou **formule d'inclusion-exclusion**.
+
+---
+
+### Applications classiques
+
+- Comptage de nombres entiers multiples de plusieurs entiers.
+- Calculs de probabilités dans des ensembles finis (principe additif et soustractif).
+  `,
+  tags: ['dénombrement', 'ensembles', 'cardinal', 'formule du crible', 'combinatoire'],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false,
+},
+
+// Espaces-probabilises
+{
+  id: 'Espaces-probabilises',
+  titre: 'Espaces Probabilisés & Probabilités Conditionnelles',
+  matiere: 'Mathématiques',
+  categorie: 'Probabilités',
+  niveau: ['Lycée','Prépa', 'Université'],
+  contenu: `
+### Définition : Espace Probabilisé
+
+Un **espace probabilisé** est un triplet $(\\Omega, \\mathcal{A}, \\mathbb{P})$ où :
+- $\\Omega$ : ensemble des issues (univers),
+- $\\mathcal{A}$ : tribu, ensemble d'événements,
+- $\\mathbb{P}$ : mesure de probabilité.
+
+---
+
+### Ensembles Dénombrables
+
+- Un ensemble est **dénombrable** s’il est en bijection avec $\\mathbb{N}$ ou une partie de $\\mathbb{N}$.
+- Exemples : $\\mathbb{N}, \\mathbb{Z}, \\mathbb{Q}$
+- Contre-exemples : $\\mathbb{R}, [0,1]$
+
+---
+
+### Tribu sur un ensemble $\\Omega$
+
+Un ensemble $\\mathcal{A} \\subset \\mathcal{P}(\\Omega)$ est une **tribu** si :
+- $\\Omega \\in \\mathcal{A}$ et $\\emptyset \\in \\mathcal{A}$,
+- stable par complémentaire, union et intersection dénombrables.
+
+**Vocabulaire** :
+- Événements : éléments de $\\mathcal{A}$.
+- Système **complet** : ensemble d'événements deux à deux incompatibles dont l’union est $\\Omega$.
+- Système **presque complet** : probabilité totale = 1.
+
+---
+
+### Probabilité sur un espace probabilisable
+
+Fonction $\\mathbb{P} : \\mathcal{A} \\to [0,1]$ vérifiant :
+- $\\mathbb{P}(\\Omega) = 1$
+- $\\mathbb{P}(\\bigcup A_i) = \\sum \\mathbb{P}(A_i)$ pour des $A_i$ disjoints
+
+**Cas dénombrable** :
+- Probabilité déterminée par les poids $p_i = \\mathbb{P}(\\{\\omega_i\\})$
+
+---
+
+### Propriétés fondamentales
+
+- $\\mathbb{P}(\\emptyset) = 0$, $\\mathbb{P}(\\bar{A}) = 1 - \\mathbb{P}(A)$
+- $\\mathbb{P}(A \\cup B) = \\mathbb{P}(A) + \\mathbb{P}(B) - \\mathbb{P}(A \\cap B)$
+- Si $A \\subset B$, alors $\\mathbb{P}(A) \\leq \\mathbb{P}(B)$ (croissance)
+- **Sous-additivité** : $\\mathbb{P}(\\cup A_i) \\leq \\sum \\mathbb{P}(A_i)$
+- **Propriété de limite monotone** :
+  - $A_n \\uparrow A \\Rightarrow \\mathbb{P}(A_n) \\to \\mathbb{P}(A)$
+  - $A_n \\downarrow A \\Rightarrow \\mathbb{P}(A_n) \\to \\mathbb{P}(A)$
+
+---
+
+### Formule du crible (ou de Poincaré)
+
+Pour des ensembles finis $A_1, ..., A_n$ :
+
+$$
+\\left| \\bigcup_{i=1}^{n} A_i \\right| = \\sum_{i} |A_i| - \\sum_{i<j} |A_i \\cap A_j| \\\\
+\\quad + \\sum_{i<j<k} |A_i \\cap A_j \\cap A_k| - \\cdots + (-1)^{n+1} |A_1 \\cap \\dots \\cap A_n|
+$$
+
+---
+
+### Probabilité conditionnelle
+
+#### Définition :
+
+$$
+\\mathbb{P}(A | B) = \\frac{\\mathbb{P}(A \\cap B)}{\\mathbb{P}(B)} \\quad \\text{si } \\mathbb{P}(B) > 0
+$$
+
+#### Formule des probabilités composées :
+
+$$
+\\mathbb{P}(A \\cap B) = \\mathbb{P}(B) \\cdot \\mathbb{P}(A | B)
+$$
+
+#### Formule des probabilités totales :
+
+Si $(B_i)$ est un système complet :
+
+$$
+\\mathbb{P}(A) = \\sum_i \\mathbb{P}(A | B_i) \\cdot \\mathbb{P}(B_i)
+$$
+
+#### Formule de Bayes :
+
+$$
+\\mathbb{P}(B_i | A) = \\frac{\\mathbb{P}(A | B_i) \\cdot \\mathbb{P}(B_i)}{\\sum_j \\mathbb{P}(A | B_j) \\cdot \\mathbb{P}(B_j)}
+$$
+
+---
+
+### Indépendance
+
+#### Définition :
+
+Deux événements $A$ et $B$ sont **indépendants** si :
+
+$$
+\\mathbb{P}(A \\cap B) = \\mathbb{P}(A) \\cdot \\mathbb{P}(B)
+$$
+
+#### Généralisation :
+
+Une famille $(A_i)$ est **mutuellement indépendante** si toute sous-famille l’est.
+
+---
+
+### Variables aléatoires discrètes
+
+- Fonction $X : \\Omega \\to \\mathbb{R}$
+- **Loi de $X$** : $\\mathbb{P}_X(x) = \\mathbb{P}(X = x)$
+
+---
+
+### Lois usuelles
+
+- **Uniforme** sur $\\{1, ..., n\\}$ : $\\mathbb{P}(X = i) = \\frac{1}{n}$
+- **Bernoulli(p)** : $X \\in \\{0,1\\}$ avec $\\mathbb{P}(X=1)=p$
+- **Binomiale** $\\text{Bin}(n,p)$ : $\\mathbb{P}(X=k) = \\binom{n}{k}p^k(1-p)^{n-k}$
+- **Géométrique** : $\\mathbb{P}(X=k) = (1-p)^{k-1}p$
+- **Poisson(\\lambda)** : $\\mathbb{P}(X=k) = \\frac{\\lambda^k}{k!}e^{-\\lambda}$
+  `,
+  tags: [
+    'espaces probabilisés',
+    'tribus',
+    'probabilités conditionnelles',
+    'formule du crible',
+    'événements indépendants',
+    'lois discrètes',
+    'formule de Bayes',
+    'probabilités composées'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+// Variables-aleatoires-a-densite
+{
+  id: 'Variables-aleatoires-a-densite',
+  titre: 'Variables Aléatoires à Densité',
+  matiere: 'Mathématiques',
+  categorie: 'Probabilités',
+  niveau: ['Prépa'],
+  contenu: `
+### Variables Aléatoires Réelles à Densité
+
+---
+
+#### Définition d’une densité
+- Une variable aléatoire réelle $X$ est **à densité** s’il existe une fonction $f : \\mathbb{R} \\to \\mathbb{R}_+$ telle que :
+  $$
+  \\forall a < b, \\quad \\mathbb{P}(a \\leq X \\leq b) = \\int_a^b f(x)\\,dx
+  $$
+- $f$ est appelée **densité de probabilité** de $X$.
+
+**Propriétés** :
+- $f(x) \\geq 0$
+- $\\int_{-\\infty}^{+\\infty} f(x)\\,dx = 1$
+- La fonction de répartition associée est :
+  $$
+  F_X(x) = \\mathbb{P}(X \\leq x) = \\int_{-\\infty}^x f(t)\\,dt
+  $$
+
+---
+
+#### Espérance $E(X)$
+- Si $X$ admet une densité $f$ et que $\\int_{-\\infty}^{+\\infty} |x|f(x)\\,dx < +\\infty$, alors :
+  $$
+  E(X) = \\int_{-\\infty}^{+\\infty} x f(x)\\,dx
+  $$
+
+- De manière générale, si $g$ est une fonction mesurable telle que $g(X)$ est intégrable :
+  $$
+  E(g(X)) = \\int_{-\\infty}^{+\\infty} g(x)f(x)\\,dx
+  $$
+
+> **Théorème de transfert** : $Y = g(X)$ alors $E(Y) = \\int g(x) f(x) dx$
+
+---
+
+#### Somme de variables aléatoires
+- Soient $X$ et $Y$ deux variables aléatoires indépendantes **à densité**, leur **somme** $S = X + Y$ admet une densité donnée par :
+  $$
+  f_S(s) = \\int_{-\\infty}^{+\\infty} f_X(x)f_Y(s - x)\\,dx
+  $$
+- Cette opération est appelée **convolution** : $f_S = f_X * f_Y$
+
+---
+
+#### Indépendance de variables aléatoires
+- $X$ et $Y$ sont **indépendantes** ssi la densité jointe $f_{X,Y}(x,y)$ vérifie :
+  $$
+  f_{X,Y}(x,y) = f_X(x) \\cdot f_Y(y)
+  $$
+- Alors : $\\mathbb{P}(X \\in A, Y \\in B) = \\mathbb{P}(X \\in A) \\cdot \\mathbb{P}(Y \\in B)$
+
+---
+
+#### Variance et écart-type
+- $V(X) = E[(X - E(X))^2] = \\int (x - E(X))^2 f(x) dx$
+- $\\sigma(X) = \\sqrt{V(X)}$
+
+---
+
+#### Lois usuelles à densité
+
+| Loi                      | Densité $f(x)$                              | Domaine                  | Espérance $E(X)$ | Variance $V(X)$  |
+|--------------------------|---------------------------------------------|---------------------------|------------------|------------------|
+| Uniforme $\\mathcal{U}(a,b)$ | $\\frac{1}{b-a}$                            | $[a,b]$                   | $\\frac{a+b}{2}$ | $\\frac{(b-a)^2}{12}$ |
+| Normale $\\mathcal{N}(\\mu,\\sigma^2)$ | $\\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$ | $\\mathbb{R}$             | $\\mu$           | $\\sigma^2$       |
+| Exponentielle $(\\lambda)$ | $\\lambda e^{-\\lambda x}$                   | $x \\geq 0$               | $\\frac{1}{\\lambda}$ | $\\frac{1}{\\lambda^2}$ |
+
+  `,
+  tags: [
+    'densité',
+    'espérance',
+    'convolution',
+    'indépendance',
+    'lois continues',
+    'fonction de répartition',
+    'probabilités',
+    'analyse',
+    'théorème de transfert'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+// Moments-variable-reelle
+{
+  id: 'Moments-variable-reelle',
+  titre: 'Moments d’une Variable Aléatoire Réelle',
+  matiere: 'Mathématiques',
+  categorie: 'Probabilités',
+  niveau: ['Prépa'],
+  contenu: `
+### Moments d’une Variable Aléatoire Réelle
+
+---
+
+#### Espérance : premières propriétés
+- **Linéarité** : $E(aX + b) = aE(X) + b$
+- Si $X \\geq 0$ alors $E(X) \\geq 0$
+- Si $X \\leq Y$ alors $E(X) \\leq E(Y)$
+- $E(g(X)) = \\int g(x) f(x) dx$ (si $X$ à densité $f$)
+
+---
+
+#### Variance et écart-type
+- $V(X) = E[(X - E(X))^2] = E(X^2) - [E(X)]^2$
+- $\\sigma(X) = \\sqrt{V(X)}$
+- **Propriétés** :
+  - $V(aX + b) = a^2 V(X)$
+  - Inégalité de Bienaymé-Tchebychev : $P(|X - E(X)| \\geq \\varepsilon) \\leq \\frac{V(X)}{\\varepsilon^2}$
+
+---
+
+#### Covariance
+- $\\operatorname{Cov}(X,Y) = E[(X - E(X))(Y - E(Y))] = E(XY) - E(X)E(Y)$
+- **Propriétés** :
+  - $\\operatorname{Cov}(X,Y) = 0$ si $X$ et $Y$ sont indépendantes (réciproque fausse)
+  - $\\operatorname{Cov}(aX + b, Y) = a \\cdot \\operatorname{Cov}(X, Y)$
+
+---
+
+#### Coefficient de corrélation linéaire
+- $\\rho(X,Y) = \\frac{\\operatorname{Cov}(X,Y)}{\\sigma(X)\\sigma(Y)}$
+- $\\rho \\in [-1, 1]$
+- $\\rho = \\pm 1$ ssi $Y = aX + b$ avec $a \\neq 0$ (relation linéaire parfaite)
+
+---
+
+#### Moments et moments centrés
+- Moment d’ordre $r$ : $E(X^r)$
+- Moment centré d’ordre $r$ : $E[(X - E(X))^r]$
+  - Moment centré d’ordre 2 : la **variance**
+- Le moment d’ordre 1 est l’**espérance**
+- Moments utiles pour la forme des lois (asymétrie, aplatissement…)
+
+---
+
+#### Variable aléatoire centrée réduite
+- Soit $X$ une v.a. avec $E(X) = \\mu$ et $\\sigma(X) = \\sigma$
+- La variable centrée réduite associée est :
+  $$
+  Z = \\frac{X - \\mu}{\\sigma}
+  $$
+- Alors : $E(Z) = 0$, $V(Z) = 1$
+
+---
+
+### Espérance conditionnelle
+
+#### Définition
+- Soient $X$, $Y$ deux v.a. réelles.
+- L’espérance conditionnelle de $X$ sachant $Y = y$ est :
+  $$
+  E(X \\mid Y = y) = \\int x \\cdot f_{X\\mid Y}(x \\mid y) dx
+  $$
+
+#### Formule de l’espérance totale
+- Si $Y$ est une variable aléatoire discrète ou continue :
+  $$
+  E(X) = E[E(X \\mid Y)]
+  $$
+
+> Cette formule permet de **décomposer une espérance** selon la loi d'une autre variable.
+
+  `,
+  tags: [
+    'espérance',
+    'variance',
+    'écart-type',
+    'covariance',
+    'corrélation',
+    'moments',
+    'espérance conditionnelle',
+    'espérance totale',
+    'variables aléatoires'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+
+// Lois-discretes-usuelles
+{
+  id: 'Lois-discretes-usuelles',
+  titre: 'Lois Discrètes Usuelles',
+  matiere: 'Mathématiques',
+  categorie: 'Probabilités',
+  niveau: ['Prépa'],
+  contenu: `
+### Lois Discrètes Usuelles
+
+---
+
+#### Loi uniforme sur un ensemble fini
+- **Définition** : Tous les résultats dans $\\{1, 2, ..., n\\}$ sont équiprobables.
+- $P(X = k) = \\frac{1}{n}$ pour $k = 1, ..., n$
+- $E(X) = \\frac{n+1}{2}$, $V(X) = \\frac{n^2 - 1}{12}$
+- **Exemple** : lancer d’un dé équilibré
+
+---
+
+#### Loi de Bernoulli $\\mathcal{B}(p)$
+- **Définition** : Modélise une épreuve à deux issues : succès ($1$) ou échec ($0$)
+- $P(X = 1) = p$, $P(X = 0) = 1 - p$
+- $E(X) = p$, $V(X) = p(1 - p)$
+- **Fonction génératrice** : $G_X(t) = 1 - p + pt$
+
+---
+
+#### Loi binomiale $\\mathcal{B}(n, p)$
+- **Définition** : Somme de $n$ variables de Bernoulli indépendantes
+- $P(X = k) = \\binom{n}{k} p^k (1 - p)^{n - k}$, $k \\in \\{0, ..., n\\}$
+- $E(X) = np$, $V(X) = np(1 - p)$
+- **Fonction génératrice** : $G_X(t) = (1 - p + pt)^n$
+
+---
+
+#### Loi hypergéométrique $\\mathcal{H}(N, K, n)$
+- **Définition** : Modélise un tirage sans remise de $n$ objets parmi $N$ contenant $K$ succès
+- $P(X = k) = \\frac{\\binom{K}{k} \\binom{N-K}{n-k}}{\\binom{N}{n}}$ avec $\\max(0, n-N+K) \\leq k \\leq \\min(K, n)$
+- $E(X) = n \\cdot \\frac{K}{N}$, $V(X) = n \\cdot \\frac{K}{N} \\cdot \\left(1 - \\frac{K}{N}\\right) \\cdot \\frac{N - n}{N - 1}$
+- **Exemple** : loterie sans remise
+
+---
+
+#### Loi géométrique $\\mathcal{G}(p)$
+- **Définition** : Modélise le rang du premier succès dans une suite d’épreuves de Bernoulli
+- $P(X = k) = (1 - p)^{k - 1} p$, $k \\geq 1$
+- $E(X) = \\frac{1}{p}$, $V(X) = \\frac{1 - p}{p^2}$
+- **Fonction génératrice** : $G_X(t) = \\frac{pt}{1 - (1 - p)t}$ pour $|t| < \\frac{1}{1 - p}$
+
+---
+
+#### Loi de Poisson $\\mathcal{P}(\\lambda)$
+- **Définition** : Modélise le nombre d’occurrences d’un événement rare sur un intervalle
+- $P(X = k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}$, $k \\in \\mathbb{N}$
+- $E(X) = \\lambda$, $V(X) = \\lambda$
+- **Fonction génératrice** : $G_X(t) = e^{\\lambda (t - 1)}$
+- **Convergence** : $\\mathcal{B}(n, \\frac{\\lambda}{n}) \\rightarrow \\mathcal{P}(\\lambda)$
+
+---
+
+> Ces lois sont fondamentales pour modéliser des expériences aléatoires simples et souvent rencontrées en pratique (tirage, comptage, répétition d’épreuves).
+  `,
+  tags: [
+    'lois de probabilité',
+    'lois discrètes',
+    'loi uniforme',
+    'loi de Bernoulli',
+    'loi binomiale',
+    'loi hypergéométrique',
+    'loi géométrique',
+    'loi de Poisson',
+    'variables aléatoires',
+    'fonction génératrice'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+// Lois-usuelles-a-densite
+{
+  id: 'Lois-usuelles-a-densite',
+  titre: 'Lois Usuelles à Densité',
+  matiere: 'Mathématiques',
+  categorie: 'Probabilités',
+  niveau: ['Prépa'],
+  contenu: `
+### Lois Usuelles à Densité
+
+---
+
+#### Loi uniforme sur $[a, b]$
+- **Définition** : $X \\sim \\mathcal{U}([a, b])$ si sa densité est $f(x) = \\frac{1}{b-a}$ pour $x \\in [a, b]$
+- $E(X) = \\frac{a + b}{2}$, $V(X) = \\frac{(b-a)^2}{12}$
+- Fonction de répartition : $F(x) = \\frac{x - a}{b - a}$ pour $x \\in [a, b]$
+- Modélise un tirage équi-réparti sur un intervalle
+
+---
+
+#### Loi exponentielle $\\mathcal{E}(\\lambda)$
+- **Définition** : $f(x) = \\lambda e^{-\\lambda x}$ pour $x \\geq 0$, $\\lambda > 0$
+- $E(X) = \\frac{1}{\\lambda}$, $V(X) = \\frac{1}{\\lambda^2}$
+- Propriété de **sans mémoire** : $P(X > t + s \\mid X > s) = P(X > t)$
+- Fonction de répartition : $F(x) = 1 - e^{-\\lambda x}$
+- Utilisée pour modéliser le temps d’attente entre événements rares
+
+---
+
+#### Loi gamma $\\Gamma(k, \\lambda)$ (ou loi \\( \\gamma \\))
+- **Définition** : $f(x) = \\frac{\\lambda^k x^{k - 1} e^{-\\lambda x}}{\\Gamma(k)}$ pour $x > 0$
+- $k > 0$ (forme), $\\lambda > 0$ (taux)
+- $E(X) = \\frac{k}{\\lambda}$, $V(X) = \\frac{k}{\\lambda^2}$
+- Cas particuliers :
+  - $k = 1$ : loi exponentielle
+  - $k \\in \\mathbb{N}$ : somme de $k$ variables exponentielles indépendantes
+- Utilisée en fiabilité, files d’attente, etc.
+
+---
+
+#### Loi normale $\\mathcal{N}(\\mu, \\sigma^2)$
+- **Définition** : $f(x) = \\frac{1}{\\sqrt{2\\pi \\sigma^2}} e^{-\\frac{(x - \\mu)^2}{2\\sigma^2}}$
+- $E(X) = \\mu$, $V(X) = \\sigma^2$
+- Symétrique autour de $\\mu$
+- Densité en cloche : concentration autour de la moyenne
+- Fonction de répartition : notée $\\Phi$ dans le cas standard
+- **Loi normale standard** : $\\mathcal{N}(0, 1)$
+- **Propriété de stabilité** :
+  - Somme de lois normales indépendantes : loi normale
+  - $aX + b \\sim \\mathcal{N}(a\\mu + b, a^2 \\sigma^2)$
+- **Théorème central limite** : la moyenne d’un grand nombre de variables iid converge en loi vers une normale
+
+---
+
+> Ces lois continues sont fondamentales en statistiques et en modélisation des phénomènes aléatoires dans la nature, l'industrie, et l’ingénierie.
+  `,
+  tags: [
+    'lois continues',
+    'loi uniforme',
+    'loi exponentielle',
+    'loi gamma',
+    'loi normale',
+    'densité de probabilité',
+    'fonction de répartition',
+    'espérance',
+    'variance',
+    'théorème central limite'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
+// Convergences et approximations
+{
+  id: 'Convergences-et-approximations',
+  titre: 'Convergences et Approximations',
+  matiere: 'Mathématiques',
+  categorie: 'Probabilités',
+  niveau: ['Prépa'],
+  contenu: `
+### Convergences et Approximations
+
+---
+
+#### Inégalité de Markov
+- Pour une variable aléatoire $X \\geq 0$ et $a > 0$,
+$$
+P(X \\geq a) \\leq \\frac{E(X)}{a}.
+$$
+- Permet de majorer la probabilité que $X$ dépasse un seuil via son espérance.
+
+---
+
+#### Inégalité de Bienaymé-Tchebychev
+- Pour une variable $X$ de variance finie et $a > 0$,
+$$
+P(|X - E(X)| \\geq a) \\leq \\frac{V(X)}{a^2}.
+$$
+- Outil fondamental pour contrôler la dispersion autour de la moyenne.
+
+---
+
+#### Convergence en probabilité
+- Une suite $(X_n)$ converge en probabilité vers $X$ si, pour tout $\\varepsilon > 0$,
+$$
+\\lim_{n \\to \\infty} P(|X_n - X| > \\varepsilon) = 0.
+$$
+- Notation : $X_n \\xrightarrow{p} X$.
+
+---
+
+#### Loi faible des grands nombres (LGN)
+- Soit $(X_i)$ iid avec $E(X_i) = \\mu$ et variance finie.
+- La moyenne empirique
+$$
+\\overline{X}_n = \\frac{1}{n} \\sum_{i=1}^n X_i
+$$
+converge en probabilité vers $\\mu$ :
+$$
+\\overline{X}_n \\xrightarrow{p} \\mu.
+$$
+- Justifie l’usage des moyennes empiriques comme estimateurs.
+
+---
+
+#### Approximations classiques
+- Approximation de la loi binomiale par la loi normale (quand $n$ grand, $p$ fixe) :
+$$
+B(n,p) \\approx \\mathcal{N}(np, np(1-p)).
+$$
+- Approximation de la loi de Poisson par la loi normale (pour $\\lambda$ grand) :
+$$
+\\mathcal{P}(\\lambda) \\approx \\mathcal{N}(\\lambda, \\lambda).
+$$
+
+---
+
+#### Théorème central limite (TCL)
+- Soit $(X_i)$ iid de moyenne $\\mu$ et variance $\\sigma^2 > 0$.
+- La variable centrée et réduite
+$$
+Z_n = \\frac{\\sum_{i=1}^n X_i - n\\mu}{\\sigma \\sqrt{n}}
+$$
+converge en loi vers une loi normale standard :
+$$
+Z_n \\xrightarrow{d} \\mathcal{N}(0,1).
+$$
+- Fondement théorique de nombreuses approximations statistiques.
+
+---
+
+> Ces outils permettent d’analyser la convergence des suites de variables aléatoires et d’utiliser des lois continues pour approximer des lois discrètes.
+  `,
+  tags: [
+    'convergence',
+    'inégalités',
+    'Markov',
+    'Bienaymé-Tchebychev',
+    'loi faible des grands nombres',
+    'approximation',
+    'théorème central limite',
+    'probabilités',
+    'statistiques'
+  ],
+  datePublication: '2025-05-26',
+  populaire: false,
+  aReviser: false
+},
 ];
 
 // Physique
@@ -2045,8 +3377,8 @@ $$
     `,
     tags: ['aimantation', 'champ magnétique', 'Maxwell-Ampère'],
     datePublication: '2025-05-23',
-    populaire: true,
-    aReviser: true,
+    populaire: false,
+    aReviser: false,
   },
 ];
 
@@ -2177,8 +3509,8 @@ export const fichesChimie: Fiche[] = [
     'cristallographie'
   ],
   datePublication: '2025-05-23',
-  populaire: true,
-  aReviser: true,
+  populaire: false,
+  aReviser: false,
 },
 
 //cinétique-chimique
