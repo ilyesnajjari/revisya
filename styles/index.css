@@ -832,4 +832,353 @@ section {
     margin: 0 auto;
     border-radius: 1rem;
   }
+
+  .btn-countdown {
+    width: 100%;
+    min-width: 0;
+    padding: 0.9em 0.5em;
+    font-size: 1rem;
+    border-radius: 2em;
+    justify-content: center;
+    margin: 0.4em 0;
+  }
+  .btn-countdown .icon {
+    font-size: 1.1em;
+  }
 }
+
+/* Thème sombre */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark p,
+body.dark ul,
+body.dark ol,
+body.dark figure,
+body.dark blockquote,
+body.dark dl,
+body.dark dd {
+  color: #e0e0e0;
+}
+
+body.dark .section-hero {
+  background-color: #1e1e2e;
+  color: #e0e0e0;
+}
+
+body.dark .section-hero h1 {
+  color: #ffffff;
+}
+
+body.dark .section-hero p {
+  color: #c0c0c0;
+}
+
+body.dark .btn-primary {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+body.dark .btn-primary:hover,
+body.dark .btn-primary:focus-visible {
+  background-color: #2563eb;
+}
+
+body.dark .section-avantages {
+  background: none;
+}
+
+body.dark .section-avantages > div > div {
+  background: linear-gradient(135deg, #23272f 0%, #334155 100%) !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark .section-temoignages {
+  background-color: rgba(31, 41, 55, 0.8);
+}
+
+body.dark .section-temoignages blockquote,
+body.dark .section-temoignages .speech-bubble {
+  background: #2c2f33;
+  color: #ffffff;
+}
+
+body.dark .section-cta {
+  background: linear-gradient(90deg, #23272f 0%, #334155 100%) !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark .section-cta h2 {
+  color: #ffffff;
+}
+
+body.dark .section-cta p {
+  color: #d1d5db;
+}
+
+body.dark .fiches-aside {
+  background: #1e1e2e;
+  color: #e0e0e0;
+}
+
+body.dark .fiches-aside-title {
+  color: #ffffff;
+}
+
+body.dark .fiches-aside-btn {
+  background: #23272f !important;
+  color: #60a5fa !important;
+  border: 1px solid #334155 !important;
+  transition: background 0.2s, color 0.2s;
+}
+
+body.dark .fiches-aside-btn.active,
+body.dark .fiches-aside-btn:focus-visible {
+  background: #2563eb !important;
+  color: #fff !important;
+  border-color: #2563eb !important;
+}
+
+body.dark .fiches-aside-btn:hover {
+  background: #334155 !important;
+  color: #fff !important;
+}
+
+body.dark .fiches-section {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+body.dark .fiches-title {
+  color: #ffffff;
+}
+
+body.dark .fiches-filtres {
+  background: #2c2f33;
+  padding: 1rem;
+  border-radius: 0.375rem;
+}
+
+body.dark .fiches-filtre-select,
+body.dark .fiches-filtre-input {
+  background: #3a3f47;
+  color: #e0e0e0;
+  border: 1px solid #444851;
+}
+
+body.dark .fiches-filtre-checkbox {
+  color: #e0e0e0;
+}
+
+body.dark .fiches-list {
+  background: #121212;
+}
+
+body.dark .fiche-card {
+  background: #1e1e2e;
+  border: 1px solid #2c2f33;
+}
+
+body.dark .fiche-card:hover {
+  background: #2c2f33;
+}
+
+body.dark .fiche-link {
+  color: #3b82f6;
+}
+
+body.dark .fiche-link:hover,
+body.dark .fiche-link:focus-visible {
+  color: #2563eb;
+}
+
+body.dark .fiche-niveau {
+  color: #a0aec0;
+}
+
+body.dark .fiche-tags {
+  background: none !important;
+  padding: 0 !important;
+}
+
+body.dark .fiche-tag {
+  background: #3a3f47;
+  color: #ffffff;
+}
+
+body.dark .fiche-labels {
+  color: #ffffff;
+}
+
+body.dark .fiche-label-populaire {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+body.dark .fiche-label-reviser {
+  background: #ca8a04;
+  color: #ffffff;
+}
+
+body.dark .fiches-pagination {
+  background: #2c2f33;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+}
+
+body.dark .fiches-pagination-btn {
+  background: #23272f !important;
+  color: #60a5fa !important;
+  border: 1px solid #334155 !important;
+}
+
+body.dark .fiches-pagination-btn.active,
+body.dark .fiches-pagination-btn:focus-visible {
+  background: #2563eb !important;
+  color: #fff !important;
+  border-color: #2563eb !important;
+}
+
+body.dark .fiches-pagination-btn:hover {
+  background: #334155 !important;
+  color: #fff !important;
+}
+
+body.dark .speech-bubble1 {
+  background: #23272f !important;
+  border-left: 8px solid #334155 !important;
+  color: #f1f5f9 !important;
+}
+body.dark .speech-bubble1::after {
+  border-color: #23272f transparent transparent transparent !important;
+}
+
+/* Ajoute à la fin de /styles/index.css */
+
+/* Thème sombre pour la page fiches (complément pour cohérence) */
+body.dark .fiches-main {
+  background: #181c23 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark .fiche-categorie {
+  background: #334155 !important;
+  color: #60a5fa !important;
+  border-color: #2563eb !important;
+}
+
+
+
+body.dark .fiche-label-populaire {
+  background: #dc2626 !important;
+  color: #fff !important;
+}
+
+body.dark .fiche-label-reviser {
+  background: #ca8a04 !important;
+  color: #fff !important;
+}
+
+/* Pour les boutons de pagination actifs */
+body.dark .fiches-pagination-btn.active,
+body.dark .fiches-pagination-btn:focus-visible {
+  background: #2563eb !important;
+  color: #fff !important;
+  border-color: #2563eb !important;
+}
+
+.btn-countdown {
+  background: linear-gradient(135deg, #2563eb 60%, #38bdf8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 2em;
+  padding: 0.7em 1.4em;         /* Plus petit padding */
+  font-size: 1rem;              /* Taille de police réduite */
+  font-weight: 600;
+  box-shadow: 0 2px 12px rgba(37,99,235,0.13);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;                   /* Moins d’espace entre icône et texte */
+  margin: 0 0.2em;
+  min-width: 0;
+}
+
+
+.btn-countdown .icon {
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive : bouton 100% largeur sur mobile */
+@media (max-width: 700px) {
+  .btn-countdown {
+    width: 100%;
+    padding: 0.5em 0.3em;    /* Plus petit padding */
+    font-size: 0.92rem;      /* Plus petit texte */
+    border-radius: 2em;
+    justify-content: center;
+    margin: 0.3em 0;
+  }
+}
+
+.btn-moyenne {
+  background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(34,197,94,0.13);
+  border: none;
+  cursor: pointer;
+}
+.btn-moyenne:hover,
+.btn-moyenne:focus-visible {
+  background: #16a34a;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(34,197,94,0.25);
+  outline: none;
+}
+
+@media (max-width: 700px) {
+  .btn-moyenne {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.7rem 0.5rem;
+    border-radius: 2em;
+    margin: 0.3em 0;
+    box-sizing: border-box;
+  }
+  .btn-moyenne .icon {
+    font-size: 1.1em;
+    margin-right: 0.5em;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .fiches-btns {
+    flex-direction: column !important;
+    gap: 0.7em !important;
+    align-items: stretch !important;
+  }
+}
+

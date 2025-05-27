@@ -21,7 +21,7 @@ export const fichesMaths: Fiche[] = [
     titre: "Fonction trinôme du second degré",
     matiere: "Mathématiques",
     categorie: "Analyse", // <-- Ajouté
-    niveau: ["Lycée", "Prépa", "Université"], // Plusieurs niveaux
+    niveau: ["Lycée"], // Plusieurs niveaux
     contenu: `
 ## Définition
 
@@ -221,6 +221,105 @@ Alors :
     aReviser: true
   },
 
+ {
+    id: "trinome-second-degree",
+    titre: "Fonction trinôme du second degré",
+    matiere: "Mathématiques",
+    categorie: "Analyse", // <-- Ajouté
+    niveau: ["Lycée"], // Plusieurs niveaux
+    contenu: `
+## Définition
+
+Une **fonction trinôme** est une fonction polynomiale de degré 2, s'écrivant sous la forme :  
+$$
+f(x) = ax^2 + bx + c
+$$  
+avec $a \\neq 0$, et $a, b, c \\in \\mathbb{R}$.
+
+Elle modélise une **courbe en forme de parabole** dans un repère cartésien.
+
+---
+
+## Forme canonique
+
+Toute fonction trinôme peut être réécrite sous la **forme canonique** suivante :  
+$$
+f(x) = a(x - \\alpha)^2 + \\beta
+$$  
+avec :  
+- $\\alpha = -\\frac{b}{2a}$ (abscisse du sommet de la parabole)  
+- $\\beta = f(\\alpha)$ (ordonnée du sommet)
+
+Cette forme permet de **repérer facilement le sommet** de la parabole $S(\\alpha, \\beta)$.
+
+---
+
+## Sens de variation
+
+Le signe du coefficient $a$ détermine la **concavité** de la parabole et donc les **variations** de la fonction :
+
+- Si $a > 0$ : la parabole est **ouverte vers le haut**  
+   $f$ **décroît** sur $]-\\infty, \\alpha]$ et **croît** sur $[\\alpha, +\\infty[$  
+   Le **minimum** est atteint en $x = \\alpha$
+
+- Si $a < 0$ : la parabole est **ouverte vers le bas**  
+   $f$ **croît** sur $]-\\infty, \\alpha]$ et **décroît** sur $[\\alpha, +\\infty[$  
+   Le **maximum** est atteint en $x = \\alpha$
+
+---
+
+## Racines (solutions de l'équation $f(x) = 0$)
+
+Pour résoudre $ax^2 + bx + c = 0$, on utilise le **discriminant** $\\Delta$ :
+
+$$
+\\Delta = b^2 - 4ac
+$$
+
+- Si $\\Delta > 0$ : deux racines réelles distinctes :  
+  $$
+  x_1 = \\frac{-b - \\sqrt{\\Delta}}{2a}, \\quad x_2 = \\frac{-b + \\sqrt{\\Delta}}{2a}
+  $$
+
+- Si $\\Delta = 0$ : une racine double (ou racine unique) :  
+  $$
+  x_0 = -\\frac{b}{2a}
+  $$
+
+- Si $\\Delta < 0$ : **aucune racine réelle** (les solutions sont complexes)
+
+---
+
+## Représentation graphique
+
+- **Courbe** : une **parabole** symétrique par rapport à l’axe $x = \\alpha$
+- **Sommet** : point $S(\\alpha, \\beta)$
+- **Axe de symétrie** : droite d'équation $x = \\alpha$
+- Les **racines** (si elles existent) sont les points d'intersection avec l’axe des abscisses ($f(x) = 0$)
+
+---
+
+## Signe du trinôme
+
+Le signe de $f(x) = ax^2 + bx + c$ dépend de $a$ et du discriminant $\\Delta$ :
+
+- Si $\\Delta > 0$, alors :
+  - $f(x) > 0$ à l'extérieur des racines
+  - $f(x) < 0$ entre les racines (si $a > 0$) et inversement si $a < 0$
+
+- Si $\\Delta = 0$, alors :
+  - $f(x)$ a **le même signe que $a$** sauf au point racine où $f(x) = 0$
+
+- Si $\\Delta < 0$, alors :
+  - $f(x)$ a toujours **le signe de $a$**
+
+---
+    `,
+    tags: ["trinôme", "second degré", "équation quadratique", "forme canonique", "parabole"],
+    datePublication: "2025-05-22",
+    populaire: true,
+    aReviser: false
+  }, 
 //Euclidien-endomorphismes
 {
   id: 'Euclidien-endomorphismes',
@@ -684,9 +783,9 @@ $$
   aReviser: false,
 },
 
-//kholle-endomorphismes-matrices-carrees
+//Endomorphismes-matrices-carrees
 {
-  id: 'kholle-endomorphismes-matrices-carrees',
+  id: 'Endomorphismes-matrices-carrees',
   titre: 'Endomorphismes et Matrices Carrées',
   matiere: 'Mathématiques',
   categorie: 'Algèbre',
@@ -1004,85 +1103,135 @@ $$
 
 //Intégrales-generalisees
 {
-  id: 'Intégrales-generalisees',
+  id: 'Integrales-generalisees',
   titre: 'Intégrales Généralisées',
   matiere: 'Mathématiques',
   categorie: 'Analyse',
-  niveau: ['Prépa'],
+  niveau: ['Prépa', 'Université'],
   contenu: `
-### Intégrales Généralisées
+
+### Intégrales Généralisées (Prépa)
+---
+
+#### Fonction Continue Par Morceaux (CPM)
+- Une fonction est dite **continue par morceaux** sur un intervalle si elle est continue sauf en un nombre fini de points où elle admet des limites à gauche et à droite.
+- Toute fonction continue est CPM, mais l’inverse n’est pas vrai.
+- **Notation :** $f \\in \\mathscr{C}_{pm}([a;b])$
 
 ---
 
-#### Fonction continue par morceaux (CPM)
-- Fonction continue par morceaux sur un segment ou un intervalle de $\\mathbb{R}$
-- Définition et propriétés élémentaires
+#### Intégrale Convergente / Divergente
+- On dit que l’intégrale impropre $\\int_a^b f(t) \\, dt$ **converge** si la limite de l’intégrale sur un intervalle tronqué existe et est finie.
+- Cas classiques :
+  - Borne infinie (ex : $\\int_1^{+\\infty} f(t) \\, dt$)
+  - Discontinuité en une borne (ex : $\\int_0^1 \\frac{1}{\\sqrt{t}} \\, dt$)
 
 ---
 
-#### Intégrale convergente / divergente
-- Intégrale d’une fonction CPM sur un intervalle semi-ouvert $[a; b[$ ou $]a; b]$, ou sur un intervalle ouvert $]a; b[$
-- Notion de convergence ou divergence de l’intégrale impropre
+#### Méthode des Rectangles (Sommes de Riemann)
+- Approche intuitive de l’intégration comme somme d’aires de rectangles.
+- $$\\int_a^b f(t) \\, dt \\approx \\sum_{i=0}^{n-1} f(t_i)\\Delta t$$ avec $\\Delta t = \\frac{b-a}{n}$
+- Permet de définir l’intégrale de Riemann et d’aborder la convergence.
 
 ---
 
 #### Intégrales de Riemann
-- Construction classique des intégrales
-- Extension aux intégrales impropres
+- Définition rigoureuse via les **sommes de Riemann**, puis passage à la limite.
+- Étendue aux cas impropres par le passage à la limite lorsque la borne tend vers une valeur problématique.
 
 ---
 
-#### Exemples classiques
-$$
-\\displaystyle \\int_0^{+\\infty} e^{-\\alpha t} \\, dt
-$$
-$$
-\\displaystyle \\int_0^{1} \\ln(t) \\, dt
-$$
-$$
-\\displaystyle \\int_1^{+\\infty} \\frac{dt}{1+t^2}
-$$
+#### Intégration par Parties
+- Formule : $$\\int_a^b u v' = [uv]_a^b - \\int_a^b u' v$$
+- Très utile pour intégrer des produits, notamment avec $\\ln(t)$, $t^n$, ou des fonctions trigonométriques.
 
 ---
 
-#### Intégrales faussement impropres ou grossièrement divergentes
-- Notions et exemples
-- Cas particuliers où l’intégrale diverge mais peut être traitée
+#### Changement de Variable
+- Si $t = \\phi(x)$, alors : $$\\int f(t) \\, dt = \\int f(\\phi(x)) \\phi'(x) \\, dx$$
+- Outil important pour simplifier les intégrales compliquées ou ramener à une forme connue.
 
 ---
 
-#### Propriétés des intégrales généralisées
-- Linéarité
-- Relation de Chasles
-- Positivité
-- Croissance
-- Changement de variable
-- Intégration par parties
+#### Exemples Classiques
+$$ \\int_0^{+\\infty} e^{-\\alpha t} \\, dt = \\frac{1}{\\alpha} \\quad (\\alpha > 0) $$
+$$ \\int_0^{1} \\ln(t) \\, dt = -1 $$
+$$ \\int_1^{+\\infty} \\frac{1}{1 + t^2} \\, dt = \\frac{\\pi}{4} $$
 
 ---
 
-#### Critères de convergence
-- Convergence d’une intégrale d’une fonction positive par comparaison sur l’intervalle
-- Convergence par comparaison asymptotique en la borne ouverte
+#### Intégrales Classiques à connaître
+| Intégrale | Condition | Résultat |
+|----------|-----------|----------|
+| $\\int_1^{+\\infty} \\frac{1}{t^\\alpha} dt$ | $\\alpha > 1$ | Converge |
+| $\\int_0^1 \\frac{1}{t^\\alpha} dt$ | $\\alpha < 1$ | Converge |
+| $\\int_0^{+\\infty} e^{-\\alpha t} dt$ | $\\alpha > 0$ | $\\frac{1}{\\alpha}$ |
+| $\\int_0^1 \\ln(t) dt$ | – | $-1$ |
+| $\\int_1^{+\\infty} \\frac{1}{1+t^2} dt$ | – | $\\frac{\\pi}{4}$ |
 
 ---
 
-#### Intégrale absolument convergente
-- Définition : $\\int |f|$ converge
-- Convergence absolue implique convergence
+#### Intégrales Faussement Impropres ou Grossièrement Divergentes
+- Certaines intégrales avec des bornes infinies ou des discontinuités peuvent tout de même **converger**.
+- Exemples :
+  - $\\int_0^1 \\frac{\\sin t}{\\sqrt{t}} \\, dt$ converge
+  - $\\int_1^{+\\infty} \\frac{\\sin t}{t} \\, dt$ converge (mais pas absolument)
 
 ---
 
-#### Fonction intégrable sur un intervalle
-- Critères d’intégrabilité par comparaison
-- Opérations sur les fonctions intégrables
-- Opérations sur les fonctions de carré intégrable
+#### Fonction Gamma de Euler
+- Définie par : $$\\Gamma(x) = \\int_0^{+\\infty} t^{x-1} e^{-t} \\, dt$$
+- Généralisation de la factorielle : $\\Gamma(n) = (n-1)!$ si $n \\in \\mathbb{N}^*$
+- Très utilisée en probabilités et analyse complexe.
 
 ---
 
-#### Remarque
-- La convergence absolue implique la convergence, mais la réciproque est fausse (ex. : $\\int_1^{+\\infty} e^{it} \\, dt$ diverge, mais la convergence de $\\int_1^{+\\infty} |e^{it}| \\, dt$ n’a pas lieu)
+#### Propriétés des Intégrales Généralisées
+- **Linéarité** : $\\int_a^b (\\lambda f + \\mu g) = \\lambda \\int_a^b f + \\mu \\int_a^b g$
+- **Chasles** : $\\int_a^b f + \\int_b^c f = \\int_a^c f$
+- **Positivité** : Si $f \\geq 0$, alors $\\int f \\geq 0$
+- **Croissance** : Si $f \\leq g$, alors $\\int f \\leq \\int g$
+- **Changement de variable**, **intégration par parties** (cf. plus haut)
 
+---
+
+#### Critères de Convergence
+- **Par comparaison** : Si $0 \\leq f(t) \\leq g(t)$ et $\\int g$ converge, alors $\\int f$ converge.
+- **Comparaison asymptotique** : Si $f(t) \\sim g(t)$ en $t \\to a^+$, alors $f$ et $g$ ont le même caractère de convergence.
+
+---
+
+#### Intégrale Absolument Convergente
+- Si $\\int |f|$ converge, alors $\\int f$ converge (**convergence absolue**).
+- La réciproque est **fausse** :
+  $$ \\int_1^{+\\infty} \\frac{\\sin t}{t} \\, dt \\text{ converge } \\quad \\text{mais} \\quad \\int_1^{+\\infty} \\left| \\frac{\\sin t}{t} \\right| \\, dt \\text{ diverge} $$
+
+---
+
+#### Fonction Intégrable sur un Intervalle
+- Une fonction est **intégrable** sur un intervalle si $\\int |f|$ est finie.
+- **Critères** :
+  - Comparaison avec une fonction intégrable
+  - Développement limité
+  - Diminution rapide (ex : $t^{-\\alpha}$ avec $\\alpha > 1$ sur $[1,+\\infty[$)
+
+---
+
+#### Remarques Importantes
+- **Convergence absolue ⇒ convergence**, mais pas l'inverse.
+- **Fonction $e^{it}$** : $|e^{it}| = 1$, donc :
+  $$ \\int_1^{+\\infty} e^{it} dt \\text{ diverge } \\quad \\text{(pas de limite)} $$
+  $$ \\int_1^{+\\infty} |e^{it}| dt = \\int_1^{+\\infty} 1 \\, dt = +\\infty $$
+
+---
+
+### Conseils de Méthodologie
+- Toujours **analyser les bornes** : continuité ? discontinuité ? borne infinie ?
+- Se méfier de **l’intuition géométrique**.
+- Utiliser les **modèles types** : $\\int \\frac{1}{t^\\alpha}$, $\\ln(t)$, $e^{-t}$, etc.
+- Penser à **intégration par parties** et **changement de variable**.
+
+---
   `,
   tags: [
     'intégrales généralisées',
@@ -1092,9 +1241,165 @@ $$
     'critères de convergence',
     'intégration',
     'analyse',
-    'intégrale absolument convergente'
+    'intégrale absolument convergente',
+    'intégration par parties',
+    'changement de variable',
+    'sommes de Riemann',
+    'méthode des rectangles',
+    'fonction gamma',
+    'intégrales classiques'
   ],
   datePublication: '2025-05-23',
+  populaire: false,
+  aReviser: false
+},
+
+//Integrales-primitives
+{
+  id: 'integrales-primitives',
+  titre: 'Intégrales et Primitives',
+  matiere: 'Mathématiques',
+  categorie: 'Analyse',
+  niveau: ['Lycée'],
+  contenu: `
+
+### Intégrales et Primitives (Lycée)
+---
+
+#### Définition d'une Primitive
+- Une **primitive** de $f$ sur un intervalle $I$ est une fonction $F$ telle que :
+  $$
+  F'(x) = f(x)
+  $$
+- Si $F$ est une primitive, alors toutes les primitives s’écrivent :
+  $$
+  F(x) + C
+  $$
+  où $C \\in \\mathbb{R}$ est une constante.
+
+---
+
+#### Primitives Usuelles à Connaître
+
+| Fonction $f(x)$                  | Primitive $F(x)$                        | Conditions                         |
+|----------------------------------|-----------------------------------------|-------------------------------------|
+| $x^n$                            | $\\frac{x^{n+1}}{n+1}$                  | $n \\neq -1$                       |
+| $\\frac{1}{x}$                   | $\\ln|x|$                               | $x \\neq 0$                        |
+| $\\frac{1}{1+x^2}$               | $\\arctan(x)$                           | -                                  |
+| $\\frac{1}{\\sqrt{1-x^2}}$       | $\\arcsin(x)$                           | $|x| < 1$                          |
+| $e^x$                            | $e^x$                                   | -                                  |
+| $a^x$                            | $\\frac{a^x}{\\ln a}$                   | $a > 0,\\ a \\neq 1$               |
+| $\\cos(x)$                       | $\\sin(x)$                              | -                                  |
+| $\\sin(x)$                       | $-\\cos(x)$                             | -                                  |
+
+---
+
+#### Intégrale Définie
+- Pour une fonction continue $f$ sur $[a; b]$, l’**intégrale définie** est notée :
+  $$
+  \\int_a^b f(x)\\, dx
+  $$
+- Elle représente l’aire algébrique entre la courbe $f$ et l’axe des abscisses.
+
+**Théorème fondamental du calcul intégral :**
+Si $F$ est une primitive de $f$, alors :
+$$
+\\int_a^b f(x)\\, dx = F(b) - F(a)
+$$
+
+---
+
+#### Propriétés des Intégrales
+- **Linéarité** :
+  $$
+  \\int_a^b [af(x) + bg(x)]\\, dx = a \\int_a^b f(x)\\, dx + b \\int_a^b g(x)\\, dx
+  $$
+- **Changement de bornes** :
+  $$
+  \\int_b^a f(x)\\, dx = - \\int_a^b f(x)\\, dx
+  $$
+- **Positivité** :
+  Si $f(x) \\geq 0$ sur $[a; b]$, alors :
+  $$
+  \\int_a^b f(x)\\, dx \\geq 0
+  $$
+- **Additivité** :
+  $$
+  \\int_a^c f(x)\\, dx = \\int_a^b f(x)\\, dx + \\int_b^c f(x)\\, dx
+  $$
+
+---
+
+#### Méthodes de Calcul
+
+##### Intégration par Parties
+- Pour $u(x), v(x)$ dérivables :
+  $$
+  \\int u(x)v'(x)\\, dx = u(x)v(x) - \\int u'(x)v(x)\\, dx
+  $$
+- Choisir $u$ facile à dériver, $v'$ facile à intégrer.
+
+**Exemple :**
+$$
+\\int x e^x dx = x e^x - \\int e^x dx = x e^x - e^x + C
+$$
+
+---
+
+##### Changement de Variable (hors programme officiel, utile)
+- Si $x = \\phi(t)$, alors :
+  $$
+  \\int f(x)\\, dx = \\int f(\\phi(t)) \\cdot \\phi'(t)\\, dt
+  $$
+
+---
+
+#### Méthode des Rectangles (ou Sommes de Riemann)
+- Approche numérique pour estimer une intégrale définie :
+  $$
+  \\int_a^b f(x)\\, dx \\approx \\sum_{i=0}^{n-1} f(x_i) \\cdot \\Delta x
+  $$
+  avec $\\Delta x = \\frac{b-a}{n}$
+
+---
+
+#### Exemples Classiques
+
+- $\\displaystyle \\int_0^1 x^2 dx = \\left[ \\frac{x^3}{3} \\right]_0^1 = \\frac{1}{3}$
+- $\\displaystyle \\int_1^e \\frac{1}{x} dx = \\left[ \\ln x \\right]_1^e = 1$
+- $\\displaystyle \\int_0^{\\pi} \\sin(x) dx = 2$
+
+---
+
+#### Conseils de Méthodologie
+
+- **Identifier la forme** de la fonction : polynôme, exponentielle, trigonométrique...
+- **Simplifier avant d’intégrer** si possible.
+- **Penser à l’intégration par parties** quand le produit de fonctions apparaît.
+- Vérifier la **continuité de la fonction** sur l’intervalle d’intégration.
+- Toujours **ajouter $+C$** pour les primitives.
+
+---
+
+### À Savoir Par Cœur
+- Primitives usuelles
+- Théorème fondamental
+- Formule de l’intégration par parties
+- Interprétation géométrique de l’intégrale définie
+
+---
+  `,
+  tags: [
+    'primitive',
+    'intégrale définie',
+    'intégration par parties',
+    'formules usuelles',
+    'sommes de Riemann',
+    'calcul intégral',
+    'maths lycée',
+    'analyse'
+  ],
+  datePublication: '2025-05-26',
   populaire: false,
   aReviser: false
 },

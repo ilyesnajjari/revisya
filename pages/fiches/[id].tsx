@@ -5,7 +5,7 @@ import Footer from '../../components/Footer';
 import { fiches } from '../../data/fiches';
 import 'katex/dist/katex.min.css';
 import { SITE_URL } from '../../config';
-
+import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
@@ -62,13 +62,9 @@ export default function FicheDetail() {
       <Header />
 
       <main className="fiche-detail-main">
-        <button
-          type="button"
-          className="fiche-retour-btn"
-          onClick={() => router.back()}
-        >
+        <Link href="/fiches" className="fiche-retour-btn">
           ← Retour aux fiches
-        </button>
+        </Link>
         <h1 className="fiche-detail-title">{fiche.titre}</h1>
         <span className="fiche-categorie">{fiche.categorie}</span>
         <p className="fiche-detail-niveau">{fiche.niveau.join(' - ')}</p>
@@ -91,6 +87,29 @@ export default function FicheDetail() {
         </div>
       </main>
       <Footer />
+
+      {/* Bulle flottante de signalement */}
+      <Link
+        href={`/fiches/${fiche.id}/report`}
+        className="report-bubble"
+        aria-label="Signaler un problème"
+      >
+        <span className="report-bubble-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+            strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" fill="#fff3cd" stroke="#f59e42"/>
+            <line x1="12" y1="8" x2="12" y2="13" stroke="#f59e42"/>
+            <circle cx="12" cy="16" r="1" fill="#f59e42" stroke="#f59e42"/>
+          </svg>
+        </span>
+        <span className="report-bubble-text">
+          Signaler un problème<br />
+          <small>
+            Si une notion manque ou si tu trouves une erreur, clique ici&nbsp;!
+          </small>
+        </span>
+      </Link>
     </>
   );
 }
+

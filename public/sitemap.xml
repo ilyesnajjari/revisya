@@ -42,6 +42,11 @@
         <priority>0.8</priority>
       </url>
       <url>
+        <loc>https://revisya.fr/fiches/trinome-second-degree</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
         <loc>https://revisya.fr/fiches/Euclidien-endomorphismes</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -62,7 +67,7 @@
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/kholle-endomorphismes-matrices-carrees</loc>
+        <loc>https://revisya.fr/fiches/Endomorphismes-matrices-carrees</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
@@ -82,7 +87,12 @@
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/Intégrales-generalisees</loc>
+        <loc>https://revisya.fr/fiches/Integrales-generalisees</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/integrales-primitives</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>

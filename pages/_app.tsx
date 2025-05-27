@@ -1,3 +1,5 @@
+import "../globals.css";
+
 import "../styles/Footer.css";
 import "../styles/Header.css";
 import "../styles/SearchFiches.css";
@@ -5,6 +7,8 @@ import "../styles/index.css";
 import "../styles/contact.css";
 import "../styles/cours.css";
 import "../styles/fiche-detail.css";
+import "../styles/SimulateurCommun.css";
+import "../styles/CompteAReboursModal.css";
 
 import type { AppProps } from "next/app";
 import { Analytics } from "@vercel/analytics/react";
@@ -13,6 +17,7 @@ import Script from "next/script";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { Toaster } from "react-hot-toast";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "";
 
@@ -34,11 +39,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-  <Head>
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="/favicon.ico" />
-</Head>
-
+      <Head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
+      </Head>
 
       {/* Google Analytics */}
       {GA_ID && (
@@ -64,6 +68,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         </>
       )}
 
+      <Toaster position="bottom-right" toastOptions={{ duration: 4000 }} />
       <Component {...pageProps} />
       <Analytics />
       <SpeedInsights />

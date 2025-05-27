@@ -77,7 +77,7 @@ export default function Home() {
         </div>
 
         {/* Hero */}
-        <section className="section-hero" aria-labelledby="hero-title">
+        <section className="section-hero bg-white dark:bg-[#23272f] text-gray-900 dark:text-gray-100 relative overflow-hidden py-16 md:py-24">
           {/* Arrière-plan décoratif */}
           <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
             <div className="bg-blue-300 rounded-full blur-3xl opacity-50 absolute -top-48 -left-48" style={{ width: 700, height: 700 }} />
@@ -123,7 +123,7 @@ export default function Home() {
         </section>
 
         {/* Recherche rapide */}
-        <section className="section-search" aria-labelledby="search-title">
+        <section className="section-search bg-gray-50 dark:bg-[#181c23] text-gray-900 dark:text-gray-100 py-12">
           <h2 id="search-title" className="text-3xl font-extrabold mb-6 text-gray-900">
             <FaSearch size={24} color="#333" /> Recherche rapide
           </h2>
@@ -133,8 +133,8 @@ export default function Home() {
         </section>
 
         {/* Avantages */}
-        <section className="section-avantages" aria-labelledby="avantages-title">
-          <h2 id="avantages-title" className="text-4xl font-extrabold text-center text-blue-800 mb-16">
+        <section className="section-avantages bg-white dark:bg-[#23272f] py-20">
+          <h2 id="avantages-title" className="text-4xl font-extrabold text-center text-blue-800 dark:text-blue-300 mb-16">
             Pourquoi choisir nos fiches ?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-screen-xl mx-auto">
@@ -147,9 +147,8 @@ export default function Home() {
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="relative rounded-3xl shadow-2xl p-10 flex flex-col items-center justify-center min-h-[280px] text-white"
+                className="relative rounded-3xl shadow-2xl p-10 flex flex-col items-center justify-center min-h-[280px] text-white bg-gradient-to-br from-blue-600 to-blue-400 dark:from-gray-800 dark:to-gray-700"
                 aria-label={item.title}
-                style={{ background: "linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)" }}
               >
                 <div className="text-6xl mb-5 drop-shadow-lg" aria-hidden="true">{item.icon}</div>
                 <h3 className="text-3xl font-bold mb-3 drop-shadow-lg">{item.title}</h3>
@@ -162,8 +161,8 @@ export default function Home() {
         </section>
 
         {/* Témoignages visibles */}
-        <section className="section-temoignages" aria-labelledby="temoignages-title">
-          <h2 id="temoignages-title" className="text-3xl font-extrabold text-center text-gray-900 mb-8">
+        <section className="section-temoignages bg-gray-50 dark:bg-[#181c23] py-16">
+          <h2 id="temoignages-title" className="text-3xl font-extrabold text-center text-gray-900 dark:text-gray-100 mb-8">
             Ils ont réussi grâce à nos fiches
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -189,11 +188,11 @@ export default function Home() {
         </section>
 
         {/* Appel à l'action final */}
-        <section className="section-cta" aria-labelledby="cta-title">
-          <h2 id="cta-title" className="text-4xl md:text-5xl font-extrabold mb-6 text-white drop-shadow-lg">
+        <section className="section-cta bg-blue-700 dark:bg-gray-900 py-16">
+          <h2 id="cta-title" className="text-4xl md:text-5xl font-extrabold mb-6 text-white dark:text-blue-200 drop-shadow-lg">
             Prêt à améliorer tes résultats ?
           </h2>
-          <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto font-light">
+          <p className="text-xl text-blue-100 dark:text-blue-300 mb-10 max-w-3xl mx-auto font-light">
             Accède à des centaines de fiches classées par matière et par programme, gratuitement.
           </p>
           <Link href="/fiches" className="btn-primary text-xl" aria-label="Explorer les Fiches">

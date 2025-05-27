@@ -1,0 +1,179 @@
+.simulateur-main {
+  max-width: 480px;
+  margin: 2.5em auto 2em auto;
+  padding: 2em 1em;
+  background: #f8fafc;
+  border-radius: 1.5em;
+  box-shadow: 0 4px 24px rgba(37,99,235,0.09);
+}
+body.dark .simulateur-main {
+  background: #23272f;
+  box-shadow: 0 4px 24px rgba(30,41,59,0.18);
+}
+
+.simulateur-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5em;
+  color: #2563eb;
+}
+body.dark .simulateur-title {
+  color: #60a5fa;
+}
+
+.simulateur-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.simulateur-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.simulateur-fields label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #334155;
+  gap: 0.3em;
+}
+body.dark .simulateur-fields label {
+  color: #f1f5f9;
+}
+
+.simulateur-fields input,
+.simulateur-fields select {
+  border: 1.5px solid #2563eb;
+  border-radius: 0.7em;
+  padding: 0.5em 0.8em;
+  font-size: 1.1em;
+  background: #fff;
+  color: #1e293b;
+  transition: border 0.2s;
+  margin-top: 0.2em;
+}
+.simulateur-fields input:focus,
+.simulateur-fields select:focus {
+  border-color: #0ea5e9;
+  outline: none;
+}
+body.dark .simulateur-fields input,
+body.dark .simulateur-fields select {
+  background: #1e293b;
+  color: #f1f5f9;
+  border-color: #334155;
+}
+
+.simulateur-result {
+  margin: 2em auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2em;
+  gap: 0.5em;
+}
+.simulateur-moyenne {
+  font-size: 2.1em;
+  font-weight: 700;
+  color: #059669;
+  margin-top: 0.2em;
+}
+body.dark .simulateur-moyenne {
+  color: #34d399;
+}
+
+/* Bouton flottant bleu pour quitter */
+.simulateur-fab-quit {
+  position: fixed;
+  bottom: 2.2rem;
+  right: 2.2rem;
+  z-index: 100;
+  background: linear-gradient(135deg, #2563eb 60%, #38bdf8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 3.3rem;
+  height: 3.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 24px rgba(37,99,235,0.13);
+  cursor: pointer;
+  transition: background 0.18s, transform 0.13s;
+  text-decoration: none;
+}
+.simulateur-fab-quit:hover,
+.simulateur-fab-quit:focus-visible {
+  background: linear-gradient(135deg, #1e40af 60%, #0ea5e9 100%);
+  transform: scale(1.08);
+}
+
+.bouton-simuler {
+  background: linear-gradient(135deg, #2563eb 60%, #38bdf8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 1em 2.2em;
+  font-size: 1.15rem;
+  font-weight: 600;
+  box-shadow: 0 4px 24px rgba(37,99,235,0.13);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  margin: 0.5em 0;
+  text-decoration: none !important;
+}
+
+.bouton-simuler:hover,
+.bouton-simuler:focus-visible {
+  background: linear-gradient(135deg, #1e40af 60%, #0ea5e9 100%);
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 8px 32px rgba(37,99,235,0.18);
+}
+
+body.dark .bouton-simuler {
+  background: linear-gradient(135deg, #1e40af 60%, #2563eb 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(59,130,246,0.10);
+}
+
+body.dark .bouton-simuler:hover,
+body.dark .bouton-simuler:focus-visible {
+  background: linear-gradient(135deg, #0ea5e9 60%, #2563eb 100%);
+}
+
+@media (max-width: 600px) {
+  .simulateur-main {
+    padding: 1em 0.2em;
+    border-radius: 0.7em;
+  }
+  .simulateur-title {
+    font-size: 1.1rem;
+  }
+  .simulateur-fields input,
+  .simulateur-fields select {
+    font-size: 1em;
+    padding: 0.4em 0.6em;
+  }
+  .simulateur-moyenne {
+    font-size: 1.4em;
+  }
+}
+@media (max-width: 700px) {
+  .simulateur-fab-quit {
+    bottom: 1.1rem;
+    right: 1.1rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 1.5rem;
+  }
+}

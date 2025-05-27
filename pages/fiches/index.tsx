@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import 'katex/dist/katex.min.css';
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaRegClock, FaRegCalendarCheck, FaCalculator } from "react-icons/fa";
 
 import {
   fichesMaths,
@@ -17,6 +17,7 @@ import {
   Fiche,
   fiches // Import fiches
 } from '../../data/fiches';
+import CompteAReboursModal from '../../components/CompteAReboursModal';
 
 const matieres = ['Mathématiques', 'Physique', 'Informatique', 'Chimie','Sciences de l\'Ingénieur', 'Kholles']; 
 const triOptions = ['Titre (A-Z)', 'Date (récent)'];
@@ -47,6 +48,8 @@ export default function FichesPage() {
   const [pageCourante, setPageCourante] = useState(1);
   const [favoris, setFavoris] = useState<string[]>([]);
   const [isPending, startTransition] = useTransition();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [cible, setCible] = useState<'concours' | 'bac'>('concours');
 
   // Charger les favoris du localStorage côté client uniquement
   useEffect(() => {
@@ -66,7 +69,7 @@ export default function FichesPage() {
         .filter(f => f.matiere === matiereActive)
         .map(f => f.categorie)
     )),
-    [toutesFiches, matiereActive]
+    [matiereActive]
   );
 
   const fichesParPage = 10;
@@ -80,7 +83,7 @@ export default function FichesPage() {
       const p = Number(pageQuery);
       if (p >= 1) setPageCourante(p);
     }
-  }, [matiereQuery, pageQuery]);
+  }, [matiereQuery, pageQuery, router]);
 
   // Synchronisation URL quand matiereActive ou pageCourante changent
   useEffect(() => {
@@ -135,7 +138,7 @@ export default function FichesPage() {
     if (tri === 'Date (récent)') res = [...res].sort((a, b) => (b.datePublication || '').localeCompare(a.datePublication || ''));
 
     return res;
-  }, [toutesFiches, matiereActive, niveauFiltre, recherche, tri, filtreCategorie, filtrePopulaire, filtreFavoris, favoris]);
+  }, [matiereActive, niveauFiltre, recherche, tri, filtreCategorie, filtrePopulaire, filtreFavoris, favoris]);
 
   // Pagination optimisée avec useMemo
   const fichesAffichees = useMemo(
@@ -312,6 +315,31 @@ export default function FichesPage() {
               </button>
             ))}
           </div>
+
+          {/* Boutons de compte à rebours */}
+          <div className="fiches-btns" style={{ display: "flex", gap: "1em", justifyContent: "center", margin: "2em 0" }}>
+            <button
+              className="btn-countdown"
+              onClick={() => { setCible("concours"); setModalOpen(true); }}
+            >
+              <span className="icon"><FaRegClock /></span>
+              Compte à rebours Concours
+            </button>
+            <button
+              className="btn-countdown"
+              onClick={() => { setCible("bac"); setModalOpen(true); }}
+            >
+              <span className="icon"><FaRegCalendarCheck /></span>
+              Compte à rebours Bac
+            </button>
+            <Link href="/simulateur" className="btn-moyenne">
+              <span className="icon" style={{ display: "inline-flex", alignItems: "center", marginRight: "0.5em" }}>
+                <FaCalculator />
+              </span>
+              Simuler ma moyenne
+            </Link>
+          </div>
+          <CompteAReboursModal open={modalOpen} onClose={() => setModalOpen(false)} cible={cible} />
         </section>
       </main>
 

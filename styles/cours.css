@@ -125,6 +125,57 @@ strong {
   transform: scale(1.07);
 }
 
+/* Dark mode pour les pages cours */
+body.dark .cours-main {
+  background: #23272f !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark .cours-title {
+  color: #f1f5f9 !important;
+}
+
+body.dark .cours-subtitle {
+  color: #94a3b8 !important;
+}
+
+body.dark .card {
+  background: #181c23 !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 1px 8px rgba(30,41,59,0.18);
+}
+
+body.dark .cours-section-title {
+  color: #60a5fa !important;
+}
+
+body.dark .cours-main p,
+body.dark .cours-main ul,
+body.dark .cours-main li {
+  color: #f1f5f9 !important;
+}
+
+body.dark .text-blue-700,
+body.dark strong {
+  color: #60a5fa !important;
+}
+
+body.dark .cours-footer {
+  color: #94a3b8 !important;
+}
+
+body.dark .contact-float-btn {
+  background: #334155 !important;
+  color: #60a5fa !important;
+  box-shadow: 0 4px 16px rgba(51,65,85,0.18);
+}
+
+body.dark .contact-float-btn:hover,
+body.dark .contact-float-btn:focus-visible {
+  background: #2563eb !important;
+  color: #fff !important;
+}
+
 @media (max-width: 800px) {
   .cours-main {
     padding: 5rem 0.5rem 1rem 0.5rem;

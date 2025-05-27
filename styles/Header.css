@@ -134,3 +134,41 @@ header nav > a.btn-primary:focus-visible {
     padding: 0.7rem 0;
   }
 }
+
+/* Dark mode pour le header */
+body.dark header {
+  background-color: #23272f !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark header nav > a:first-child,
+body.dark header nav ul li a,
+body.dark header nav > a.btn-primary {
+  color: #f1f5f9 !important;
+}
+
+body.dark header nav > a.btn-primary {
+  background-color: #334155 !important;
+  box-shadow: 0 8px 15px rgb(51 65 85 / 0.4);
+}
+
+body.dark header nav > a.btn-primary:hover,
+body.dark header nav > a.btn-primary:focus-visible {
+  background-color: #2563eb !important;
+  box-shadow: 0 8px 25px rgb(37 99 235 / 0.7);
+}
+
+/* Dark mode pour le menu hamburger mobile */
+@media (max-width: 700px) {
+  body.dark header nav ul {
+    background: #23272f !important;
+    box-shadow: 0 8px 24px rgba(30,41,59,0.18);
+  }
+  body.dark header nav ul li a {
+    color: #f1f5f9 !important;
+  }
+  body.dark header nav ul li a:hover,
+  body.dark header nav ul li a:focus-visible {
+    color: #60a5fa !important;
+  }
+}

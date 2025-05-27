@@ -69,3 +69,19 @@ footer > div div a:focus-visible {
   color: white;
   outline: none;
 }
+
+/* Dark mode pour le footer */
+body.dark footer {
+  background-color: #181c23 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark footer a,
+body.dark footer a:visited {
+  color: #f1f5f9 !important;
+}
+
+body.dark footer a:hover,
+body.dark footer a:focus-visible {
+  color: #60a5fa !important; /* bleu clair */
+}

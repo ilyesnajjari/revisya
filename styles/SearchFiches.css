@@ -110,3 +110,44 @@
     margin-left: 0.15em;
   }
 }
+
+/* Dark mode pour la recherche de fiches */
+body.dark .search-input {
+  background: #23272f !important;
+  color: #f1f5f9 !important;
+  border-color: #334155 !important;
+}
+
+body.dark .search-input:focus {
+  border-color: #60a5fa !important;
+  box-shadow: 0 0 0 3px rgb(96 165 250 / 0.3);
+}
+
+body.dark .results-list {
+  background: #181c23 !important;
+  border-color: #334155 !important;
+}
+
+body.dark .result-item {
+  background: #181c23 !important;
+  border-bottom: 1px solid #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark .result-item:hover {
+  background-color: #23272f !important;
+}
+
+body.dark .result-link {
+  color: #60a5fa !important;
+}
+
+body.dark .result-link:hover {
+  color: #38bdf8 !important;
+}
+
+body.dark .result-matiere,
+body.dark .no-results,
+body.dark .niveau-discret {
+  color: #94a3b8 !important;
+}
