@@ -10,28 +10,22 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
-
-export interface Fiche {
-  id: string;
-  titre: string;
-  matiere: string;
-  contenu: string;
-  intro?: string; // <-- Add this line
-  // ...other properties...
-}
+import { useEffect } from 'react';
 
 export default function FicheDetail() {
   const router = useRouter();
   const { id } = router.query;
 
-  const ficheId = typeof id === "string" ? id : id?.[0] ?? null;
+  // Ajoute cette ligne pour forcer le remount quand l'id change
+  useEffect(() => {}, [id]);
 
-  const fiche = fiches.find((f) => f.id === ficheId);
+  const fiche = fiches.find((f) => f.id === id);
 
   if (!fiche) {
     return <p>Fiche non trouvée.</p>;
   }
 
+  // URL absolue dynamique basée sur la config
   const url = `${SITE_URL}/fiches/${fiche.id}`;
 
   return (
@@ -40,15 +34,7 @@ export default function FicheDetail() {
         <title>{fiche.titre} - {fiche.matiere}</title>
         <meta
           name="description"
-          content={`Fiche de révision complète sur ${fiche.titre} en ${fiche.matiere}. ${fiche.contenu.slice(0, 160).replace(/\n/g, ' ')}...`}
-        />
-        <meta
-          name="keywords"
-          content={
-            fiche.tags && fiche.tags.length > 0
-              ? fiche.tags.join(', ')
-              : `${fiche.titre}, ${fiche.matiere}`
-          }
+          content={`Fiche de révision complète sur ${fiche.titre} en ${fiche.matiere}, pour bien préparer tes examens.`}
         />
         <link rel="canonical" href={url} />
         <meta property="og:title" content={`${fiche.titre} - ${fiche.matiere} | Fiche de Révision`} />
@@ -58,6 +44,15 @@ export default function FicheDetail() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${fiche.titre} - ${fiche.matiere} | Fiche de Révision`} />
         <meta name="twitter:description" content={`Fiche de révision complète sur ${fiche.titre} en ${fiche.matiere}.`} />
+        {/* Liens meta supplémentaires */}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="author" content="Ton Site" />
+        <meta name="keywords" content={fiche.tags ? fiche.tags.join(', ') : fiche.titre} />
+        {/* Ajout d'un lien meta sur le contenu */}
+        <meta name="content" content={fiche.contenu.slice(0, 200).replace(/\n/g, ' ') + '...'} />
 
         <script
           type="application/ld+json"
@@ -84,7 +79,8 @@ export default function FicheDetail() {
           type="button"
           className="fiche-retour-btn"
           onClick={() => {
-            router.push('/fiches');
+            // Redirection simple et fiable vers la liste des fiches
+            window.location.href = '/fiches';
           }}
         >
           ← Retour aux fiches
@@ -100,16 +96,6 @@ export default function FicheDetail() {
             ))}
           </div>
         )}
-
-        {/* Affichage d'un extrait du contenu comme intro, rendu en markdown */}
-        <div className="fiche-detail-intro">
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm, remarkMath]}
-            rehypePlugins={[rehypeKatex]}
-          >
-            {fiche.contenu.slice(0, 160) + '...'}
-          </ReactMarkdown>
-        </div>
 
         <div className="fiche-detail-content">
           <ReactMarkdown
@@ -146,3 +132,4 @@ export default function FicheDetail() {
     </>
   );
 }
+
