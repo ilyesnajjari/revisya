@@ -4202,7 +4202,7 @@ export const fichesInfo: Fiche[] = [
   id: 'python-structures-controle',
   titre: 'Structures de Contrôle en Python',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'Python',
   niveau: ['Lycée', 'Prépa','Université'],
   contenu: `
 ### Structures de Contrôle en Python
@@ -4392,7 +4392,7 @@ len(liste)
   id: 'python-poo',
   titre: 'Programmation Orientée Objet en Python',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'Python',
   niveau: ['Prépa', 'Université'],
   contenu: `
 ### Programmation Orientée Objet (POO) en Python
@@ -4485,7 +4485,7 @@ class Compteur:
   id: 'python-exceptions',
   titre: 'Gestion des Exceptions en Python',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'Python',
   niveau: ['Lycée', 'Prépa','Université'],
   contenu: `
 ### Gestion des Exceptions en Python
@@ -4569,7 +4569,7 @@ raise MonErreur("Erreur personnalisée")
   id: 'cpp-bases',
   titre: 'Bases du langage C++',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'C++',
   niveau: ['Université'],
   contenu: `
 ### Bases du langage C++
@@ -4624,7 +4624,7 @@ std::cout << "x = " << x << std::endl; // Sortie
   id: 'cpp-controle',
   titre: 'Structures de contrôle en C++',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'C++',
   niveau: ['Université'],
   contenu: `
 ### Structures de contrôle en C++
@@ -4694,7 +4694,7 @@ do {
   id: 'cpp-fonctions',
   titre: 'Fonctions en C++',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'C++',
   niveau: ['Université'],
   contenu: `
 ### Fonctions en C++
@@ -4754,7 +4754,7 @@ void afficher(std::string s = "Bonjour") {
   id: 'cpp-poo',
   titre: 'Programmation Orientée Objet en C++',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'C++',
   niveau: ['Université'],
   contenu: `
 ### POO en C++
@@ -4830,7 +4830,7 @@ public:
   id: 'cpp-pointeurs-references',
   titre: 'Pointeurs et Références en C++',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'C++',
   niveau: ['Université'],
   contenu: `
 ### Pointeurs et Références en C++
@@ -4899,7 +4899,7 @@ std::cout << *(p + 1); // affiche 2
   id: 'cpp-memoire-dynamique',
   titre: 'Gestion Mémoire Dynamique en C++',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'C++',
   niveau: ['Université'],
   contenu: `
 ### Mémoire Dynamique en C++
@@ -4950,7 +4950,7 @@ delete[] tab;
   id: 'cpp-fichiers',
   titre: 'Fichiers en C++',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'C++',
   niveau: ['Université'],
   contenu: `
 ### Fichiers en C++
@@ -5006,7 +5006,7 @@ if (!fichier.is_open()) {
   id: 'cpp-stl-intro',
   titre: 'STL - Conteneurs de base',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'C++',
   niveau: ['Université'],
   contenu: `
 ### Introduction à la STL en C++
@@ -5074,7 +5074,7 @@ std::find(v.begin(), v.end(), 3);
   id: 'csharp-variables-types',
   titre: 'Variables et Types de base en C#',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'C#',
   niveau: ['Université'],
   contenu: `
 ### Variables et Types de base en C#
@@ -5130,7 +5130,7 @@ var note = 15.5; // déduit comme double
   id: 'csharp-conditions',
   titre: 'Conditions en C#',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'C#',
   niveau: ['Université'],
   contenu: `
 ### Conditions en C#
@@ -5186,7 +5186,7 @@ string resultat = (x > 0) ? "positif" : "non positif";
   id: 'csharp-boucles',
   titre: 'Boucles en C#',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'C#',
   niveau: ['Université'],
   contenu: `
 ### Boucles en C#
@@ -5245,7 +5245,7 @@ foreach (string nom in noms)
   id: 'csharp-classes-objets',
   titre: 'Classes et Objets en C#',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'C#',
   niveau: ['Université'],
   contenu: `
 ### Classes et Objets en C#
@@ -5307,7 +5307,7 @@ class Personne
   id: 'csharp-listes',
   titre: 'Listes et Collections en C#',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'C#',
   niveau: ['Université'],
   contenu: `
 ### Listes et Collections en C#
@@ -5365,7 +5365,7 @@ var notes = new List<int> { 10, 12, 14 };
   id: 'java-variables-types',
   titre: 'Variables et Types en Java',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'Java',
   niveau: ['Université'],
   contenu: `
 ### Variables et Types en Java
@@ -5419,7 +5419,7 @@ int x = (int) 3.99; // x = 3
   id: 'java-conditions',
   titre: 'Conditions en Java',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'Java',
   niveau: ['Université'],
   contenu: `
 ### Conditions en Java
@@ -5464,7 +5464,7 @@ String resultat = (x > 0) ? "positif" : "négatif";
   id: 'java-boucles',
   titre: 'Boucles en Java',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'Java',
   niveau: ['Université'],
   contenu: `
 ### Boucles en Java
@@ -5520,7 +5520,7 @@ for (String nom : noms) {
   id: 'java-classes-objets',
   titre: 'Classes et Objets en Java',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'Java',
   niveau: ['Université'],
   contenu: `
 ### Classes et Objets en Java
@@ -5578,7 +5578,7 @@ public class Personne {
   id: 'java-listes',
   titre: 'Tableaux et Listes en Java',
   matiere: 'Informatique',
-  categorie: 'Programmation',
+  categorie: 'Java',
   niveau: ['Université'],
   contenu: `
 ### Tableaux et Listes en Java
@@ -6229,7 +6229,7 @@ export const fichesSI: Fiche[] = [
 {
   id: 'mecanique-cinematique',
   titre: "Mécanique – Cinématique du solide",
-  matiere: "Sciences de l\'Ingénieur",
+  matiere: "Sciences de l'Ingénieur",
   categorie: "Mécanique",
   niveau: ["Prépa","Université"],
   contenu: `
@@ -6243,93 +6243,126 @@ export const fichesSI: Fiche[] = [
   $$
   \\vec{OM} = x\\vec{x} + y\\vec{y} + z\\vec{z}
   $$
-- Utilisation de **repères mobiles** pour décrire les mouvements relatifs entre solides.
+- En cas de mouvements complexes, on utilise des **repères mobiles** pour faciliter la description du mouvement relatif entre solides.
 
 ---
 
 #### 2. Vitesse
 
-- La vitesse d’un point $M$ d’un solide $S$ en mouvement par rapport à un repère $\\mathcal{R}$ :
+- La vitesse d’un point $M$ appartenant à un solide $S$ en mouvement par rapport à un repère $\\mathcal{R}$ est :
   $$
   \\vec{v}_{M \\in S/\\mathcal{R}} = \\frac{d\\vec{OM}}{dt}
   $$
-- Vitesse due à une rotation autour d’un axe fixe :
+- Si le solide tourne autour d’un axe fixe, la vitesse de $M$ est donnée par :
   $$
-  \\vec{v}_{M} = \\vec{\\omega} \\wedge \\vec{OM}
+  \\vec{v}_M = \\vec{\\omega} \\wedge \\vec{OM}
   $$
+  où $\\vec{\\omega}$ est le vecteur rotation instantané.
 
 ---
 
 #### 3. Accélération
 
-- Accélération d’un point :
+- L’accélération du point $M$ est le dérivé temporel de la vitesse :
   $$
-  \\vec{a}_{M} = \\frac{d\\vec{v}_M}{dt}
+  \\vec{a}_M = \\frac{d\\vec{v}_M}{dt}
   $$
 
 ---
 
 #### 4. Composition des mouvements
 
-- Pour $M \\in S_2$, si $S_2$ est en mouvement par rapport à $S_1$, lui-même en mouvement par rapport à $S_0$ :
+- Soit $M \\in S_2$, $S_2$ en mouvement par rapport à $S_1$, lui-même en mouvement par rapport à $S_0$ :
   $$
   \\vec{v}_{M/S_0} = \\vec{v}_{M/S_1} + \\vec{v}_{S_1/S_0}
   $$
   $$
   \\vec{a}_{M/S_0} = \\vec{a}_{M/S_1} + \\vec{a}_{S_1/S_0} + 2\\vec{\\omega}_{S_1/S_0} \\wedge \\vec{v}_{M/S_1}
   $$
-  (Terme de **Coriolis**)
+- Le dernier terme correspond à l’accélération de **Coriolis**.
 
 ---
 
 #### 5. Modélisation des liaisons mécaniques
 
-- Chaque liaison impose des contraintes sur les mouvements autorisés :
-  - **Pivot** : 1 ddl (rotation)
-  - **Glissière** : 1 ddl (translation)
-  - **Rotule** : 3 ddl (rotations)
-  - **Sphère-plan** : 3 ddl
-- Utilisation des **torseurs cinématiques** pour modéliser les vitesses relatives.
+- Une **liaison mécanique** impose des contraintes sur les mouvements possibles. Elle limite les **degrés de liberté (ddl)** :
+  - **Pivot** : 1 ddl (rotation autour d’un axe)
+  - **Glissière** : 1 ddl (translation selon un axe)
+  - **Rotule** : 3 ddl (rotations selon les trois axes)
+  - **Sphère-plan** : 3 ddl (deux translations et une rotation)
+- Pour modéliser les vitesses relatives entre solides, on utilise le **torseur cinématique** :
+  $$
+  \\{V\\}_{S_2/S_1} = 
+  \\left\\{
+    \\begin{array}{c}
+      \\vec{\\omega}_{S_2/S_1} \\\\
+      \\vec{v}_{A \\in S_2/S_1}
+    \\end{array}
+  \\right\\}_{A}
+  $$
+  où $A$ est le point de réduction du torseur.
 
 ---
 
 #### 6. Paramétrage et diagrammes cinématiques
 
-- Représentation des solides et des liaisons sous forme de **diagrammes de structure**.
-- Utilisation des **lois de fermeture géométrique** :
+- Les systèmes sont représentés via des **diagrammes de structure** avec :
+  - les **solides** (nœuds)
+  - les **liaisons** (arêtes)
+- Le **paramétrage** consiste à définir les variables géométriques qui décrivent les mouvements (longueurs, angles, coordonnées...).
+- Pour déterminer les relations entre les mouvements, on utilise les **lois de fermeture géométrique** :
   $$
   \\sum_i \\vec{AB}_i = \\vec{0}
   $$
-- Paramétrage via angles, longueurs, coordonnées.
 
 ---
 
 ### Résumé
 
-- La cinématique analyse les mouvements (positions, vitesses, accélérations) des solides.
-- Les torseurs cinématiques et les liaisons permettent de modéliser les interactions.
-- La composition des mouvements est essentielle pour des systèmes complexes.
+- La **cinématique** permet de décrire les mouvements sans tenir compte des forces.
+- Les outils clés sont :
+  - le **repérage** dans l’espace,
+  - le **calcul des vitesses** et **accélérations**,
+  - la **composition des mouvements** (Coriolis),
+  - les **torseurs cinématiques**,
+  - la **modélisation des liaisons**,
+  - les **diagrammes cinématiques**.
+- Elle constitue une étape essentielle avant l’analyse dynamique d’un système mécanique.
 
+---
+
+### Conseils pour les exercices
+
+- Identifier tous les **solides** et les **liaisons** du système.
+- Choisir un **repère adapté** (fixe ou mobile).
+- Calculer les **vitesses/accélérations** à l’aide des **torseurs cinématiques**.
+- Appliquer la **composition des mouvements** si nécessaire.
+- Toujours vérifier la **cohérence dimensionnelle** et l’orientation des vecteurs.
 `,
   tags: [
-    'cinématique',
-    'repérage',
-    'vitesse',
-    'accélération',
-    'liaisons mécaniques',
-    'composition des mouvements',
-    'torseur cinématique'
+    "cinématique",
+    "repérage",
+    "vitesse",
+    "accélération",
+    "liaisons mécaniques",
+    "composition des mouvements",
+    "torseur cinématique",
+    "fermeture géométrique",
+    "diagramme cinématique",
+    "rotation",
+    "vecteur vitesse",
+    "corps solide"
   ],
-  datePublication: '2025-05-27',
+  datePublication: "2025-05-27",
   populaire: false,
-  aReviser: false,
+  aReviser: false
 },
 
 // mécanique-statique
 {
   id: 'mecanique-statique',
   titre: "Mécanique – Statique des systèmes",
-  matiere: "Sciences de l\'Ingénieur",
+  matiere: "Sciences de l'Ingénieur",
   categorie: "Mécanique",
   niveau: ["Prépa", "Université"],
   contenu: `
@@ -6339,69 +6372,116 @@ export const fichesSI: Fiche[] = [
 
 #### 1. Actions mécaniques et torseurs statiques
 
-- Une action mécanique est représentée par un **torseur statique** au point $A$ :
+- Toute action mécanique exercée par un solide $S_1$ sur un solide $S_2$ peut être représentée par un **torseur statique** au point $A$ :
   $$
-  \\left\\{ T_{\\text{ext}} \\right\\}_A = \\left\\{ \\begin{array}{c}
-    \\vec{F}_\\text{ext} \\\\
-    \\vec{M}_{A, \\text{ext}}
+  \\left\\{ T_{S_1 \\to S_2} \\right\\}_A = \\left\\{ \\begin{array}{c}
+    \\vec{F}_{S_1 \\to S_2} \\\\
+    \\vec{M}_{A, S_1 \\to S_2}
   \\end{array} \\right\\}
   $$
-- On distingue actions de contact (liens, appuis) et actions à distance (poids, magnétisme).
+- Ce torseur comprend :
+  - une résultante (ou force) $\\vec{F}$
+  - un moment $\\vec{M}_A$ au point $A$
+
+- **Types d'actions mécaniques** :
+  - **Actions à distance** : gravitation, magnétisme, forces électriques.
+  - **Actions de contact** : appuis, liaisons mécaniques.
+
+- Changement de point d’application du torseur :
+  $$
+  \\left\\{ T \\right\\}_B = \\left\\{ \\begin{array}{c}
+    \\vec{F} \\\\
+    \\vec{M}_A + \\vec{AB} \\wedge \\vec{F}
+  \\end{array} \\right\\}
+  $$
 
 ---
 
 #### 2. Principe Fondamental de la Statique (PFS)
 
-- Un solide est en équilibre statique si la **somme des forces et des moments est nulle** :
+- Le **Principe Fondamental de la Statique** (PFS) :  
+  *Un solide est en équilibre dans un référentiel galiléen si la somme des actions mécaniques qui s'exercent sur lui est nulle.*
+
+- Cela se traduit par :
   $$
   \\sum \\vec{F}_\\text{ext} = \\vec{0} \\quad \\text{et} \\quad \\sum \\vec{M}_O(\\text{ext}) = \\vec{0}
   $$
+
+- Le point $O$ est choisi de manière stratégique (souvent un point d'appui ou un point de réduction des inconnues).
 
 ---
 
 #### 3. Liaisons et modélisation
 
-- Chaque liaison impose des **réactions mécaniques** représentées par leur torseur d’actions.
-- Exemple : une liaison pivot impose :
+- Une **liaison mécanique** impose des **réactions** : ces forces et moments empêchent certains mouvements relatifs entre solides.
+
+- Exemple : Torseur des actions mécaniques transmissibles par une **liaison pivot** en $A$ orientée selon $\\vec{z}$ :
   $$
   \\left\\{ T \\right\\}_A = \\left\\{ \\begin{array}{c}
     X\\vec{x} + Y\\vec{y} + Z\\vec{z} \\\\
-    M_x \\vec{x}
+    M_z \\vec{z}
   \\end{array} \\right\\}
   $$
-  (selon l’orientation de l’axe)
+  - 1 degré de liberté : rotation autour de $\\vec{z}$
+  - 5 inconnues (3 forces, 2 moments bloqués)
+
+- **Autres exemples de liaisons** :
+  - **Glissière** : translation autorisée selon un axe → 1 ddl, 5 réactions
+  - **Rotule** : 3 ddl (rotations), 3 réactions
+  - **Appui plan** : 1 seule force normale
+  - Chaque liaison est associée à un torseur d’action transmissible, défini selon ses directions bloquées.
 
 ---
 
 #### 4. Résolution des systèmes isostatiques
 
-- Un système est **isostatique** s’il est juste-contraint, c’est-à-dire que les inconnues = équations.
+- Un **système isostatique** est un système mécanique :
+  - où le nombre d'inconnues mécaniques (réactions) est **égal** au nombre d'équations disponibles (équilibre).
+  - donc **soluble sans hypothèse supplémentaire**.
 
-- **Méthodologie de résolution** :
-  1. Identifier les **solides** et les **liaisons**
-  2. Écrire les **PFS** pour chaque solide isolé
-  3. Projeter les équations sur des axes judicieusement choisis
-  4. Résoudre le système d’équations
+- **Étapes de résolution** :
+  1. Identifier les **solides** (numérotation, schéma).
+  2. Déterminer les **liaisons** et exprimer leurs torseurs d’action.
+  3. Isoler chaque solide et **appliquer le PFS**.
+  4. Choisir judicieusement les **axes de projection**.
+  5. Résoudre le **système d'équations linéaires**.
 
-- En statique plane, on dispose de 3 équations par solide :
+- En **statique plane**, on a 3 équations par solide :
   $$
   \\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum M_O = 0
   $$
+
+- Le choix du point $O$ pour les moments est crucial (souvent un point où plusieurs forces passent, ce qui les annule).
 
 ---
 
 #### 5. Cas particuliers
 
-- Les **systèmes hyperstatiques** ont plus de contraintes que nécessaire.
-- Les **systèmes sous-contraints** sont mécaniquement instables.
+- **Système hyperstatique** : trop de liaisons (nombre d’équations < inconnues).
+  - Nécessite des hypothèses supplémentaires ou une modélisation plus poussée (élasticité, déformations).
+
+- **Système sous-contraint** : pas assez de liaisons (solide peut bouger → instable).
+
+- **Réduction des torseurs** : cas où un torseur peut être simplifié (glisseur, couple pur).
+
+---
+
+#### 6. Application : schéma de structure et graphes
+
+- Chaque système peut être représenté par un **schéma cinématique** :
+  - Noeuds : solides
+  - Arêtes : liaisons
+  - On analyse les degrés de liberté, l’isostatisme, les torseurs.
 
 ---
 
 ### Résumé
 
-- La statique s’appuie sur le PFS pour étudier l’équilibre des solides.
-- Les actions mécaniques sont modélisées avec des torseurs.
-- L’analyse des liaisons est essentielle pour la résolution des systèmes isostatiques.
+- En statique, on modélise les **actions mécaniques** via des **torseurs statiques**.
+- Le **Principe Fondamental de la Statique** permet d’écrire les équations d’équilibre.
+- Un **système isostatique** se résout analytiquement par projection des forces et moments.
+- Les **liaisons** sont essentielles à la modélisation (ddl, réactions).
+- Attention aux systèmes **hyperstatiques** ou **instables**.
 
 `,
   tags: [
@@ -6411,77 +6491,143 @@ export const fichesSI: Fiche[] = [
     'équilibre',
     'liaisons mécaniques',
     'systèmes isostatiques',
-    'résolution'
+    'résolution',
+    'hyperstatisme',
+    'glisseur',
+    'couple pur'
   ],
   datePublication: '2025-05-27',
   populaire: false,
-  aReviser: false,
+  aReviser: false
 },
 
 // mécanique-dynamique
 {
   id: 'mecanique-dynamique',
   titre: "Mécanique – Dynamique",
-  matiere: "Sciences de l\'Ingénieur",
+  matiere: "Sciences de l'Ingénieur",
   categorie: "Mécanique",
   niveau: ["Prépa", "Université"],
   contenu: `
-### Mécanique – Dynamique
+### Mécanique – Dynamique des solides
 
 ---
 
-#### 1. Lois de Newton (Principe Fondamental de la Dynamique - PFD)
+#### 1. Lois de Newton – Principe Fondamental de la Dynamique (PFD)
 
-- Pour un solide de masse $m$, la somme des forces extérieures est égale à la masse multipliée par l’accélération :
+- Le **Principe Fondamental de la Dynamique** (PFD) généralise la deuxième loi de Newton à tout système matériel :
+
+- Pour un **point matériel** de masse $m$ :
+  $$
+  \\sum \\vec{F}_\\text{ext} = m \\vec{a}
+  $$
+
+- Pour un **solide indéformable** $S$, on applique le PFD au **centre d'inertie** $G$ :
   $$
   \\sum \\vec{F}_\\text{ext} = m \\vec{a}_G
   $$
-  où $\\vec{a}_G$ est l’accélération du centre de masse $G$.
+  où $\\vec{a}_G$ est l’accélération du centre d’inertie $G$ du solide.
 
-- Le PFD s’applique aussi en rotation :
+- En **rotation autour d’un axe fixe**, le PFD devient :
   $$
-  \\sum \\vec{M}_G = \\frac{d\\vec{L}}{dt}
+  \\sum M_{\\Delta} = J_{\\Delta} \\alpha
   $$
-  avec $\\vec{L}$ le moment cinétique.
+  avec :
+  - $M_{\\Delta}$ : moment résultant des forces extérieures par rapport à l’axe $\\Delta$
+  - $J_{\\Delta}$ : moment d’inertie par rapport à $\\Delta$
+  - $\\alpha$ : accélération angulaire
 
 ---
 
-#### 2. Théorème du moment cinétique
+#### 2. Moment cinétique et théorèmes associés
 
-- Moment cinétique d’un solide par rapport à un point $O$ :
+- **Moment cinétique** d’un solide $S$ par rapport à un point $O$ :
   $$
-  \\vec{L}_O = \\int r \\wedge (m\\vec{v}) = I_O \\vec{\\omega}
+  \\vec{L}_O(S) = \\int_{S} \\vec{r} \\wedge \\vec{v} \\, dm
   $$
-  avec $I_O$ le moment d’inertie et $\\vec{\\omega}$ la vitesse angulaire.
 
-- Théorème :
+- Si $O = G$ (centre d’inertie), et si le solide tourne autour d’un axe fixe :
+  $$
+  \\vec{L}_G = J_G \\vec{\\omega}
+  $$
+
+- **Théorème du moment cinétique** :
   $$
   \\frac{d\\vec{L}_O}{dt} = \\sum \\vec{M}_O
   $$
 
+- Cas fréquent : rotation autour d’un axe fixe $\\Delta$ :
+  $$
+  \\frac{dL_{\\Delta}}{dt} = \\sum M_{\\Delta}
+  $$
+
 ---
 
-#### 3. Modélisation de systèmes oscillants
+#### 3. Énergie cinétique et théorème de l’énergie cinétique
 
-- Pour un système masse-ressort-amortisseur :
-  - Masse $m$
-  - Raideur du ressort $k$
-  - Coefficient d’amortissement $c$
-
-- Équation du mouvement (PFD) :
+- **Énergie cinétique** d’un solide $S$ en mouvement :
   $$
-  m \\ddot{x} + c \\dot{x} + k x = F(t)
+  E_c(S) = \\frac{1}{2} m v_G^2 + \\frac{1}{2} J_G \\omega^2
+  $$
+  - Première partie : translation du centre d’inertie
+  - Deuxième partie : rotation autour du centre d’inertie
+
+- **Théorème de l’énergie cinétique** :
+  $$
+  \\frac{dE_c}{dt} = \\sum \\vec{F}_\\text{ext} \\cdot \\vec{v}_P
+  $$
+  où $P$ est le point d’application de la force (ou $G$ dans le cas de la translation).
+
+---
+
+#### 4. Étude des systèmes oscillants
+
+- Un **système oscillant linéaire** est souvent modélisé par un **système masse–ressort–amortisseur** :
+  - Masse : $m$
+  - Raideur du ressort : $k$
+  - Amortissement visqueux : $c$
+  - Force extérieure : $F(t)$
+
+- **Équation différentielle du mouvement** (issue du PFD) :
+  $$
+  m \\ddot{x} + c \\dot{x} + kx = F(t)
   $$
 
-- Solution : oscillations libres ou forcées, amortissement critique, sous-critique ou sur-critique.
+- **Cas particuliers de réponse libre** ($F(t) = 0$) :
+  - **Amortissement nul** ($c=0$) : oscillateur harmonique pur
+  - **Sous-amorti** : oscillations amorties
+  - **Critiquement amorti** : retour rapide sans oscillation
+  - **Sur-amorti** : retour lent sans oscillation
+
+- Réponse forcée ($F(t) \\neq 0$) → résonance, régime permanent, transitoire.
+
+---
+
+#### 5. Dynamique plane des systèmes
+
+- En dynamique plane (mouvement dans un plan), les équations fondamentales deviennent :
+
+  - **Translation** :
+    $$
+    \\sum F_x = m a_x, \\quad \\sum F_y = m a_y
+    $$
+
+  - **Rotation autour d’un point $O$ dans le plan** :
+    $$
+    \\sum M_O = J_O \\alpha
+    $$
+
+- On combine souvent les équations de translation et de rotation pour résoudre des problèmes dynamiques de solides.
 
 ---
 
 ### Résumé
 
-- La dynamique relie forces, masses et mouvements selon les lois de Newton.
-- Le moment cinétique et ses théorèmes étendent cette étude au mouvement de rotation.
-- Les systèmes oscillants sont des exemples classiques de modélisation dynamique.
+- Le PFD est la loi fondamentale liant les forces appliquées à l’accélération d’un solide.
+- La rotation est décrite par le **moment cinétique** et ses dérivées.
+- L’**énergie cinétique** permet une approche énergétique complémentaire.
+- Les systèmes **masse–ressort–amortisseur** modélisent des phénomènes d’oscillations classiques.
+- En dynamique plane, les équations translation + rotation sont utilisées pour décrire les mouvements dans un plan.
 
 `,
   tags: [
@@ -6490,20 +6636,23 @@ export const fichesSI: Fiche[] = [
     'lois de Newton',
     'moment cinétique',
     'inertie',
-    'oscillations',
+    'énergie cinétique',
+    'systèmes oscillants',
     'ressort',
-    'amortisseur'
+    'amortisseur',
+    'résonance',
+    'mouvement plan'
   ],
   datePublication: '2025-05-27',
   populaire: false,
-  aReviser: false,
+  aReviser: false
 },
 
 // mécanique-energetique
 {
   id: 'mecanique-energetique',
   titre: "Mécanique – Énergétique",
-  matiere: "Sciences de l\'Ingénieur",
+  matiere: "Sciences de l'Ingénieur",
   categorie: "Mécanique",
   niveau: ["Prépa", "Université"],
   contenu: `
@@ -6513,140 +6662,324 @@ export const fichesSI: Fiche[] = [
 
 #### 1. Énergie cinétique
 
-- L’énergie cinétique d’un solide en translation :
+- L’**énergie cinétique** représente l’énergie d’un système liée à son mouvement.
+
+- **Pour un point matériel** de masse $m$ et de vitesse $\\vec{v}$ :
   $$
   E_c = \\frac{1}{2} m v^2
   $$
-- En rotation :
+
+- **Pour un solide en mouvement général** :
   $$
-  E_c = \\frac{1}{2} I \\omega^2
+  E_c = \\frac{1}{2} m v_G^2 + \\frac{1}{2} J_G \\omega^2
   $$
+  où :
+  - $v_G$ : vitesse du centre d’inertie $G$
+  - $J_G$ : moment d’inertie par rapport à un axe passant par $G$
+  - $\\omega$ : vitesse angulaire du solide
+
+- Cas particuliers :
+  - **Translation pure** : seule la première partie subsiste
+  - **Rotation autour d’un axe fixe passant par $G$** : seule la deuxième partie est non nulle
 
 ---
 
 #### 2. Travail d’une force
 
-- Travail élémentaire d’une force $\\vec{F}$ lors d’un déplacement infinitésimal $d\\vec{r}$ :
+- Le **travail élémentaire** d’une force $\\vec{F}$ lors d’un déplacement infinitésimal $d\\vec{r}$ :
   $$
   dW = \\vec{F} \\cdot d\\vec{r}
   $$
-- Travail total sur un déplacement de $A$ à $B$ :
+
+- **Travail total** entre deux positions $A$ et $B$ :
   $$
   W_{A \\to B} = \\int_A^B \\vec{F} \\cdot d\\vec{r}
   $$
 
+- **Cas particuliers** :
+  - Force constante : $W = \\vec{F} \\cdot (\\vec{r}_B - \\vec{r}_A)$
+  - Si $\\vec{F} \\perp d\\vec{r}$ : travail nul
+  - Si $\\vec{F}$ est conservative (ex : poids, force de rappel) → énergie potentielle associée
+
 ---
 
-#### 3. Théorème de l’énergie cinétique
+#### 3. Théorème de l’énergie cinétique (TEC)
 
-- Variation de l’énergie cinétique égale au travail total des forces extérieures :
+- Le **théorème de l’énergie cinétique** s’écrit :
   $$
-  \\Delta E_c = W_{\\text{ext}}
+  \\Delta E_c = E_{c,B} - E_{c,A} = W_{\\text{ext}}
   $$
-- Ce théorème est une reformulation du PFD en termes énergétiques.
+  avec :
+  - $E_{c,A}$, $E_{c,B}$ : énergies cinétiques initiale et finale
+  - $W_{\\text{ext}}$ : travail des forces extérieures entre $A$ et $B$
+
+- En dynamique, il s'agit d'une **forme énergétique du PFD**. Il permet souvent de résoudre un problème sans passer par les accélérations ou équations différentielles.
+
+---
+
+#### 4. Puissance d’une force
+
+- La **puissance instantanée** d’une force $\\vec{F}$ appliquée à un point de vitesse $\\vec{v}$ :
+  $$
+  \\mathcal{P} = \\vec{F} \\cdot \\vec{v}
+  $$
+
+- La **puissance totale** appliquée à un solide :
+  $$
+  \\mathcal{P} = \\sum \\vec{F}_i \\cdot \\vec{v}_i
+  $$
+
+- Pour une **rotation autour d’un axe fixe** :
+  $$
+  \\mathcal{P} = \\sum M_{\\Delta} \\cdot \\omega
+  $$
+
+---
+
+#### 5. Énergie potentielle et forces conservatives
+
+- Une force est **conservative** si le travail ne dépend que des positions initiale et finale.
+
+- On peut alors définir une **énergie potentielle $E_p$** telle que :
+  $$
+  W_{A \\to B} = -\\Delta E_p = E_{p,A} - E_{p,B}
+  $$
+
+- Exemples :
+  - Poids : $E_p = m g z$
+  - Ressort : $E_p = \\frac{1}{2} k x^2$
+
+- **Énergie mécanique totale** :
+  $$
+  E_m = E_c + E_p
+  $$
+
+- Si seules des forces conservatives sont en jeu, alors :
+  $$
+  \\frac{dE_m}{dt} = 0 \\quad \\Rightarrow \\quad E_m = \\text{constante}
+  $$
 
 ---
 
 ### Résumé
 
-- L’énergie cinétique mesure l’énergie due au mouvement d’un solide.
-- Le travail d’une force traduit l’énergie transférée lors d’un déplacement.
-- Le théorème de l’énergie cinétique relie travail et variation d’énergie.
+- L’**énergie cinétique** représente l’énergie liée au mouvement d’un système.
+- Le **travail** est l’énergie transférée par une force lors d’un déplacement.
+- Le **théorème de l’énergie cinétique** relie variation d’énergie cinétique et travail.
+- Une force **conservative** possède une énergie potentielle associée.
+- L’**énergie mécanique** (cinétique + potentielle) est conservée si le système est isolé.
 
 `,
   tags: [
     'énergie cinétique',
     'travail',
+    'puissance',
+    'énergie potentielle',
     'théorème énergie cinétique',
-    'travail d’une force',
-    'mécanique',
+    'forces conservatives',
+    'énergie mécanique',
+    'rotation',
+    'translation',
+    'mécanique'
   ],
   datePublication: '2025-05-27',
   populaire: false,
-  aReviser: false,
+  aReviser: false
 },
 
 // automatique-sli-schema-blocs
 {
   id: 'automatique-sli-schema-blocs',
   titre: "Automatique – Systèmes Linéaires Invariants et Schéma-blocs",
-  matiere: "Sciences de l\'Ingénieur",
+  matiere: "Sciences de l'Ingénieur",
   categorie: "Automatique",
   niveau: ["Prépa", "Université"],
   contenu: `
-### Systèmes Linéaires Invariants (SLI)
+### Automatique – Systèmes Linéaires Invariants (SLI) et Schéma-blocs
 
 ---
 
-#### 1. Définition
+#### 1. Définition des SLI
 
-- Un système est linéaire invariant si :
-  - La superposition est vérifiée :  
+- Un **système linéaire invariant (SLI)** est un système :
+  - **Linéaire** : répond au **principe de superposition** :
     $$
     S(\\alpha x_1 + \\beta x_2) = \\alpha S(x_1) + \\beta S(x_2)
     $$
-  - Ses propriétés ne varient pas dans le temps.
+  - **Invariant dans le temps** : ses caractéristiques ne dépendent pas du temps.
 
-- Modélisation par équations différentielles linéaires à coefficients constants.
+- Les SLI sont souvent **modélisés** par des **équations différentielles linéaires à coefficients constants**, ou via des **équations aux dérivées d’ordre n**.
 
 ---
 
-#### 2. Représentation fonctionnelle – Schéma-blocs
+#### 2. Fonction de transfert
 
-- Représentation graphique d’un système par blocs reliés par des flèches indiquant le flux des signaux.  
-- Blocs : fonctions de transfert, gains, intégrateurs, etc.  
-- Permet de visualiser et simplifier l’étude des systèmes en boucle ouverte ou fermée.
+- Après transformation de Laplace (hypothèse de conditions initiales nulles), on obtient la **fonction de transfert** :
+  $$
+  G(s) = \\frac{Y(s)}{U(s)}
+  $$
+  où :
+  - $U(s)$ : transformée de Laplace de l’entrée $u(t)$
+  - $Y(s)$ : transformée de Laplace de la sortie $y(t)$
+  - $s$ : variable complexe (domaine de Laplace)
 
-- Exemple :  
+- Exemples de fonctions de transfert usuelles :
+  - **Gain pur** : $G(s) = K$
+  - **Intégrateur** : $G(s) = \\frac{1}{s}$
+  - **Dérivateur** : $G(s) = s$
+  - **Filtre du premier ordre** : $G(s) = \\frac{K}{1 + \\tau s}$
+
+---
+
+#### 3. Schéma-blocs
+
+- Représentation graphique d’un système dynamique sous forme de **blocs interconnectés** :
+  - Chaque bloc représente une fonction de transfert.
+  - Les **flèches** indiquent le **flux des signaux**.
+  - Permet de **visualiser la structure du système**, notamment les **boucles de rétroaction**.
+
+- Avantages :
+  - Clarifie la **composition de systèmes** (série, parallèle, boucle fermée…)
+  - Facilite les **simplifications** de systèmes complexes.
+
+---
+
+#### 4. Opérations sur les blocs
+
+- **Série** :
   $$
-  Y(s) = G(s) U(s)
+  G_{eq}(s) = G_1(s) \\cdot G_2(s)
   $$
-  avec $G(s)$ la fonction de transfert.
+
+- **Parallèle** :
+  $$
+  G_{eq}(s) = G_1(s) + G_2(s)
+  $$
+
+- **Boucle fermée** (rétroaction négative) :
+  $$
+  G_{cl}(s) = \\frac{G(s)}{1 + G(s) H(s)}
+  $$
+
+- Ces règles permettent de **réduire un schéma-blocs complexe** à une seule fonction de transfert équivalente.
+
+---
+
+#### 5. Types d’entrées classiques
+
+- Échelon : $u(t) = 1$ pour $t \\geq 0$ ⇒ $U(s) = \\frac{1}{s}$
+- Rampe : $u(t) = t$ ⇒ $U(s) = \\frac{1}{s^2}$
+- Impulsion de Dirac : $\\delta(t)$ ⇒ $U(s) = 1$
+
+---
+
+### Résumé
+
+- Les **SLI** modélisent une large classe de systèmes physiques.
+- Leur **fonction de transfert** permet une étude dans le domaine de Laplace.
+- Le **schéma-blocs** est un outil graphique puissant pour analyser et simplifier les systèmes.
+- Les **opérations sur les blocs** permettent de déterminer la réponse globale d’un système complexe.
+- La réponse d’un système dépend de la **forme de l’entrée** (échelon, rampe, etc.).
 
 `,
   tags: [
     'sli',
     'systèmes linéaires',
-    'schéma-blocs',
+    'invariance',
     'fonction de transfert',
+    'schéma-blocs',
+    'laplace',
     'automatique',
+    'boucle fermée',
+    'série',
+    'parallèle',
+    'réduction de schéma',
   ],
   datePublication: '2025-05-27',
   populaire: false,
-  aReviser: false,
+  aReviser: false
 },
 
 // automatique-reponses-indicielle-frequentielle
 {
   id: 'automatique-reponses-indicielle-frequentielle',
   titre: "Automatique – Réponses Indicielle et Fréquentielle",
-  matiere: "Sciences de l\'Ingénieur",
+  matiere: "Sciences de l'Ingénieur",
   categorie: "Automatique",
   niveau: ["Prépa", "Université"],
   contenu: `
-### Réponses Indicielle et Fréquentielle
+### Automatique – Réponses Indicielle et Fréquentielle
 
 ---
 
 #### 1. Réponse indicielle
 
-- Réponse d’un système à une entrée échelon unité $u(t) = 1(t)$  
-- Permet d’étudier la stabilité et la précision dans le domaine temporel.  
-- Exemple :  
+- La **réponse indicielle** est la sortie $y(t)$ d’un système soumis à une **entrée échelon unité** :
   $$
-  y(t) = \\mathcal{L}^{-1} \\{ G(s) \\frac{1}{s} \\}
+  u(t) = 1(t)
+  $$
+- Elle est obtenue en calculant :
+  $$
+  y(t) = \\mathcal{L}^{-1} \\left\\{ G(s) \\cdot \\frac{1}{s} \\right\\}
+  $$
+
+- Permet d’analyser :
+  - **Temps de réponse** (rapidité)
+  - **Dépassement** (amortissement)
+  - **Erreur statique** (précision)
+  - **Stabilité** (tendance à converger/diverger)
+
+- Exemple pour un système du premier ordre $G(s) = \\frac{K}{1 + \\tau s}$ :
+  $$
+  y(t) = K \\left(1 - e^{-t/\\tau} \\right)
   $$
 
 ---
 
 #### 2. Réponse fréquentielle
 
-- Étude du système en régime permanent sinusoïdal d’entrée $u(t) = \\sin(\\omega t)$.  
-- Fonction de transfert évaluée en $s = j\\omega$ :  
+- Analyse du système soumis à une **entrée sinusoïdale** :
+  $$
+  u(t) = A \\sin(\\omega t)
+  $$
+- En régime permanent, la sortie est une sinusoïde de même fréquence :
+  $$
+  y(t) = |G(j\\omega)| A \\sin(\\omega t + \\varphi(\\omega))
+  $$
+- On évalue la fonction de transfert en $s = j\\omega$ :
   $$
   G(j\\omega) = |G(j\\omega)| e^{j\\varphi(\\omega)}
   $$
-- Permet de tracer le diagramme de Bode (gain et phase en fonction de $\\omega$).
+
+- Deux caractéristiques importantes :
+  - **Gain** : $|G(j\\omega)|$
+  - **Phase** : $\\varphi(\\omega)$
+
+- Utilisé pour :
+  - Évaluer la réponse du système à différentes fréquences.
+  - Étudier la stabilité en fréquence.
+  - Concevoir des correcteurs (filtrage, asservissement).
+
+---
+
+#### 3. Diagramme de Bode
+
+- Représentation graphique de la réponse fréquentielle :
+  - **Gain** (en dB) : $20 \\log_{10} |G(j\\omega)|$ en fonction de $\\log_{10}(\\omega)$
+  - **Phase** (en degrés) : $\\varphi(\\omega)$ en fonction de $\\log_{10}(\\omega)$
+
+- Lecture facile des caractéristiques du système :
+  - Bandes passantes
+  - Résonances
+  - Marges de gain et de phase
+
+---
+
+### Résumé
+
+- La **réponse indicielle** étudie le comportement temporel d’un système à une entrée échelon.
+- La **réponse fréquentielle** analyse comment le système réagit à des signaux sinusoïdaux.
+- Le **diagramme de Bode** donne une vue d’ensemble de la stabilité et des performances en fréquence.
 
 `,
   tags: [
@@ -6654,51 +6987,92 @@ export const fichesSI: Fiche[] = [
     'réponse fréquentielle',
     'diagramme de Bode',
     'automatique',
+    'analyse temporelle',
+    'analyse fréquentielle',
+    'stabilité',
+    'fonction de transfert',
   ],
   datePublication: '2025-05-27',
   populaire: false,
-  aReviser: false,
+  aReviser: false
 },
 
 // automatique-correcteurs
 {
   id: 'automatique-correcteurs',
   titre: "Automatique – Correcteurs P, PI, PID",
-  matiere: "Sciences de l\'Ingénieur",
+  matiere: "Sciences de l'Ingénieur",
   categorie: "Automatique",
   niveau: ["Prépa", "Université"],
   contenu: `
-### Correcteurs P, PI, PID
+### Automatique – Correcteurs P, PI, PID
 
 ---
 
-#### 1. Correcteur proportionnel (P)
+#### 1. Correcteur Proportionnel (P)
 
-- Action proportionnelle à l’erreur $e(t)$ :  
+- Commande proportionnelle à l’erreur $e(t)$ :
   $$
   u(t) = K_p e(t)
   $$
-- Améliore la rapidité, mais peut laisser un écart permanent.
+- **Effets** :
+  - Accélère la réponse du système
+  - Diminue l’erreur statique sans l’annuler complètement
+  - Peut amplifier les oscillations si $K_p$ trop grand
+
+- **Avantages** : simple, rapide à mettre en œuvre  
+- **Inconvénient** : présence possible d’un **écart permanent**
 
 ---
 
-#### 2. Correcteur intégral (I) – en PI
+#### 2. Correcteur Proportionnel-Intégral (PI)
 
-- Action intégrale sur l’erreur :  
+- Intègre l’erreur dans le temps pour supprimer l’écart statique :
   $$
-  u(t) = K_p e(t) + K_i \\int e(t) dt
+  u(t) = K_p e(t) + K_i \\int_0^t e(\\tau) d\\tau
   $$
-- Supprime l’erreur statique (offset).
+- **Effets** :
+  - Supprime l’erreur statique
+  - Améliore la précision
+  - Ralentit légèrement la réponse (temps de réponse plus long)
+
+- **Utilisation courante** dans les systèmes à asservissement de position ou de vitesse
 
 ---
 
-#### 3. Correcteur dérivé (D) – en PID
+#### 3. Correcteur Proportionnel-Intégral-Dérivé (PID)
 
-- Action dérivée sur l’erreur :  
+- Ajoute une anticipation des variations de l’erreur :
   $$
-  u(t) = K_p e(t) + K_i \\int e(t) dt + K_d \\frac{de}{dt}
+  u(t) = K_p e(t) + K_i \\int_0^t e(\\tau) d\\tau + K_d \\frac{de}{dt}
   $$
-- Anticipe la variation de l’erreur, améliore la stabilité.
+- **Effets** :
+  - Améliore la stabilité
+  - Réduit le dépassement
+  - Accélère la correction des erreurs brusques
+
+- **Paramètres à ajuster** :
+  - $K_p$ : action immédiate sur l’erreur
+  - $K_i$ : élimination de l’écart permanent
+  - $K_d$ : amortissement des variations rapides
+
+---
+
+#### 4. Choix du correcteur
+
+| Correcteur | Précision | Rapidité | Stabilité |
+|------------|-----------|----------|-----------|
+| P          | Moyenne   | Bonne    | Moyenne   |
+| PI         | Bonne     | Moyenne  | Moyenne   |
+| PID        | Excellente| Bonne    | Excellente|
+
+---
+
+### Résumé
+
+- Les correcteurs P, PI et PID sont utilisés pour améliorer la précision, la rapidité et la stabilité d’un système.
+- Le **P** agit immédiatement, le **I** élimine l’erreur à long terme, le **D** stabilise et anticipe.
+- Le bon réglage des gains $K_p$, $K_i$, $K_d$ est crucial pour des performances optimales.
 
 `,
   tags: [
@@ -6708,17 +7082,19 @@ export const fichesSI: Fiche[] = [
     'PID',
     'commande',
     'automatique',
+    'asservissement',
+    'réglage de système'
   ],
   datePublication: '2025-05-27',
   populaire: false,
-  aReviser: false,
+  aReviser: false
 },
 
 // automatique-stabilite-routh-marges
 {
   id: 'automatique-stabilite-routh-marges',
   titre: "Automatique – Analyse de Stabilité",
-  matiere: "Sciences de l\'Ingénieur",
+  matiere: "Sciences de l'Ingénieur",
   categorie: "Automatique",
   niveau: ["Prépa", "Université"],
   contenu: `
@@ -6728,18 +7104,52 @@ export const fichesSI: Fiche[] = [
 
 #### 1. Critère de Routh-Hurwitz
 
-- Méthode pour déterminer si tous les pôles d’une fonction de transfert ont une partie réelle négative (stabilité).  
-- Construction du tableau de Routh à partir des coefficients du polynôme caractéristique.  
-- Conditions de stabilité : tous les coefficients du premier colonne doivent être strictement positifs.
+- Permet de déterminer la **stabilité** d’un système sans calculer explicitement les racines du polynôme caractéristique.
+- On considère le polynôme caractéristique associé à la fonction de transfert :
+  $$
+  P(s) = a_0 s^n + a_1 s^{n-1} + \\dots + a_n
+  $$
+
+- Construction du **tableau de Routh** à partir des coefficients :
+  - Première ligne : $a_0$, $a_2$, $a_4$, ...
+  - Deuxième ligne : $a_1$, $a_3$, $a_5$, ...
+  - Les lignes suivantes sont calculées par déterminants.
+
+- **Condition de stabilité** : tous les termes de la **première colonne** doivent être **strictement positifs** (ou tous de même signe).
+
+- Si un terme est nul ou change de signe : présence d’au moins un pôle à partie réelle positive → système **instable**.
 
 ---
 
-#### 2. Marges de gain et de phase
+#### 2. Marges de Gain et de Phase
 
-- Marges permettant d’évaluer la robustesse d’un système.  
-- **Marge de gain** : facteur multiplicatif maximal avant instabilité (en dB).  
-- **Marge de phase** : angle maximal avant instabilité (en degrés).  
-- Obtenues à partir des diagrammes de Bode.
+- **Outils de robustesse** issus de l’analyse fréquentielle (diagrammes de Bode) :
+
+##### Marge de gain :
+- Valeur maximale (en dB) que l’on peut ajouter au gain sans rendre le système instable.
+- Mesurée **au point de phase -180°** :
+  $$
+  \text{MG} = -20 \\log_{10}(|G(j\\omega_{180})|)
+  $$
+
+##### Marge de phase :
+- Écart entre la phase actuelle et -180° lorsque le gain est unitaire (0 dB).
+- Mesurée **au point de gain unitaire** :
+  $$
+  \text{MP} = 180^\circ + \varphi(\\omega_{0})
+  $$
+
+- **Interprétation** :
+  - Marges faibles : système peu robuste
+  - Marges élevées : système plus stable, moins sensible aux perturbations
+
+---
+
+### Résumé
+
+- Le **critère de Routh-Hurwitz** permet d’analyser la stabilité sans résolution numérique.
+- Les **marges de gain et de phase** évaluent la **robustesse** vis-à-vis des incertitudes.
+- Ces outils sont essentiels pour le **dimensionnement de correcteurs**.
 
 `,
   tags: [
@@ -6747,96 +7157,276 @@ export const fichesSI: Fiche[] = [
     'Routh',
     'marge de gain',
     'marge de phase',
+    'diagramme de Bode',
     'commande',
     'automatique',
+    'robustesse'
   ],
   datePublication: '2025-05-27',
   populaire: false,
-  aReviser: false,
+  aReviser: false
 },
 
 //automatique-transformee-laplace
 {
-  id: 'automatique-transformee-laplace',
-  titre: "Automatique – Transformée de Laplace",
-  matiere: "Sciences de l\'Ingénieur",
+  id: 'automatique-reponses-temporelles',
+  titre: "Automatique – Réponses Temporelles Types",
+  matiere: "Sciences de l'Ingénieur",
   categorie: "Automatique",
-  niveau: ["Prépa"],
+  niveau: ["Prépa", "Université"],
   contenu: `
-### Transformée de Laplace
+### Réponses Temporelles Types
+
+---
+
+#### 1. Système du premier ordre
+
+- Fonction de transfert :  
+  $$
+  G(s) = \\frac{K}{\\tau s + 1}
+  $$
+- Réponse indicielle :  
+  $$
+  y(t) = K(1 - e^{-t/\\tau})
+  $$
+- Paramètres caractéristiques :
+  - **Constante de temps** $\\tau$ : temps nécessaire pour atteindre 63% de la valeur finale.
+  - **Temps de réponse à 5%** : $t_{r5\\%} \\approx 3\\tau$
+
+---
+
+#### 2. Système du second ordre
+
+- Fonction de transfert canonique :  
+  $$
+  G(s) = \\frac{K \\omega_0^2}{s^2 + 2\\xi\\omega_0 s + \\omega_0^2}
+  $$
+  avec :
+  - $\\omega_0$ : pulsation propre
+  - $\\xi$ : coefficient d’amortissement
+
+##### Cas typiques :
+- **$\\xi > 1$** (sur-amorti) : pas d’oscillation, réponse lente.
+- **$\\xi = 1$** (amorti critique) : réponse la plus rapide sans oscillation.
+- **$0 < \\xi < 1$** (sous-amorti) : oscillations amorties.
+- **$\\xi = 0$** (non amorti) : oscillation permanente.
+
+##### Paramètres clés pour $0 < \\xi < 1$ :
+- **Temps de montée** $t_m$
+- **Temps de réponse à 5%** $t_{r5\\%}$
+- **Dépassement** $D = e^{-\\frac{\\pi \\xi}{\\sqrt{1 - \\xi^2}}}$
+- **Temps de dépassement maximal** $t_{max} = \\frac{\\pi}{\\omega_0 \\sqrt{1 - \\xi^2}}$
+
+---
+
+### Résumé
+
+- Les **réponses temporelles** permettent d’analyser :
+  - la **vitesse** (temps de réponse),
+  - la **précision** (valeur finale),
+  - la **stabilité** (présence ou non d’oscillations).
+
+- Ces informations sont cruciales pour :
+  - **choisir** un modèle adapté,
+  - **concevoir** un correcteur.
+
+`,
+  tags: [
+    'réponse temporelle',
+    'premier ordre',
+    'second ordre',
+    'temps de réponse',
+    'dépassement',
+    'oscillations',
+    'automatique',
+  ],
+  datePublication: '2025-05-27',
+  populaire: false,
+  aReviser: false
+},
+// automatique-fonction-transfert-equivalente
+{
+  id: 'automatique-fonction-transfert-equivalente',
+  titre: "Automatique – Fonction de Transfert Équivalente",
+  matiere: "Sciences de l'Ingénieur",
+  categorie: "Automatique",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+### Fonction de Transfert Équivalente
 
 ---
 
 #### 1. Définition
 
-- La transformée de Laplace d'une fonction temporelle $f(t)$, définie pour $t \\geq 0$, est donnée par :  
-  $$
-  F(s) = \\mathcal{L} \\{ f(t) \\} = \\int_0^{+\\infty} f(t) e^{-s t} dt
-  $$
-- Le paramètre complexe $s = \\sigma + j \\omega$.
-
-- Permet de passer du domaine temporel au domaine complexe, simplifiant la résolution d’équations différentielles linéaires.
-
----
-
-#### 2. Conditions d’existence
-
-- $f$ doit être de type exponentiellement croissante :  
-  $$
-  \\exists M, \\alpha > 0, \\quad \\lvert f(t) \\rvert \\leq M e^{\\alpha t}
-  $$
-- La transformée existe pour $Re(s) > \\alpha$.
-
----
-
-#### 3. Propriétés principales
-
-| Propriété                      | Expression                                                                                   |
-|-------------------------------|----------------------------------------------------------------------------------------------|
-| Linéarité                     | $\\mathcal{L}\\{a f(t) + b g(t)\\} = a F(s) + b G(s)$                                      |
-| Dérivation temporelle         | $\\mathcal{L}\\{f'(t)\\} = s F(s) - f(0^+)$                                                |
-| Intégration temporelle        | $\\mathcal{L}\\{ \\int_0^t f(\\tau) d\\tau \\} = \\frac{F(s)}{s}$                            |
-| Décalage dans le temps        | $\\mathcal{L}\\{f(t - t_0) u(t - t_0)\\} = e^{-s t_0} F(s)$                               |
-| Théorème du retard             | $\\mathcal{L}\\{e^{a t} f(t)\\} = F(s - a)$                                               |
-
----
-
-#### 4. Table de Transformées usuelles
-
-| $f(t)$                  | $F(s) = \\mathcal{L}\\{f(t)\\}$                            | Conditions                 |
-|-------------------------|------------------------------------------------------------|----------------------------|
-| $1$                     | $\\frac{1}{s}$                                             | $Re(s) > 0$                |
-| $t^n$ ($n \\in \\mathbb{N}$) | $\\frac{n!}{s^{n+1}}$                                     | $Re(s) > 0$                |
-| $e^{a t}$               | $\\frac{1}{s - a}$                                         | $Re(s) > a$                |
-| $\\sin(\\omega t)$       | $\\frac{\\omega}{s^2 + \\omega^2}$                          | $Re(s) > 0$                |
-| $\\cos(\\omega t)$       | $\\frac{s}{s^2 + \\omega^2}$                               | $Re(s) > 0$                |
-| $u(t - t_0)$ (échelon retardé) | $\\frac{e^{-s t_0}}{s}$                                  | $Re(s) > 0$                |
-
----
-
-#### 5. Applications en automatique
-
-- Résolution d’équations différentielles dans le domaine $s$.  
-- Manipulation des fonctions de transfert :  
+- La **fonction de transfert** $G(s)$ représente le lien entre une **entrée** $U(s)$ et une **sortie** $Y(s)$ :
   $$
   G(s) = \\frac{Y(s)}{U(s)}
   $$
-- Analyse de la stabilité et conception des correcteurs.
+
+- Elle permet d’analyser le comportement du système dans le domaine de Laplace (temps continu), en négligeant les conditions initiales.
+
+---
+
+#### 2. Système en **Boucle Ouverte**
+
+- Pas de retour d’information.  
+- Fonction de transfert directe :
+  $$
+  G_{BO}(s) = G(s)
+  $$
+
+---
+
+#### 3. Système en **Boucle Fermée Unitaire**
+
+- Avec retour direct de la sortie (sans gain correctif) 
+  
+
+- Fonction de transfert équivalente :
+  $$
+  G_{BF}(s) = \\frac{G(s)}{1 + G(s)}
+  $$
+
+---
+
+#### 4. Système en **Boucle Fermée avec Correcteur C(s)**
+
+- Schéma typique :
+  
+  Entrée → [Correcteur $C(s)$] → [Système $G(s)$] → Sortie  
+  ↑__________________________________↓
+
+- Fonction de transfert en boucle fermée :
+  $$
+  T(s) = \\frac{C(s)G(s)}{1 + C(s)G(s)}
+  $$
+
+- Fonction de **boucle d’asservissement** :
+  - Numérateur : chaîne directe
+  - Dénominateur : 1 + boucle de retour
+
+---
+
+#### 5. Cas avec retour non unitaire $H(s)$
+
+- Fonction de transfert :
+  $$
+  T(s) = \\frac{C(s)G(s)}{1 + C(s)G(s)H(s)}
+  $$
+
+---
+
+### Résumé
+
+| Structure                | Fonction de transfert équivalente |
+|--------------------------|------------------------------------|
+| Boucle ouverte           | $G(s)$                             |
+| Boucle fermée unitaire   | $\\frac{G(s)}{1 + G(s)}$           |
+| Avec correcteur $C(s)$   | $\\frac{C(s)G(s)}{1 + C(s)G(s)}$   |
+| Retour non unitaire $H(s)$ | $\\frac{C(s)G(s)}{1 + C(s)G(s)H(s)}$ |
+
+- La fonction de transfert **équivalente** est essentielle pour :
+  - l’**analyse de la stabilité**,
+  - l’**étude fréquentielle**,
+  - le **dimensionnement des correcteurs**.
 
 `,
   tags: [
-    'transformée de Laplace',
-    'laplace',
-    'commande',
+    'fonction de transfert',
+    'boucle ouverte',
+    'boucle fermée',
+    'correcteur',
     'automatique',
-    'équations différentielles',
+    'commande'
   ],
   datePublication: '2025-05-27',
   populaire: false,
-  aReviser: false,
+  aReviser: false
 },
+// automatique-types-systemes-erreurs-statiques
+{
+  id: 'automatique-types-systemes-erreurs-statiques',
+  titre: "Automatique – Types de Systèmes et Erreurs Statique",
+  matiere: "Sciences de l'Ingénieur",
+  categorie: "Automatique",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+### Types de Systèmes et Erreur Statique
 
+---
 
+#### 1. Type d’un système
+
+- Le **type** d’un système correspond au **nombre de pôles à l’origine** dans sa fonction de transfert en boucle ouverte $G(s)$ :
+  - **Type 0** : pas de pôle en 0
+  - **Type 1** : un pôle en 0
+  - **Type 2** : deux pôles en 0
+  - etc.
+
+- Exemple :  
+  $$
+  G(s) = \\frac{10}{s(s+2)} \\Rightarrow \\text{Type 1}
+  $$
+
+---
+
+#### 2. Erreur statique
+
+- L’erreur statique $e_{ss}$ est la **différence entre la consigne et la sortie en régime permanent** :
+  $$
+  e_{ss} = \\lim_{t \\to \\infty} (r(t) - y(t))
+  $$
+
+- Calcul par le théorème de la valeur finale :
+  $$
+  e_{ss} = \\lim_{s \\to 0} s \\cdot E(s) = \\lim_{s \\to 0} \\left[ \\frac{s}{1 + G(s)} R(s) \\right]
+  $$
+
+---
+
+#### 3. Réponse aux entrées usuelles
+
+| Entrée       | $R(s)$         | Type 0             | Type 1             | Type 2             |
+|--------------|----------------|--------------------|--------------------|--------------------|
+| Échelon      | $\\frac{1}{s}$ | $\\neq 0$          | 0                  | 0                  |
+| Rampe        | $\\frac{1}{s^2}$ | $\\infty$         | $\\neq 0$          | 0                  |
+| Parabole     | $\\frac{1}{s^3}$ | $\\infty$         | $\\infty$          | $\\neq 0$          |
+
+- Le **type du système détermine son aptitude à suivre des consignes lentes (échelon, rampe...)**.
+
+---
+
+#### 4. Erreur statique et constante de système
+
+- On définit une **constante statique** selon l’entrée :
+
+| Entrée | Constante  | Formule                                     | Erreur statique |
+|--------|------------|---------------------------------------------|------------------|
+| Échelon | $K_p$     | $\\lim_{s\\to0} G(s)$                      | $\\frac{1}{1 + K_p}$ |
+| Rampe   | $K_v$     | $\\lim_{s\\to0} sG(s)$                     | $\\frac{1}{K_v}$ |
+| Parabole| $K_a$     | $\\lim_{s\\to0} s^2 G(s)$                  | $\\frac{1}{K_a}$ |
+
+---
+
+### Résumé
+
+- Le **type** d’un système indique son **comportement en régime permanent**.
+- Plus le type est élevé, plus le système suit **précisément les consignes lentes**.
+- L’**erreur statique** permet de **quantifier la précision**, et peut être corrigée via un **correcteur intégral** (PI, PID).
+
+`,
+  tags: [
+    'erreur statique',
+    'type système',
+    'réponse échelon',
+    'précision',
+    'asservissement',
+    'automatique'
+  ],
+  datePublication: '2025-05-27',
+  populaire: false,
+  aReviser: false
+},
 ];
 
 
