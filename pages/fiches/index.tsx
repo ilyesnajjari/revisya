@@ -21,7 +21,6 @@ type FicheCardProps = {
   favoris: string[];
   toggleFavori: (id: string) => void;
   matiereActive: string;
-  pageCourante: number;
 };
 
 const FicheCard = memo(function FicheCard({
@@ -29,7 +28,6 @@ const FicheCard = memo(function FicheCard({
   favoris,
   toggleFavori,
   matiereActive,
-  pageCourante,
 }: FicheCardProps) {
   return (
     <li className="fiche-card">
@@ -37,7 +35,7 @@ const FicheCard = memo(function FicheCard({
         <Link
           href={{
             pathname: `/fiches/${fiche.id}`,
-            // On ne passe plus matiere/page dans l'URL
+            query: { matiere: matiereActive }
           }}
           className="fiche-link"
         >
@@ -288,7 +286,7 @@ export default function FichesPage() {
           {/* Liste des fiches */}
           <ul className="fiches-list">
             {fichesAffichees.map((fiche) => (
-              <FicheCard key={fiche.id} fiche={fiche} favoris={favoris} toggleFavori={toggleFavori} matiereActive={matiereActive} pageCourante={pageCourante} />
+              <FicheCard key={fiche.id} fiche={fiche} favoris={favoris} toggleFavori={toggleFavori} matiereActive={matiereActive} />
             ))}
           </ul>
 

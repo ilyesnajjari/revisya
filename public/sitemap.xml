@@ -222,6 +222,111 @@
         <priority>0.8</priority>
       </url>
       <url>
+        <loc>https://revisya.fr/fiches/physique-electrocinetique</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-mecanique-generale</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-electromagnetisme</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-ondes</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-mecanique-des-fluides</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-loi-quantite-de-mouvement</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-description-parametrage</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-approche-energetique</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-mouvement-cinetique</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-force-centrale</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-mouvement-particule-chargee</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-optique-reflexion-refraction</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-thermodynamique-principes-transformations</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-electrostatique-champs-potentiel</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-circuits-electriques</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-magnetostatique</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-induction-electromagnetique</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/physique-physique-moderne</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/equation-differentielles-physique</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/volumes-surfaces-air</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/unites-si-dimension</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
         <loc>https://revisya.fr/fiches/python-structures-controle</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -332,11 +437,6 @@
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/chimie-cinetique-chimique</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-      </url>
-      <url>
         <loc>https://revisya.fr/fiches/chimie-des-solutions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -353,6 +453,36 @@
       </url>
       <url>
         <loc>https://revisya.fr/fiches/diagramme-epH</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/chimie-oxydoreduction</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/chimie-acide-base</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/reaction-precipitation</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/chimie-cinetique-chimique</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/thermodynamique-generale</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/thermochimie-avancee</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
@@ -397,7 +527,17 @@
         <priority>0.8</priority>
       </url>
       <url>
-        <loc>https://revisya.fr/fiches/automatique-transformee-laplace</loc>
+        <loc>https://revisya.fr/fiches/automatique-reponses-temporelles</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/automatique-fonction-transfert-equivalente</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://revisya.fr/fiches/automatique-types-systemes-erreurs-statiques</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
