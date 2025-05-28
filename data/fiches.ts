@@ -5748,85 +5748,7 @@ export const fichesChimie: Fiche[] = [
   aReviser: false,
 },
 
-//cinétique-chimique
-{
-  //cinétique-chimique
-  id: 'chimie-cinetique-chimique',
-  titre: "Cinétique chimique",
-  matiere: "Chimie",
-  categorie: "Cinétique chimique",
-  niveau: ["Prépa", "Université"],
-  contenu: `
-### Cinétique chimique
 
----
-
-#### Définitions des vitesses
-
-- La vitesse de réaction exprime la variation de la concentration d’un réactif ou d’un produit par unité de temps.  
-- Formellement, pour un réactif $A$ :  
-  $$
-  v = - \\frac{1}{\\nu_A} \\frac{d[A]}{dt}
-  $$
-  où $\\nu_A$ est le coefficient stœchiométrique (positif) de $A$.
-
----
-
-#### Ordre de réaction
-
-- L’ordre global est la somme des exposants dans la loi de vitesse empirique.  
-- Exemple d’une réaction $A + B \\to C$ avec vitesse :  
-  $$
-  v = k [A]^m [B]^n
-  $$
-  - Ordre partiel par rapport à $A$ : $m$  
-  - Ordre partiel par rapport à $B$ : $n$  
-  - Ordre global : $m + n$
-
----
-
-#### Temps de demi-réaction
-
-- Le temps nécessaire pour que la concentration d’un réactif soit réduite de moitié.  
-- Exemple pour une réaction d’ordre 1 :  
-  $$
-  t_{1/2} = \\frac{\\ln 2}{k}
-  $$
-
----
-
-#### Loi d’Arrhénius
-
-- Exprime la dépendance de la constante de vitesse $k$ à la température $T$ :  
-  $$
-  k = A \\exp \\left(-\\frac{E_a}{RT}\\right)
-  $$
-  - $A$ : facteur pré-exponentiel (fréquence des collisions efficaces)  
-  - $E_a$ : énergie d’activation  
-  - $R$ : constante des gaz parfaits  
-  - $T$ : température en kelvin
-
----
-
-### Résumé
-
-- La **vitesse de réaction** mesure l’évolution des concentrations.  
-- L’**ordre de réaction** caractérise la dépendance de la vitesse en fonction des concentrations.  
-- Le **temps de demi-réaction** est un indicateur temporel caractéristique.  
-- La **loi d’Arrhénius** décrit l’influence de la température sur la vitesse.
-
-`,
-  tags: [
-    'cinétique',
-    'vitesse de réaction',
-    'ordre de réaction',
-    'temps de demi-réaction',
-    'loi d’Arrhénius'
-  ],
-  datePublication: '2025-05-23',
-  populaire: false,
-  aReviser: false,
-},
 
 //chimie-des-solutions
 {
@@ -5949,14 +5871,22 @@ export const fichesChimie: Fiche[] = [
 - Quantité de chaleur échangée lors d’une réaction chimique à pression constante.  
 - Notée $\\Delta H$ (enthalpie de réaction).  
 - $\\Delta H < 0$ : réaction exothermique (dégage de la chaleur).  
-- $\\Delta H > 0$ : réaction endothermique (absorbe de la chaleur).
+- $\\Delta H > 0$ : réaction endothermique (absorbe de la chaleur).  
+- Relation avec la chaleur à pression constante :  
+  $$
+  q_P = \\Delta H
+  $$
 
 ---
 
 #### Température de flamme
 
 - Température maximale atteinte lors de la combustion d’un combustible en présence d’un comburant.  
-- Dépend des quantités initiales et des conditions de la réaction.
+- Dépend des quantités initiales et des conditions de la réaction.  
+- Estimée à l'aide du **premier principe de la thermodynamique** :  
+  $$
+  \\Delta H_{combustion} = \\int_{T_0}^{T_f} C_p(T) \\, dT
+  $$
 
 ---
 
@@ -5965,14 +5895,21 @@ export const fichesChimie: Fiche[] = [
 - Grandeurs thermodynamiques associées à une réaction chimique :  
   - $\\Delta H$ : enthalpie  
   - $\\Delta S$ : entropie  
-  - $\\Delta G$ : énergie libre de Gibbs
+  - $\\Delta G$ : énergie libre de Gibbs  
+- Relation fondamentale de Gibbs :  
+  $$
+  \\Delta G = \\Delta H - T \\Delta S
+  $$
 
 ---
 
 #### Définition des grandeurs de formation
 
 - Grandeurs associées à la formation d’un composé à partir des éléments dans leur forme standard.  
-- Par exemple : enthalpie standard de formation $\\Delta H_f^0$.
+- Exemple : enthalpie standard de formation :  
+  $$
+  \\Delta H_{f}^0 = \\sum \\Delta H^0_{produits} - \\sum \\Delta H^0_{réactifs}
+  $$
 
 ---
 
@@ -5980,7 +5917,8 @@ export const fichesChimie: Fiche[] = [
 
 - Grandeurs mesurées sous conditions standards :  
   - Pression $P^0 = 1\\,\\text{atm}$  
-  - Température généralement $25^\\circ\\text{C}$ ou $298\\,\\text{K}$
+  - Température $T^0 = 298\\,\\text{K}$  
+- Utilisées pour comparer les réactions dans les mêmes conditions.
 
 ---
 
@@ -5997,19 +5935,34 @@ export const fichesChimie: Fiche[] = [
 
 #### Critères d’évolution et de déplacement d’équilibre
 
-- Critère d’évolution spontanée :  
-  $\\Delta G < 0$ \\Rightarrow réaction spontanée dans le sens direct.  
-- Position d’équilibre déterminée par $\\Delta G = 0$.  
-- **Loi de Le Chatelier** : un système à l’équilibre soumis à une contrainte tend à s’adapter pour la réduire.
+- **Critère d’évolution spontanée** :  
+  $$
+  \\Delta G < 0 \\quad \\Rightarrow \\quad \\text{réaction spontanée (sens direct)}
+  $$
+  $$
+  \\Delta G > 0 \\quad \\Rightarrow \\quad \\text{réaction non spontanée (sens inverse)}
+  $$
+- À l’équilibre :  
+  $$
+  \\Delta G = 0
+  $$
+- Relation avec la constante d'équilibre $K$ :  
+  $$
+  \\Delta G^0 = -RT \\ln K
+  $$
+- **Loi de Le Chatelier** :  
+  Un système à l’équilibre soumis à une contrainte (température, pression, concentration) évolue de manière à s’opposer à cette contrainte.
 
 ---
 
 ### Résumé
 
 - La **thermochimie** étudie les échanges d’énergie lors des réactions chimiques.  
-- L’**enthalpie**, l’**entropie** et l’**énergie libre** sont des grandeurs clés.  
-- Les **conditions standards** permettent de comparer les réactions.  
-- La **variance** et les **critères d’évolution** guident la compréhension des équilibres chimiques.
+- L’**enthalpie**, l’**entropie** et l’**énergie libre** sont des grandeurs clés :  
+  $\\Delta G = \\Delta H - T \\Delta S$  
+- Les **conditions standards** permettent de comparer les réactions ($T = 298\\,\\text{K}$, $P = 1\\,\\text{atm}$).  
+- La **variance** ($V = C - P + 2$) permet de comprendre la liberté du système.  
+- Les **critères d’évolution** guident le sens d’évolution spontanée d’une réaction.
 `,
   tags: [
     'thermochimie',
@@ -6020,11 +5973,12 @@ export const fichesChimie: Fiche[] = [
     'grandeurs standard',
     'variance',
     'critères d’évolution',
-    'équilibre chimique'
+    'équilibre chimique',
+    'énergie libre de Gibbs'
   ],
   datePublication: '2025-05-23',
   populaire: false,
-  aReviser: false,
+  aReviser: false
 },
 
 //binaires
@@ -6126,8 +6080,7 @@ export const fichesChimie: Fiche[] = [
   datePublication: '2025-05-23',
   populaire: false,
   aReviser: false,
-}
-,
+},
 
 //diagramme-epH
 {
@@ -6219,6 +6172,847 @@ export const fichesChimie: Fiche[] = [
   aReviser: false,
 },
 
+//chimie-oxydoreduction
+{
+  id: 'chimie-oxydoreduction',
+  titre: "Oxydoréduction",
+  matiere: "Chimie",
+  categorie: "Oxydoréduction",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+### Oxydoréduction
+
+---
+
+#### Définitions fondamentales
+
+- Une réaction d’**oxydoréduction** met en jeu un **transfert d’électrons** entre deux espèces chimiques.
+- L’espèce qui **perd** des électrons est **oxydée** (agent réducteur).
+- L’espèce qui **gagne** des électrons est **réduite** (agent oxydant).
+- Exemple :
+  $$
+  \\text{Zn} \\rightarrow \\text{Zn}^{2+} + 2e^- \\quad \\text{(oxydation)} \\\\
+  \\text{Cu}^{2+} + 2e^- \\rightarrow \\text{Cu} \\quad \\text{(réduction)}
+  $$
+
+---
+
+#### Demi-équations électroniques
+
+- Une réaction rédox se décrit à l’aide de **deux demi-équations** :
+  - Oxydation : perte d’électrons  
+  - Réduction : gain d’électrons
+- On équilibre les électrons échangés pour écrire l’équation globale.
+
+---
+
+#### Nombre d’oxydation
+
+- Permet de suivre le transfert d’électrons.
+- Règles de base :
+  - Élément seul : $0$  
+  - Ion monoatomique : égal à la charge  
+  - Molécule : somme des nombres d’oxydation = charge globale
+
+---
+
+#### Équation globale d’oxydoréduction
+
+- On additionne les demi-équations après avoir égalisé les électrons :
+  $$
+  \\text{Zn} + \\text{Cu}^{2+} \\rightarrow \\text{Zn}^{2+} + \\text{Cu}
+  $$
+
+---
+
+#### Potentiel standard d’électrode
+
+- Noté $E^0$, il mesure la **tendance d’un couple à capter ou céder des électrons**.
+- Exemple de couple : $\\text{Cu}^{2+}/\\text{Cu}$, $\\text{Zn}^{2+}/\\text{Zn}$
+- Plus $E^0$ est élevé, plus l'espèce oxydée est facilement réduite.
+
+---
+
+#### Sens spontané d’une réaction
+
+- Le sens spontané va du couple au **plus bas $E^0$ (réducteur)** vers le **plus haut $E^0$ (oxydant)**.
+- Critère d’évolution spontanée :  
+  $$
+  \\Delta E = E^0_{oxydant} - E^0_{réducteur} > 0
+  $$
+
+---
+
+#### Pile électrochimique
+
+- Dispositif où la réaction rédox produit de l’électricité.
+- Fonctionnement :
+  - Anode : site de l’**oxydation**
+  - Cathode : site de la **réduction**
+- Tension fournie par la pile :
+  $$
+  E_{pile} = E^0_{cathode} - E^0_{anode}
+  $$
+
+---
+
+#### Loi de Faraday
+
+- Permet de relier la quantité d’électricité à la quantité de matière transformée :
+  $$
+  Q = n \\cdot z \\cdot F
+  $$
+  - $Q$ : charge électrique (en coulombs)  
+  - $n$ : quantité de matière (mol)  
+  - $z$ : nombre d’électrons échangés  
+  - $F$ : constante de Faraday $\\approx 96485\\,\\text{C/mol}$
+
+---
+
+### Résumé
+
+- Une réaction rédox implique un **transfert d’électrons** entre un oxydant et un réducteur.  
+- Elle est décrite par **deux demi-équations** équilibrées.  
+- Le **nombre d’oxydation** permet de suivre les électrons.  
+- Le **potentiel standard $E^0$** indique le pouvoir oxydant ou réducteur.  
+- Une **pile électrochimique** convertit l’énergie chimique en énergie électrique.  
+- La **loi de Faraday** relie quantité de matière et charge électrique.
+`,
+  tags: [
+    'oxydoréduction',
+    'réactions rédox',
+    'nombre d’oxydation',
+    'potentiel standard',
+    'pile électrochimique',
+    'loi de Faraday'
+  ],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: false
+},
+//chimie-acide-base
+{
+  id: 'chimie-acide-base',
+  titre: "Acide-Base",
+  matiere: "Chimie",
+  categorie: "Acide-Base",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+### Acide-Base
+
+---
+
+#### Définitions de Brønsted
+
+- Un **acide** est une espèce chimique capable de **donner un proton** $\\mathrm{H}^+$.
+- Une **base** est une espèce chimique capable de **capturer un proton** $\\mathrm{H}^+$.
+- Une réaction acide-base met en jeu un **transfert de proton** :
+  $$
+  \\mathrm{HA} + \\mathrm{B} \\rightleftharpoons \\mathrm{A}^- + \\mathrm{BH}^+
+  $$
+
+---
+
+#### Couples acide/base conjugués
+
+- À chaque acide correspond une **base conjuguée** et réciproquement.
+- Exemple :
+  - $\\mathrm{HCl} / \\mathrm{Cl}^-$
+  - $\\mathrm{NH}_4^+ / \\mathrm{NH}_3$
+
+---
+
+#### Constante d’acidité ($K_a$) et $pK_a$
+
+- La force d’un acide est mesurée par sa constante d’acidité :
+  $$
+  K_a = \\frac{[\\mathrm{A}^-][\\mathrm{H}^+]}{[\\mathrm{HA}]}
+  $$
+- On définit le **$pK_a$** par :
+  $$
+  pK_a = -\\log_{10}(K_a)
+  $$
+- Plus $pK_a$ est petit, plus l’acide est fort.
+
+---
+
+#### Échelle de pH
+
+- Le **pH** mesure l’acidité d’une solution :
+  $$
+  \\mathrm{pH} = -\\log_{10} [\\mathrm{H}^+]
+  $$
+- À $25^\\circ\\mathrm{C}$ :
+  - Acide : $\\mathrm{pH} < 7$  
+  - Neutre : $\\mathrm{pH} = 7$  
+  - Basique : $\\mathrm{pH} > 7$
+
+---
+
+#### Produit ionique de l’eau
+
+- L’eau s’auto-ionise selon :
+  $$
+  2\\,\\mathrm{H}_2\\mathrm{O} \\rightleftharpoons \\mathrm{H}_3\\mathrm{O}^+ + \\mathrm{OH}^-
+  $$
+- Le **produit ionique** :
+  $$
+  K_e = [\\mathrm{H}^+][\\mathrm{OH}^-] = 10^{-14} \\quad \\text{à } 25^\\circ\\mathrm{C}
+  $$
+
+---
+
+#### Réaction acide-base
+
+- Évolution spontanée vers le couple **acide-base le plus faible**.
+- Une réaction est quasi totale si :
+  $$
+  \\Delta pK_a = pK_{a(1)} - pK_{a(2)} > 3
+  $$
+
+---
+
+#### Solutions tampons
+
+- Mélange d’un acide faible et de sa base conjuguée.
+- Permet de **stabiliser le pH**.
+- Formule du pH d’un tampon :
+  $$
+  \\mathrm{pH} = pK_a + \\log_{10}\\left(\\frac{[\\mathrm{A}^-]}{[\\mathrm{HA}]}\\right)
+  $$
+
+---
+
+#### Titrage acide-base
+
+- Permet de déterminer la concentration d’une solution.
+- Point d’équivalence : quantités stœchiométriques d’acide et de base ont réagi.
+- Exemple pour titrage d’un acide fort par une base forte :
+  - Avant l’équivalence : calcul du pH par concentration d’acide résiduel  
+  - À l’équivalence : $\\mathrm{pH} = 7$  
+  - Après : pH déterminé par la base ajoutée
+
+---
+
+### Résumé
+
+- Un acide donne un proton, une base capte un proton.  
+- La force d’un acide est mesurée par son $K_a$ ou $pK_a$.  
+- Le pH est relié à la concentration en ions $\\mathrm{H}^+$.  
+- L’eau possède un équilibre acido-basique propre ($K_e$).  
+- Les solutions tampons maintiennent un pH stable.  
+- Le titrage permet de **quantifier un acide ou une base**.
+
+`,
+  tags: [
+    'acide-base',
+    'pH',
+    'pKa',
+    'réactions acido-basiques',
+    'titrage',
+    'solution tampon',
+    'produit ionique',
+    'Brønsted'
+  ],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: false
+},
+
+//reaction-precipitation
+{
+  id: 'reaction-precipitation',
+  titre: "Réaction de Précipitation",
+  matiere: "Chimie",
+  categorie: "Réactions en solution aqueuse",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+### Réaction de Précipitation
+
+---
+
+#### Définition
+
+- Une **réaction de précipitation** est une réaction chimique entre deux **solutions ioniques** aboutissant à la formation d’un **précipité** (solide insoluble) :
+  $$
+  \\text{solution} + \\text{solution} \\longrightarrow \\text{précipité} + \\text{solution}
+  $$
+- Exemple :
+  $$
+  \\mathrm{AgNO_3}(aq) + \\mathrm{NaCl}(aq) \\rightarrow \\mathrm{AgCl}(s) + \\mathrm{NaNO_3}(aq)
+  $$
+
+---
+
+#### Produit de solubilité ($K_s$)
+
+- Le **produit de solubilité** est une constante d’équilibre définissant la solubilité d’un sel peu soluble.
+- Pour un sel de formule $\\mathrm{A}_x\\mathrm{B}_y$ :
+  $$
+  K_s = [\\mathrm{A}^{n+}]^x \\cdot [\\mathrm{B}^{m-}]^y
+  $$
+
+- Exemple : pour $\\mathrm{AgCl}(s) \\rightleftharpoons \\mathrm{Ag}^+(aq) + \\mathrm{Cl}^-(aq)$ :
+  $$
+  K_s = [\\mathrm{Ag}^+][\\mathrm{Cl}^-]
+  $$
+
+---
+
+#### Précipitation ou non ?
+
+- On compare le produit ionique $Q$ au produit de solubilité $K_s$ :
+  - $Q < K_s$ : **pas de précipitation**
+  - $Q = K_s$ : solution **saturée**
+  - $Q > K_s$ : **précipitation** (formation d’un solide)
+
+---
+
+#### Tableau de solubilité (règles générales)
+
+| Anion \\ Cation        | $\\mathrm{Na}^+$, $\\mathrm{K}^+$, $\\mathrm{NH_4}^+$ | $\\mathrm{Ag}^+$ | $\\mathrm{Pb}^{2+}$ | $\\mathrm{Ca}^{2+}$ |
+|------------------------|---------------------------------------------|------------------|-------------------|------------------|
+| $\\mathrm{Cl}^-$       | Soluble                                      | Insoluble        | Insoluble         | Soluble          |
+| $\\mathrm{SO_4}^{2-}$  | Soluble                                      | Soluble          | Insoluble         | Peu soluble      |
+| $\\mathrm{CO_3}^{2-}$  | Soluble (NH₄⁺)                                | Insoluble        | Insoluble         | Insoluble        |
+| $\\mathrm{OH}^-$       | Soluble (NH₄⁺)                                | Insoluble        | Insoluble         | Peu soluble      |
+
+---
+
+#### Cas typiques
+
+- **AgCl** : précipité blanc
+  $$
+  \\mathrm{Ag}^+ + \\mathrm{Cl}^- \\rightarrow \\mathrm{AgCl}(s)
+  $$
+- **BaSO₄** : précipité blanc
+  $$
+  \\mathrm{Ba}^{2+} + \\mathrm{SO_4}^{2-} \\rightarrow \\mathrm{BaSO_4}(s)
+  $$
+- **Cu(OH)₂** : précipité bleu
+  $$
+  \\mathrm{Cu}^{2+} + 2\\,\\mathrm{OH}^- \\rightarrow \\mathrm{Cu(OH)_2}(s)
+  $$
+
+---
+
+#### Applications
+
+- **Dosages par précipitation** (ex. : dosage de $\\mathrm{Cl}^-$ par $\\mathrm{Ag}^+$).
+- **Traitement des eaux** (retrait d’ions toxiques par précipitation).
+- **Reconnaissance d’ions** par tests de précipitation.
+
+---
+
+### Résumé
+
+- Une réaction de précipitation forme un solide insoluble dans une solution.
+- Le **produit de solubilité** $K_s$ détermine si un sel peut précipiter.
+- On utilise le **produit ionique** $Q$ pour prédire la formation d’un précipité.
+- Des réactions caractéristiques permettent d’identifier certains ions (test à la goutte).
+
+`,
+  tags: [
+    'précipitation',
+    'produit de solubilité',
+    'Ks',
+    'test ionique',
+    'chimie en solution',
+    'réaction ionique',
+    'solubilité',
+    'produit ionique',
+    'dosage'
+  ],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: false
+},
+
+//chimie-cinetique-chimique
+{
+  id: 'chimie-cinetique-chimique',
+  titre: "Cinétique chimique",
+  matiere: "Chimie",
+  categorie: "Cinétique chimique",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+### Cinétique chimique
+
+---
+
+#### Vitesse de disparition / apparition
+
+- Pour une réaction :  
+  $$
+  aA + bB \\longrightarrow cC + dD
+  $$
+- Les vitesses sont données par :
+  $$
+  v = -\\frac{1}{a} \\frac{d[A]}{dt} = -\\frac{1}{b} \\frac{d[B]}{dt} = \\frac{1}{c} \\frac{d[C]}{dt} = \\frac{1}{d} \\frac{d[D]}{dt}
+  $$
+- On parle de :
+  - **Vitesse de disparition** pour les réactifs.
+  - **Vitesse de formation** pour les produits.
+  - **Vitesse de réaction** : valeur unique positive, définie à partir des variations stœchiométriques.
+
+---
+
+#### Loi de vitesse
+
+- Forme générale :  
+  $$
+  v = k [A]^m [B]^n
+  $$
+  où :
+  - $k$ est la constante de vitesse (dépend de $T$),
+  - $m$, $n$ : ordres partiels,
+  - $m + n$ : ordre global.
+
+---
+
+#### Réactions d’ordre simple
+
+##### **Ordre 0** :
+- $v = k$ (indépendant de [A])
+- Intégration :
+  $$
+  [A](t) = [A]_0 - kt
+  $$
+- Temps de demi-réaction :
+  $$
+  t_{1/2} = \\frac{[A]_0}{2k}
+  $$
+
+##### **Ordre 1** :
+- $v = k[A]$
+- Intégration :
+  $$
+  [A](t) = [A]_0 e^{-kt}
+  $$
+- Temps de demi-réaction :
+  $$
+  t_{1/2} = \\frac{\\ln 2}{k}
+  $$
+- **Remarque** : $t_{1/2}$ **ne dépend pas** de $[A]_0$.
+
+##### **Ordre 2** (cas $v = k[A]^2$) :
+- Intégration :
+  $$
+  \\frac{1}{[A](t)} = \\frac{1}{[A]_0} + kt
+  $$
+- Temps de demi-réaction :
+  $$
+  t_{1/2} = \\frac{1}{k [A]_0}
+  $$
+- **Remarque** : $t_{1/2}$ **dépend fortement** de $[A]_0$.
+
+---
+
+#### Temps de demi-réaction : récapitulatif
+
+| Ordre de réaction | Équation | $t_{1/2}$ |
+|-------------------|----------|-----------|
+| 0 | $[A](t) = [A]_0 - kt$ | $\\frac{[A]_0}{2k}$ |
+| 1 | $[A](t) = [A]_0 e^{-kt}$ | $\\frac{\\ln 2}{k}$ |
+| 2 | $\\frac{1}{[A](t)} = \\frac{1}{[A]_0} + kt$ | $\\frac{1}{k[A]_0}$ |
+
+---
+
+#### Loi d’Arrhénius
+
+- Décrit l'effet de la température sur la constante de vitesse :
+  $$
+  k = A e^{-\\frac{E_a}{RT}}
+  $$
+  - $A$ : facteur de fréquence
+  - $E_a$ : énergie d’activation
+  - $R$ : constante des gaz parfaits ($8{,}314\\,\\mathrm{J\\cdot mol^{-1} \\cdot K^{-1}}$)
+  - $T$ : température en Kelvin
+
+---
+
+#### Application graphique (vérification de l'ordre)
+
+- Ordre 1 : tracer $\\ln [A]$ vs $t$ → droite décroissante.
+- Ordre 2 : tracer $1/[A]$ vs $t$ → droite croissante.
+- Ordre 0 : tracer $[A]$ vs $t$ → droite décroissante.
+
+---
+
+### Résumé
+
+- La **cinétique chimique** étudie la vitesse des réactions et leur dépendance aux concentrations.
+- La **vitesse de réaction** est définie via les coefficients stœchiométriques.
+- L’**ordre de réaction** est obtenu empiriquement ou par modélisation.
+- Le **temps de demi-réaction** varie selon l’ordre.
+- La **loi d’Arrhénius** relie température et rapidité des réactions.
+
+`,
+  tags: [
+    'cinétique',
+    'vitesse de réaction',
+    'vitesse de disparition',
+    'ordre de réaction',
+    'réactions d’ordre 0',
+    'réactions d’ordre 1',
+    'réactions d’ordre 2',
+    'temps de demi-réaction',
+    'loi d’Arrhénius'
+  ],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: false
+},
+
+//thermodynamique-generale
+{
+  id: "thermodynamique-generale",
+  titre: "Thermodynamique",
+  matiere: "Chimie",
+  categorie: "Thermodynamique",
+  niveau: ["Lycée", "Prépa", "Université"],
+  contenu: `
+### Thermodynamique
+
+---
+
+#### 1. Paramètres d’état
+
+- Grandeurs définissant l’état macroscopique d’un système.
+- Exemples :
+  - Pression $P$ (Pa)
+  - Volume $V$ (m³)
+  - Température $T$ (K)
+  - Masse $m$ ou quantité de matière $n$ (mol)
+  - Énergie interne $U$ (J)
+- L’état d’un système est entièrement défini par un ensemble cohérent de ces paramètres.
+
+---
+
+#### 2. Fonctions d’état
+
+- Dépendent uniquement de l’état du système, pas du chemin suivi.
+- Exemples :
+  - Énergie interne $U$
+  - Entropie $S$
+  - Enthalpie $H = U + PV$
+  - Énergie libre de Helmholtz $A = U - TS$
+  - Énergie libre de Gibbs $G = H - TS$
+- Variation entre deux états :  
+  $$
+  \\Delta X = X_2 - X_1
+  $$
+
+---
+
+#### 3. Premier principe de la thermodynamique
+
+- Conservation de l’énergie :  
+  $$
+  \\Delta U = Q + W
+  $$
+  où :
+  - $\\Delta U$ : variation d’énergie interne
+  - $Q$ : chaleur échangée (positive si reçue)
+  - $W$ : travail reçu (positif si travail sur le système)
+
+- Travail de pression-volume (transformation quasi-statique) :  
+  $$
+  W = -\\int_{V_i}^{V_f} P \\, dV
+  $$
+
+---
+
+#### 4. Changements de phase
+
+- Deux phases coexistent à température et pression constantes.
+- Température constante pendant le changement.
+- Chaleur latente de changement de phase :  
+  $$
+  Q = mL_f
+  $$
+
+---
+
+#### 5. Variation d’une fonction d’état
+
+- Gaz parfait :
+  - Énergie interne :  
+    $$
+    \\Delta U = n C_V \\Delta T
+    $$
+  - Enthalpie :  
+    $$
+    \\Delta H = n C_P \\Delta T
+    $$
+
+---
+
+#### 6. Stratégie de résolution
+
+1. Identifier le système (ouvert, fermé, isolé).
+2. Recenser les données et les inconnues.
+3. Appliquer les principes (1er principe, équations d’état...).
+4. Exploiter les fonctions d’état et la nature des transformations.
+5. Vérifier les unités, signes, cohérence physique.
+
+---
+
+#### 7. Loi de Laplace (adiabatique réversible)
+
+- Gaz parfait :  
+  $$
+  PV^\\gamma = \\text{constante}
+  $$
+  avec $\\gamma = \\frac{C_P}{C_V}$
+
+- Autres formes utiles :  
+  $$
+  TV^{\\gamma - 1} = \\text{constante}, \\quad T^\\gamma P^{1 - \\gamma} = \\text{constante}
+  $$
+
+---
+
+#### 8. Loi de Joule (détente libre)
+
+- Détente d’un gaz parfait sans travail ni échange de chaleur :  
+  $$
+  \\Delta U = 0 \\quad \\Rightarrow \\quad \\Delta T = 0
+  $$
+
+---
+
+#### 9. Relation de Mayer
+
+- Pour un gaz parfait :  
+  $$
+  C_P - C_V = R
+  $$
+  avec $R = 8{,}314 \\, \\mathrm{J \\, mol^{-1} \\, K^{-1}}$
+
+---
+
+### 10. Résumé des équations clés
+
+| Concept                                | Équation                                      |
+|----------------------------------------|-----------------------------------------------|
+| Premier principe                       | $\\Delta U = Q + W$                            |
+| Travail pression-volume                | $W = -\\int P \\, dV$                          |
+| Enthalpie                               | $H = U + PV$                                   |
+| Loi de Laplace                         | $PV^\\gamma = \\text{const}$                  |
+| Relation de Mayer                      | $C_P - C_V = R$                                |
+| Chaleur latente                        | $Q = mL$                                       |
+| Énergie interne (gaz parfait)          | $\\Delta U = nC_V \\Delta T$                   |
+| Enthalpie (gaz parfait)                | $\\Delta H = nC_P \\Delta T$                   |
+| Loi d’Arrhénius (bonus, cinétique)     | $k = A e^{-E_a / (RT)}$                        |
+
+---
+
+### Remarques finales
+
+- La **thermodynamique** relie les échanges d’énergie et les transformations de matière à travers des lois universelles.
+- L’étude des gaz parfaits fournit un cadre simple mais puissant pour aborder de nombreux problèmes physiques et chimiques.
+- Maîtriser les fonctions d’état et les transformations élémentaires permet de résoudre une grande variété d’exercices.
+
+`,
+  "tags": [
+    "thermodynamique",
+    "paramètres d’état",
+    "gaz parfait",
+    "changement de phase",
+    "énergie interne",
+    "fonction d’état",
+    "loi de Laplace",
+    "loi de Joule",
+    "relation de Mayer"
+  ],
+  datePublication: "2025-05-28",
+  populaire: true,
+  aReviser: false
+},
+//thermochimie-avancee
+{
+  id: 'thermochimie-avancee',
+  titre: "Thermochimie Avancée",
+  matiere: "Chimie",
+  categorie: "Thermochimie",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+### Thermochimie Avancée
+
+---
+
+#### Énergie échangée et enthalpie de réaction
+
+- À **pression constante**, la chaleur échangée est l’**enthalpie** :
+  $$
+  q_P = \\Delta H
+  $$
+- Si $\\Delta H < 0$ : **réaction exothermique**  
+- Si $\\Delta H > 0$ : **réaction endothermique**
+
+---
+
+#### Température de flamme
+
+- Température maximale atteinte par un système adiabatique lors de la **combustion** :
+  $$
+  \\Delta H_{comb} = \\int_{T_0}^{T_f} \\sum_i n_i C_{p,i}(T) \\, dT
+  $$
+
+---
+
+#### Grandeurs thermodynamiques d’une réaction
+
+- Enthalpie : $\\Delta H$  
+- Entropie : $\\Delta S$  
+- Énergie libre de Gibbs : $\\Delta G$
+
+Relation fondamentale :
+$$
+\\Delta G = \\Delta H - T\\Delta S
+$$
+
+- $\\Delta G < 0$ : réaction **spontanée**  
+- $\\Delta G > 0$ : réaction **non spontanée**  
+- $\\Delta G = 0$ : **équilibre**
+
+---
+
+#### Deuxième principe de la thermodynamique
+
+> L’entropie d’un système isolé augmente lors d’une transformation spontanée :
+$$
+\\Delta S_{univers} = \\Delta S_{système} + \\Delta S_{milieu} \\geq 0
+$$
+
+---
+
+#### Évolution d’un système chimique
+
+- Le **critère d’évolution spontanée** est donné par :
+  $$
+  \\Delta G < 0 \\Rightarrow \\text{évolution spontanée}
+  $$
+
+- À l’équilibre :
+  $$
+  \\Delta G = 0 \\Rightarrow \\Delta H = T \\Delta S
+  $$
+
+- Lien avec la constante d'équilibre $K$ :
+  $$
+  \\Delta G^0 = -RT \\ln K
+  $$
+
+---
+
+#### Relation de Van’t Hoff
+
+- Évolution de $K$ avec la température :
+  $$
+  \\frac{d \\ln K}{dT} = \\frac{\\Delta H^0}{RT^2}
+  $$
+
+- Conséquence :
+  - Si $\\Delta H^0 > 0$ : $K$ **augmente** avec $T$ (réaction favorisée à chaud)  
+  - Si $\\Delta H^0 < 0$ : $K$ **diminue** avec $T$ (réaction favorisée à froid)
+
+---
+
+#### Grandeurs de formation standard
+
+- Enthalpie standard de formation :
+  $$
+  \\Delta H_f^0 = \\sum \\Delta H^0_{produits} - \\sum \\Delta H^0_{réactifs}
+  $$
+- De même :
+  $$
+  \\Delta G_f^0 = \\sum \\Delta G^0_{produits} - \\sum \\Delta G^0_{réactifs}
+  $$
+
+---
+
+#### Conditions standards
+
+- Température : $T^0 = 298\\,\\text{K}$  
+- Pression : $P^0 = 1\\,\\text{atm}$  
+- Concentration : $1\\,\\text{mol/L}$
+
+---
+
+#### Loi de Le Chatelier
+
+> Tout système chimique à l’équilibre, soumis à une **modification extérieure**, évolue dans le sens **s'opposant** à cette modification.
+
+- Température :
+  - Si on chauffe ⟶ favorise la réaction **endothermique**
+  - Si on refroidit ⟶ favorise la réaction **exothermique**
+
+- Pression (gaz uniquement) :
+  - Augmentation ⟶ favorise le sens avec **moins de moles gazeuses**
+  - Diminution ⟶ favorise le sens avec **plus de moles gazeuses**
+
+- Concentration :
+  - Ajout d’un réactif ⟶ favorise la **formation de produits**
+  - Ajout d’un produit ⟶ favorise la **réaction inverse**
+
+---
+
+#### Variance (Règle de Gibbs)
+
+Nombre de **paramètres indépendants** pouvant être modifiés sans changer le nombre de phases à l’équilibre :
+$$
+V = C - P + 2
+$$
+
+- $C$ : nombre de composants indépendants  
+- $P$ : nombre de phases
+
+---
+
+#### Optimisation des réactions chimiques
+
+- Une réaction est optimisée si :
+  - Elle est **exothermique**, réalisée à **basse température** (si souhait de rendement)
+  - Elle a une forte $K$, donc un $\\Delta G^0$ **négatif**
+  - Elle est **entropiquement favorisée** ($\\Delta S > 0$)
+  - La **cinétique** est adaptée (catalyseurs si besoin)
+
+---
+
+### Résumé
+
+| Grandeur | Interprétation |
+|----------|----------------|
+| $\\Delta H$ | Chaleur échangée à $P$ constant |
+| $\\Delta S$ | Désordre, évolue vers le maximum |
+| $\\Delta G$ | Critère de spontanéité |
+| $K$ | Mesure de l’équilibre (si $K \\gg 1$, réaction quasi totale) |
+| $V$ | Liberté du système (nombre de paramètres réglables) |
+
+---
+
+> La thermochimie, au croisement entre chimie et thermodynamique, permet de **prédire l’évolution des réactions**, **comparer leur rendement**, et **optimiser les conditions expérimentales** pour atteindre les objectifs désirés (rendement, pureté, etc.).
+
+`,
+  tags: [
+    'thermochimie',
+    'enthalpie',
+    'entropie',
+    'énergie libre de Gibbs',
+    'température de flamme',
+    'van\'t hoff',
+    'variance',
+    'loi de Le Chatelier',
+    'équilibre chimique',
+    'deuxième principe',
+    'optimisation'
+  ],
+  datePublication: '2025-05-28',
+  populaire: true,
+  aReviser: false
+},
 ];
 
 
@@ -7129,14 +7923,14 @@ export const fichesSI: Fiche[] = [
 - Valeur maximale (en dB) que l’on peut ajouter au gain sans rendre le système instable.
 - Mesurée **au point de phase -180°** :
   $$
-  \text{MG} = -20 \\log_{10}(|G(j\\omega_{180})|)
+  \\text{MG} = -20 \\log_{10}(|G(j\\omega_{180})|)
   $$
 
 ##### Marge de phase :
 - Écart entre la phase actuelle et -180° lorsque le gain est unitaire (0 dB).
 - Mesurée **au point de gain unitaire** :
   $$
-  \text{MP} = 180^\circ + \varphi(\\omega_{0})
+  \\text{MP} = 180^\\circ + \\varphi(\\omega_{0})
   $$
 
 - **Interprétation** :

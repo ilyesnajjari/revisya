@@ -12,6 +12,7 @@ export default function MentionsLegales() {
           name="description"
           content="Mentions légales du site Fiches de Révision, informations légales et contact."
         />
+        <link rel="canonical" href="https://www.revisya.fr/mentions-legales" />
       </Head>
       <Header />
       <main className="max-w-3xl mx-auto p-6 bg-white rounded shadow mt-8">

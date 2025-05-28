@@ -19,7 +19,11 @@ export default function FicheDetail() {
   // Ajoute cette ligne pour forcer le remount quand l'id change
   useEffect(() => {}, [id]);
 
-  const fiche = fiches.find((f) => f.id === id);
+  if (!id) {
+    return <p>Chargement...</p>;
+  }
+
+  const fiche = fiches.find((f) => f.id === String(id));
 
   if (!fiche) {
     return <p>Fiche non trouvée.</p>;
@@ -34,9 +38,13 @@ export default function FicheDetail() {
         <title>{fiche.titre} - {fiche.matiere}</title>
         <meta
           name="description"
-          content={`Fiche de révision complète sur ${fiche.titre} en ${fiche.matiere}, pour bien préparer tes examens.`}
+          content={`Fiche de révision sur ${fiche.titre} en ${fiche.matiere} : ${fiche.contenu.slice(0, 150)}...`}
         />
-        <link rel="canonical" href={url} />
+        <meta
+          name="keywords"
+          content={fiche.tags && fiche.tags.length > 0 ? fiche.tags.join(', ') : `${fiche.titre}, ${fiche.matiere}`}
+        />
+        <link rel="canonical" href={`https://www.revisya.fr/fiches/${fiche.id}`} />
         <meta property="og:title" content={`${fiche.titre} - ${fiche.matiere} | Fiche de Révision`} />
         <meta property="og:description" content={`Fiche de révision complète sur ${fiche.titre} en ${fiche.matiere}.`} />
         <meta property="og:type" content="article" />
