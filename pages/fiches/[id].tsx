@@ -6,11 +6,13 @@ import { fiches } from '../../data/fiches';
 import 'katex/dist/katex.min.css';
 import { SITE_URL } from '../../config';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
+import dynamic from 'next/dynamic';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { useEffect } from 'react';
+
+const ReactMarkdown = dynamic(() => import('react-markdown'), { ssr: false });
 
 export default function FicheDetail() {
   const router = useRouter();
