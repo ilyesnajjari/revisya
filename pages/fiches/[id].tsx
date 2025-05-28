@@ -18,7 +18,6 @@ export default function FicheDetail() {
   const router = useRouter();
   const { id } = router.query;
 
-  // Ajoute cette ligne pour forcer le remount quand l'id change
   useEffect(() => {}, [id]);
 
   if (!id) {
@@ -31,7 +30,6 @@ export default function FicheDetail() {
     return <p>Fiche non trouvée.</p>;
   }
 
-  // URL absolue dynamique basée sur la config
   const url = `${SITE_URL}/fiches/${fiche.id}`;
 
   return (
@@ -54,16 +52,13 @@ export default function FicheDetail() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${fiche.titre} - ${fiche.matiere} | Fiche de Révision`} />
         <meta name="twitter:description" content={`Fiche de révision complète sur ${fiche.titre} en ${fiche.matiere}.`} />
-        {/* Liens meta supplémentaires */}
         <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="author" content="Ton Site" />
         <meta name="keywords" content={fiche.tags ? fiche.tags.join(', ') : fiche.titre} />
-        {/* Ajout d'un lien meta sur le contenu */}
         <meta name="content" content={fiche.contenu.slice(0, 200).replace(/\n/g, ' ') + '...'} />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -88,10 +83,7 @@ export default function FicheDetail() {
         <button
           type="button"
           className="fiche-retour-btn"
-          onClick={() => {
-            // Redirection simple et fiable vers la liste des fiches
-            window.location.href = '/fiches';
-          }}
+          onClick={() => router.back()}
         >
           ← Retour aux fiches
         </button>

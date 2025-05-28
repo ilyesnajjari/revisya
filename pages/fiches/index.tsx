@@ -1,11 +1,11 @@
 import { useState, useMemo, useEffect, useTransition, memo } from 'react';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import 'katex/dist/katex.min.css';
 import { FaHeart, FaRegClock, FaRegCalendarCheck, FaCalculator, FaRegStickyNote } from "react-icons/fa";
+import { useRouter } from 'next/router';
 
 import { Fiche, fiches } from '../../data/fiches';
 import CompteAReboursModal from '../../components/CompteAReboursModal';
@@ -16,12 +16,72 @@ const triOptions = ['Titre (A-Z)', 'Date (récent)'];
 type Niveau = 'Tous' | 'Lycée' | 'Prépa' | 'Université';
 const niveaux: Niveau[] = ['Tous', 'Lycée', 'Prépa', 'Université'];
 
+type FicheCardProps = {
+  fiche: Fiche;
+  favoris: string[];
+  toggleFavori: (id: string) => void;
+  matiereActive: string;
+  pageCourante: number;
+};
 
+const FicheCard = memo(function FicheCard({
+  fiche,
+  favoris,
+  toggleFavori,
+  matiereActive,
+  pageCourante,
+}: FicheCardProps) {
+  return (
+    <li className="fiche-card">
+      <div style={{ display: "flex", alignItems: "center", gap: "0.5em" }}>
+        <Link
+          href={{
+            pathname: `/fiches/${fiche.id}`,
+            // On ne passe plus matiere/page dans l'URL
+          }}
+          className="fiche-link"
+        >
+          {fiche.titre}
+        </Link>
+        <button
+          className="fiche-favori-btn"
+          aria-label={favoris.includes(fiche.id) ? "Retirer des favoris" : "Ajouter aux favoris"}
+          onClick={() => toggleFavori(fiche.id)}
+          style={{
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
+            marginLeft: "0.3em",
+            display: "flex",
+            alignItems: "center"
+          }}
+        >
+          <FaHeart
+            color={favoris.includes(fiche.id) ? "#ef4444" : "#d1d5db"}
+            style={{ fontSize: "1.3em", transition: "color 0.2s" }}
+            title={favoris.includes(fiche.id) ? "Favori" : "Ajouter aux favoris"}
+          />
+        </button>
+      </div>
+      <span className="fiche-categorie">{fiche.categorie}</span>
+      <p className="fiche-niveau">{fiche.niveau.join(' - ')}</p>
+      {fiche.tags && (
+        <div className="fiche-tags">
+          {fiche.tags.map((tag) => (
+            <span key={tag} className="fiche-tag">#{tag}</span>
+          ))}
+        </div>
+      )}
+      <div className="fiche-labels">
+        {fiche.populaire && <span className="fiche-label-populaire">Populaire</span>}
+        {fiche.aReviser && <span className="fiche-label-reviser">À réviser bientôt</span>}
+      </div>
+    </li>
+  );
+});
 
 export default function FichesPage() {
-  const router = useRouter();
-  const { matiere: matiereQuery, page: pageQuery } = router.query;
-
   const [matiereActive, setMatiereActive] = useState('Mathématiques');
   const [niveauFiltre, setNiveauFiltre] = useState<Niveau>('Tous');
   const [recherche, setRecherche] = useState('');
@@ -87,31 +147,6 @@ export default function FichesPage() {
 
   const fichesParPage = 10;
 
-  // Initialisation des états à partir des paramètres URL (une seule fois ou à chaque changement URL)
-  useEffect(() => {
-    if (matiereQuery && typeof matiereQuery === 'string' && matieres.includes(matiereQuery)) {
-      setMatiereActive(matiereQuery);
-    }
-    if (pageQuery && !isNaN(Number(pageQuery))) {
-      const p = Number(pageQuery);
-      if (p >= 1) setPageCourante(p);
-    }
-  }, [matiereQuery, pageQuery, router]);
-
-  // Synchronisation URL quand matiereActive ou pageCourante changent
-  useEffect(() => {
-    const query = new URLSearchParams({
-      matiere: matiereActive,
-      page: pageCourante.toString(),
-    });
-    const newUrl = `/fiches?${query.toString()}`;
-
-    // Correction : on ne fait replace que si l'URL diffère vraiment
-    if (typeof window !== "undefined" && window.location.pathname + window.location.search !== newUrl) {
-      router.replace(newUrl, undefined, { shallow: true });
-    }
-  }, [matiereActive, pageCourante, router.asPath]);
-
   // Réinitialiser les filtres
   const resetFilters = () => {
     setNiveauFiltre('Tous');
@@ -152,68 +187,22 @@ export default function FichesPage() {
     });
   };
 
-  // Memoized fiche card
-  const FicheCard = memo(function FicheCard({ fiche, favoris, toggleFavori }: { fiche: Fiche, favoris: string[], toggleFavori: (id: string) => void }) {
-    return (
-      <li className="fiche-card">
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5em" }}>
-          <Link href={`/fiches/${fiche.id}`} className="fiche-link">
-            {fiche.titre}
-          </Link>
-          <button
-            className="fiche-favori-btn"
-            aria-label={favoris.includes(fiche.id) ? "Retirer des favoris" : "Ajouter aux favoris"}
-            onClick={() => toggleFavori(fiche.id)}
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              padding: 0,
-              marginLeft: "0.3em",
-              display: "flex",
-              alignItems: "center"
-            }}
-          >
-            <FaHeart
-              color={favoris.includes(fiche.id) ? "#ef4444" : "#d1d5db"}
-              style={{ fontSize: "1.3em", transition: "color 0.2s" }}
-              title={favoris.includes(fiche.id) ? "Favori" : "Ajouter aux favoris"}
-            />
-          </button>
-        </div>
-        <span className="fiche-categorie">{fiche.categorie}</span>
-        <p className="fiche-niveau">{fiche.niveau.join(' - ')}</p>
-        {fiche.tags && (
-          <div className="fiche-tags">
-            {fiche.tags.map((tag) => (
-              <span key={tag} className="fiche-tag">#{tag}</span>
-            ))}
-          </div>
-        )}
-        <div className="fiche-labels">
-          {fiche.populaire && <span className="fiche-label-populaire">Populaire</span>}
-          {fiche.aReviser && <span className="fiche-label-reviser">À réviser bientôt</span>}
-        </div>
-      </li>
-    );
-  });
-
   useEffect(() => {
-    // Affiche la notification UNIQUEMENT si on vient d'ajouter des fiches (pas à chaque actualisation)
     if (typeof window !== "undefined") {
-      const dejaVu = localStorage.getItem("fichesNotifVue");
-      if (!dejaVu) {
+      // On compare le nombre total de fiches de la matière active, pas le résultat filtré
+      const fichesMatiere = fiches.filter(f => f.matiere === matiereActive);
+      const lastCount = Number(localStorage.getItem("fichesNotifCount_" + matiereActive) || "0");
+      if (fichesMatiere.length > lastCount) {
         toast(
           <span>
             <FaRegStickyNote style={{ marginRight: 8, color: "#2563eb", verticalAlign: "middle" }} />
-            {`J'ai ajouté des fiches : ${fichesFiltres.length} affichées`}
+            {`J'ai ajouté des fiches : ${fichesMatiere.length} en ${matiereActive}`}
           </span>
         );
-        localStorage.setItem("fichesNotifVue", "1");
+        localStorage.setItem("fichesNotifCount_" + matiereActive, fichesMatiere.length.toString());
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [matiereActive, fiches.length]);
 
   return (
     <>
@@ -299,7 +288,7 @@ export default function FichesPage() {
           {/* Liste des fiches */}
           <ul className="fiches-list">
             {fichesAffichees.map((fiche) => (
-              <FicheCard key={fiche.id} fiche={fiche} favoris={favoris} toggleFavori={toggleFavori} />
+              <FicheCard key={fiche.id} fiche={fiche} favoris={favoris} toggleFavori={toggleFavori} matiereActive={matiereActive} pageCourante={pageCourante} />
             ))}
           </ul>
 

@@ -4027,6 +4027,7 @@ $$
 
 // Physique
 export const fichesPhysique: Fiche[] = [
+  // physique-milieux-ferromagnetiques
   {
     //physique-milieux-ferromagnetiques
     id: 'physique-milieux-ferromagnetiques',
@@ -4193,6 +4194,2911 @@ $$
     populaire: false,
     aReviser: false,
   },
+
+// physique-electrocinetique
+{
+  id: 'physique-electrocinetique',
+  titre: "Électrocinétique – Lois et circuits électriques",
+  matiere: "Physique",
+  categorie: "Électricité",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Électrocinétique – Lois fondamentales et circuits
+
+## 1. Grandeurs électriques de base
+
+- **Tension (différence de potentiel)** $U$ : énergie par unité de charge  
+  $$ U = V_A - V_B $$
+- **Courant électrique** $I$ : débit de charges dans un conducteur  
+  $$ I = \\frac{dq}{dt} $$
+- **Résistance** $R$ : opposition au passage du courant  
+  $$ R = \\frac{U}{I} $$
+- **Loi d’Ohm** : $ U = RI $
+
+---
+
+## 2. Éléments de circuit usuels
+
+| Composant      | Symbole     | Caractéristique principale                |
+|----------------|-------------|-------------------------------------------|
+| Résistance $R$ | ▭▭▭         | Dissipe de l’énergie : $U = RI$           |
+| Condensateur $C$ | ‖‖        | Stocke l’énergie sous forme électrique    |
+| Bobine $L$     | boucle       | Stocke l’énergie sous forme magnétique    |
+| Générateur (tension) | ─(–‖+)─ | Fournit une tension constante ou variable |
+
+---
+
+## 3. Lois fondamentales des circuits
+
+### Loi des nœuds (Kirchhoff 1)
+
+> La somme des courants entrant dans un nœud est égale à la somme des courants sortants.
+
+$$
+\\sum I_{\\text{entrant}} = \\sum I_{\\text{sortant}}
+$$
+
+### Loi des mailles (Kirchhoff 2)
+
+> La somme algébrique des tensions le long d’une maille fermée est nulle.
+
+$$
+\\sum U_i = 0
+$$
+
+---
+
+## 4. Régimes stationnaire vs transitoire
+
+- **Stationnaire** : toutes les grandeurs sont constantes dans le temps (ex : $\\frac{dI}{dt} = 0$).
+- **Transitoire** : les grandeurs varient avec le temps (ex : charge/décharge d’un condensateur).
+
+---
+
+## 5. Étude des dipôles particuliers
+
+### a) Condensateur
+
+- Relation fondamentale :  
+  $$ q(t) = C u(t), \\quad i(t) = C \\frac{du}{dt} $$
+- En régime stationnaire (DC) : **isolant** ($i = 0$ si $u$ constant).
+
+### b) Bobine (inductance)
+
+- Relation fondamentale :  
+  $$ u(t) = L \\frac{di}{dt} $$
+- En régime stationnaire (DC) : **court-circuit** ($u = 0$ si $i$ constant).
+
+---
+
+## 6. Comportement temporel : résolution de circuits
+
+### a) Circuit RC (charge d’un condensateur)
+
+- Équation différentielle :  
+  $$ u(t) + RC \\frac{du}{dt} = E $$
+- Solution (charge) :
+  $$
+  u(t) = E \\left(1 - e^{-t/RC}\\right), \\quad i(t) = \\frac{E}{R} e^{-t/RC}
+  $$
+
+### b) Circuit RL (montée du courant)
+
+- Équation différentielle :  
+  $$ L \\frac{di}{dt} + Ri = E $$
+- Solution :
+  $$
+  i(t) = \\frac{E}{R} \\left(1 - e^{-tR/L}\\right)
+  $$
+
+### c) Constantes de temps
+
+- RC : $\\tau = RC$
+- RL : $\\tau = \\frac{L}{R}$
+
+---
+
+## 7. Puissance et énergie
+
+- **Puissance instantanée** :  
+  $$ P(t) = u(t) \\cdot i(t) $$
+
+- **Énergie dissipée par une résistance** :  
+  $$ W = \\int P(t)\\,dt = R \\int i^2(t) dt $$
+
+- **Énergie stockée** :
+  - Condensateur :  
+    $$ E_C = \\frac{1}{2} C u^2 $$
+  - Bobine :  
+    $$ E_L = \\frac{1}{2} L i^2 $$
+
+---
+
+## 8. Théorèmes utiles
+
+### Théorème de superposition
+
+> Dans un circuit linéaire, la réponse (courant ou tension) est la somme des réponses dues à chaque source prise isolément (les autres sources étant éteintes : court-circuit pour tension, circuit ouvert pour courant).
+
+### Théorème de Thévenin
+
+> Tout dipôle linéaire peut être remplacé par un générateur de tension en série avec une résistance.
+
+---
+
+## 9. Représentation complexe (régime sinusoïdal)
+
+- Utilisation des **impédances** :
+
+| Composant      | Impédance $Z$                  |
+|----------------|---------------------------------|
+| Résistance $R$ | $R$                             |
+| Condensateur $C$ | $\\frac{1}{j \\omega C}$     |
+| Bobine $L$     | $j \\omega L$                  |
+
+- Loi d’Ohm généralisée :  
+  $$ \\tilde{U} = Z \\tilde{I} $$
+
+- Puissance en régime sinusoïdal :
+  - Active : $P = UI \\cos\\varphi$
+  - Réactive : $Q = UI \\sin\\varphi$
+  - Apparente : $S = UI$
+
+---
+
+## 10. Résumé relations clés
+
+- $U = RI$, $q = C u$, $u = L \\frac{di}{dt}$
+- $i_C = C \\frac{du}{dt}$, $u_L = L \\frac{di}{dt}$
+- $P = u i$, $E_C = \\frac{1}{2} C u^2$, $E_L = \\frac{1}{2} L i^2$
+- $Z_R = R$, $Z_C = \\frac{1}{j\\omega C}$, $Z_L = j \\omega L$
+- $\\tau_{RC} = RC$, $\\tau_{RL} = \\frac{L}{R}$
+  `,
+  tags: ['lois de Kirchhoff', 'circuit RC', 'circuit RL', 'théorème de Thévenin'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: false,
+},
+// physique-mecanique-generale
+{
+  id: 'physique-mecanique-generale',
+  titre: "Mécanique – Lois du mouvement et systèmes",
+  matiere: "Physique",
+  categorie: "Mécanique",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Mécanique – Lois fondamentales et applications
+
+## 1. Cinématique du point
+
+### a) Référentiels
+
+- **Galiléen** : lois de Newton valides, pas d'accélération propre.
+- Position : $\\vec{OM}(t)$
+- Vitesse : $\\vec{v}(t) = \\frac{d\\vec{OM}}{dt}$
+- Accélération : $\\vec{a}(t) = \\frac{d\\vec{v}}{dt}$
+
+### b) Repérage en coordonnées
+
+- **Cartésiennes** :
+  $$ \\vec{r}(t) = x(t)\\vec{i} + y(t)\\vec{j} + z(t)\\vec{k} $$
+- **Polaires** :
+  $$ \\vec{r} = r \\vec{e_r}, \\quad \\vec{v} = \\dot{r} \\vec{e_r} + r \\dot{\\theta} \\vec{e_\\theta} $$
+
+---
+
+## 2. Dynamique du point
+
+### a) Principe fondamental de la dynamique (PFD)
+
+$$
+\\sum \\vec{F} = m \\vec{a}
+$$
+
+où :
+- $\\vec{F}$ : force résultante
+- $m$ : masse constante
+- $\\vec{a}$ : accélération du point
+
+### b) Forces usuelles
+
+| Force              | Expression                           | Direction            |
+|--------------------|---------------------------------------|----------------------|
+| Poids              | $\\vec{P} = m \\vec{g}$               | Verticale            |
+| Frottement fluide  | $\\vec{f} = -k \\vec{v}$              | Opposée au mouvement |
+| Force élastique    | $\\vec{F} = -k \\vec{x}$              | Vers l'équilibre     |
+| Force centripète   | $\\vec{F} = m \\frac{v^2}{R} \\vec{n}$| Vers le centre       |
+
+---
+
+## 3. Lois de Newton
+
+1. **Principe d’inertie** : sans force, vitesse constante.
+2. **Principe fondamental** : $\\vec{F}_{\\text{ext}} = m \\vec{a}$
+3. **Action = Réaction** : $\\vec{F}_{A/B} = -\\vec{F}_{B/A}$
+
+---
+
+## 4. Travail et énergie
+
+### a) Travail d’une force
+
+$$
+W_{A \\to B}(\\vec{F}) = \\int_A^B \\vec{F} \\cdot d\\vec{OM}
+$$
+
+### b) Énergie cinétique
+
+$$
+E_c = \\frac{1}{2} m v^2
+$$
+
+### c) Théorème de l'énergie cinétique
+
+$$
+\\Delta E_c = \\sum W_{\\text{forces}}
+$$
+
+### d) Énergie potentielle
+
+- Gravitationnelle : $E_p = m g z$
+- Élastique : $E_p = \\frac{1}{2} k x^2$
+
+---
+
+## 5. Conservation de l’énergie
+
+> Si les forces sont **conservatives** :
+
+$$
+E_m = E_c + E_p = \\text{constante}
+$$
+
+---
+
+## 6. Systèmes à une dimension
+
+### a) Chute libre
+
+- $a = g$, $v(t) = g t$, $z(t) = z_0 + \\frac{1}{2} g t^2$
+
+### b) Mouvement harmonique (oscillateur)
+
+- $\\vec{F} = -k \\vec{x}$
+- Équation :  
+  $$ m \\ddot{x} + k x = 0 $$
+- Solution :  
+  $$ x(t) = A \\cos(\\omega t + \\phi), \\quad \\omega = \\sqrt{\\frac{k}{m}} $$
+
+---
+
+## 7. Mouvements circulaires
+
+### a) Uniforme
+
+- $a = \\frac{v^2}{R}$ vers le centre
+- $\\vec{v}$ tangent, $\\vec{a}$ radial
+
+### b) Non-uniforme
+
+- Accélération a deux composantes :  
+  $$ \\vec{a} = a_t \\vec{t} + a_n \\vec{n} $$
+
+---
+
+## 8. Référentiels non galiléens
+
+### a) Accélération d'entraînement
+
+> Transformation entre référentiels $R$ et $R'$ en mouvement relatif :
+
+$$
+\\vec{a}_M(R) = \\vec{a}_M(R') + \\vec{a}_{R'/R} + \\vec{a}_{\\text{Cor}} + \\vec{a}_{\\text{Cen}}
+$$
+
+### b) Forces fictives
+
+| Type              | Expression                               |
+|-------------------|-------------------------------------------|
+| Inertie (translation) | $-m \\vec{a}_{R'/R}$               |
+| Coriolis            | $-2m \\vec{\\Omega} \\times \\vec{v}_{R'}$ |
+| Centrifuge          | $-m \\vec{\\Omega} \\times (\\vec{\\Omega} \\times \\vec{r})$ |
+
+---
+
+## 9. Quantité de mouvement et moment
+
+### a) Quantité de mouvement
+
+$$
+\\vec{p} = m \\vec{v}, \\quad \\frac{d\\vec{p}}{dt} = \\sum \\vec{F}
+$$
+
+### b) Moment cinétique
+
+$$
+\\vec{L} = \\vec{OM} \\times \\vec{p}, \\quad \\frac{d\\vec{L}}{dt} = \\sum \\vec{M}
+$$
+
+---
+
+## 10. Résumé des formules utiles
+
+- $\\vec{F} = m \\vec{a}$
+- $W = \\int \\vec{F} \\cdot d\\vec{r}$
+- $E_c = \\frac{1}{2} m v^2$, $E_p = m g z$, $E_m = E_c + E_p$
+- $x(t) = A \\cos(\\omega t + \\phi)$ pour oscillateur
+- $\\vec{p} = m \\vec{v}$, $\\vec{L} = \\vec{r} \\times \\vec{p}$
+  `,
+  tags: ['lois de Newton', 'énergie mécanique', 'oscillateur', 'référentiel non galiléen'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: false,
+},
+//physique-electromagnetisme
+{
+  id: 'physique-electromagnetisme',
+  titre: "Électromagnétisme – Champs, équations de Maxwell et forces",
+  matiere: "Physique",
+  categorie: "Électromagnétisme",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Électromagnétisme – Champs, forces et équations de Maxwell
+
+## 1. Électrostatique
+
+### a) Loi de Coulomb
+
+$$
+\\vec{F}_{12} = \\frac{1}{4\\pi \\varepsilon_0} \\cdot \\frac{q_1 q_2}{r^2} \\cdot \\vec{u}_{12}
+$$
+
+### b) Champ électrique
+
+- Champ créé par une charge $q$ :
+  $$
+  \\vec{E} = \\frac{1}{4\\pi \\varepsilon_0} \\cdot \\frac{q}{r^2} \\cdot \\vec{u}_r
+  $$
+
+### c) Potentiel électrostatique
+
+$$
+V(M) = \\frac{1}{4\\pi \\varepsilon_0} \\cdot \\frac{q}{r}, \\quad \\vec{E} = -\\nabla V
+$$
+
+---
+
+## 2. Lois de Gauss et applications
+
+### a) Loi de Gauss (forme intégrale)
+
+$$
+\\oint_S \\vec{E} \\cdot d\\vec{S} = \\frac{Q_{\\text{int}}}{\\varepsilon_0}
+$$
+
+### b) Exemples classiques
+
+- Plan infini : $E = \\frac{\\sigma}{2\\varepsilon_0}$
+- Sphère chargée (extérieur) : $E = \\frac{1}{4\\pi \\varepsilon_0} \\cdot \\frac{Q}{r^2}$
+
+---
+
+## 3. Magnétostatique
+
+### a) Loi de Biot et Savart
+
+$$
+\\vec{B}(M) = \\frac{\\mu_0}{4\\pi} \\int \\frac{I d\\vec{l} \\times \\vec{r}}{r^3}
+$$
+
+### b) Champ d’un fil infini
+
+$$
+B = \\frac{\\mu_0 I}{2\\pi r}
+$$
+
+### c) Loi d’Ampère (forme intégrale)
+
+$$
+\\oint_C \\vec{B} \\cdot d\\vec{l} = \\mu_0 I_{\\text{enc}}
+$$
+
+---
+
+## 4. Force électromagnétique
+
+### a) Force de Lorentz
+
+$$
+\\vec{F} = q(\\vec{E} + \\vec{v} \\times \\vec{B})
+$$
+
+### b) Force sur un fil conducteur
+
+$$
+\\vec{F} = I \\int d\\vec{l} \\times \\vec{B}
+$$
+
+---
+
+## 5. Induction électromagnétique
+
+### a) Loi de Faraday
+
+$$
+e = -\\frac{d\\Phi}{dt}, \\quad \\Phi = \\int_S \\vec{B} \\cdot d\\vec{S}
+$$
+
+### b) Loi de Lenz
+
+> Le courant induit s’oppose à la variation du flux magnétique.
+
+---
+
+## 6. Équations de Maxwell (forme locale)
+
+1. **Gauss (électrique)** :
+   $$
+   \\nabla \\cdot \\vec{E} = \\frac{\\rho}{\\varepsilon_0}
+   $$
+
+2. **Gauss (magnétique)** :
+   $$
+   \\nabla \\cdot \\vec{B} = 0
+   $$
+
+3. **Faraday** :
+   $$
+   \\nabla \\times \\vec{E} = -\\frac{\\partial \\vec{B}}{\\partial t}
+   $$
+
+4. **Ampère-Maxwell** :
+   $$
+   \\nabla \\times \\vec{B} = \\mu_0 \\vec{j} + \\mu_0 \\varepsilon_0 \\frac{\\partial \\vec{E}}{\\partial t}
+   $$
+
+---
+
+## 7. Énergie électromagnétique
+
+- Densité d’énergie électrostatique :  
+  $$
+  u_E = \\frac{1}{2} \\varepsilon_0 E^2
+  $$
+
+- Densité d’énergie magnétique :  
+  $$
+  u_B = \\frac{1}{2} \\cdot \\frac{B^2}{\\mu_0}
+  $$
+
+- Vecteur de Poynting (flux d’énergie) :
+  $$
+  \\vec{S} = \\frac{1}{\\mu_0} \\vec{E} \\times \\vec{B}
+  $$
+
+---
+
+## 8. Ondes électromagnétiques
+
+### a) Solution d’onde plane
+
+- Champs dans le vide :
+  $$
+  E(x, t) = E_0 \\cos(kx - \\omega t), \\quad B = \\frac{E}{c}
+  $$
+
+- Propagation dans la direction $\\vec{k}$, $\\vec{E} \\perp \\vec{B} \\perp \\vec{k}$
+
+---
+
+## 9. Conducteurs et condensateurs
+
+### a) Condensateur plan
+
+- Capacité :
+  $$
+  C = \\varepsilon_0 \\cdot \\frac{S}{d}
+  $$
+
+- Énergie stockée :
+  $$
+  E = \\frac{1}{2} C U^2
+  $$
+
+### b) Loi de conservation de la charge
+
+$$
+\\nabla \\cdot \\vec{j} + \\frac{\\partial \\rho}{\\partial t} = 0
+$$
+
+---
+
+## 10. Résumé des constantes et relations utiles
+
+- $\\varepsilon_0 \\approx 8{,}85 \\cdot 10^{-12}$ F/m
+- $\\mu_0 = 4\\pi \\cdot 10^{-7}$ H/m
+- $c = \\frac{1}{\\sqrt{\\mu_0 \\varepsilon_0}} \\approx 3 \\cdot 10^8$ m/s
+- $\\vec{F}_{\\text{Lorentz}} = q(\\vec{E} + \\vec{v} \\times \\vec{B})$
+- $\\Phi = \\int \\vec{B} \\cdot d\\vec{S}$
+
+  `,
+  tags: ['champ électrique', 'champ magnétique', 'Maxwell', 'induction', 'ondes'],
+  datePublication: '2025-05-28',
+  populaire: true,
+  aReviser: true,
+},
+
+// physique-ondes
+{
+  id: 'physique-ondes',
+  titre: "Physique des ondes – Ondes mécaniques, sonores et électromagnétiques",
+  matiere: "Physique",
+  categorie: "Ondes",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Physique des ondes – Ondes mécaniques, acoustiques et électromagnétiques
+
+## 1. Définitions de base
+
+- **Onde** : propagation d'une perturbation sans transport de matière mais avec transport d'énergie.
+- **Onde progressive** : onde qui se propage dans une direction donnée.
+
+### a) Grandeurs caractéristiques
+
+- **Célérité** $v$
+- **Fréquence** $f$ et **période** $T = 1/f$
+- **Longueur d’onde** $\\lambda = vT = v/f$
+- **Équation d’onde progressive** (1D) :
+  $$
+  s(x,t) = A \\cos(kx - \\omega t + \\varphi)
+  $$
+
+- $\\omega = 2\\pi f$, $k = \\frac{2\\pi}{\\lambda}$
+
+---
+
+## 2. Équation d’onde
+
+### a) Forme générale
+
+$$
+\\frac{\\partial^2 s}{\\partial x^2} = \\frac{1}{v^2} \\cdot \\frac{\\partial^2 s}{\\partial t^2}
+$$
+
+- Valable pour ondes mécaniques, acoustiques, électromagnétiques.
+
+---
+
+## 3. Ondes mécaniques
+
+### a) Ondes transversales et longitudinales
+
+- **Transversale** : direction de la perturbation ⟂ direction de propagation
+- **Longitudinale** : direction de la perturbation // direction de propagation
+
+### b) Corde tendue
+
+$$
+v = \\sqrt{\\frac{T}{\\mu}} \\quad (T : \\text{tension},\\ \\mu : \\text{masse linéique})
+$$
+
+---
+
+## 4. Superposition – Interférences
+
+### a) Principe de superposition
+
+> L'onde résultante est la somme des ondes individuelles.
+
+### b) Interférences constructives/destructives
+
+- Constructive : $\\Delta \\phi = 2k\\pi$
+- Destructive : $\\Delta \\phi = (2k+1)\\pi$
+
+---
+
+## 5. Réflexion, transmission et diffraction
+
+- **Réflexion** : rebond sur un obstacle
+- **Transmission** : changement de milieu, modification de la vitesse
+- **Diffraction** : contournement d’un obstacle → important si $a \\lesssim \\lambda$
+
+---
+
+## 6. Effet Doppler
+
+### a) Fréquence perçue
+
+$$
+f_r = f_e \\cdot \\frac{v \\pm v_r}{v \\mp v_e}
+$$
+
+- $v_r$ : vitesse du récepteur
+- $v_e$ : vitesse de l’émetteur
+- Signes : $+$ si rapprochement, $-$ si éloignement
+
+---
+
+## 7. Ondes stationnaires
+
+### a) Définition
+
+> Superposition de deux ondes progressives de même fréquence se propageant en sens opposés.
+
+### b) Exemple : corde fixe
+
+$$
+s(x,t) = 2A \\sin(kx) \\cos(\\omega t)
+$$
+
+- **Nœuds** : $\\sin(kx) = 0$
+- **Ventres** : $\\sin(kx) = \\pm1$
+
+---
+
+## 8. Ondes sonores
+
+### a) Onde longitudinale de pression
+
+$$
+p(x,t) = p_0 \\cos(kx - \\omega t + \\varphi)
+$$
+
+- **Vitesse du son dans l’air** (T ≈ 20 °C) :
+  $$
+  v \\approx 340~\\text{m/s}
+  $$
+
+### b) Intensité sonore
+
+$$
+I = \\frac{P}{S}, \\quad L = 10 \\log_{10}\\left(\\frac{I}{I_0}\\right)\\ \\text{(en dB)}
+$$
+
+---
+
+## 9. Résonance
+
+> Amplification des oscillations si excitation à la fréquence propre du système.
+
+- Amplitude maximale si $f = f_0$ (fréquence de résonance)
+- Exemple : tube ouvert ou fermé (ondes stationnaires)
+
+---
+
+## 10. Ondes électromagnétiques (rappel)
+
+- Propagation dans le vide à la vitesse :
+  $$
+  c = \\frac{1}{\\sqrt{\\varepsilon_0 \\mu_0}} \\approx 3 \\cdot 10^8~\\text{m/s}
+  $$
+
+- Onde transverse : $\\vec{E} \\perp \\vec{B} \\perp \\vec{k}$
+- Équation d’onde valable pour $\\vec{E}$ et $\\vec{B}$ séparément
+
+---
+
+## 11. Applications variées
+
+- Échographie : ondes ultrasonores, réflexion des tissus
+- Radar : ondes EM réfléchies, effet Doppler
+- Instruments à vent : ondes stationnaires dans tubes ouverts/fermés
+- Acoustique des salles : interférences, réverbération, absorption
+
+---
+
+## 12. Résumé des formules clés
+
+- $s(x,t) = A \\cos(kx - \\omega t + \\varphi)$
+- $v = \\lambda f = \\omega/k$
+- $f_r = f_e \\cdot \\frac{v \\pm v_r}{v \\mp v_e}$ (Doppler)
+- $L = 10 \\log_{10}(I/I_0)$
+- $c = \\frac{1}{\\sqrt{\\mu_0 \\varepsilon_0}}$
+- Résonance : amplitude max à $f = f_0$
+  `,
+  tags: ['ondes mécaniques', 'effet Doppler', 'interférences', 'résonance', 'ondes sonores'],
+  datePublication: '2025-05-28',
+  populaire: true,
+  aReviser: false,
+},
+// physique-mecanique-des-fluides
+{
+  id: 'physique-mecanique-des-fluides',
+  titre: "Mécanique des fluides – Statique et dynamique des fluides",
+  matiere: "Physique",
+  categorie: "Mécanique des fluides",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Mécanique des fluides – Statique et dynamique
+
+## 1. Définitions et grandeurs fondamentales
+
+- **Fluide** : milieu continu déformable sans contrainte de cisaillement au repos.
+- Deux types :
+  - **Liquides** : volume propre, forme variable.
+  - **Gaz** : volume et forme variables.
+
+### Grandeurs principales
+
+- **Masse volumique** : $\\rho = \\frac{dm}{dV}$
+- **Pression** : $P = \\frac{F}{S}$
+- **Viscosité dynamique** : $\\eta$
+- **Vitesse d’écoulement** : $\\vec{v}$
+
+---
+
+## 2. Statique des fluides
+
+### a) Loi fondamentale de la statique
+
+$$
+\\nabla P = \\rho \\vec{g}
+$$
+
+- En coordonnées verticales :
+
+$$
+\\frac{dP}{dz} = -\\rho g
+$$
+
+### b) Poussée d’Archimède
+
+$$
+\\vec{F}_A = -\\rho_{\\text{fluide}} V_{\\text{déplacé}} \\vec{g}
+$$
+
+- S’applique à tout corps immergé.
+
+### c) Pression hydrostatique
+
+$$
+P(z) = P_0 + \\rho g h
+$$
+
+---
+
+## 3. Dynamique des fluides parfaits
+
+### Hypothèses
+
+- Fluide incompressible
+- Pas de viscosité (fluide parfait)
+- Écoulement stationnaire et irrotationnel
+
+### a) Équation de continuité
+
+$$
+\\nabla \\cdot \\vec{v} = 0 \\quad \\text{(incompressible)}
+$$
+
+- En régime stationnaire :
+
+$$
+S_1 v_1 = S_2 v_2
+$$
+
+### b) Théorème de Bernoulli
+
+$$
+P + \\frac{1}{2} \\rho v^2 + \\rho g z = \\text{constante}
+$$
+
+- S’applique sur une ligne de courant
+- Représente la conservation de l'énergie mécanique
+
+---
+
+## 4. Écoulements types
+
+### a) Écoulement laminaire
+
+- Couches parallèles, pas de mélange
+- Ex : fluide visqueux lent dans un tuyau
+
+### b) Écoulement turbulent
+
+- Mélange chaotique
+- Caractérisé par le **nombre de Reynolds** :
+
+$$
+Re = \\frac{\\rho v D}{\\eta}
+$$
+
+- Transition laminaire → turbulent si $Re > 2000$ (approx.)
+
+---
+
+## 5. Viscosité et écoulements réels
+
+### a) Loi de Poiseuille (écoulement dans un cylindre)
+
+$$
+Q = \\frac{\\pi R^4}{8 \\eta L} (P_1 - P_2)
+$$
+
+- $Q$ : débit volumique
+- $\\eta$ : viscosité dynamique
+- $L$ : longueur du tube
+
+---
+
+## 6. Forces dans les fluides
+
+- **Traînée** : force opposée au mouvement
+- **Portance** : force perpendiculaire à l’écoulement
+- Dépendent de la forme, de la vitesse et du régime d’écoulement
+
+---
+
+## 7. Surpression et cavitation
+
+- **Cavitation** : formation de bulles de vapeur quand $P < P_{\text{vapeur}}$
+- Problématique dans les pompes, turbines...
+
+---
+
+## 8. Applications courantes
+
+- Mesure de vitesse : tube de Pitot
+- Avions : portance via le profil d’aile (effet Venturi/Bernoulli)
+- Arrosage, canalisations : loi de Poiseuille
+- Barrages, barrages hydrauliques : pression hydrostatique
+
+---
+
+## 9. Résumé des équations essentielles
+
+- Pression : $P = P_0 + \\rho g h$
+- Poussée d’Archimède : $F_A = \\rho g V$
+- Équation de Bernoulli : $P + \\frac{1}{2} \\rho v^2 + \\rho g z = C$
+- Continuité : $S_1 v_1 = S_2 v_2$
+- Poiseuille : $Q = \\frac{\\pi R^4}{8 \\eta L} (P_1 - P_2)$
+- Nombre de Reynolds : $Re = \\frac{\\rho v D}{\\eta}$
+  `,
+  tags: ['Bernoulli', 'Archimède', 'viscosité', 'Poiseuille', 'pression hydrostatique'],
+  datePublication: '2025-05-28',
+  populaire: true,
+  aReviser: false,
+},
+// physique-loi-quantite-de-mouvement
+{
+  id: 'physique-loi-quantite-de-mouvement',
+  titre: "Loi de quantité de mouvement et forces fondamentales",
+  matiere: "Physique",
+  categorie: "Mécanique",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Loi de la quantité de mouvement et forces fondamentales
+
+## 1. Quantité de mouvement
+
+- **Définition** : $\\vec{p} = m \\vec{v}$
+  - Grandeur vectorielle associée au mouvement d’un corps de masse $m$ à la vitesse $\\vec{v}$.
+- **Lien avec la dérivée temporelle** :
+  $$
+  \\frac{d\\vec{p}}{dt} = m \\vec{a}
+  $$
+
+---
+
+## 2. Forces classiques en mécanique
+
+### a) Poids
+
+$$
+\\vec{P} = m \\vec{g}
+$$
+
+- Force verticale dirigée vers le bas (centre de la Terre)
+- Accélération gravitationnelle $g \\approx 9.81$ m/s²
+
+### b) Force de rappel d’un ressort
+
+$$
+\\vec{F}_\\text{ressort} = -k(\\ell - \\ell_0) \\vec{u}_r
+$$
+
+- $k$ : constante de raideur
+- $\\ell$ : longueur actuelle
+- $\\ell_0$ : longueur à vide
+- $\\vec{u}_r$ : vecteur unitaire selon la direction du ressort
+
+### c) Force gravitationnelle (loi de Newton)
+
+$$
+\\vec{F}_{A/B} = -G \\frac{m_A m_B}{AB^2} \\vec{u}_{A \\rightarrow B}
+$$
+
+- $G = 6.674 \\times 10^{-11}$ N·m²/kg²
+- Interaction à distance entre deux corps massiques
+
+### d) Force de frottement fluide
+
+$$
+\\vec{F}_f = - \\alpha \\vec{v} \\quad (\\alpha > 0)
+$$
+
+- Proportionnelle à la vitesse
+- Modélise les frottements dans un fluide au régime de basse vitesse (Stokes)
+
+### e) Poussée d’Archimède
+
+$$
+\\vec{\\Pi}_A = - \\rho_{fluide} V_{déplacé} \\vec{g}
+$$
+
+- Force verticale dirigée vers le haut
+- Proportionnelle au volume immergé
+
+---
+
+## 3. Lois de Newton
+
+### a) Première loi (Principe d’inertie)
+
+> Tout corps persévère dans son état de repos ou de mouvement rectiligne uniforme **en l'absence de force extérieure**.
+
+- Applicable **dans un référentiel galiléen**
+- Si $\\sum \\vec{F}_\\text{ext} = 0$ alors $\\vec{v} = \\text{constante}$
+
+### b) Deuxième loi (Principe fondamental de la dynamique)
+
+$$
+\\sum \\vec{F}_\\text{ext} = \\frac{d\\vec{p}}{dt} = m \\vec{a}
+$$
+
+- Relie les forces appliquées à la variation de la quantité de mouvement
+
+### c) Troisième loi (Action-Réaction)
+
+$$
+\\vec{F}_{A/B} = -\\vec{F}_{B/A}
+$$
+
+- Les forces entre deux corps sont opposées et de même norme
+
+---
+
+## 4. Dérivées fondamentales
+
+- **Vitesse** : $\\vec{v} = \\frac{d\\vec{OM}}{dt}$
+- **Accélération** : $\\vec{a} = \\frac{d\\vec{v}}{dt} = \\frac{d^2 \\vec{OM}}{dt^2}$
+
+---
+
+## 5. Barycentre
+
+$$
+\\vec{OG} = \\frac{1}{m_{tot}} \\sum_i m_i \\vec{OM}_i
+$$
+
+- Centre de masse d’un système discret de particules
+- Permet l’étude globale du mouvement
+
+---
+
+## 6. Théorème de l’énergie mécanique
+
+### a) Énergie mécanique totale
+
+$$
+E_m = E_c + E_p
+$$
+
+- **Énergie cinétique** : $E_c = \\frac{1}{2} m v^2$
+- **Énergie potentielle** : $E_p = mgh$ ou autres formes selon le champ
+
+### b) Théorème :
+
+$$
+\\Delta E_m = \\sum W_{\\text{forces non conservatives}}
+$$
+
+- Si aucune force non conservative : énergie mécanique conservée
+
+---
+
+## 7. Résumé des équations essentielles
+
+- $\\vec{p} = m \\vec{v}$
+- $\\sum \\vec{F} = m \\vec{a}$
+- $\\vec{P} = m \\vec{g}$
+- $\\vec{F}_\\text{ressort} = -k(\\ell - \\ell_0) \\vec{u}_r$
+- $\\vec{F}_{A/B} = -G \\frac{m_A m_B}{AB^2} \\vec{u}_{A \\rightarrow B}$
+- $\\vec{F}_f = -\\alpha \\vec{v}$
+- $\\vec{\\Pi}_A = - \\rho V \\vec{g}$
+- $\\Delta E_m = \\sum W_{\\text{forces non conservatives}}$
+  `,
+  tags: ['lois de Newton', 'quantité de mouvement', 'forces', 'barycentre', 'énergie mécanique'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: true,
+},
+// physique-description-parametrage
+{
+  id: 'physique-description-parametrage',
+  titre: "Description et paramétrage du mouvement",
+  matiere: "Physique",
+  categorie: "Cinématique",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Description et paramétrage du mouvement
+
+## 1. Déplacement élémentaire $\\vec{dOM}$
+
+### a) Coordonnées cartésiennes
+
+$$
+\\vec{dOM} = dx \\vec{e}_x + dy \\vec{e}_y + dz \\vec{e}_z
+$$
+
+### b) Coordonnées cylindriques
+
+$$
+\\vec{dOM} = dr \\vec{e}_r + r d\\theta \\vec{e}_\\theta + dz \\vec{e}_z
+$$
+
+---
+
+## 2. Base de coordonnées
+
+### a) Cartésiennes
+
+$$
+\\vec{OM} = x \\vec{e}_x + y \\vec{e}_y + z \\vec{e}_z
+$$
+
+### b) Cylindriques
+
+$$
+\\vec{OM} = r \\vec{e}_r + z \\vec{e}_z
+$$
+
+- $\\vec{e}_r$, $\\vec{e}_\\theta$ dépendent du temps si $\\theta$ varie
+
+---
+
+## 3. Vitesse $\\vec{v}$
+
+### a) Coordonnées cartésiennes
+
+$$
+\\vec{v} = \\dot{x} \\vec{e}_x + \\dot{y} \\vec{e}_y + \\dot{z} \\vec{e}_z
+$$
+
+### b) Coordonnées cylindriques
+
+$$
+\\vec{v} = \\dot{r} \\vec{e}_r + r \\dot{\\theta} \\vec{e}_\\theta + \\dot{z} \\vec{e}_z
+$$
+
+---
+
+## 4. Accélération $\\vec{a}$
+
+### a) Coordonnées cartésiennes
+
+$$
+\\vec{a} = \\ddot{x} \\vec{e}_x + \\ddot{y} \\vec{e}_y + \\ddot{z} \\vec{e}_z
+$$
+
+### b) Coordonnées cylindriques
+
+$$
+\\vec{a} = (\\ddot{r} - r \\dot{\\theta}^2) \\vec{e}_r + (2 \\dot{r} \\dot{\\theta} + r \\ddot{\\theta}) \\vec{e}_\\theta + \\ddot{z} \\vec{e}_z
+$$
+
+---
+
+## 5. Dérivées des vecteurs de base (coordonnées cylindriques)
+
+- $\\frac{d\\vec{e}_r}{dt} = \\dot{\\theta} \\vec{e}_\\theta$
+- $\\frac{d\\vec{e}_\\theta}{dt} = -\\dot{\\theta} \\vec{e}_r$
+
+---
+
+## 6. Vitesse angulaire
+
+- Définition : $\\omega = \\frac{d\\theta}{dt}$
+- Unité : rad·s⁻¹
+
+---
+
+## 7. Résumé des formules essentielles
+
+- $\\vec{dOM}_\\text{cart} = dx \\vec{e}_x + dy \\vec{e}_y + dz \\vec{e}_z$
+- $\\vec{dOM}_\\text{cyl} = dr \\vec{e}_r + r d\\theta \\vec{e}_\\theta + dz \\vec{e}_z$
+- $\\vec{v}_\\text{cart} = \\dot{x} \\vec{e}_x + \\dot{y} \\vec{e}_y + \\dot{z} \\vec{e}_z$
+- $\\vec{v}_\\text{cyl} = \\dot{r} \\vec{e}_r + r\\dot{\\theta} \\vec{e}_\\theta + \\dot{z} \\vec{e}_z$
+- $\\vec{a}_\\text{cyl} = (\\ddot{r} - r\\dot{\\theta}^2) \\vec{e}_r + (2\\dot{r}\\dot{\\theta} + r\\ddot{\\theta}) \\vec{e}_\\theta + \\ddot{z} \\vec{e}_z$
+- $\\frac{d\\vec{e}_r}{dt} = \\dot{\\theta} \\vec{e}_\\theta$, $\\frac{d\\vec{e}_\\theta}{dt} = -\\dot{\\theta} \\vec{e}_r$
+- $\\omega = \\frac{d\\theta}{dt}$
+
+  `,
+  tags: ['cinématique', 'coordonnées cylindriques', 'vecteurs', 'vitesse', 'accélération', 'dérivées', 'vitesse angulaire'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: true,
+},
+// physique-approche-energetique
+{
+  id: 'physique-approche-energetique',
+  titre: "Approche énergétique du mouvement",
+  matiere: "Physique",
+  categorie: "Énergie et travail",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Approche énergétique du mouvement
+
+---
+
+## 1. Travail d'une force
+
+### a) Travail élémentaire
+
+$$
+\\delta W = \\vec{F} \\cdot \\vec{dOM} = \\vec{F} \\cdot d\\vec{r}
+$$
+
+### b) Travail entre deux points
+
+$$
+W_{\\vec{F}} = \\int_{M_1}^{M_2} \\vec{F} \\cdot d\\vec{r}
+$$
+
+### c) Cas particuliers
+
+- **Force constante :**  
+$$W_{\\vec{F}} = \\vec{F} \\cdot \\vec{M_1 M_2}$$
+
+- **Force du poids :**  
+$$W_{\\vec{P}} = -mg(z_2 - z_1)$$
+
+- **Force normale sans frottement :**  
+$$W_{\\vec{N}} = 0$$
+
+- **Glissement sans frottement :**  
+$$W_{\\vec{T}} < 0$$ (travail résistant)
+
+- **Force de rappel d’un ressort :**  
+$$
+W_{\\vec{F}_{\\text{ressort}}} = - \\frac{k}{2} \\left[ (x_{M_2} - \\ell_0)^2 - (x_{M_1} - \\ell_0)^2 \\right]
+$$
+
+---
+
+## 2. Puissance d'une force
+
+$$
+P = \\frac{\\delta W}{dt} = \\vec{F} \\cdot \\vec{v}
+$$
+
+- **Puissance > 0** : force **motrice**  
+- **Puissance < 0** : force **résistante**
+
+---
+
+## 3. Énergie cinétique
+
+### a) Définition
+
+$$
+E_c = \\frac{1}{2}mv^2
+$$
+
+### b) Théorème de l’énergie cinétique
+
+$$
+W_{\\text{ext}} = E_{c,2} - E_{c,1} = \\Delta E_c
+$$
+
+### c) Théorème de la puissance cinétique
+
+$$
+\\frac{dE_c}{dt} = P_{\\text{ext}} = \\vec{F}_{\\text{ext}} \\cdot \\vec{v}
+$$
+
+---
+
+## 4. Énergie potentielle
+
+### a) Définition générale
+
+$$
+\\delta W = -dE_p \\quad \\text{et} \\quad E_p = - \\int \\vec{F} \\cdot d\\vec{OM}
+$$
+
+### b) Cas classiques
+
+- **Pesanteur :**  
+$$E_{pp} = mgz + \\text{constante}$$
+
+- **Ressort :**  
+$$E_{pr} = \\frac{1}{2}k(x - \\ell_0)^2 + \\text{constante}$$
+
+- **Électrostatique (Coulomb) :**  
+$$E_{pelec} = \\frac{q q'}{4 \\pi \\varepsilon_0 r} + c$$
+
+- **Gravitation :**  
+$$E_{pgrav} = -\\frac{G m_1 m_2}{r} + \\text{constante}$$
+
+---
+
+## 5. Travail d’une force conservative
+
+$$
+W_{\\vec{F}_{\\text{cons}}} = -\\Delta E_p
+$$
+
+---
+
+## 6. Énergie mécanique
+
+### a) Définition
+
+$$
+E_m = E_c + \\sum E_p
+$$
+
+- Si seules des forces **conservatives** agissent :  
+$$\\Delta E_m = 0$$ → conservation de l’énergie mécanique
+
+---
+
+## Résumé des concepts
+
+- $\\delta W = \\vec{F} \\cdot d\\vec{r}$
+- $P = \\vec{F} \\cdot \\vec{v}$
+- $E_c = \\frac{1}{2}mv^2$
+- $E_m = E_c + E_p$
+- $W_{\\text{ext}} = \\Delta E_c$
+- $\\delta W = -dE_p$ pour une force conservative
+- $E_p$ dépend du type de force (poids, ressort, coulomb, gravité)
+  `,
+  tags: ['énergie', 'travail', 'puissance', 'énergie cinétique', 'énergie potentielle', 'force conservative'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: true,
+},
+// physique-mouvement-cinetique
+{
+  id: 'physique-mouvement-cinetique',
+  titre: "Lois du mouvement cinétique",
+  matiere: "Physique",
+  categorie: "Mécanique",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Lois du mouvement cinétique
+
+---
+
+## 1. Moment cinétique
+
+### a) Moment cinétique par rapport à un point O
+
+$$
+\\vec{L}_O(M) = \\vec{OM} \\wedge m\\vec{v} \\quad \\text{(en kg·m}^2\\text{/s)}
+$$
+
+### b) Moment cinétique par rapport à un axe (\\(\\Delta\\))
+
+$$
+L_\\Delta = \\vec{L}_\\Delta(M) \\cdot \\vec{u}_\\Delta
+$$
+
+---
+
+## 2. Mouvement d'une force
+
+### a) Moment d'une force par rapport à un point A
+
+$$
+\\vec{M}_A(\\vec{F}) = \\vec{AM} \\wedge \\vec{F}
+$$
+
+### b) Moment résultant
+
+$$
+\\vec{M}_{O(\\text{ext})} = \\sum \\vec{M}_O(\\vec{F}_{\\text{ext}})
+$$
+
+---
+
+## 3. Théorème du moment cinétique
+
+### a) Forme générale
+
+$$
+\\frac{d\\vec{L}_O}{dt} = \\vec{M}_{O(\\text{ext})}
+$$
+
+### b) Pour un axe (\\(\\Delta\\))
+
+$$
+\\frac{dL_\\Delta}{dt} = M_{\\Delta(\\text{ext})}
+$$
+
+---
+
+## 4. Rotation d’un solide autour d’un axe fixe
+
+### a) Vitesse angulaire
+
+$$
+\\omega = \\frac{d\\theta}{dt}
+$$
+
+### b) Moment cinétique du solide
+
+$$
+L_\\Delta = J_\\Delta \\omega
+$$
+
+### c) Théorème du moment cinétique
+
+$$
+\\frac{dL_\\Delta}{dt} = M_{\\Delta(\\text{ext})}
+$$
+
+### d) Énergie cinétique de rotation
+
+$$
+E_c = \\frac{1}{2} J_\\Delta \\omega^2
+$$
+
+---
+
+## 5. Puissance d’un couple de forces
+
+$$
+P_{\\text{ext}} = M_{\\Delta(\\text{ext})} \\cdot \\omega
+$$
+
+---
+
+## Résumé des concepts
+
+- $\\vec{L}_O = \\vec{OM} \\wedge m\\vec{v}$
+- $\\frac{d\\vec{L}_O}{dt} = \\vec{M}_{O(\\text{ext})}$
+- $L_\\Delta = J_\\Delta \\omega$
+- $E_c = \\frac{1}{2}J_\\Delta \\omega^2$
+- $P = M_{\\Delta} \\cdot \\omega$
+  `,
+  tags: ['moment cinétique', 'moment force', 'rotation', 'vitesse angulaire', 'énergie cinétique', 'couple'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: true,
+},
+// physique-force-centrale
+{
+  id: 'physique-force-centrale',
+  titre: "Forces centrales et lois de Kepler",
+  matiere: "Physique",
+  categorie: "Mécanique",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Forces centrales et lois de Kepler
+
+---
+
+## 1. Définition
+
+### a) Force centrale
+
+$$
+\\vec{F}(\\vec{r}) = F(r)\\vec{e}_r
+$$
+
+Elle est dirigée selon le rayon vecteur $\\vec{r}$ (pointant vers ou depuis un centre fixe).
+
+### b) Force centrale conservative
+
+$$
+F(r) = -\\frac{dE_p}{dr}
+$$
+
+---
+
+## 2. Moment cinétique
+
+$$
+\\vec{L}_O = \\vec{OM} \\wedge m\\vec{v} = mr^2\\dot{\\theta} \\vec{e}_z
+$$
+
+### a) Constante du mouvement
+
+- Le moment cinétique $\\vec{L}_O$ est constant en direction et en norme.
+- L’énergie mécanique est conservée.
+
+---
+
+## 3. Vitesse aréolaire
+
+$$
+\\frac{dA}{dt} = \\frac{1}{2}r^2\\dot{\\theta} = \\text{constante}
+$$
+
+**→** Cette loi exprime la **constante des aires** (2ème loi de Kepler).
+
+---
+
+## 4. Énergie potentielle effective
+
+$$
+E_{\\text{peff}}(r) = \\frac{L_0^2}{2mr^2} + E_p(r)
+$$
+
+---
+
+## 5. Cas du champ newtonien
+
+### a) Force de type gravitationnelle
+
+$$
+\\vec{F}_r = -\\frac{k}{r^2} \\vec{e}_r
+$$
+
+### b) Énergie potentielle gravitationnelle
+
+$$
+E_p(r) = -\\frac{k}{r}
+$$
+
+---
+
+## 6. Lois de Kepler
+
+### 1ère loi
+
+> Les planètes décrivent des ellipses, avec le Soleil à un des foyers.
+
+### 2ème loi
+
+> Le rayon vecteur balaie des aires égales en des temps égaux (constante des aires).
+
+### 3ème loi
+
+$$
+a^3 = cT^2
+$$
+
+où :
+- $a$ : demi-grand axe
+- $T$ : période de révolution
+- $c$ : constante liée à l’astre attracteur
+
+---
+
+## 7. Energie mécanique des orbites
+
+### a) Cas elliptique
+
+$$
+E_m = -\\frac{k}{2a}
+$$
+
+### b) Cas circulaire
+
+$$
+E_m = -\\frac{k}{2r}
+$$
+
+---
+
+## 8. Loi de Newton généralisée
+
+$$
+R^3 = \\frac{Gm_sT^2}{4\\pi^2}
+$$
+
+---
+
+## Résumé
+
+- $\\vec{F}(r) = F(r)\\vec{e}_r$
+- $\\vec{L}_O = mr^2\\dot{\\theta}$ (constante)
+- $\\frac{dA}{dt} = \\text{constante}$ (loi des aires)
+- $E_{\\text{peff}}(r) = \\frac{L^2}{2mr^2} + E_p(r)$
+- $E_p = -\\frac{k}{r}$ ; $E_m < 0$
+- $a^3 = cT^2$
+
+  `,
+  tags: ['force centrale', 'lois de Kepler', 'champ gravitationnel', 'moment cinétique', 'énergie mécanique', 'orbite', 'vitesse aréolaire'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: true,
+},
+// physique-mouvement-particule-chargee
+{
+  id: 'physique-mouvement-particule-chargee',
+  titre: "Mouvement d’une particule chargée",
+  matiere: "Physique",
+  categorie: "Électromagnétisme",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Mouvement d’une particule chargée
+
+---
+
+## 1. Forces électromagnétiques
+
+### a) Force électrique
+
+$$
+\\vec{F}_e = q \\vec{E}
+$$
+
+### b) Force magnétique
+
+$$
+\\vec{F}_m = q \\vec{v} \\wedge \\vec{B}
+$$
+
+### c) Force de Lorentz
+
+$$
+\\vec{F}_L = q \\vec{E} + q \\vec{v} \\wedge \\vec{B}
+$$
+
+---
+
+## 2. Travail élémentaire d'une force
+
+$$
+\\delta W_F = q \\vec{E} \\cdot \\vec{v} \\, dt
+$$
+
+Note : Le champ magnétique ne travaille pas (travail nul).
+
+---
+
+## 3. Énergie potentielle électrique
+
+$$
+E_p = q V
+$$
+
+où \(V\) est le potentiel électrique.
+
+---
+
+## 4. Puissance fournie par le champ magnétique
+
+$$
+P_{magnétique} = 0
+$$
+
+Le champ magnétique ne fait pas de travail sur la particule.
+
+---
+
+## Résumé
+
+- Force électrique : \( \\vec{F}_e = q \\vec{E} \)
+- Force magnétique : \( \\vec{F}_m = q \\vec{v} \\wedge \\vec{B} \)
+- Force de Lorentz : \( \\vec{F}_L = q \\vec{E} + q \\vec{v} \\wedge \\vec{B} \)
+- Travail élémentaire : \( \\delta W_F = q \\vec{E} \\cdot \\vec{v} \, dt \)
+- Puissance magnétique : \( P = 0 \)
+
+`,
+  tags: ['force électrique', 'force magnétique', 'force de Lorentz', 'particule chargée', 'électromagnétisme', 'travail', 'énergie potentielle'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: true,
+},
+// physique-optique-reflexion-refractions
+{
+  id: 'physique-optique-reflexion-refraction',
+  titre: "Réflexion et Réfraction de la lumière",
+  matiere: "Physique",
+  categorie: "Optique",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Réflexion et Réfraction de la lumière
+
+---
+
+## 1. Lois de Snell-Descartes
+
+### a) Réflexion
+
+- **Loi de la réflexion** :
+  $$
+  i = r
+  $$
+
+  où $i$ est l'angle d'incidence et $r$ l'angle de réflexion.
+
+- Le rayon réfléchi reste dans le **plan d’incidence**.
+
+---
+
+### b) Réfraction
+
+- **Loi de Snell-Descartes** :
+  $$
+  n_1 \\sin(i) = n_2 \\sin(r)
+  $$
+
+  où $n_1$ et $n_2$ sont les indices des milieux.
+
+- Le rayon réfracté est aussi dans le **plan d'incidence**.
+
+---
+
+## 2. Indice de réfraction
+
+### a) Définition
+
+  $$
+  n = \\frac{c}{v}
+  $$
+
+- $c$ : vitesse de la lumière dans le vide  
+- $v$ : vitesse de la lumière dans le milieu
+
+---
+
+## 3. Cas particuliers
+
+### a) Incidence normale
+
+  $$
+  i = 0 \\Rightarrow r = 0
+  $$
+
+Le rayon ne change pas de direction.
+
+---
+
+### b) Réflexion totale
+
+- Se produit si $n_1 > n_2$ et $i > i_{\\text{lim}}$
+
+- **Angle limite** :
+  $$
+  \\sin(i_{\\text{lim}}) = \\frac{n_2}{n_1}
+  $$
+
+---
+
+## 4. Construction géométrique
+
+- Utiliser la **normale** au dioptre  
+- Tracer les angles $i$, $r$ selon les lois  
+- Les rayons incident, réfléchi et réfracté sont coplanaires
+
+---
+
+## 5. Applications
+
+- **Fibre optique** : réflexions totales successives  
+- **Mirages** : variation continue de l’indice de l’air  
+- **Lentilles minces** (voir fiche dédiée)
+
+---
+
+## Résumé des concepts
+
+- Réflexion : $i = r$  
+- Réfraction : $n_1 \\sin(i) = n_2 \\sin(r)$  
+- Réflexion totale si $i > i_{\\text{lim}}$  
+- Indice : $n = \\frac{c}{v}$  
+  `,
+  tags: ['réflexion', 'réfraction', 'Snell-Descartes', 'optique géométrique', 'indice de réfraction', 'réflexion totale'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: true
+},
+// physique-thermodynamique-principes-transformations
+{
+  id: 'physique-thermodynamique-principes-transformations',
+  titre: "Thermodynamique : principes et transformations",
+  matiere: "Physique",
+  categorie: "Thermodynamique",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Thermodynamique : principes et transformations
+
+---
+
+## 1. Premier principe de la thermodynamique
+
+### a) Énoncé
+
+Le premier principe traduit la **conservation de l’énergie** :
+
+$$
+\\Delta U = Q + W
+$$
+
+où :
+
+- $\\Delta U$ : variation d’énergie interne du système  
+- $Q$ : chaleur échangée avec l’extérieur (positive si reçue)  
+- $W$ : travail reçu par le système (positif si moteur exerce un travail sur lui)
+
+### b) Énergie interne d’un gaz parfait monoatomique
+
+$$
+U = \\frac{3}{2} nRT
+$$
+
+Plus généralement :
+
+$$
+U = nC_V T
+$$
+
+où $C_V$ est la capacité thermique molaire à volume constant.
+
+---
+
+## 2. Travail et chaleur dans une transformation
+
+### a) Travail des forces de pression
+
+$$
+W = - \\int_{V_i}^{V_f} P(V) \\, dV
+$$
+
+### b) Chaleur échangée
+
+Pour un gaz parfait :
+
+$$
+Q = \\Delta U - W
+$$
+
+---
+
+## 3. Transformations thermodynamiques usuelles
+
+### a) Isotherme ($T$ constant)
+
+- $\\Delta U = 0$
+- $Q = -W$
+- Travail d’un gaz parfait :
+  $$
+  W = -nRT \\ln\\left(\\frac{V_f}{V_i}\\right)
+  $$
+
+### b) Isochore ($V$ constant)
+
+- $W = 0$
+- $Q = \\Delta U = nC_V (T_f - T_i)$
+
+### c) Isobare ($P$ constant)
+
+- $W = -P \\Delta V$
+- $Q = nC_P (T_f - T_i)$
+- $\\Delta U = nC_V (T_f - T_i)$
+
+### d) Adiabatique ($Q = 0$)
+
+- $\\Delta U = W$
+- Loi de Laplace pour un gaz parfait :
+  $$
+  PV^\\gamma = \\text{constante}
+  $$
+  $$
+  TV^{\\gamma -1} = \\text{constante}
+  $$
+
+où $\\gamma = \\frac{C_P}{C_V}$
+
+---
+
+## 4. Notion d’entropie et second principe
+
+### a) Entropie différentielle
+
+Pour une transformation **réversible** :
+
+$$
+dS = \\frac{\\delta Q_{\\text{rev}}}{T}
+$$
+
+Pour une transformation **irréversible** :
+
+$$
+\\Delta S_{\\text{univers}} > 0
+$$
+
+### b) Variation d'entropie d’un gaz parfait monoatomique
+
+$$
+\\Delta S = nC_V \\ln\\left(\\frac{T_f}{T_i}\\right) + nR \\ln\\left(\\frac{V_f}{V_i}\\right)
+$$
+
+### c) Second principe de la thermodynamique
+
+- **Énoncé de Clausius** : La chaleur ne peut pas passer spontanément d’un corps froid vers un corps chaud.
+- **Formulation entropique** : Dans un système isolé, l’entropie ne peut qu’augmenter ou rester constante.
+
+---
+
+## 5. Cas particuliers et remarques
+
+- $C_P - C_V = R$ (relation de Mayer)
+- Pour un gaz diatomique : $C_V = \\frac{5}{2}R$, $C_P = \\frac{7}{2}R$, $\\gamma = \\frac{7}{5}$
+
+---
+
+## Résumé des équations clés
+
+- Premier principe : $\\Delta U = Q + W$  
+- Travail : $W = - \\int P \\, dV$  
+- Énergie interne gaz parfait : $U = nC_V T$  
+- Entropie réversible : $dS = \\frac{\\delta Q_{\\text{rev}}}{T}$  
+- Transformation adiabatique : $PV^\\gamma = \\text{constante}$  
+- Variation entropie : $\\Delta S = nC_V \\ln\\left(\\frac{T_f}{T_i}\\right) + nR \\ln\\left(\\frac{V_f}{V_i}\\right)$  
+  `,
+  tags: ['thermodynamique', 'premier principe', 'énergie interne', 'travail', 'chaleur', 'entropie', 'gaz parfait'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: false
+},
+// physique-electrostatique-champs-potentiel
+{
+  id: 'physique-electrostatique-champs-potentiel',
+  titre: "Électrostatique : champs, potentiel et condensateurs",
+  matiere: "Physique",
+  categorie: "Électrostatique",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Électrostatique : champs, potentiel et condensateurs
+
+---
+
+## 1. Loi de Coulomb
+
+### a) Force électrique entre deux charges ponctuelles
+
+$$
+\\vec{F}_{1 \\to 2} = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{q_1 q_2}{r^2} \\cdot \\vec{u}_{1 \\to 2}
+$$
+
+où :
+
+- $q_1$, $q_2$ : charges (en C)
+- $r$ : distance entre les charges (en m)
+- $\\varepsilon_0$ : permittivité du vide ($\\approx 8{,}85 \\times 10^{-12} \\, \\text{F/m}$)
+
+---
+
+## 2. Champ électrique d’une charge ponctuelle
+
+$$
+\\vec{E}(M) = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{q}{r^2} \\cdot \\vec{u}_r
+$$
+
+- $\\vec{E}(M)$ : champ au point $M$ dû à la charge $q$  
+- $r$ : distance entre $M$ et la charge $q$  
+- $\\vec{u}_r$ : vecteur unitaire radial dirigé de la charge vers $M$
+
+Le champ électrique est un **champ vectoriel**, en N/C.
+
+---
+
+## 3. Potentiel électrique
+
+### a) Définition
+
+Le **potentiel électrique** $V(M)$ en un point $M$ est lié au travail effectué par la force électrique :
+
+$$
+V(M) = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{q}{r}
+$$
+
+### b) Relation champ-potentiel
+
+$$
+\\vec{E} = -\\nabla V
+$$
+
+Dans un système à symétrie radiale :
+
+$$
+E = -\\frac{dV}{dr}
+$$
+
+Le champ électrique est dirigé **dans le sens des potentiels décroissants**.
+
+---
+
+## 4. Énergie potentielle électrique
+
+### a) Deux charges ponctuelles
+
+$$
+E_p = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{q_1 q_2}{r}
+$$
+
+### b) Système de charges
+
+Pour $N$ charges :  
+On additionne les énergies potentielles entre chaque paire de charges :
+
+$$
+E_p = \\frac{1}{2} \\sum_{i \\ne j} \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{q_i q_j}{r_{ij}}
+$$
+
+Le facteur $\\frac{1}{2}$ évite de compter deux fois chaque interaction.
+
+---
+
+## 5. Condensateurs
+
+### a) Définition et capacité
+
+Un **condensateur plan** formé de deux plaques opposées et distantes de $d$ possède une capacité :
+
+$$
+C = \\varepsilon_0 \\cdot \\frac{S}{d}
+$$
+
+où :
+
+- $C$ : capacité en Farads (F)
+- $S$ : surface d’une plaque
+- $d$ : distance entre les plaques
+
+### b) Charge et tension
+
+$$
+Q = C U
+$$
+
+où $U$ est la tension entre les armatures.
+
+### c) Énergie stockée
+
+$$
+E = \\frac{1}{2} C U^2
+$$
+
+---
+
+## 6. Association de condensateurs
+
+### a) En série
+
+- $\\frac{1}{C_{\\text{eq}}} = \\sum \\frac{1}{C_i}$
+- Tous les condensateurs ont **la même charge** $Q$
+
+### b) En parallèle
+
+- $C_{\\text{eq}} = \\sum C_i$
+- Tous les condensateurs ont **la même tension** $U$
+
+---
+
+## Résumé des formules clés
+
+- Force de Coulomb : $\\vec{F} = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{q_1 q_2}{r^2} \\cdot \\vec{u}$  
+- Champ d’une charge : $\\vec{E} = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{q}{r^2} \\cdot \\vec{u}_r$  
+- Potentiel : $V = \\frac{1}{4\\pi\\varepsilon_0} \\cdot \\frac{q}{r}$  
+- Relation champ-potentiel : $\\vec{E} = -\\nabla V$  
+- Énergie potentielle : $E_p = \\frac{q_1 q_2}{4\\pi\\varepsilon_0 r}$  
+- Capacité : $C = \\varepsilon_0 \\cdot \\frac{S}{d}$  
+- Énergie condensateur : $E = \\frac{1}{2} C U^2$  
+- Association série : $\\frac{1}{C_{\\text{eq}}} = \\sum \\frac{1}{C_i}$  
+- Association parallèle : $C_{\\text{eq}} = \\sum C_i$
+  `,
+  tags: ['électrostatique', 'champ électrique', 'potentiel', 'coulomb', 'condensateur', 'capacité', 'énergie'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: false
+},
+// physique-circuits-electriques
+{
+  id: 'physique-circuits-electriques',
+  titre: "Circuits électriques en régime continu",
+  matiere: "Physique",
+  categorie: "Électricité",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Circuits électriques en régime continu
+
+---
+
+## 1. Loi d’Ohm
+
+### a) Forme locale
+
+$$
+U = R I
+$$
+
+- $U$ : tension (V)  
+- $R$ : résistance (Ω)  
+- $I$ : courant (A)
+
+Cette loi est valable pour un conducteur **ohmique**, dans lequel la tension est proportionnelle au courant.
+
+---
+
+## 2. Lois de Kirchhoff
+
+### a) Loi des nœuds (loi des courants)
+
+À un nœud de circuit :
+
+$$
+\\sum I_{\\text{entrant}} = \\sum I_{\\text{sortant}}
+$$
+
+Conservation de la charge électrique.
+
+### b) Loi des mailles (loi des tensions)
+
+Dans une maille orientée :
+
+$$
+\\sum U = 0
+$$
+
+C’est-à-dire que la somme algébrique des tensions le long d’une maille fermée est nulle.
+
+---
+
+## 3. Résistances
+
+### a) Association en série
+
+$$
+R_{\\text{eq}} = \\sum R_i
+$$
+
+- Même **courant** dans chaque résistance.  
+- Tensions qui s’additionnent.
+
+### b) Association en parallèle
+
+$$
+\\frac{1}{R_{\\text{eq}}} = \\sum \\frac{1}{R_i}
+$$
+
+- Même **tension** aux bornes de chaque résistance.  
+- Courants qui s’additionnent.
+
+---
+
+## 4. Analyse des circuits simples
+
+### a) Circuit série
+
+- $I = I_1 = I_2 = \\dots$  
+- $U = U_1 + U_2 + \\dots$  
+- $R_{\\text{eq}} = R_1 + R_2 + \\dots$
+
+### b) Circuit parallèle
+
+- $U = U_1 = U_2 = \\dots$  
+- $I = I_1 + I_2 + \\dots$  
+- $\\frac{1}{R_{\\text{eq}}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots$
+
+---
+
+## 5. Puissance et énergie électrique
+
+### a) Puissance dissipée par une résistance
+
+$$
+P = U I = R I^2 = \\frac{U^2}{R}
+$$
+
+- $P$ : puissance (W)
+- Dissipation sous forme de **chaleur** (effet Joule)
+
+### b) Énergie consommée
+
+Sur une durée $\\Delta t$ :
+
+$$
+E = P \\cdot \\Delta t = U I \\Delta t
+$$
+
+L’unité de l’énergie est le **joule** (J), ou le **kilowattheure** (1 kWh = $3{,}6 \\times 10^6$ J).
+
+---
+
+## Résumé des formules
+
+- Loi d’Ohm : $U = R I$  
+- Kirchhoff nœuds : $\\sum I = 0$  
+- Kirchhoff mailles : $\\sum U = 0$  
+- Résistance série : $R_{\\text{eq}} = \\sum R_i$  
+- Résistance parallèle : $\\frac{1}{R_{\\text{eq}}} = \\sum \\frac{1}{R_i}$  
+- Puissance : $P = U I = R I^2 = \\frac{U^2}{R}$  
+- Énergie : $E = P \\Delta t = U I \\Delta t$
+  `,
+  tags: ['circuit', 'ohm', 'kirchhoff', 'résistance', 'puissance', 'énergie', 'série', 'parallèle'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: false
+},
+// physique-magnetostatique
+{
+  id: 'physique-magnetostatique',
+  titre: "Magnétostatique approfondie",
+  matiere: "Physique",
+  categorie: "Électromagnétisme",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Magnétostatique approfondie
+
+---
+
+## 1. Loi de Biot-Savart
+
+Elle permet de calculer le champ magnétique $\\vec{B}$ créé en un point $M$ par un élément de courant $I \\, \\mathrm{d}\\vec{l}$ situé en $P$ :
+
+$$
+\\mathrm{d}\\vec{B}(M) = \\frac{\\mu_0}{4\\pi} \\cdot \\frac{I \\, \\mathrm{d}\\vec{l} \\wedge \\vec{PM}}{\\lVert \\vec{PM} \\rVert^3}
+$$
+
+- $\\mu_0$ : perméabilité du vide, $\\mu_0 = 4\\pi \\times 10^{-7}~\\text{H/m}$  
+- $\\vec{PM}$ : vecteur entre le point source et le point d’observation  
+- $\\vec{B}$ : champ magnétique (en T)
+
+Le champ total s’obtient par intégration sur le circuit :
+
+$$
+\\vec{B}(M) = \\frac{\\mu_0 I}{4\\pi} \\int_{\\mathcal{C}} \\frac{\\mathrm{d}\\vec{l} \\wedge \\vec{PM}}{\\lVert \\vec{PM} \\rVert^3}
+$$
+
+---
+
+## 2. Loi d’Ampère
+
+La loi d’Ampère permet de calculer $\\vec{B}$ dans des cas à haute symétrie :
+
+$$
+\\oint_{\\Gamma} \\vec{B} \\cdot \\mathrm{d}\\vec{l} = \\mu_0 I_{\\text{int}}
+$$
+
+- L’intégrale est prise sur un contour fermé $\\Gamma$  
+- $I_{\\text{int}}$ : courant total traversant la surface bordée par $\\Gamma$  
+- S’applique dans des situations où $\\vec{B}$ est tangent à $\\Gamma$ et constant en norme.
+
+---
+
+## 3. Champ magnétique créé par des distributions simples
+
+### a) Fil rectiligne infini
+
+À une distance $r$ d’un fil infini parcouru par un courant $I$ :
+
+$$
+B(r) = \\frac{\\mu_0 I}{2\\pi r}
+$$
+
+Le champ est **circulaire**, orienté selon la règle de la main droite.
+
+---
+
+### b) Solénoïde infini
+
+À l’intérieur d’un solénoïde de $n$ spires par unité de longueur et parcouru par un courant $I$ :
+
+$$
+B = \\mu_0 n I
+$$
+
+- Champ **uniforme**, orienté selon l’axe du solénoïde.  
+- À l’extérieur : champ négligeable si le solénoïde est long.
+
+---
+
+## Résumé des formules
+
+- **Biot-Savart** :  
+  $$
+  \\mathrm{d}\\vec{B} = \\frac{\\mu_0}{4\\pi} \\cdot \\frac{I \\, \\mathrm{d}\\vec{l} \\wedge \\vec{r}}{r^3}
+  $$
+
+- **Ampère** :  
+  $$
+  \\oint \\vec{B} \\cdot \\mathrm{d}\\vec{l} = \\mu_0 I_{\\text{int}}
+  $$
+
+- **Fil infini** : $B = \\frac{\\mu_0 I}{2\\pi r}$  
+- **Solénoïde infini** : $B = \\mu_0 n I$
+  `,
+  tags: ['champ magnétique', 'biot-savart', 'ampère', 'solénoïde', 'fil infini', 'magnétostatique'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: false
+},
+// physique-induction-electromagnetique
+{
+  id: 'physique-induction-electromagnetique',
+  titre: "Induction électromagnétique",
+  matiere: "Physique",
+  categorie: "Électromagnétisme",
+  niveau: ["Prépa", "Université"],
+  contenu: `
+# Induction électromagnétique
+
+---
+
+## 1. Loi de Faraday
+
+La loi de Faraday décrit la naissance d’une **force électromotrice (f.e.m.)** dans un circuit lorsque le **flux magnétique** $\\Phi_B$ à travers ce circuit varie dans le temps :
+
+$$
+e = -\\frac{\\mathrm{d}\\Phi_B}{\\mathrm{d}t}
+$$
+
+où :
+
+- $e$ est la f.e.m. induite (en volts),
+- $\\Phi_B = \\int_S \\vec{B} \\cdot \\mathrm{d}\\vec{S}$ est le **flux du champ magnétique** à travers la surface $S$.
+
+---
+
+## 2. Loi de Lenz
+
+La loi de Lenz précise le **sens de la f.e.m. induite** :  
+> *Le courant induit s’oppose par ses effets à la cause qui lui donne naissance.*
+
+Cela explique le **signe négatif** dans la loi de Faraday : le champ induit **s’oppose à la variation** du flux magnétique.
+
+---
+
+## 3. Forme locale de la loi de Faraday
+
+On peut exprimer la loi de Faraday sous forme locale à l’aide du **rotationnel du champ électrique** :
+
+$$
+\\vec{\\nabla} \\wedge \\vec{E} = -\\frac{\\partial \\vec{B}}{\\partial t}
+$$
+
+Cette équation montre qu’un **champ magnétique variable crée un champ électrique tourbillonnaire**.
+
+---
+
+## 4. Cas particuliers d’induction
+
+### a) Induction par déplacement (motrice)
+
+Un conducteur de longueur $L$ se déplace à la vitesse $\\vec{v}$ dans un champ magnétique $\\vec{B}$ :  
+> f.e.m. motrice :
+
+$$
+e = (\\vec{v} \\wedge \\vec{B}) \\cdot \\vec{L}
+$$
+
+---
+
+### b) Induction par variation du champ
+
+Si le champ $\\vec{B}$ varie dans le temps (solénoïde, bobine…), alors :
+
+$$
+e = -\\frac{\\mathrm{d}\\Phi_B}{\\mathrm{d}t}
+$$
+
+---
+
+## 5. Applications pratiques
+
+### a) Générateur électrique
+
+Un générateur transforme une énergie mécanique (rotation) en énergie électrique par induction :
+
+- Rotation d’une boucle dans un champ $\\vec{B}$ uniforme,
+- f.e.m. induite périodique : $e(t) = e_0 \\sin(\\omega t)$.
+
+---
+
+### b) Transformateur
+
+Dispositif constitué de deux bobines couplées par un noyau magnétique :
+
+- Bobine primaire : tension $U_1$, nombre de spires $N_1$,
+- Bobine secondaire : tension $U_2$, spires $N_2$.
+
+Relation tension/spires :
+
+$$
+\\frac{U_2}{U_1} = \\frac{N_2}{N_1}
+$$
+
+- Si $N_2 > N_1$ : **transformateur élévateur**
+- Si $N_2 < N_1$ : **transformateur abaisseur**
+
+---
+
+## Résumé des formules
+
+- $\\Phi_B = \\int \\vec{B} \\cdot \\mathrm{d}\\vec{S}$
+- $e = -\\frac{\\mathrm{d}\\Phi_B}{\\mathrm{d}t}$
+- $\\vec{\\nabla} \\wedge \\vec{E} = -\\frac{\\partial \\vec{B}}{\\partial t}$
+- $e = (\\vec{v} \\wedge \\vec{B}) \\cdot \\vec{L}$
+- $\\frac{U_2}{U_1} = \\frac{N_2}{N_1}$
+
+  `,
+  tags: ['induction', 'faraday', 'lenz', 'flux magnétique', 'générateur', 'transformateur'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: false
+},
+// physique-ondes-mecaniques
+{
+  id: 'physique-physique-moderne',
+  titre: "Physique moderne",
+  matiere: "Physique",
+  categorie: "Physique Moderne",
+  niveau: ["Prépa"],
+  contenu: `
+# Physique moderne
+
+---
+
+## 1. Dualité onde-corpuscule
+
+### a) Diffraction des électrons
+
+Les électrons, bien que particules, présentent un comportement ondulatoire, démontré par la diffraction. La longueur d'onde associée à un électron de quantité de mouvement $\\vec{p}$ est donnée par la relation de De Broglie :
+
+$$
+\\lambda = \\frac{h}{p} = \\frac{h}{mv}
+$$
+
+où :
+
+- $h = 6{,}626 \\times 10^{-34} \\, \\mathrm{J \\cdot s}$ est la constante de Planck,
+- $m$ est la masse de l'électron,
+- $v$ sa vitesse.
+
+---
+
+### b) Expérience de la diffraction des électrons
+
+- Lorsque des électrons traversent un cristal (réseau cristallin), on observe un motif d'interférences dû à la nature ondulatoire des électrons.
+- La condition de diffraction est donnée par la loi de Bragg :
+
+$$
+2 d \\sin \\theta = n \\lambda
+$$
+
+avec
+
+- $d$ l’espacement interréticulaire,
+- $\\theta$ l’angle de diffraction,
+- $n \\in \\mathbb{N}^*$ l’ordre de diffraction.
+
+---
+
+## 2. Modèle atomique de Bohr
+
+### a) Postulats essentiels
+
+1. Les électrons décrivent des orbites circulaires autour du noyau sans émission d'énergie (états stationnaires).
+2. La quantité de mouvement angulaire est quantifiée :
+
+$$
+m v r = n \\hbar \\quad \\text{avec } n = 1, 2, 3, \\ldots
+$$
+
+où $\\hbar = \\frac{h}{2\\pi}$ est la constante de Planck réduite.
+
+---
+
+### b) Rayon des orbites (rayon de Bohr)
+
+$$
+r_n = \\frac{4 \\pi \\varepsilon_0 \\hbar^2}{m e^2} n^2 = r_1 n^2
+$$
+
+avec
+
+- $r_1 \\approx 5,29 \\times 10^{-11} \\, \\mathrm{m}$, le rayon de la première orbite.
+
+---
+
+### c) Énergies des niveaux stationnaires
+
+$$
+E_n = - \\frac{m e^4}{8 \\varepsilon_0^2 h^2} \\frac{1}{n^2} = - \\frac{13,6 \\text{ eV}}{n^2}
+$$
+
+- Les niveaux d'énergie sont quantifiés et négatifs (lié au noyau).
+
+---
+
+### d) Transition entre niveaux et photons émis/absorbés
+
+Lorsqu’un électron passe d’un niveau $n_i$ à un niveau $n_f < n_i$, un photon est émis :
+
+$$
+E_{photon} = h \\nu = E_{n_i} - E_{n_f} = 13{,}6 \\text{ eV} \\left( \\frac{1}{n_f^2} - \\frac{1}{n_i^2} \\right)
+$$
+
+---
+
+## 3. Introduction à la relativité restreinte
+
+### a) Postulats
+
+1. Les lois de la physique sont les mêmes dans tous les référentiels inertiels.
+2. La vitesse de la lumière dans le vide $c$ est constante et indépendante du référentiel :
+
+$$
+c \\approx 3.00 \\times 10^8 \\, \\mathrm{m/s}
+$$
+
+---
+
+### b) Transformation de Lorentz
+
+Entre deux référentiels inertiels $S$ et $S'$ en mouvement relatif à la vitesse $v$ selon l’axe $x$ :
+
+$$
+\\begin{cases}
+x' = \\gamma (x - v t) \\\\
+t' = \\gamma \\left(t - \\frac{v x}{c^2} \\right)
+\\end{cases}
+$$
+
+avec
+
+$$
+\\gamma = \\frac{1}{\\sqrt{1 - \\frac{v^2}{c^2}}}
+$$
+
+---
+
+### c) Dilatation du temps
+
+La durée $\\Delta t$ mesurée dans $S$ est liée à la durée propre $\\Delta t_0$ dans $S'$ par :
+
+$$
+\\Delta t = \\gamma \\Delta t_0
+$$
+
+---
+
+### d) Contraction des longueurs
+
+La longueur $L$ mesurée dans $S$ est liée à la longueur propre $L_0$ par :
+
+$$
+L = \\frac{L_0}{\\gamma}
+$$
+
+---
+
+## Résumé
+
+- $\\lambda = \\frac{h}{p}$
+- $m v r = n \\hbar$
+- $r_n = r_1 n^2$
+- $E_n = - \\frac{13,6 \\text{ eV}}{n^2}$
+- $E_{photon} = h \\nu = 13{,}6 \\text{ eV} \\left( \\frac{1}{n_f^2} - \\frac{1}{n_i^2} \\right)$
+- $\\gamma = \\frac{1}{\\sqrt{1 - \\frac{v^2}{c^2}}}$
+- $x' = \\gamma (x - v t)$, $t' = \\gamma \\left(t - \\frac{v x}{c^2} \\right)$
+- $\\Delta t = \\gamma \\Delta t_0$
+- $L = \\frac{L_0}{\\gamma}$
+
+  `,
+  tags: ['dualite onde-corpuscule', 'diffraction', 'bohr', 'relativité restreinte', 'physique moderne'],
+  datePublication: '2025-05-28',
+  populaire: false,
+  aReviser: true
+},
+
+// Équations différentielles en Physique
+{
+  id: "equation-differentielles-physique",
+  titre: "Équations différentielles en Physique",
+  matiere: "Physique",
+  categorie: "Astuces et Rappels",
+  niveau: ["Lycée", "Prépa", "Université"],
+  contenu: `
+En physique, on travaille souvent avec trois types d'équations différentielles. Ces équations sont toujours avec un second membre constant, ce qui implique que l'on cherchera toujours une solution particulière constante.
+
+Ici, on présente seulement les solutions des équations homogènes (sans second membre).
+
+On considère une fonction $f$ qui dépend du temps $t$.
+
+---
+
+1. Équation différentielle du premier ordre
+
+Équation type :
+
+$$
+\\frac{df}{dt} + \\lambda f = 0
+$$
+
+avec $\\lambda > 0$ constante.
+
+Solution générale :
+
+$$
+f(t) = A \\exp(-\\lambda t)
+$$
+
+où $A$ est une constante déterminée par la condition initiale.
+
+---
+
+2. Équation différentielle du second ordre
+
+Équation type :
+
+$$
+\\frac{d^2 f}{dt^2} + 2 \\xi \\omega_0 \\frac{df}{dt} + \\omega_0^2 f = 0
+$$
+
+où :
+
+- $\\omega_0 > 0$ est la pulsation propre,
+- $\\xi \\geq 0$ est le facteur d'amortissement.
+
+Recherche des solutions sous la forme :
+
+$$
+f(t) = A e^{r t}
+$$
+
+L'équation caractéristique est :
+
+$$
+r^2 + 2 \\xi \\omega_0 r + \\omega_0^2 = 0
+$$
+
+Le discriminant est :
+
+$$
+\\Delta = (2 \\xi \\omega_0)^2 - 4 \\omega_0^2 = 4 \\omega_0^2 (\\xi^2 - 1)
+$$
+
+---
+
+Cas 1 : $\\xi > 1$ (amortissement fort)
+
+$$
+r_1 = - \\omega_0 (\\xi - \\sqrt{\\xi^2 - 1}), \\quad r_2 = - \\omega_0 (\\xi + \\sqrt{\\xi^2 - 1})
+$$
+
+Solution générale :
+
+$$
+f(t) = A e^{r_1 t} + B e^{r_2 t}
+$$
+
+---
+
+Cas 2 : $\\xi = 1$ (amortissement critique)
+
+$$
+r = - \\omega_0
+$$
+
+Solution générale :
+
+$$
+f(t) = (A + B t) e^{-\\omega_0 t}
+$$
+
+---
+
+Cas 3 : $0 \\leq \\xi < 1$ (amortissement faible)
+
+On pose :
+
+$$
+\\omega_d = \\omega_0 \\sqrt{1 - \\xi^2}
+$$
+
+Racines complexes conjuguées :
+
+$$
+r = -\\xi \\omega_0 \\pm i \\omega_d
+$$
+
+Solution générale :
+
+$$
+f(t) = e^{-\\xi \\omega_0 t} \\left( A \\cos(\\omega_d t) + B \\sin(\\omega_d t) \\right)
+$$
+
+---
+
+Remarque : le régime transitoire décroît sur un temps caractéristique
+
+$$
+\\tau = \\frac{1}{\\xi \\omega_0}
+$$
+
+---
+
+3. Cas particulier : oscillateur harmonique sans amortissement
+
+$$
+\\frac{d^2 f}{dt^2} + \\omega_0^2 f = 0
+$$
+
+Solution générale :
+
+$$
+f(t) = A \\cos(\\omega_0 t) + B \\sin(\\omega_0 t)
+$$
+
+---
+
+4. Détermination des constantes $A$ et $B$
+
+Après avoir trouvé la solution particulière constante (pour le second membre constant), on détermine $A$ et $B$ à partir des conditions initiales (valeurs de $f(0)$ et $f'(0)$).
+  `,
+  tags: ["équation différentielle", "physique", "oscillateur", "amortissement", "analyse"],
+  datePublication: "2025-05-28",
+  populaire: true,
+  aReviser: false,
+},
+// volumes-surfaces-air
+{
+  id: "volumes-surfaces-air",
+  titre: "Volumes, Surfaces et Propriétés de l’Air",
+  matiere: "Physique",
+  categorie: "Astuces et Rappels",
+  niveau: ["Lycée", "Prépa", "Université"],
+  contenu: `
+L'étude des volumes, des surfaces, et des propriétés de l'air est fondamentale en physique, notamment en mécanique des fluides et thermodynamique.
+
+---
+
+1. Volume
+
+Le volume $V$ est une grandeur scalaire qui mesure l'espace occupé par un corps.
+
+- Volume d'un cube de côté $a$ :
+
+$$
+V = a^3
+$$
+
+- Volume d'un parallélépipède (dimensions $l$, $L$, $h$) :
+
+$$
+V = l \\times L \\times h
+$$
+
+- Volume d'une sphère de rayon $R$ :
+
+$$
+V = \\frac{4}{3} \\pi R^3
+$$
+
+- Volume d'un cylindre de hauteur $h$ et rayon de base $r$ :
+
+$$
+V = \\pi r^2 h
+$$
+
+---
+
+2. Surface
+
+La surface $S$ mesure la grandeur de la frontière d'un objet.
+
+- Surface d'un carré de côté $a$ :
+
+$$
+S = a^2
+$$
+
+- Surface d’un rectangle de longueur $L$ et largeur $l$ :
+
+$$
+S = L \\times l
+$$
+
+- Surface d’une sphère de rayon $R$ :
+
+$$
+S = 4 \\pi R^2
+$$
+
+- Surface latérale d’un cylindre :
+
+$$
+S_{lat} = 2 \\pi r h
+$$
+
+- Surface totale d’un cylindre :
+
+$$
+S_{tot} = 2 \\pi r h + 2 \\pi r^2 = 2 \\pi r (h + r)
+$$
+
+---
+
+3. Propriétés physiques de l’air (gaz parfait)
+
+L’air est un mélange de gaz considéré comme parfait dans de nombreuses situations. Ses propriétés importantes sont :
+
+- Pression : $P$ (en Pascal, Pa)
+- Volume : $V$ (en m³)
+- Température : $T$ (en Kelvin, K)
+- Quantité de matière : $n$ (en moles)
+- Constante des gaz parfaits : $R = 8,314\, \\mathrm{J \cdot mol^{-1} \cdot K^{-1}}$
+
+---
+
+4. Loi des gaz parfaits
+
+$$
+P V = n R T
+$$
+
+Cette relation relie pression, volume et température pour un gaz parfait.
+
+---
+
+5. Masse volumique de l’air
+
+La masse volumique $\\rho$ (en kg/m³) est donnée par :
+
+$$
+\\rho = \\frac{m}{V}
+$$
+
+où $m$ est la masse d’air contenue dans un volume $V$.
+
+À pression et température données, la masse volumique peut s'exprimer à partir de la loi des gaz parfaits :
+
+$$
+\\rho = \\frac{P M}{R T}
+$$
+
+avec $M$ la masse molaire moyenne de l’air ($\\approx 0,029\\, \\mathrm{kg/mol}$).
+
+---
+
+6. Débit volumique et débit massique (en mécanique des fluides)
+
+- Débit volumique $Q$ (m³/s) :
+
+$$
+Q = S \\times v
+$$
+
+avec $S$ la surface de passage (section) et $v$ la vitesse moyenne du fluide.
+
+- Débit massique $\\dot{m}$ (kg/s) :
+
+$$
+\\dot{m} = \\rho Q = \\rho S v
+$$
+
+---
+
+7. Application typique : ventilation d’une pièce
+
+Si on connaît le débit volumique $Q$ d’air renouvelé dans une pièce de volume $V$, le temps $\\tau$ nécessaire pour un renouvellement complet d’air est :
+
+$$
+\\tau = \\frac{V}{Q}
+$$
+
+---
+
+Ces notions sont indispensables pour comprendre les phénomènes liés aux volumes, surfaces et propriétés physiques de l’air dans des contextes variés comme la thermodynamique, la mécanique des fluides et l’aérodynamique.
+  `,
+  tags: ["volume", "surface", "air", "gaz parfait", "physique générale", "thermodynamique", "mécanique des fluides"],
+  datePublication: "2025-05-28",
+  populaire: false,
+  aReviser: false,
+},
+
+// unites-sii-dimension
+{
+  id: "unites-si-dimension",
+  titre: "Unités SI et Dimensions des Grandeurs Physiques",
+  matiere: "Physique",
+  categorie: "Astuces et Rappels",
+  niveau: ["Lycée", "Prépa", "Université"],
+  contenu: `
+---
+
+1. Système International d’unités (SI)
+
+Le Système International d’unités est le système standard utilisé en science pour exprimer toutes les mesures physiques. Il repose sur 7 unités de base fondamentales :
+
+| Grandeur          | Symbole | Unité SI           | Symbole unité |
+|-------------------|---------|--------------------|--------------|
+| Longueur          | $L$     | mètre              | m            |
+| Masse             | $M$     | kilogramme         | kg           |
+| Temps             | $T$     | seconde            | s            |
+| Intensité électrique | $I$   | ampère             | A            |
+| Température       | $\\Theta$ | kelvin             | K            |
+| Quantité de matière | $n$   | mole               | mol          |
+| Intensité lumineuse | $J$    | candela            | cd           |
+
+---
+
+2. Grandeurs dérivées et unités composées
+
+Les unités dérivées se définissent à partir des unités de base. Par exemple :
+
+- Vitesse : $v = \\frac{L}{T}$ en m/s
+- Accélération : $a = \\frac{L}{T^2}$ en m/s²
+- Force : $F = M \\times a$ en kg·m/s² = newton (N)
+- Pression : $P = \\frac{F}{S}$ en N/m² = pascal (Pa)
+- Énergie : $E = F \\times L$ en N·m = joule (J)
+
+---
+
+3. Analyse dimensionnelle
+
+Chaque grandeur physique peut s'exprimer en fonction des dimensions fondamentales (L, M, T, I, Θ, n, J).
+
+Exemples :
+
+- Dimension de la vitesse :
+
+$$
+[v] = L T^{-1}
+$$
+
+- Dimension de la force :
+
+$$
+[F] = M L T^{-2}
+$$
+
+- Dimension de la pression :
+
+$$
+[P] = M L^{-1} T^{-2}
+$$
+
+- Dimension de l’énergie :
+
+$$
+[E] = M L^{2} T^{-2}
+$$
+
+---
+
+4. Règles d’analyse dimensionnelle
+
+- On ne peut additionner ou comparer que des grandeurs de même dimension.
+- Toute équation physique doit être homogène dimensionnellement.
+- L’analyse dimensionnelle permet de vérifier la cohérence d’une formule ou d’en déduire une relation possible entre grandeurs.
+
+---
+
+5. Multiples et sous-multiples des unités SI
+
+Pour faciliter les mesures, on utilise des préfixes :
+
+| Préfixe | Symbole | Facteur     |
+|---------|---------|-------------|
+| kilo    | k       | $10^{3}$    |
+| méga    | M       | $10^{6}$    |
+| giga    | G       | $10^{9}$    |
+| milli   | m       | $10^{-3}$   |
+| micro   | µ       | $10^{-6}$   |
+| nano    | n       | $10^{-9}$   |
+
+---
+
+Cette base est indispensable pour toute étude physique rigoureuse, garantissant l’universalité et la cohérence des mesures.
+
+  `,
+  tags: ["unité", "SI", "dimension", "analyse dimensionnelle", "physique générale"],
+  datePublication: "2025-05-28",
+  populaire: false,
+  aReviser: false,
+},
+
 ];
 
 // Informatique
